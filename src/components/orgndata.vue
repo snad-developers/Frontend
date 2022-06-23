@@ -7,20 +7,7 @@
     <option value="SNAD">SNAD</option>
   </select>
   <br><br>
-  <table>
-
-      <tr>
-          <td> <button> Add</button></td>
-
-          <td> <input type="text" name="Entity Name" id="" value="ICICI Bank"></td>
-           
-      </tr>
-      <tr>
-          <td>
-      <input align= "center" id ="Save" type="button" value="Save" ></td>
-      
-      </tr>
-      </table>
+ 
 </div>
 <routerview/>
 </template>

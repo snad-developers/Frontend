@@ -37,13 +37,14 @@
           </p>
       </div>
     <label for="Password"></label>
-     <input type="password"   placeholder="Password"  class="user" 
+  <input type="password"   placeholder="Password"  class="user" 
       v-model="person.Password"
             :class="
               v$.person.Password.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
+            <div class="icon"><i class="fa fa-lock"></i></div>
             <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.Password.$errors"

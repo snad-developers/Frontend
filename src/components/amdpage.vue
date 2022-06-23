@@ -1,27 +1,27 @@
 <template>
-<div id="top">
-<img width="200" height="100" src="@/assets/snadicon.png" alt="" align="left" id="top">
-<div id="profi" align="right">
-<img width="60" height="60" src="@/assets/profile.png" alt="" id="profile" align="right">
-    <table align="right" id="prof">
-        <tr><td><label>Lahari Kolipara</label></td></tr>
-        <tr><td><label>Admin</label></td></tr>
-    </table>
+<div class="sidebar">
+    <div class="img">
+      <img alt="" src="../assets/snadicon.png" />
+   </div>
+  <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+  <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
+  <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a>
 </div>
+<div class="B1">
+ 
+   <a href="/employeedata" class="b1" >Employee Data</a>
+ 
+    <a href="/orgndata" class="b1">Organisation Data</a>
+    <a href="/penReq" class="b1">Pending Requests</a>
 </div>
-
-    <table id ="amd" align="center">
-        <tr>
-            <td> <nav> <route-link to="/activeemplydata"><button class='amd'> Active employee data </button> </route-link></nav></td>
-            <td> <route-link to="/orgndata"><button class='amd'>  Organization data </button></route-link></td>
-        </tr>
-    </table>
+    
 
     <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
     overflow: hidden; width:1200px;
-    margin-left: 100px;">
+    margin-left: 300px;">
 
         <thead style=" background-color:rgb(153, 148, 148); color:white; ">
         <tr>
@@ -278,4 +278,66 @@ div#profi {
      font-family: sans-serif;
 
 }
+
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 150%;
+  width: 255px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:white;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+    /* margin-top: 100px; */
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  margin: 50px;
+}
+
+.sidebar a:hover {
+  color: black;
+  box-sizing:border-box;
+}
+.img{
+  margin-left: 2px;
+}
+
+.B1{
+    position: relative;
+    margin-left: -20%;
+    margin-top: 10%;
+    
+}
+.B1 .a{
+    margin: 200px;
+}
+.b1{
+  background-color:white;
+  border: none;
+  color:black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  border-radius: 15px;
+}
+.b1:hover{
+   background-color: rgb(24, 89, 220);
+   color:black;
+   
+}
+
 </style>

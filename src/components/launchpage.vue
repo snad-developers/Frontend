@@ -1,30 +1,14 @@
 <template>
 <div class="maincontainer">
  <div class="sidebar">
-      <div class="">
-        <img alt="" src="../assets/snadicon.png" />
-      </div>
-        <router-link to="/Launchpage">  <a href="#" class="active" style="background-color:white" >
-        <!-- <i class="fas fa-qrcode"></i> -->
-   <span>Dashboard</span>
-      </a>
-      </router-link>
-       <router-link to="/ldbpage">  
-      <a href="#" style="background-color:white" class="active">
-        <i class="fas fa-link"></i>
-        <span >Load data </span>
-      </a>
-      </router-link>
-<router-link to="/amdpage">
-      <a href="#" style="background-color:white" class="active">
-        <i class="fas fa-stream"></i>
-        <span>Amend details</span>
-      </a>
-      </router-link>
-      <a href="#" style="background-color:white" class="active">
-         <i class="fas fa-calendar"></i>
-        <span>Reporting portal</span>
-      </a>
+    <div class="img">
+      <img alt="" src="../assets/snadicon.png" />
+   </div>
+  <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+  <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
+  <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a>
+</div>
       <!-- <a href="#" style="background-color:white" class="active">
         <i class="far fa-question-circle"></i>
         <span>About</span>
@@ -42,7 +26,7 @@
     
 <div class="welcomediv">
   <div class="welcome-header">
-  <h2 class="welcome"><b>Welcome back, Lahari</b></h2>
+   <h2 class="welcome"><b>Welcome back, Lahari</b></h2>
   <div>
     <!-- <img alt="" src="../assets/snadicon.png" /> -->
     <h4>Lahari Kolipara</h4>
@@ -113,7 +97,6 @@
     
   
 </div>
-</div>
   
 
 
@@ -123,11 +106,8 @@
 </template>
 <script>
 // import { get } from 'http';
-
 // import { } from 'process'
-
 import loginapi from '../services/loginapi';
-
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'launchpage',
@@ -158,17 +138,13 @@ this.Receivables=response.data.receivablestotal;
 this.payrollexpensestotal=response.data.payrollexpensestotal;
 this.empexpensestotal=response.data.empexpensestotal;
 this.mgmtexpensestotal=response.data.mgmtexpensestotal;
-
  });
       }
         
         },
     
-
         
       }
-
-
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
@@ -191,13 +167,7 @@ child-part2{
 .h6{
     color:blue;
 }
-
-
-
    
-
-
-
 .gros{
      box-sizing: border-box;
   font-family: sans-serif;
@@ -206,7 +176,6 @@ child-part2{
 margin-right:85px;
   
   padding: 20px;
-
 }
 .receive{
  box-sizing: border-box;
@@ -233,12 +202,11 @@ padding: 55px;
     display: flex;
     flex-direction: column;
     height: 92%;
-    margin-left: 40px;
+    margin-left: 270px;
 }
 .Expenses1{
  box-sizing: border-box;
   font-family: sans-serif;
-
   
 width:18%;
 border-radius:25px;
@@ -246,12 +214,10 @@ background-color: white;
 padding: 20px;
 margin-left: 623px;
     margin-top: 10px;
-
 }
 .Expenses2{
  box-sizing: border-box;
   font-family: sans-serif;
-
   
 width:18%;
 border-radius:25px;
@@ -263,7 +229,6 @@ margin-left: 875px;
 .Expenses3{
  box-sizing: border-box;
   font-family: sans-serif;
-
   
 width:18%;
 border-radius:25px;
@@ -275,7 +240,6 @@ margin-left: 875px;
 .Expenses4{
  box-sizing: border-box;
   font-family: sans-serif;
-
   
 width:16%;
 border-radius:25px;
@@ -287,7 +251,6 @@ margin-top: -182px;
 .Expenses5{
  box-sizing: border-box;
   font-family: sans-serif;
-
   
 width:16%;
 border-radius:25px;
@@ -296,50 +259,8 @@ padding: 12px;
 margin-top: 12px;
     margin-left: 1130px;
 }
-
   
-.sidebar{
-  width: 240px;
-  left: -240px;
-  height: 100%;
-  
-}
-.sidebar header{
-  font-size: 28px;
-  color:black;
-  line-height: 70px;
-  text-align: center;
-  background:white;
-  user-select: none;
-  font-family: 'Montserrat', sans-serif;
-}
-.sidebar a{
-  display: block;
-  height: 65px;
-  width: 100%;
-  color: white;
-  line-height: 65px;
-  /* padding-left: 30px; */
-  box-sizing: border-box;
-  border-bottom: 1px solid white;
-  border-top: 1px solid rgba(255, 255, 255, 0.925);
-  /* //border-left: 5px solid transparent; */
-  font-family: 'Open Sans', sans-serif;
 
-}
-a.active,a:hover{
-  /* border-left: 5px solid #b93632; */
-  color:black;
-    /* background-color: blue !important ; */
-}
-.sidebar a i{
-  font-size: 23px;
-  margin-right: 16px;
-}
-.sidebar a span{
-  letter-spacing: 1px;
- 
-}
 #check{
   display: none;
 }
@@ -362,9 +283,7 @@ label #cancel{
   opacity: 0;
   visibility: hidden;
 }
-#check:checked ~ .sidebar{
-  left: 0;
-}
+
 #check:checked ~ label #btn{
   margin-left: 245px;
   opacity: 0;
@@ -375,37 +294,7 @@ label #cancel{
   opacity: 1;
   visibility: visible;
 }
-@media(max-width : 860px){
-  .sidebar{
-    height: auto;
-    width: 70px;
-    left: 0;
-    margin: 100px 0;
-  }
-  header,#btn,#cancel{
-    display: none;
-  }
-  span{
-    position: absolute;
-    margin-left: 23px;
-    opacity: 0;
-    visibility: hidden;
-  }
-  .sidebar a{
-    height: 60px;
-  }
-  .sidebar a i{
-    margin-left: -10px;
-  }
-  /* a:hover {
-    width: 200px;
-    background: inherit; */
-  /* } */
-  .sidebar a:hover span{
-    opacity: 1;
-    visibility: visible;
-  }
-}
+
 .box-container{
       display: flex;
     justify-content: space-evenly;
@@ -439,6 +328,38 @@ label #cancel{
   display: flex;
     justify-content: space-between;
     margin: 30px;
+    margin-left: 270px;
 }
 
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 150%;
+  width: 255px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:white;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+    /* margin-top: 100px; */
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  margin: 50px;
+}
+
+.sidebar a:hover {
+  color: black;
+  box-sizing:border-box;
+}
+.img{
+  margin-left: 2px;
+}
 </style>
