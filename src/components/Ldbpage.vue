@@ -6,7 +6,8 @@
   <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
   <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
   <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a>
+  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+   <a href="/login"><i class="fa fa-fw fa-login"></i>Logout</a>
 </div>
 <div class="main-box">
     <div class="child-part1">
