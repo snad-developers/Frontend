@@ -53,7 +53,7 @@
         
        
     </table><br><br><br> 
-    <a href="/amdpage"><i class="uil uil-arrow-circle-left" style="margin-left:-1200px"></i></a>
+    <a href="/launchpage"><button style="margin-left:-1200px;color:white;background-color:blue">back</button></a>
 </div>
 </router-view>
 <router-view/>
