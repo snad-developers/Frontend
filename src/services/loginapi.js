@@ -39,7 +39,9 @@ export default{
         return API('http://localhost:3000/').post('/approve',data)
     },
 
-    getById() {
-        return API('http://localhost:3000/').get('/reg/{id}')
-    }
+    updatereg(data, id) {
+        var datareq='/reg/'+id
+        return API('http://localhost:3000/').post(datareq,data)
+    },
+    
 }

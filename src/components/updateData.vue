@@ -63,7 +63,7 @@
 
         <div class="input-field">
         <lable for="Entity">Entity</lable>
-      <select name="Entity" for="Entity" id ="repeat1" required v-model="person.Entity"  placeholder="Entity" align="right" class="user">
+      <select name="Entity" for="Entity" id ="repeat1" required v-model="person.entity"  placeholder="Entity" align="right" class="user">
        
       <option disabled selected value  > Choose Entity </option>
       <option value="Averon Solutions">Averon Solutions</option>
@@ -120,12 +120,12 @@
 
                       <div class="input-field">
                              <label for="password">Create Password</label>
-      <input type="password" for="password" name="password" class="phone" placeholder="Create Password" required v-model="person.password" >
+      <input type="text" for="password" name="password" class="phone" placeholder="Create Password" required v-model="person.password" >
                         </div>
 
                         <div class="input-field">
                               <label for="confirmPassword"> Confirm Password</label>
-      <input type="password" for="confirmPassword" name="confirmPassword" class="phone" placeholder="Confirm Password" required v-model="person.confirmPassword">
+      <input type="text" for="confirmPassword" name="confirmPassword" class="phone" placeholder="Confirm Password" required v-model="person.confirmPassword">
                         </div>
 
                        
@@ -161,7 +161,7 @@
            </div> -->
                 </div>
 
-                   <button class="sumbit" @click.prevent="handleInput"  style="margin-left: 326px;">
+                   <button class="sumbit" @click.prevent="handleupdate"  style="margin-left: 326px;">
                             <span class="btnText">Update Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -172,41 +172,75 @@
 </template>
 
 <script>
+import loginapi from '../services/loginapi';
 export default {
     name:"updateData",
     data(){
         return{
-            rowdata:null,
 
 
-            person:{
-                firstName:"",
-                Entity:"" ,
-                lastName:"",
-                idnumber:"",
-                email:"",
-                phoneNumber:"",
-                dateofBirth:"",
-                gender:"",
-                role:"",
-                address1:"",
-                address2: "",
-                country:"",
-                state:"",
-                city:"",
-                zipcode:"",
-                password:"",
-                confirmPassword:"",
-            }
+            person:null
+
+            
 
         }
     },
 
     created(){
-        this.rowdata=(this.$route.params);
+        this.person=(this.$route.params);
+        console.log(this.person);
     
+    },
+    
+    methods: {
+    handleupdate() {
+        //  this.v$.$touch();
+     // console.log(this.person.firstName); // logs the input value
+      const senddata={
+    "firstName": this.person.firstName,
+    "lastName": this.person.lastName,
+    "idnumber": this.person.idnumber,
+"email": this.person.email,
+"phoneNumber": this.person.phoneNumber,
+"dateofBirth": this.person.dateofBirth,
+"gender": this.person.gender,
+"role": this.person.role,
+"address1": this.person.address1,
+"address2": this.person.address2,
+"country": this.person.country,
+"state": this.person.state,
+"city": this.person.city,
+"zipcode": this.person.zipcode,
+"password": this.person.password,
+"confirmPassword": this.person.confirmPassword,
+"ans1": this.person.ans1,
+"ans2": this.person.ans2,
+"ans3": this.person.ans3,
+"ans4": this.person.ans4,
+"ans5": this.person.ans5,
+"entity":this.person.entity,
+"status":this.person.status
+}
+    
+console.log(senddata);
+// if(!this.v$.$invalid){
+    
+      loginapi.updatereg(senddata,this.person.id).then(response=>{
+         console.log(response,response.status,response.data.firstName,this.person.firstName);
+if(response.status == 200 && response.data.firstName == this.person.firstName && response.data.firstName){
+         console.log(response);
+          alert("User Details Updated")
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+ });
+    // }
+    }
     }
 }
+
+
 </script>
 
 <style scoped>
