@@ -50,7 +50,7 @@ color: white;
 cursor: pointer;
 padding: 10px;
 margin: 5px;
-border: 0.5px solid white ;">View</button>
+border: 0.5px solid white ;" @click.prevent="handleview(employeedata.id)">View</button>
 
 <button style="border-radius:10px;
  background-color: green;
@@ -102,7 +102,7 @@ export default {
                 approve: "Approved",
                 reject: "Rejected",
                 message:"",
-                id:""
+                id:"",
             }
         },
 
@@ -180,6 +180,10 @@ export default {
                     })
                 
             },
+
+            handleview(id) {
+                this.$router.push({name:"viewDetails",params:{data:id}});
+            }
         
         },
 

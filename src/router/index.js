@@ -16,7 +16,8 @@ import launchpage from '../components/launchpage.vue';
 import About from '../components/About.vue';
 import securityquestions1 from '../components/securityquestions1.vue';
 import HomePage from '../components/HomePage.vue';
-import penReq from '../components/penReq.vue'
+import penReq from '../components/penReq.vue';
+import viewDetails from '../components/viewDetails';
 
 import registrationpage2 from '../components/registrationpage2.vue';
 import registrationpage3 from '../components/registrationpage3.vue';
@@ -135,6 +136,12 @@ const routes = [
     path: '/penReq',
     name: 'penReq',
     component: penReq
+  },
+
+  {
+    path: '/viewDetails',
+    name: 'viewDetails',
+    component: viewDetails
   }
  
  
