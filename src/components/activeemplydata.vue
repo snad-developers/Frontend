@@ -52,7 +52,8 @@
         <!-- </div> -->
         
        
-    </table> 
+    </table><br><br><br> 
+    <a href="/amdpage"><i class="uil uil-arrow-circle-left" style="margin-left:-1200px"></i></a>
 </div>
 </router-view>
 <router-view/>

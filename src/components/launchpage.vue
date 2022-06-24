@@ -8,7 +8,9 @@
   <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
   <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
   <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a>
+  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+   <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
+
 </div>
       <!-- <a href="#" style="background-color:white" class="active">
         <i class="far fa-question-circle"></i>
@@ -355,7 +357,7 @@ body {font-family: "Lato", sans-serif;}
   font-size: 20px;
   color: #818181;
   display: block;
-  margin: 50px;
+  margin: 20px;
 }
 
 .sidebar a:hover {
