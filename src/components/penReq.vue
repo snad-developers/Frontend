@@ -7,9 +7,10 @@
     overflow: hidden; width:1200px;
     margin-left: 100px;
     margin-top: 50px;
-    margin-bottom: 50px;">
+    margin-bottom: 50px;
+    background-color:white">
 
-        <thead style=" background-color:rgb(153, 148, 148); color:white; fill-opacity: initial;">
+        <thead style=" background-color:rgb(240, 232, 232); color:grey; fill-opacity: initial;">
         <tr>
             <!-- <td> S No</td> -->
             <th> First Name </th>
@@ -195,7 +196,7 @@ export default {
 <style>
 
 #update td, th {
-    border-top: 0.5px solid rgb(153, 148, 148);
+    border-top: 0.5px solid rgb(240, 232, 232);
 
     padding: 10px;
 }

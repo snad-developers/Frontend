@@ -19,7 +19,7 @@
       <img alt="" src="../assets/snadicon.png" />
    </div>
     <h2>Forgot Password? </h2>
-      <h3>Enter the User Id  you have used when you had registered for the first time.</h3>
+      <h3>Please answer the below security questions to reset password</h3>
      <div class="forms">
        <div class="forms1">
        <label for="Entity" placeholder="Select Question" >
@@ -29,6 +29,7 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
+             <option disabled selected value  >Select Questions </option>
      <option value="1">What is your favourite food/dish ?</option>
       <option value="2">Who is your childhood hero ?</option>
       <option value="3">What is the name of your favourite pet ?</option>
@@ -66,6 +67,7 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
+      <option disabled selected value  >Select Questions </option>
      <option value="1">What is your favourite food/dish ?</option>
       <option value="2">Who is your childhood hero ?</option>
       <option value="3">What is the name of your favourite pet ?</option>
@@ -102,6 +104,7 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
+     <option disabled selected value  >Select Questions </option>        
      <option value="1">What is your favourite food/dish ?</option>
       <option value="2">Who is your childhood hero ?</option>
       <option value="3">What is the name of your favourite pet ?</option>

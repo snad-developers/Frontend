@@ -89,9 +89,7 @@
 </div>
 <div>
     <span>
-      <router-link to = "/forgotpassword" font-family="red serifs"  >
-      <a>forgotpassword</a>
-      </router-link>
+      <a  class="regis1" href="/forgotpassword"><b>Forgot Password</b></a>
     </span>
     </div>
     </div>
@@ -99,15 +97,16 @@
      
    <br>
     <button  class= "button" @click.prevent="submit">Login </button>
-    
+    <h6>OR</h6>
+  <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label>
 <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
-    <h3>New User?  <router-link to = "/registrationPage1">Register Here</router-link> 
-
-    </h3>
+    <h4>Don't have an account? <a  class="regis1" href="/registrationPage1"><b>Signup Now</b></a></h4>
+   
    </div> 
    
       
   </form>  
+  
 </div>
 
 
@@ -378,6 +377,14 @@ p{
   left: 0px;
   right: 10px;
 }
+.regis1{
+  color:#0a090a;
+}
+.regis1:hover{
+  color: #4ec6d8;
+  transition-duration: 0.6s;
+}
+
 
 
 </style>

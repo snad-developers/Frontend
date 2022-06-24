@@ -19,8 +19,8 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-    <h2>Forgot Password? </h2>
-      <h3>Enter the User Id  you have used when you had registered for the first time.</h3>
+    <h2><b>Forgot Password?</b> </h2>
+      <h3>Enter the User Id you have used during registration</h3>
      <div class="forms">
        <div class="forms1">
       <label for="UserId"></label>

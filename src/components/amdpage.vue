@@ -16,15 +16,15 @@
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
-    
 
     <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
     overflow: hidden; width:1200px;
-    margin-left: 300px;">
+    margin-left: 300px;
+    background-color:white">
 
-        <thead style=" background-color:rgb(153, 148, 148); color:white; ">
+        <thead style="background-color:rgb(240, 232, 232); color:grey; ">
         <tr>
             <!-- <td> S No</td> -->
             <th> First Name </th>
@@ -320,7 +320,7 @@ body {font-family: "Lato", sans-serif;}
 .B1{
     position: relative;
     margin-left: -20%;
-    margin-top: 10%;
+    margin-top: 2%;
     
 }
 .B1 .a{

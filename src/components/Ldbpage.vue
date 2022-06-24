@@ -33,14 +33,14 @@
    
     
  
-  <form  class="loginhere">
+  <form  class="loginhere" >
     <br>
     <br>
     <!-- <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div> -->
     <h2>Select the data you want Load </h2>
-     <div class="forms">
+     <div class="forms" style="padding:10px">
  <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; ">
  <label for="html" style="margin:2px">Client</label><br><br>
  <input type="radio" id="css" name="fav_language" value="CSS" style="margin-left: -269px;">
@@ -60,7 +60,8 @@
    <input id ="upload" type="submit" value="Upload" @click="Upload"  style="border-radius: 25px;
     width: 25%;
     padding: 10px;
-    background-color: blue;">
+    background-color: blue;
+    color:white">
      
 
        
@@ -270,20 +271,8 @@ h1{
   margin: 0 auto;
 }
 .forms{
-  padding: 30px;
-
-
-
+  padding: 10px;
 }
-
-
-.user{
-  
-
-}
-
-
-
 .user::placeholder{
   color: #aaaaaa;
 
