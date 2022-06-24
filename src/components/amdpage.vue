@@ -7,11 +7,11 @@
   <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
   <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
   <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
-  <a href="/login"><i class="fa fa-fw fa-login"></i>Logout</a>
+  <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
 </div>
 <div class="B1">
  
-   <a href="/employeedata" class="b1" >Employee Data</a>
+   <a href="/amdpage" class="b1" >Employee Data</a>
  
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>

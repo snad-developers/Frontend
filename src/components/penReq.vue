@@ -1,6 +1,6 @@
 <template>
 
-<h2>Pending Rquests</h2>
+<h2>Pending Requests</h2>
  <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
@@ -70,6 +70,7 @@ margin: 5px;
 border: 0.5px solid white ;" @click.prevent="handlereject(employeedata.id)">Reject</button></td>
 
        </tr>
+       
 </template>
 </tbody>
    

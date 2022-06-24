@@ -10,7 +10,7 @@
 
   </div>
   
-   <div class="child-div2">
+  <div class="child-div2">
    
     
  
@@ -21,7 +21,9 @@
     <h2>Login here </h2>
      <div class="forms">
        <div class="forms1">
+       <i class="uil uil-user" style="margin-left:-15px"></i>
       <label for="UserId"></label>
+     
       <input type="text" class="user" placeholder="UserId" v-model="person.UserId"
             :class="
               v$.person.UserId.$error === true
@@ -36,7 +38,10 @@
             {{ error.$message }}
           </p>
       </div>
+     
+      <div>
     <label for="Password"></label>
+      <i class="uil uil-eye" style="margin-left:-15px"></i>
   <input type="password"   placeholder="Password"  class="user" 
       v-model="person.Password"
             :class="
@@ -44,7 +49,8 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-            <div class="icon"><i class="fa fa-lock"></i></div>
+            </div>
+         
             <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.Password.$errors"
@@ -55,13 +61,15 @@
 
    <br>
     <label for="Entity" placeholder="Entity" >
+      <i class="uil uil-clipboard-notes"  style="margin-left:-15px;"></i>
      <select  name="Entity" id="Entity" class="user"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-     <option value="Entity">Entity</option>
+     <option disabled selected value  >Select Entity  </option>
+
       <option value="Averon Solutions">Averon Solutions</option>
       <option value="SNAD">SNAD</option>
      </select>
@@ -81,7 +89,7 @@
 </div>
 <div>
     <span>
-      <router-link to = "/forgotpassword" font-family="red serifs" >
+      <router-link to = "/forgotpassword" font-family="red serifs"  >
       <a>forgotpassword</a>
       </router-link>
     </span>
@@ -335,7 +343,7 @@ body{
 
 
 .user::placeholder{
-  color: #aaaaaa;
+  color: #090808;
 
 }
 
@@ -366,8 +374,10 @@ p{
 .child-div1{
   margin:0px !important
 }
-
-
+.input i{
+  left: 0px;
+  right: 10px;
+}
 
 
 </style>
