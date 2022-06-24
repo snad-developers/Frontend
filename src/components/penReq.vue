@@ -49,7 +49,7 @@ color: white;
 cursor: pointer;
 padding: 10px;
 margin: 5px;
-border: 0.5px solid white ;" @click.prevent="handleview(employeedata.id)">View</button>
+border: 0.5px solid white ;" @click.prevent="handleview(employeedata)">View</button>
 
 <button style="border-radius:10px;
  background-color: green;
@@ -180,8 +180,11 @@ export default {
                 
             },
 
-            handleview(id) {
-                this.$router.push({name:"viewDetails",params:{data:id}});
+            handleview(rowdata) {
+                 this.$router.push({name:"viewDetails",params:rowdata});
+                // console.log(rowdata);
+              //  const rowdat
+            
             }
         
         },

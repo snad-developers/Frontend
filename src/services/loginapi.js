@@ -38,4 +38,8 @@ export default{
     approvereq(data){
         return API('http://localhost:3000/').post('/approve',data)
     },
+
+    getById() {
+        return API('http://localhost:3000/').get('/reg/{id}')
+    }
 }

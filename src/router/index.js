@@ -18,6 +18,7 @@ import securityquestions1 from '../components/securityquestions1.vue';
 import HomePage from '../components/HomePage.vue';
 import penReq from '../components/penReq.vue';
 import viewDetails from '../components/viewDetails';
+import updateData from '../components/updateData';
 
 import registrationpage2 from '../components/registrationpage2.vue';
 import registrationpage3 from '../components/registrationpage3.vue';
@@ -142,6 +143,12 @@ const routes = [
     path: '/viewDetails',
     name: 'viewDetails',
     component: viewDetails
+  },
+
+  {
+    path: '/updateData',
+    name: 'updateData',
+    component: updateData
   }
  
  

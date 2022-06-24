@@ -63,7 +63,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;">Update</button></td>
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="handleupdate(employeedata)" >Update</button></td>
 
        </tr>
 </template>
@@ -169,7 +169,12 @@ import loginapi from '@/services/loginapi';
                     //  console.log("response" , this.responsedata)
 
                     });
-                }
+            },
+
+            handleupdate(rowdata){  
+                this.$router.push({name:"updateData",params:rowdata});
+
+            }
         
         },
     }

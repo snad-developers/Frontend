@@ -21,7 +21,7 @@
     <h2>Login here </h2>
      <div class="forms">
        <div class="forms1">
-       <i class="uil uil-user" style="margin-left:-15px"></i>
+       <i class="uil uil-user" style="margin-left:-20px"></i>
       <label for="UserId"></label>
      
       <input type="text" class="user" placeholder="UserId" v-model="person.UserId"
@@ -41,7 +41,7 @@
      
       <div>
     <label for="Password"></label>
-      <i class="uil uil-eye" style="margin-left:-15px"></i>
+      <i class="uil uil-eye" style="margin-left:-20px"></i>
   <input type="password"   placeholder="Password"  class="user" 
       v-model="person.Password"
             :class="
@@ -61,7 +61,7 @@
 
    <br>
     <label for="Entity" placeholder="Entity" >
-      <i class="uil uil-clipboard-notes"  style="margin-left:-15px;"></i>
+      <i class="uil uil-clipboard-notes"  style="margin-left:-20px;"></i>
      <select  name="Entity" id="Entity" class="user"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true

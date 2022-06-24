@@ -32,7 +32,7 @@
    <h2 class="welcome"><b>Welcome back, Lahari</b></h2>
   <div>
     <!-- <img alt="" src="../assets/snadicon.png" /> -->
-    <h4>Lahari Kolipara</h4>
+    <h4>LahariKolipara</h4>
     <h4>Department head</h4>
   </div>
   </div>
@@ -122,7 +122,7 @@ export default {
      payrollexpensestotal:null,
      empexpensestotal:null,
      mgmtexpensestotal:null,
-     logid:null,
+    logid:null,
   }
        },
  
@@ -144,9 +144,13 @@ this.payrollexpensestotal=response.data.payrollexpensestotal;
 this.empexpensestotal=response.data.empexpensestotal;
 this.mgmtexpensestotal=response.data.mgmtexpensestotal;
  });
-      }
+      },
+
+
+       
+        }
+
         
-        },
     
         
       }
