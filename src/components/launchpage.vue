@@ -1,4 +1,5 @@
 <template>
+<div>{{logid}}</div>
 <div class="maincontainer">
  <div class="sidebar">
     <div class="img">
@@ -118,7 +119,8 @@ export default {
      Receivables:null,
      payrollexpensestotal:null,
      empexpensestotal:null,
-     mgmtexpensestotal:null
+     mgmtexpensestotal:null,
+     logid:null,
   }
        },
  
@@ -127,6 +129,7 @@ export default {
   },
     created () {
         this.empdatafetch();
+        this.logid = this.$route.params.data
       },
       methods:{
   empdatafetch() {

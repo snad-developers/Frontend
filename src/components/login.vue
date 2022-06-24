@@ -156,8 +156,8 @@ export default {
 console.log(response,"response data");
 if(response.data){
   console.log("if condition")
- if(response.data.status == "success" && response.data.statuscode == 200){
-    this.$router.push('launchpage');
+ if(response.data.status == "success" && response.data.statuscode == 200  ){
+    this.$router.push({name:"launchpage",params:{data:response.data.logid}});
  }
   if(response.data.status == "failure" && response.data.statuscode == 201){
   this.message=response.data.message
