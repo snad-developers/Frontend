@@ -30,11 +30,11 @@
                 : 'text-fields'
             ">
              <option disabled selected value  >Select Questions </option>
-     <option value="1">What is your favourite food/dish ?</option>
-      <option value="2">Who is your childhood hero ?</option>
-      <option value="3">What is the name of your favourite pet ?</option>
-       <option value="4">In what city you were born ?</option>
-      <option value="5">What is the name of your first school ?</option>
+     <option value="0">What is your favourite food/dish ?</option>
+      <option value="1">Who is your childhood hero ?</option>
+      <option value="2">What is the name of your favourite pet ?</option>
+       <option value="3">In what city you were born ?</option>
+      <option value="4">What is the name of your first school ?</option>
      </select>
         <p
             class="text-red-500 text-xs font-thin"
@@ -68,11 +68,11 @@
                 : 'text-fields'
             ">
       <option disabled selected value  >Select Questions </option>
-     <option value="1">What is your favourite food/dish ?</option>
-      <option value="2">Who is your childhood hero ?</option>
-      <option value="3">What is the name of your favourite pet ?</option>
-       <option value="4">In what city you were born ?</option>
-      <option value="5">What is the name of your first school ?</option>
+     <option value="0">What is your favourite food/dish ?</option>
+      <option value="1">Who is your childhood hero ?</option>
+      <option value="2">What is the name of your favourite pet ?</option>
+       <option value="3">In what city you were born ?</option>
+      <option value="4">What is the name of your first school ?</option>
      </select>
         <p
             class="text-red-500 text-xs font-thin"
@@ -105,11 +105,11 @@
                 : 'text-fields'
             ">
      <option disabled selected value  >Select Questions </option>        
-     <option value="1">What is your favourite food/dish ?</option>
-      <option value="2">Who is your childhood hero ?</option>
-      <option value="3">What is the name of your favourite pet ?</option>
-       <option value="4">In what city you were born ?</option>
-      <option value="5">What is the name of your first school ?</option>
+     <option value="0">What is your favourite food/dish ?</option>
+      <option value="1">Who is your childhood hero ?</option>
+      <option value="2">What is the name of your favourite pet ?</option>
+       <option value="3">In what city you were born ?</option>
+      <option value="4">What is the name of your first school ?</option>
      </select>
         <p
             class="text-red-500 text-xs font-thin"
@@ -222,20 +222,39 @@ export default {
 
 }
 console.log(sdata)
- this.responsedata=loginapi.securityanscheck(sdata,this.id).then(response=>{
-console.log(response,"response data");
-if(response.data){
-  console.log("if condition")
- if(response.data.status == "success" && response.data.statuscode == 200){
-    this.$router.push({ name: 'resetpassword', params: { id: response.data.mailid}});
- }
-  if(response.data.status == "failure" && response.data.statuscode == 201){
-  this.message=response.data.message
- }
 
+    
+                
+ this.responsedata=loginapi.securityanscheck(sdata,this.id).then(response=>{
+ console.log(response,"response data");
+ console.log(response.data.answers)
+
+ if(response.data){
+   console.log("if condition")
+  if(response.data.status == "success" && response.data.statuscode == 200){
+    var cortrectanswers=response.data.answers;
+var questins=[this.person.question1,this.person.question2,this.person.question3];
+var answers=[this.person.answer1,this.person.answer2,this.person.answer3]
+var count=0;
+  for (var i = 0; i<cortrectanswers.length; i++) {
+    if(questins[i]==i  && questins[i] && answers[i]==cortrectanswers[i] && answers[i] ){
+      count=count+1;
+    }
+  }
+if(count >= 3){
+this.$router.push({ name: 'resetpassword', params: { id: response.data.mailid}});
+}else{
+this.message="Please Enter Valid Deatails";
 }
+     
+  }
+   if(response.data.status == "failure" && response.data.statuscode == 201){
+   this.message=response.data.message
+  }
+
+ }
   
-       })
+        })
 
        }
  },

@@ -20,9 +20,9 @@ import penReq from '../components/penReq.vue';
 import viewDetails from '../components/viewDetails';
 import updateData from '../components/updateData';
 
-import registrationpage2 from '../components/registrationpage2.vue';
-import registrationpage3 from '../components/registrationpage3.vue';
-import registrationPage1 from '../components/registrationPage1.vue';
+import RegistrationTwo from '../components/RegistrationTwo.vue';
+import RegistrationThree from '../components/RegistrationThree.vue';
+import RegistrationOne from '../components/RegistrationOne.vue';
 const routes = [
   {
     path: '/login',
@@ -119,19 +119,19 @@ const routes = [
   
 
   {
-    path: '/registrationpage2',
-    name: 'registrationpage2',
-    component: registrationpage2
+    path: '/RegistrationTwo',
+    name: 'RegistrationTwo',
+    component: RegistrationTwo
   },
   {
-    path: '/registrationpage3',
-    name: 'registrationpage3',
-    component: registrationpage3
+    path: '/RegistrationThree',
+    name: 'RegistrationThree',
+    component: RegistrationThree
   },
   {
-    path: '/registrationpage1',
-    name: 'registrationpage1',
-    component: registrationPage1
+    path: '/RegistrationOne',
+    name: 'RegistrationOne',
+    component: RegistrationOne
   },
   {
     path: '/penReq',

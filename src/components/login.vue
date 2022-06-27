@@ -100,7 +100,7 @@
     <h6>OR</h6>
   <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label>
 <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
-    <h4>Don't have an account? <a  class="regis1" href="/registrationPage1"><b>Signup Now</b></a></h4>
+    <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
    
    </div> 
    
