@@ -1,5 +1,5 @@
 <template>
-<div>{{logid}}</div>
+<div>{{logid.id}}</div>
 <div class="maincontainer">
  <div class="sidebar">
     <div class="img">
@@ -29,11 +29,11 @@
     
 <div class="welcomediv">
   <div class="welcome-header">
-   <h2 class="welcome"><b>Welcome back, Lahari</b></h2>
+   <h2 class="welcome"><b>Welcome back, {{logid.firstName}}</b></h2>
   <div>
     <!-- <img alt="" src="../assets/snadicon.png" /> -->
-    <h4>LahariKolipara</h4>
-    <h4>Department head</h4>
+    <h4>{{logid.firstName}} {{logid.lastName}}</h4>
+    <h4>{{logid.role}}</h4>
   </div>
   </div>
  <div class="gross-container">
@@ -131,7 +131,8 @@ export default {
   },
     created () {
         this.empdatafetch();
-        this.logid = this.$route.params.data
+        this.logid = (this.$route.params);
+        console.log(this.logid);
       },
       methods:{
   empdatafetch() {

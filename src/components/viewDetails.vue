@@ -25,13 +25,13 @@
         <br>
         <label for="">Country: {{rowdata.country}}</label> 
         <br>
-        <label for="">FirstName: {{rowdata.state}}</label>  -->
+        <label for="">State: {{rowdata.state}}</label> 
         <br>
         <label for="">City: {{rowdata.city}}</label> 
         <br>
         <label for="">Zipcode: {{rowdata.zipcode}}</label> 
         <br>
-        <!-- <label for="">FirstName: {{rowdata.firstName}}</label>  --> -->
+        <!-- <label for="">FirstName: {{rowdata.firstName}}</label>  --> 
            
     </div>
 
