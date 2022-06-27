@@ -25,7 +25,10 @@
         <br>
         <label for="" style="margin-left:-200px">Country: {{rowdata.country}}</label> 
         <br>
+
         <label for="" style="margin-left:-200px">FirstName: {{rowdata.state}}</label> 
+
+        <label for="">State: {{rowdata.state}}</label> 
         <br>
         <label for="" style="margin-left:-200px">City: {{rowdata.city}}</label> 
         <br>
@@ -41,7 +44,7 @@
 
 <script>
 
-``
+
     export default {
         name:'viewDetails',
         data() {

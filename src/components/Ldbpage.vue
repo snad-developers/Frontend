@@ -57,11 +57,11 @@
  <label for="javascript"  style="margin:2px">Immigration Expenses</label><br><br>
  
   <input id="ldb" name="empexpense" type="file" required>
-  <b-button><input id ="upload" type="submit" value="Upload" @click="Upload"  style="border-radius: 25px;
+  <b-alert><input id ="upload" type="submit" value="Upload" @click="Upload"  style="border-radius: 25px;
     width: 25%;
     padding: 10px;
     background-color: blue;
-    color:white"></b-button>
+    color:white"></b-alert>
      
 
        

@@ -224,7 +224,9 @@ console.log(senddata);
          console.log(response,response.status,response.data.firstName,this.person.firstName);
 if(response.status == 200 && response.data.firstName == this.person.firstName && response.data.firstName){
          console.log(response);
-          alert("User Details Updated")
+          alert("User Details Updated");
+          this.$router.push('amdPage');
+          
 
 // //  senddata(e);
 //  this.$router.push('login');
