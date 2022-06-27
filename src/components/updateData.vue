@@ -1,5 +1,5 @@
 <template>
-   <div class="container" style ="margin-left: 222px;">
+   <div class="container" style ="margin-left: 291px;margin-top:68px;border-radius:25px">
         <header>Update Details</header>
 
         <form action="#">

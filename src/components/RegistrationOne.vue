@@ -375,17 +375,7 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
-p::after{
-  content: " ";
-  position: absolute;
-  display: block;
-  left: 46%;
-  bottom: 0%;
-  width:8%;
-  height: 2px;
-  background-color: aqua;
-   font-family: sans-serif;
-}
+
 .img{
   text-align: left 2px;
   margin-left:-10px ;
@@ -393,7 +383,7 @@ p::after{
 }
 
 .backbtn{
-  align-items: baseline;
+  align-items: baselhsl(180, 100%, 50%)252, 255, 255)
    font-family: sans-serif;
 }
 input[type="checkbox"] {

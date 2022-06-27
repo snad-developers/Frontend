@@ -412,17 +412,7 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
-p::after{
-  content: " ";
-  position: absolute;
-  display: block;
-  left: 46%;
-  bottom: 0%;
-  width:8%;
-  height: 2px;
-  background-color: aqua;
-   font-family: sans-serif;
-}
+
 .img{
   text-align: left 2px;
   margin-left:-10px ;
