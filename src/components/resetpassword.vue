@@ -19,7 +19,7 @@
       <img alt="" src="../assets/snadicon.png" />
    </div>
     <h2>Forgot Password? </h2>
-      <h3>Enter the User Id  you have used when you had registered for the first time.</h3>
+      <h3>Please reset your password.</h3>
      <div class="forms">
        <div class="forms1">
       <label for="UserId"></label>
