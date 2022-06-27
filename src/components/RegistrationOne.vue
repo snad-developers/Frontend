@@ -2,11 +2,11 @@
 <!-- {{data}}
 {{currentStep}} -->
  <form @submit.prevent="passEvent('Next')">
- <div class="forms main-container2" >
+ <div class="forms main-container2">
       <div class="child-4">
          <div class="id">
       <label for="firstname"></label>
-       <input type="text" placeholder="First Name" v-model="person.firstname" 
+       <input style="margin:10px" type="text" placeholder="First Name" v-model="person.firstname" 
              :class="
               v$.person.firstname.$error === true
                 ? 'text-fields-error'
@@ -24,7 +24,7 @@
       <div class="id">
       <label for="companyid"></label>
       <!-- <input  name="companyid" type="text" class="companyid" placeholder="company id" required v-model="person.lastname"> -->
-       <input type="text" placeholder="Company Id" v-model="person.companyid" 
+       <input  style="margin:10px" type="text" placeholder="Company Id" v-model="person.companyid" 
         :class="
               v$.person.companyid.$error === true
                 ? 'text-fields-error'
@@ -41,7 +41,7 @@
         <div class="id">
         <label for="phonenumber"></label>
       <!-- <input  name="phonenumber" type="text" for="phonenumber" class="phone" placeholder="phone number" required v-model="person.companyid"> -->
-       <input type="text" placeholder="Phone Number" v-model="person.phonenumber" 
+       <input  style="margin:10px" type="text" placeholder="Phone Number" v-model="person.phonenumber" 
         :class="
               v$.person.phonenumber.$error === true
                 ? 'text-fields-error'
@@ -58,13 +58,14 @@
        <div class="id">
          <label for="Entity"></label>
       <!-- <input  name="phonenumber" type="text" for="phonenumber" class="phone" placeholder="phone number" required v-model="person.companyid"> -->
-       <select align="right" class="user" v-model="person.Entity"
+       <select  style="border-color:black;border-radius:15px;margin:10px;width:226px;" align="right" class="user" v-model="person.Entity"
        :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-     <option value=""></option>
+     <option disabled selected value>Select Entity</option>
+
       <option value="Averon Solutions">Averon Solutions</option>
       <option value="SNAD">SNAD</option>
      </select>
@@ -81,7 +82,7 @@
       <div class="id">
         <label for="lastname"></label>
       <!-- <input name="lastname" type="text" for="lastname" class="last name" placeholder="last name" required v-model="person.userid"> -->
-      <input type="text" placeholder="Last Name" v-model="person.lastname" 
+      <input  style="margin:10px" type="text" placeholder="Last Name" v-model="person.lastname" 
         :class="
               v$.person.lastname.$error === true
                 ? 'text-fields-error'
@@ -98,7 +99,7 @@
        <div class="id">
         <label for="userid"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input type="text" placeholder="User Id" v-model="person.userid" 
+       <input  style="margin:10px" type="text" placeholder="User Id" v-model="person.userid" 
         :class="
               v$.person.userid.$error === true
                 ? 'text-fields-error'
@@ -115,13 +116,13 @@
        <div class="id">
         <label for="gender"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-           <select  v-model="person.gender" align="right" class="user"
+           <select    style="margin-bottom:1px;border-color:black;border-radius:20px;margin:10px;width:226px;padding:12px 20px" v-model="person.gender" align="right" class="user"
               :class="
               v$.person.gender.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-    <option   >  </option>
+<option disabled selected value>Gender</option>
 <option value ="Male">Male</option>
 <option value ="Female">Female</option>
 <option value ="Others">Others</option>
@@ -137,7 +138,7 @@
        <div class="id">
         <label for="dateofBirth"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input type="text" placeholder="Date Of Birth" v-model="person.dateofBirth"
+       <input  style="margin:10px" type="text" placeholder="Date Of Birth" v-model="person.dateofBirth"
             :class="
               v$.person.dateofBirth.$error === true
                 ? 'text-fields-error'
@@ -454,7 +455,7 @@ body{
 
 .user{
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
   padding: 10px;
   border-radius: 50px;
   border: 2px solid #dddddd;

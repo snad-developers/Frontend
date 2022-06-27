@@ -19,12 +19,12 @@
       <img alt="" src="../assets/snadicon.png" />
    </div>
     <h2>Login here </h2>
-     <div class="forms">
+     <div class="forms" style="padding:30px">
        <div class="forms1">
-       <i class="uil uil-user" style="margin-left:-20px"></i>
+       <i class="uil uil-user" style="margin-left:-38px"></i>
       <label for="UserId"></label>
      
-      <input type="text" class="user" placeholder="UserId" v-model="person.UserId"
+      <input  style="margin: 7px -17px 12px 0px;" type="text" class="user" placeholder="UserId" v-model="person.UserId"
             :class="
               v$.person.UserId.$error === true
                 ? 'text-fields-error'
@@ -41,8 +41,8 @@
      
       <div>
     <label for="Password"></label>
-      <i class="uil uil-eye" style="margin-left:-20px"></i>
-  <input type="password"   placeholder="Password"  class="user" 
+      <i class="uil uil-eye" style="margin-left:-20px;"></i>
+  <input  style="margin: 7px 0px 12px 0px" type="password"   placeholder="Password"  class="user" 
       v-model="person.Password"
             :class="
               v$.person.Password.$error === true
@@ -58,18 +58,15 @@
           >
             {{ error.$message }}
           </p>
-
-   <br>
     <label for="Entity" placeholder="Entity" >
       <i class="uil uil-clipboard-notes"  style="margin-left:-20px;"></i>
-     <select  name="Entity" id="Entity" class="user"  v-model="person.Entity"
+     <select style="margin: 7px 0px 12px 0px;border-color: black;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-     <option  selected value  >Select Entity  </option>
-
+     <option disabled selected value>Entity</option>
       <option value="Averon Solutions">Averon Solutions</option>
       <option value="SNAD">SNAD</option>
      </select>

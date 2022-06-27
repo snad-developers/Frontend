@@ -29,7 +29,7 @@
         <span>Contact</span>
       </a> -->
     </div>
-   <div class="child-div2" style="margin-left: 251px">
+   <div class="child-div2" style="margin-left: -1050px">
    
     
  

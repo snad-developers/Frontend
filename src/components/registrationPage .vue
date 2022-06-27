@@ -15,7 +15,7 @@
    
     
  
-  <form  class="register">
+  <form  class="register" style="width:105%;height:105%;margin-right:250px">
    
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
