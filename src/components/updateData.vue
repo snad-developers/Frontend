@@ -71,11 +71,6 @@
      </select>
    
      </div>
-                         <div class="input-field">
-                            <label for="dateofBirth">Date Of Birth</label>
-                            <input type="date" name="dateofBirth" for="dateofBirth" placeholder="Date Of Birth" required v-model="person.dateofBirth">
-                        </div>
-                         
 
 
                          </div>
@@ -92,7 +87,7 @@
                                 <label for="role">Role</label>
       <select name="role" for="role" id ="repeat1" required v-model="person.role"  placeholder="entity" align="right" class="user">
 <option disabled selected value  > Choose Role </option>
-<option value ="Management">Management</option>
+<option value ="Management" >Management</option>
 <option value ="Department heads">Department heads</option>
 <option value ="Department heads">Department heads</option>
 <option value ="Accounting clerks">Accounting clerks</option>
@@ -250,7 +245,7 @@ if(response.status == 200 && response.data.firstName == this.person.firstName &&
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
 }
 body{
     min-height: 100vh;

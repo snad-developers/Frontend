@@ -68,7 +68,7 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-     <option disabled selected value  >Select Entity  </option>
+     <option  selected value  >Select Entity  </option>
 
       <option value="Averon Solutions">Averon Solutions</option>
       <option value="SNAD">SNAD</option>

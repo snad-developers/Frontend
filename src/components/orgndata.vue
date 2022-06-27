@@ -2,7 +2,7 @@
 <div align= "center">
     <h2> Add Entity</h2>
     <select name="selection" id="selection">
-   <option value="Select">Select</option>
+   <option value="Select">Choose Entity</option>
     <option value="Averon Solutions"> Averon Solutions</option>
     <option value="SNAD">SNAD</option>
   </select>

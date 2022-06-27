@@ -41,7 +41,7 @@
    </div> -->
     <h2>Select the data you want Load </h2>
      <div class="forms" style="padding:10px">
- <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; ">
+ <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " required>
  <label for="html" style="margin:2px">Client</label><br><br>
  <input type="radio" id="css" name="fav_language" value="CSS" style="margin-left: -269px;">
  <label for="css"  style="margin:2px">Pay Roll</label><br><br>
@@ -56,12 +56,12 @@
  <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -173px;">
  <label for="javascript"  style="margin:2px">Immigration Expenses</label><br><br>
  
-  <input id="ldb" name="empexpense" type="file">
-   <input id ="upload" type="submit" value="Upload" @click="Upload"  style="border-radius: 25px;
+  <input id="ldb" name="empexpense" type="file" required>
+  <b-button><input id ="upload" type="submit" value="Upload" @click="Upload"  style="border-radius: 25px;
     width: 25%;
     padding: 10px;
     background-color: blue;
-    color:white">
+    color:white"></b-button>
      
 
        
