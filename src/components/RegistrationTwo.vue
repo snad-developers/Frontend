@@ -452,6 +452,7 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
+<<<<<<< HEAD
 /* p::after{
   content: " ";
   position: absolute;
@@ -463,6 +464,9 @@ input[type=button]{
   background-color: aqua;
    font-family: sans-serif;
 } */
+=======
+
+>>>>>>> b23bd1771c9167445932a94f1a9a8afabfb1300c
 .img{
   text-align: left 2px;
   margin-left:-10px ;
