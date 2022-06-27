@@ -138,7 +138,7 @@
        <div class="id">
         <label for="dateofBirth"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input  style="margin:10px" type="text" placeholder="Date Of Birth" v-model="person.dateofBirth"
+       <input  style="margin:10px" type="date" placeholder="Date Of Birth" v-model="person.dateofBirth"
             :class="
               v$.person.dateofBirth.$error === true
                 ? 'text-fields-error'
@@ -170,7 +170,7 @@
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
 //import loginapi from '../services/loginapi';
-import { required, helpers } from "@vuelidate/validators";
+import { required, helpers,email,numeric, minLength, maxLength} from "@vuelidate/validators";
 export default { 
     
      name: 'RegistrationOne',
@@ -206,16 +206,45 @@ export default {
     return {
       person: {
         firstname: {
-          required: helpers.withMessage("First Name is required", required),
+          required: helpers.withMessage("Enter First Name", required),
           $autoDirty: true,
         },
-        lastname: { required: helpers.withMessage("Last Name is required", required), $autoDirty: true },
-        companyid: { required: helpers.withMessage("Company Id is required", required), $autoDirty: true },
-          userid: { required: helpers.withMessage("User Id is required", required), $autoDirty: true },
-        phonenumber: { required: helpers.withMessage("Phone Number is required", required), $autoDirty: true },
-        Entity: { required: helpers.withMessage("Entity is required", required), $autoDirty: true },
-           dateofBirth: { required: helpers.withMessage("Date of Birth is required", required), $autoDirty: true },
-        gender: { required: helpers.withMessage("Gender is required", required), $autoDirty: true },
+
+        lastname: {
+           required: helpers.withMessage("Enter Last Name", required),
+           $autoDirty: true },
+        
+        companyid: { 
+          required: helpers.withMessage("Enter Company Id", required), 
+          $autoDirty: true },
+        
+        userid: {
+          required: helpers.withMessage("Enter User Id ", required), 
+          $autoDirty: true,
+          email:helpers.withMessage("Please Enter Valid email id", email) },
+
+
+        phonenumber: { 
+          required: helpers.withMessage("Enter Phone Number", required), 
+          $autoDirty: true,
+          numeric,
+          minLength: minLength(10),
+          maxLength: maxLength(10)
+           },
+
+        Entity: { 
+          required: helpers.withMessage("Select Entity ", required), 
+          $autoDirty: true },
+
+        dateofBirth: { 
+          required: helpers.withMessage("Choose Date of Birth", required), 
+          $autoDirty: true,
+           },
+
+        gender: { 
+          required: helpers.withMessage("Gender is required", required), 
+          $autoDirty: true },
+
         //   role: { required: helpers.withMessage("Role is required", required), $autoDirty: true },
         // address1: { required: helpers.withMessage("Addres is required", required), $autoDirty: true },
         //   address2: { required: helpers.withMessage("Address is required", required), $autoDirty: true },
@@ -317,7 +346,7 @@ div{
     text-align: left;
 }
 
-input[type=text]{
+input[type=text] input[type=email]{
     
     padding: 12px 20px;
     border: 1px solid;
@@ -326,6 +355,30 @@ input[type=text]{
      font-family: sans-serif;
    
 }
+ 
+ input[type=date]{
+    
+    padding: 12px 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    text-align: center;
+     font-family: sans-serif;
+   
+}
+
+input[type=email]{
+    
+    padding: 12px 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    text-align: center;
+     font-family: sans-serif;
+   
+}
+
+
+
+
 input[type=password]{
 
     padding: 12px 20px;
@@ -375,7 +428,7 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
-p::after{
+/* p::after{
   content: " ";
   position: absolute;
   display: block;
@@ -383,9 +436,9 @@ p::after{
   bottom: 0%;
   width:8%;
   height: 2px;
-  background-color: aqua;
-   font-family: sans-serif;
-}
+  /* background-color: aqua; */
+   /* font-family: sans-serif; */
+/* } */
 .img{
   text-align: left 2px;
   margin-left:-10px ;

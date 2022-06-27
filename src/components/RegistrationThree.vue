@@ -299,11 +299,11 @@ export default {
         //   zipcode: { required: helpers.withMessage("Zipcode is required", required), $autoDirty: true },
         // createpwd: { required: helpers.withMessage("Password is required", required), $autoDirty: true },
         //    confirmpwd: { required: helpers.withMessage("Conform Password is required", required), $autoDirty: true },
-          ans1: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
-        ans2: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
-          ans3: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
-        ans4: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
-          ans5: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
+          ans1: { required: helpers.withMessage("Please give Answer ", required), $autoDirty: true },
+        ans2: { required: helpers.withMessage("Please give Answer ", required), $autoDirty: true },
+          ans3: { required: helpers.withMessage("Please give Answer ", required), $autoDirty: true },
+        ans4: { required: helpers.withMessage("Please give Answer ", required), $autoDirty: true },
+          ans5: { required: helpers.withMessage("Please give Answer ", required), $autoDirty: true },
         //    question1: { required: helpers.withMessage("Question is required", required), $autoDirty: true },
         // question2: { required: helpers.withMessage("Question is required", required), $autoDirty: true },
         //   question3: { required: helpers.withMessage("Question is required", required), $autoDirty: true },
@@ -466,7 +466,7 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
-p::after{
+/* p::after{
   content: " ";
   position: absolute;
   display: block;
@@ -476,7 +476,7 @@ p::after{
   height: 2px;
   background-color: aqua;
    font-family: sans-serif;
-}
+} */
 .img{
   text-align: left 2px;
   margin-left:-10px ;
