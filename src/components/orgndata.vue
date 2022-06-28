@@ -47,10 +47,48 @@
 
 </div>
 </template>
+
+
 <script>
+import loginapi from '@/services/loginapi'
 export default{
     // eslint-disable-next-line vue/multi-word-component-names
     name :'orgndata',
+    data:function(){
+      return{
+        entitydata:[],
+        rolesdata:[]
+      }
+    },
+
+    mounted() {
+      this.orgn();
+      this.role();
+
+    },
+
+    created() {
+      this.orgn();
+      this.role();
+    },
+
+    methods:{
+      orgn(){
+        loginapi.orgndatagetvalues().then(response=>{
+          this.entitydata=response.data;
+          console.log(this.entitydata)
+        });
+      },
+
+      role(){
+        loginapi.rolesgetvalues().then(response=>{
+          this.rolesdata=response.data;
+          console.log(this.rolesdata)
+        });
+      }
+    }
+
+
 }
 </script>
 <style>
