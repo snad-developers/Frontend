@@ -11,20 +11,21 @@
   </div>
   
    <div class="child-div2">
-   
-    
- 
-  <form  class="loginhere">
-    <div class="img">
-      <img alt="" src="../assets/snadicon.png" />
+     
+     
+     
+     <form  class="loginhere">
+       <div class="img">
+         <img alt="" src="../assets/snadicon.png" />
    </div>
     <h2>Forgot Password? </h2>
     <br>
       <h6>Please answer the below security questions to reset password</h6>
+      <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
      <div class="forms">
        <div class="forms1">
-       <label for="Entity" placeholder="Select Question" >
-     <select  name="Entity" id="Entity" class="user"  v-model="person.question1"
+       <label for="q1" placeholder="Select Question" >
+     <select  name="q1" id="Entity" class="user"  v-model="person.question1"
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
@@ -45,14 +46,13 @@
             {{ error.$message }}
           </p>
     </label>
-
       
       <input type="text" class="user" placeholder="Answer" v-model="person.answer1"
             :class="
               v$.person.answer1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            " style="margin-top:2%">
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer1.$errors"
@@ -60,14 +60,13 @@
           >
             {{ error.$message }}
           </p>
-
              <label for="Entity" placeholder="Select Question" >
      <select  name="Entity" id="Entity" class="user"  v-model="person.question2"
             :class="
               v$.person.question2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            " style="margin-top:5%">
       <option disabled selected value  >Select Questions </option>
      <option value="0">What is your favourite food/dish ?</option>
       <option value="1">Who is your childhood hero ?</option>
@@ -90,7 +89,7 @@
               v$.person.answer2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            " style="margin-top:2%" >
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer2.$errors"
@@ -104,7 +103,7 @@
               v$.person.question3.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            " style="margin-top:5%">
      <option disabled selected value  >Select Questions </option>        
      <option value="0">What is your favourite food/dish ?</option>
       <option value="1">Who is your childhood hero ?</option>
@@ -115,7 +114,7 @@
         <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.question3.$errors"
-            :key="error.$uid"
+            :key="error.$uid "
           >
             {{ error.$message }}
           </p>
@@ -127,7 +126,7 @@
               v$.person.answer3.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            " style="margin-top:2%">
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer3.$errors"
@@ -142,7 +141,6 @@
    <br>
     <a href="/resetpassword"><button  class= "button" @click.prevent="submit">Continue </button></a>
     
-<p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
    
    </div> 
    
