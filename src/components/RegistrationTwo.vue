@@ -58,7 +58,7 @@
               <div class="id">
         <label for="createpwd"></label>
       <!-- <input  type="text" for="createpwd" class="phone" placeholder="create password" required v-model="person.createpwd"> -->
-        <input  style="margin:10px" type="text" placeholder="Create Password" v-model="person.createpwd" 
+        <input  style="margin:10px" type="password" placeholder="Password" v-model="person.createpwd" 
              :class="
               v$.person.createpwd.$error === true
                 ? 'text-fields-error'
@@ -157,7 +157,7 @@
                     <div class="id">
         <label for="confirmpwd"></label>
       <!-- <input  type="text" for="confirmpwd" class="phone" placeholder="confirm password" required v-model="person.confirmpwd"> -->
-        <input  style="margin:10px" type="text" placeholder="Repeat Password" v-model="person.confirmpwd" 
+        <input  style="margin:10px" type="password" placeholder="Confirm Password" v-model="person.confirmpwd" 
              :class="
               v$.person.confirmpwd.$error === true
                 ? 'text-fields-error'
@@ -187,7 +187,7 @@
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
 //import loginapi from '../services/loginapi';
-import { required, helpers } from "@vuelidate/validators";
+import { required, helpers, minLength, numeric } from "@vuelidate/validators";
 
 export default {
      // eslint-disable-next-line vue/multi-word-component-names
@@ -248,15 +248,55 @@ export default {
         // phonenumber: { required: helpers.withMessage("Phone Number is required", required), $autoDirty: true },
         //   dateofBirth: { required: helpers.withMessage("Date of Birth is required", required), $autoDirty: true },
         // gender: { required: helpers.withMessage("Gender is required", required), $autoDirty: true },
-           role: { required: helpers.withMessage("Role is required", required), $autoDirty: true },
-        AdressLine1: { required: helpers.withMessage("Address is required", required), $autoDirty: true },
-          AdressLine2: { required: helpers.withMessage("Address is required", required), $autoDirty: true },
-        country: { required: helpers.withMessage("Country is required", required), $autoDirty: true },
-          state: { required: helpers.withMessage("State is required", required), $autoDirty: true },
-        city: { required: helpers.withMessage("City is required", required), $autoDirty: true },
-          zipcode: { required: helpers.withMessage("Zipcode is required", required), $autoDirty: true },
-        createpwd: { required: helpers.withMessage("Password is required", required), $autoDirty: true },
-           confirmpwd: { required: helpers.withMessage("Conform Password is required", required), $autoDirty: true },
+           role: { 
+            required: helpers.withMessage("Etner Role", required), 
+            $autoDirty: true 
+          },
+
+          AdressLine1: { 
+            required: helpers.withMessage("Enter Address Line 1", required), 
+            $autoDirty: true 
+          },
+
+          AdressLine2: { 
+            required: helpers.withMessage("Enter Address Line 2", required), 
+            $autoDirty: true 
+          },
+
+          country: { 
+            required: helpers.withMessage("Enter Country Name", required), 
+            $autoDirty: true 
+          },
+
+          state: { 
+            required: helpers.withMessage("Entner State Name", required), 
+            $autoDirty: true
+          },
+
+          city: { 
+            required: helpers.withMessage("Enter City Name", required), 
+            $autoDirty: true 
+          },
+
+          zipcode: { 
+            required: helpers.withMessage("Enter Zipcode", required), 
+            $autoDirty: true,
+            numeric,
+            minLength:helpers.withMessage("Zipcode shoud have min 6 numbers", minLength(6) ) 
+          },
+
+          createpwd: { 
+            required: helpers.withMessage("Enter Password ", required), 
+            $autoDirty: true,
+            minLength: helpers.withMessage("Password Must be 6 char ", minLength(6)) 
+          },
+
+
+          confirmpwd: { 
+            required: helpers.withMessage("Enter Confirm Password", required), 
+            $autoDirty: true,
+            // sameAs: helpers.withMessage("confirm password and create Password should be same", sameAs('createpwd'))  
+          },
         //   ans1: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
         // ans2: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
         //   ans3: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
@@ -412,7 +452,21 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
+<<<<<<< HEAD
+/* p::after{
+  content: " ";
+  position: absolute;
+  display: block;
+  left: 46%;
+  bottom: 0%;
+  width:8%;
+  height: 2px;
+  background-color: aqua;
+   font-family: sans-serif;
+} */
+=======
 
+>>>>>>> b23bd1771c9167445932a94f1a9a8afabfb1300c
 .img{
   text-align: left 2px;
   margin-left:-10px ;

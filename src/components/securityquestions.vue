@@ -11,19 +11,26 @@
   </div>
   
    <div class="child-div2">
-   
-    
- 
-  <form  class="loginhere">
-    <div class="img">
-      <img alt="" src="../assets/snadicon.png" />
+     
+     
+     
+     <form  class="loginhere">
+       <div class="img">
+         <img alt="" src="../assets/snadicon.png" />
    </div>
     <h2>Forgot Password? </h2>
-      <h3>Please answer the below security questions to reset password</h3>
+    <br>
+      <h6>Please answer the below security questions to reset password</h6>
+      <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
      <div class="forms">
        <div class="forms1">
+<<<<<<< HEAD
        <label for="Entity" placeholder="Select Question" >
      <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
+=======
+       <label for="q1" placeholder="Select Question" >
+     <select  name="q1" id="Entity" class="user"  v-model="person.question1"
+>>>>>>> 4ebd85cb4ee1e2650a9fff2ea78819291bb1d076
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
@@ -44,14 +51,13 @@
             {{ error.$message }}
           </p>
     </label>
-
       
       <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer1"
             :class="
               v$.person.answer1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            " style="margin-top:2%">
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer1.$errors"
@@ -59,14 +65,13 @@
           >
             {{ error.$message }}
           </p>
-
              <label for="Entity" placeholder="Select Question" >
      <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question2"
             :class="
               v$.person.question2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            " style="margin-top:5%">
       <option disabled selected value  >Select Questions </option>
      <option value="0">What is your favourite food/dish ?</option>
       <option value="1">Who is your childhood hero ?</option>
@@ -89,7 +94,7 @@
               v$.person.answer2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            " style="margin-top:2%" >
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer2.$errors"
@@ -103,7 +108,7 @@
               v$.person.question3.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            " style="margin-top:5%">
      <option disabled selected value  >Select Questions </option>        
      <option value="0">What is your favourite food/dish ?</option>
       <option value="1">Who is your childhood hero ?</option>
@@ -114,19 +119,19 @@
         <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.question3.$errors"
-            :key="error.$uid"
+            :key="error.$uid "
           >
             {{ error.$message }}
           </p>
     </label>
 
       
-      <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer3"
+      <input style="margin:5px;" type="text" class="user" placeholder="Answer" v-model="person.answer3"
             :class="
               v$.person.answer3.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            " style="margin-top:2%">
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer3.$errors"
@@ -141,7 +146,6 @@
    <br>
   <a href="/resetpassword"><button  class= "button" @click.prevent="submit">Continue </button></a>
     
-<p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
    
    </div> 
    
@@ -210,7 +214,7 @@ export default {
    created() {
             this.id = this.$route.params.id;
         },
- methods: {
+methods: {
     submit() {
        this.v$.$touch();
        if(!this.v$.$invalid){
@@ -222,24 +226,23 @@ export default {
 
 }
 console.log(sdata)
-
-    
-                
+// var cortrectanswers=['dd', 'ww', 'qq', 'ee', 'tt'];             
  this.responsedata=loginapi.securityanscheck(sdata,this.id).then(response=>{
  console.log(response,"response data");
  console.log(response.data.answers)
 
  if(response.data){
-   console.log("if condition")
+  // console.log("if condition")
   if(response.data.status == "success" && response.data.statuscode == 200){
     var cortrectanswers=response.data.answers;
 var questins=[this.person.question1,this.person.question2,this.person.question3];
 var answers=[this.person.answer1,this.person.answer2,this.person.answer3]
 var count=0;
-  for (var i = 0; i<cortrectanswers.length; i++) {
-    if(questins[i]==i  && questins[i] && answers[i]==cortrectanswers[i] && answers[i] ){
+  for (var i = 0; i<questins.length; i++) {
+      if(answers[i]==cortrectanswers[questins[i]]){
       count=count+1;
-    }
+      
+      }
   }
 if(count >= 3){
 this.$router.push({ name: 'resetpassword', params: { id: response.data.mailid}});

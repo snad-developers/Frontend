@@ -20,27 +20,37 @@
    </div>
     <h2><b>Login here</b></h2>
      <div class="forms" style="padding:30px">
+     <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
+
        <div class="forms1">
+         <p
+              class="text-red-500 text-xs font-thin"
+              v-for="error of v$.person.UserId.$errors"
+              :key="error.$uid"
+            >
+              {{ error.$message }}
+            </p>
        <i class="uil uil-user" style="margin-left:-38px"></i>
       <label for="UserId"></label>
      
-      <input  style="margin: 7px -17px 12px 0px;" type="text" class="user" placeholder="UserId" v-model="person.UserId"
+      <input required style="margin: 7px -17px 12px 0px;" type="email" class="user" placeholder="UserId" v-model="person.UserId"
             :class="
               v$.person.UserId.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             " >
- <p
-            class="text-red-500 text-xs font-thin"
-            v-for="error of v$.person.UserId.$errors"
-            :key="error.$uid"
-          >
-            {{ error.$message }}
-          </p>
+
       </div>
      
       <div>
     <label for="Password"></label>
+    <p
+            class="text-red-500 text-xs font-thin"
+            v-for="error of v$.person.Password.$errors"
+            :key="error.$uid"
+          >
+            {{ error.$message }}
+          </p>
       <i class="uil uil-eye" style="margin-left:-20px;"></i>
   <input  style="margin: 7px 0px 12px 0px" type="password"   placeholder="Password"  class="user" 
       v-model="person.Password"
@@ -51,13 +61,14 @@
             ">
             </div>
          
-            <p
-            class="text-red-500 text-xs font-thin"
-            v-for="error of v$.person.Password.$errors"
-            :key="error.$uid"
-          >
-            {{ error.$message }}
-          </p>
+            
+      <p
+          class="text-red-500 text-xs font-thin"
+          v-for="error of v$.person.Entity.$errors"
+          :key="error.$uid" style="font-family:sans-serif"
+        >
+          {{ error.$message }}
+        </p>
     <label for="Entity" placeholder="Entity" >
       <i class="uil uil-clipboard-notes"  style="margin-left:-20px;"></i>
      <select style="margin: 7px 0px 12px 0px;border-color: black;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
@@ -70,13 +81,6 @@
       <option value="Averon Solutions">Averon Solutions</option>
       <option value="SNAD">SNAD</option>
      </select>
-        <p
-            class="text-red-500 text-xs font-thin"
-            v-for="error of v$.person.Entity.$errors"
-            :key="error.$uid"
-          >
-            {{ error.$message }}
-          </p>
     </label>
 
     <div class="main-div">
@@ -96,7 +100,6 @@
     <button  class= "button" @click.prevent="submit">Login </button>
     <h6>OR</h6>
   <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label>
-<p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
     <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
    
    </div> 
@@ -114,7 +117,7 @@
 <script>
 // eslint-disable-next-line no-unused-vars
 import useVuelidate from "@vuelidate/core";
-import { required, helpers } from "@vuelidate/validators";
+import { required, helpers, email,    } from "@vuelidate/validators";
 import loginapi from '../services/loginapi';
 export default { 
     // eslint-disable-next-line vue/multi-word-component-names
@@ -139,11 +142,19 @@ export default {
     return {
       person: {
         UserId: {
-          required: helpers.withMessage("UserId is required", required),
+          required: helpers.withMessage("Please Enter Userid", required),
           $autoDirty: true,
+          email: helpers.withMessage("Please enter a valid email id", email),
+          
         },
-        Password: { required, $autoDirty: true },
-        Entity: { required, $autoDirty: true },
+        Password: {
+           required:helpers.withMessage("Please Enter password", required),
+           $autoDirty: true },
+
+        Entity: { 
+          required:helpers.withMessage("Please Select Entity", required), 
+          $autoDirty: true },
+
         rmemberMe: {  $autoDirty: true },
 
       },
@@ -206,7 +217,7 @@ div{
     text-align: left;
 }
 
-input[type=text]{
+input[type=email]{
     
     padding: 12px 20px;
     border: 1px solid;

@@ -19,16 +19,16 @@
       <img alt="" src="../assets/snadicon.png" />
    </div>
     <h2>Forgot Password? </h2>
-      <h3>Please reset your password.</h3>
+      <h6>Please reset your password.</h6>
      <div class="forms">
        <div class="forms1">
       <label for="UserId"></label>
-      <input type="text" class="user" placeholder="Enter New Password" v-model="person.Password"
+      <input type="password" class="user" placeholder="Enter New Password" v-model="person.Password"
             :class="
               v$.person.Password.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            " style="margin-top:3%">
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.Password.$errors"
@@ -38,12 +38,12 @@
           </p>
 
            <label for="UserId"></label>
-      <input type="text" class="user" placeholder="Conform Password" v-model="person.Conform"
+      <input type="password" class="user" placeholder="Confirm Password" v-model="person.Conform"
             :class="
               v$.person.Conform.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            " style="margin-top:3%">
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.Conform.$errors"
@@ -75,7 +75,7 @@
 
 <script>
 import useVuelidate from "@vuelidate/core";
-import { required, helpers } from "@vuelidate/validators";
+import { required, helpers,minLength } from "@vuelidate/validators";
 import loginapi from '../services/loginapi';
 export default {
  // eslint-disable-next-line vue/multi-word-component-names
@@ -101,10 +101,15 @@ export default {
         Password: {
           required: helpers.withMessage("Password is required", required),
           $autoDirty: true,
+          minLength:helpers.withMessage("Password should be min 6 char long", minLength(6)),
+          
+          
         },
          Conform: {
-          required: helpers.withMessage("Conform Password is required", required),
+          required: helpers.withMessage("Confirm Password is required", required),
           $autoDirty: true,
+          // sameAspassword: helpers.withMessage("confirm password shuld be same as password", sameAs('Password'))
+
         },
       
       },
