@@ -234,7 +234,7 @@ console.log(senddata);
       loginapi.createpost(senddata).then(response=>{
       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
 if(response.status == 201 && response.data.firstName == this.formvalue[0].firstname && response.data.firstName){
- console.log(response);
+ console.log(response.data);
  //this.sendEmail(e);
  this.$router.push('login');
 }
