@@ -23,7 +23,7 @@
      <div class="forms">
        <div class="forms1">
        <label for="Entity" placeholder="Select Question" >
-     <select  name="Entity" id="Entity" class="user"  v-model="person.question1"
+     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
@@ -46,7 +46,7 @@
     </label>
 
       
-      <input type="text" class="user" placeholder="Answer" v-model="person.answer1"
+      <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer1"
             :class="
               v$.person.answer1.$error === true
                 ? 'text-fields-error'
@@ -61,7 +61,7 @@
           </p>
 
              <label for="Entity" placeholder="Select Question" >
-     <select  name="Entity" id="Entity" class="user"  v-model="person.question2"
+     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question2"
             :class="
               v$.person.question2.$error === true
                 ? 'text-fields-error'
@@ -84,7 +84,7 @@
     </label>
 
       
-      <input type="text" class="user" placeholder="Answer" v-model="person.answer2"
+      <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer2"
             :class="
               v$.person.answer2.$error === true
                 ? 'text-fields-error'
@@ -98,7 +98,7 @@
             {{ error.$message }}
           </p>
              <label for="Entity" placeholder="Select Question" >
-     <select  name="Entity" id="Entity" class="user"  v-model="person.question3"
+     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question3"
             :class="
               v$.person.question3.$error === true
                 ? 'text-fields-error'
@@ -121,7 +121,7 @@
     </label>
 
       
-      <input type="text" class="user" placeholder="Answer" v-model="person.answer3"
+      <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer3"
             :class="
               v$.person.answer3.$error === true
                 ? 'text-fields-error'
@@ -139,7 +139,7 @@
   
      
    <br>
-    <a href="/resetpassword"><button  class= "button" @click.prevent="submit">Continue </button></a>
+  <a href="/resetpassword"><button  class= "button" @click.prevent="submit">Continue </button></a>
     
 <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
    

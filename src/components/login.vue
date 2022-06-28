@@ -18,7 +18,7 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-    <h2>Login here </h2>
+    <h2><b>Login here</b></h2>
      <div class="forms" style="padding:30px">
        <div class="forms1">
        <i class="uil uil-user" style="margin-left:-38px"></i>

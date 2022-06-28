@@ -20,29 +20,29 @@
 </div>
 
 <div class="addentity">
- <h4>Add Entity</h4>
+ <h4 style="margin-left:-360px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Entities</b></h4>
  <input type="text" placeholder="Enter Entity Name" class="tbox">
  <button class="addbtn"> Add Entity</button>
 
-  <li style="margin-left:-315px;">Averon Solutions</li>
+  <li style="margin-left:-243px;">Averon Solutions</li>
   <li style="margin-left:-315px;">SNAD</li>
  
 </div>
 <div class="subentity">
- <h4>Add Role</h4>
+ <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Roles</b></h4>
  <input type="text" placeholder="Enter Role Name" class="tbox">
- <button class="addbtn"> Add Entity</button>
+ <button class="addbtn"> Add Role</button>
 
   <li style="margin-left:-315px;">Client</li>
-  <li style="margin-left:-315px;" >Pay Roll</li>
-  <li style="margin-left:-315px;" >Management</li>
-  <li style="margin-left:-315px;" >Department Head</li>
-  <li  style="margin-left:-315px;" >Accounting Clerk</li>
-  <li style="margin-left:-315px;" >Admin</li>
-  <li  style="margin-left:-315px;" >Payroll Admin</li>
-  <li style="margin-left:-315px;" >HR Manager</li>
-  <li style="margin-left:-315px;" >HR Analyst</li>
-  <li style="margin-left:-315px;" >Payroll Analyst</li>
+  <li style="margin-left:-297px;" >Pay Roll</li>
+  <li style="margin-left:-265px;" >Management</li>
+  <li style="margin-left:-235px;" >Department Head</li>
+  <li  style="margin-left:-240px;" >Accounting Clerk</li>
+  <li style="margin-left:-310px;" >Admin</li>
+  <li  style="margin-left:-261px;" >Payroll Admin</li>
+  <li style="margin-left:-268px;" >HR Manager</li>
+  <li style="margin-left:-278px;" >HR Analyst</li>
+  <li style="margin-left:-255px;" >Payroll Analyst</li>
         
 
 </div>
@@ -57,31 +57,36 @@ export default{
 .addentity{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 500px;
+  width: 410px;
   height: 250px;
   background-color:white;
-  margin-top: 150px;
-  margin-left: 350px; 
+  margin-top: 27px;
+  margin-left: 330px; 
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15);
   }
 .subentity{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 500px;
-  height: 500px;
+  width: 410px;
+  height: 450px;
   background-color:white;
-  margin-top: -260px;
-  margin-left: 900px;
+  margin-top: -251px;
+  margin-left: 800px;
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15); 
   }  
 .tbox{
-  margin-left: -120px;
+  margin-left: 10px;
 }  
 .addbtn{
   margin: 20px;
   cursor: pointer;
+  border-radius: 25px;
+    width: 25%;
+    padding: 10px;
+    background-color: blue;
+    color:white;
 }
 .li{
   position: relative;
