@@ -20,30 +20,23 @@
 </div>
 
 <div class="addentity">
- <h4>Add Entity</h4>
- <input type="text" placeholder="Enter Entity Name" class="tbox">
- <button class="addbtn"> Add Entity</button>
+ <h4 style="margin-left:-360px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Entities</b></h4>
+ <input type="text" placeholder="Enter Entity Name" class="tbox" v-model="person.entity">
+ <button class="addbtn" @click.prevent ="entityhandle"> Add Entity</button>
 
-  <li style="margin-left:-315px;">Averon Solutions</li>
-  <li style="margin-left:-315px;">SNAD</li>
- 
+  <template  v-for="(entity,index) in entitydata" :key="index">
+  <li style="text-align: left; margin-left: 10%;">{{entity.entity}}</li>
+  </template>
+
 </div>
 <div class="subentity">
- <h4>Add Role</h4>
- <input type="text" placeholder="Enter Role Name" class="tbox">
- <button class="addbtn"> Add Entity</button>
+ <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Roles</b></h4>
+ <input type="text" placeholder="Enter Role Name" class="tbox" v-model="person.role">
+ <button class="addbtn" @click.prevent="rolehandle"> Add Role</button>
 
-  <li style="margin-left:-315px;">Client</li>
-  <li style="margin-left:-315px;" >Pay Roll</li>
-  <li style="margin-left:-315px;" >Management</li>
-  <li style="margin-left:-315px;" >Department Head</li>
-  <li  style="margin-left:-315px;" >Accounting Clerk</li>
-  <li style="margin-left:-315px;" >Admin</li>
-  <li  style="margin-left:-315px;" >Payroll Admin</li>
-  <li style="margin-left:-315px;" >HR Manager</li>
-  <li style="margin-left:-315px;" >HR Analyst</li>
-  <li style="margin-left:-315px;" >Payroll Analyst</li>
-        
+    <template  v-for="(role,index) in rolesdata" :key="index">
+  <li style="text-align: left; margin-left: 10%;">{{role.roles}}</li>
+  </template>
 
 </div>
 </template>
@@ -51,13 +44,18 @@
 
 <script>
 import loginapi from '@/services/loginapi'
+import { resolveComponent } from '@vue/runtime-core';
 export default{
     // eslint-disable-next-line vue/multi-word-component-names
     name :'orgndata',
     data:function(){
       return{
         entitydata:[],
-        rolesdata:[]
+        rolesdata:[],
+        person:{
+          role:"",
+          entity:"",
+        }
       }
     },
 
@@ -85,45 +83,80 @@ export default{
           this.rolesdata=response.data;
           console.log(this.rolesdata)
         });
+      },
+
+      entityhandle(){
+        const sdata ={
+          "entity":this.person.entity
+        }
+        console.log(sdata);
+        loginapi.orgndatapost(sdata).then(response =>{
+          if(response.status==201 ){
+            console.log(response);
+            alert("Entity Updated Successfully");
+            document.location.reload(true)
+          }
+        });
+      },
+
+       rolehandle(){
+        const sdata ={
+          "roles":this.person.role
+        }
+        console.log(sdata);
+        loginapi.rolespost(sdata).then(response =>{
+          if(response.status==201 ){
+            console.log(response);
+            alert("Role Updated Successfully");
+            document.location.reload(true)
+          }
+        });
       }
     }
 
 
 }
 </script>
+
 <style>
 .addentity{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 500px;
-  height: 250px;
+  width: 410px;
+  height: auto;
   background-color:white;
-  margin-top: 150px;
-  margin-left: 350px; 
+  margin-top: 27px;
+  margin-left: 330px; 
+  padding-bottom: 2%;
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15);
   }
 .subentity{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 500px;
-  height: 500px;
+  width: 410px;
+  height: auto;
   background-color:white;
-  margin-top: -260px;
-  margin-left: 900px;
+  margin-top: -14.5%;
+  margin-left: 800px;
+  padding-bottom: 2%;
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15); 
   }  
 .tbox{
-  margin-left: -120px;
+  margin-left: 10px;
 }  
 .addbtn{
   margin: 20px;
   cursor: pointer;
+  border-radius: 25px;
+    width: 25%;
+    padding: 10px;
+    background-color: blue;
+    color:white;
 }
 .li{
   position: relative;
   
 }
-
 </style>

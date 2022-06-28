@@ -49,4 +49,11 @@ export default{
     rolesgetvalues(){
         return API('http://localhost:3000/').get('/roles')
     },
+
+    orgndatapost(data){
+        return API('http://localhost:3000/').post('/orgndata',data)
+    },
+    rolespost(data){
+        return API('http://localhost:3000/').post('/roles',data)
+    },
 }

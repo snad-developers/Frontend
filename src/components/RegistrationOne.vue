@@ -66,8 +66,9 @@
             ">
      <option disabled selected value>Select Entity</option>
 
-      <option value="Averon Solutions">Averon Solutions</option>
-      <option value="SNAD">SNAD</option>
+      <template  v-for="(entity,index) in responsedata" :key="index">
+      <option value="Averon Solutions">{{entity.entity}}</option>
+        </template>
      </select>
       <p
             class="text-red-500 text-xs font-thin"
@@ -169,7 +170,7 @@
 // eslint-disable-next-line no-unused-vars
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
-//import loginapi from '../services/loginapi';
+import loginapi from '../services/loginapi';
 import { required, helpers,email,numeric, minLength, maxLength} from "@vuelidate/validators";
 export default { 
     
@@ -198,10 +199,19 @@ export default {
 
                 // currentStep:this.currentStep
         },
+        responsedata:[],
         
 
        }
      },
+      mounted(){
+      this.fetch();
+    },
+
+    created(){
+      this.fetch();
+    },
+    
       validations() {
     return {
       person: {
@@ -272,6 +282,12 @@ export default {
       this.$emit('ChangeReg1',this.person)
       }
     },
+    fetch(){
+      loginapi.orgndatagetvalues().then(response=>{
+        this.responsedata=response.data
+        console.log(this.responsedata)
+      })
+    }
   
   }
    
@@ -428,21 +444,8 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
-<<<<<<< HEAD
-/* p::after{
-  content: " ";
-  position: absolute;
-  display: block;
-  left: 46%;
-  bottom: 0%;
-  width:8%;
-  height: 2px;
-  /* background-color: aqua; */
-   /* font-family: sans-serif; */
-/* } */
-=======
 
->>>>>>> b23bd1771c9167445932a94f1a9a8afabfb1300c
+
 .img{
   text-align: left 2px;
   margin-left:-10px ;
@@ -450,7 +453,7 @@ input[type=button]{
 }
 
 .backbtn{
-  align-items: baselhsl(180, 100%, 50%)252, 255, 255)
+  align-items: baselhsl(180, 100%, 50%);
    font-family: sans-serif;
 }
 input[type="checkbox"] {
