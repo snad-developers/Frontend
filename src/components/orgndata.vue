@@ -38,6 +38,7 @@
   <li style="text-align: left; margin-left: 10%;">{{role.roles}}</li>
   </template>
 
+
 </div>
 </template>
 
@@ -128,6 +129,7 @@ export default{
   margin-top: 27px;
   margin-left: 330px; 
   padding-bottom: 2%;
+
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15);
   }
@@ -135,11 +137,13 @@ export default{
   border-radius: 25px;
   box-sizing: border-box;
   width: 410px;
+
   height: auto;
   background-color:white;
   margin-top: -14.5%;
   margin-left: 800px;
   padding-bottom: 2%;
+
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15); 
   }  

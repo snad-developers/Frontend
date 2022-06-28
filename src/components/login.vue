@@ -18,7 +18,7 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-    <h2>Login here </h2>
+    <h2><b>Login here</b></h2>
      <div class="forms" style="padding:30px">
      <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
 
