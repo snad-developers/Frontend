@@ -43,5 +43,17 @@ export default{
         var datareq='/reg/'+id
         return API('http://localhost:3000/').post(datareq,data)
     },
-    
+    orgndatagetvalues(){
+        return API('http://localhost:3000/').get('/orgndata')
+    },
+    rolesgetvalues(){
+        return API('http://localhost:3000/').get('/roles')
+    },
+
+    orgndatapost(data){
+        return API('http://localhost:3000/').post('/orgndata',data)
+    },
+    rolespost(data){
+        return API('http://localhost:3000/').post('/roles',data)
+    },
 }
