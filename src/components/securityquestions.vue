@@ -24,13 +24,8 @@
       <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
      <div class="forms">
        <div class="forms1">
-<<<<<<< HEAD
        <label for="Entity" placeholder="Select Question" >
      <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
-=======
-       <label for="q1" placeholder="Select Question" >
-     <select  name="q1" id="Entity" class="user"  v-model="person.question1"
->>>>>>> 4ebd85cb4ee1e2650a9fff2ea78819291bb1d076
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
@@ -57,7 +52,7 @@
               v$.person.answer1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " style="margin-top:2%">
+            " >
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer1.$errors"
@@ -71,7 +66,7 @@
               v$.person.question2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " style="margin-top:5%">
+            " >
       <option disabled selected value  >Select Questions </option>
      <option value="0">What is your favourite food/dish ?</option>
       <option value="1">Who is your childhood hero ?</option>
@@ -94,8 +89,8 @@
               v$.person.answer2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " style="margin-top:2%" >
- <p
+            ">
+          <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer2.$errors"
             :key="error.$uid"
@@ -108,7 +103,7 @@
               v$.person.question3.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " style="margin-top:5%">
+            " >
      <option disabled selected value  >Select Questions </option>        
      <option value="0">What is your favourite food/dish ?</option>
       <option value="1">Who is your childhood hero ?</option>
@@ -131,7 +126,7 @@
               v$.person.answer3.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " style="margin-top:2%">
+            " >
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.answer3.$errors"
