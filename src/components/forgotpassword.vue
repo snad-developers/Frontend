@@ -20,7 +20,8 @@
       <img alt="" src="../assets/snadicon.png" />
    </div>
     <h2><b>Forgot Password?</b> </h2>
-      <h3>Enter the User Id you have used during registration</h3>
+    <br><br>
+      <h6>Enter the User Id you have used during registration</h6>
      <div class="forms">
        <div class="forms1">
       <label for="UserId"></label>
@@ -29,7 +30,8 @@
               v$.person.UserId.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            "
+            style="margin-top:5%" >
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.UserId.$errors"
@@ -63,7 +65,7 @@
 
 <script>
 import useVuelidate from "@vuelidate/core";
-import { required, helpers } from "@vuelidate/validators";
+import { required, helpers, email } from "@vuelidate/validators";
 import loginapi from '../services/loginapi';
 export default {
      // eslint-disable-next-line vue/multi-word-component-names
@@ -86,8 +88,9 @@ export default {
     return {
       person: {
         UserId: {
-          required: helpers.withMessage("UserId is required", required),
+          required: helpers.withMessage("Please enter UserId", required),
           $autoDirty: true,
+          email: helpers.withMessage("Please enter Valid User id", email)
         },
       
       },

@@ -19,7 +19,8 @@
       <img alt="" src="../assets/snadicon.png" />
    </div>
     <h2>Forgot Password? </h2>
-      <h3>Please answer the below security questions to reset password</h3>
+    <br>
+      <h6>Please answer the below security questions to reset password</h6>
      <div class="forms">
        <div class="forms1">
        <label for="Entity" placeholder="Select Question" >
@@ -210,7 +211,7 @@ export default {
    created() {
             this.id = this.$route.params.id;
         },
- methods: {
+methods: {
     submit() {
        this.v$.$touch();
        if(!this.v$.$invalid){
@@ -222,24 +223,23 @@ export default {
 
 }
 console.log(sdata)
-
-    
-                
+// var cortrectanswers=['dd', 'ww', 'qq', 'ee', 'tt'];             
  this.responsedata=loginapi.securityanscheck(sdata,this.id).then(response=>{
  console.log(response,"response data");
  console.log(response.data.answers)
 
  if(response.data){
-   console.log("if condition")
+  // console.log("if condition")
   if(response.data.status == "success" && response.data.statuscode == 200){
     var cortrectanswers=response.data.answers;
 var questins=[this.person.question1,this.person.question2,this.person.question3];
 var answers=[this.person.answer1,this.person.answer2,this.person.answer3]
 var count=0;
-  for (var i = 0; i<cortrectanswers.length; i++) {
-    if(questins[i]==i  && questins[i] && answers[i]==cortrectanswers[i] && answers[i] ){
+  for (var i = 0; i<questins.length; i++) {
+      if(answers[i]==cortrectanswers[questins[i]]){
       count=count+1;
-    }
+      
+      }
   }
 if(count >= 3){
 this.$router.push({ name: 'resetpassword', params: { id: response.data.mailid}});
