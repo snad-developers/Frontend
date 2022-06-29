@@ -64,11 +64,9 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-     <option disabled selected value>Select Entity</option>
+     <option  selected value>Select Entity</option>
 
-      <template  v-for="(entity,index) in responsedata" :key="index">
-      <option value="Averon Solutions">{{entity.entity}}</option>
-        </template>
+      <option v-for="(entity,index) in responsedata" :key="index" >{{entity.entity}}</option>
      </select>
       <p
             class="text-red-500 text-xs font-thin"

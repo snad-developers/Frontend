@@ -80,10 +80,8 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-<option disabled selected value  > Select Role </option>
-      <template  v-for="(role,index) in responsedata" :key="index">
-      <option value="Averon Solutions">{{role.roles}}</option>
-      </template>
+<option selected value  > Select Role </option>
+      <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
 </select>
   <p
             class="text-red-500 text-xs font-thin"

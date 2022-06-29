@@ -78,9 +78,7 @@
                 : 'text-fields'
             ">
      <option disabled selected value>Entity</option>
-      <template  v-for="(entity,index) in responsedata" :key="index">
-      <option value="Averon Solutions">{{entity.entity}}</option>
-      </template>
+      <option   v-for="(entity,index) in responsedata" :key="index">{{entity.entity}}</option>
      </select>
     </label>
 
