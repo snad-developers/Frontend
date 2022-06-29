@@ -1,6 +1,6 @@
 <template>
   
-<div class = "main-container"> 
+<div class = "main-container" style="margin-top:140px"> 
 
   <div class="child-div1">
   <h1><b>ANALYZE</b></h1>

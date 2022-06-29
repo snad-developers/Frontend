@@ -58,7 +58,7 @@
        <div class="id">
          <label for="Entity"></label>
       <!-- <input  name="phonenumber" type="text" for="phonenumber" class="phone" placeholder="phone number" required v-model="person.companyid"> -->
-       <select  style="border-color:black;border-radius:15px;margin:10px;width:226px;" align="right" class="user" v-model="person.Entity"
+       <select  style="border-color:black;border-radius:18px;margin:10px;width:226px;" align="right" class="user" v-model="person.Entity"
        :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
