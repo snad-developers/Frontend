@@ -51,7 +51,7 @@
           >
             {{ error.$message }}
           </p>
-      <i class="uil uil-eye" style="margin-left:-20px;"></i>
+      <i class="uil uil-eye-slash" style="margin-left:-20px;"></i>
   <input  style="margin: 7px 0px 12px 0px" type="password"   placeholder="Password"  class="user" 
       v-model="person.Password"
             :class="
@@ -101,6 +101,7 @@
     <h6>OR</h6>
   <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label>
     <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
+    <a href="/abc">abc</a>
    
    </div> 
    
@@ -115,6 +116,7 @@
 </template>
 
 <script>
+
 // eslint-disable-next-line no-unused-vars
 import useVuelidate from "@vuelidate/core";
 import { required, helpers, email,    } from "@vuelidate/validators";
@@ -190,6 +192,7 @@ if(response.data){
  },
 
   },
+
    
 }
 </script> 
@@ -390,7 +393,7 @@ p{
   right: 10px;
 }
 .regis1{
-  color:#0a090a;
+  color:#000000;
 }
 .regis1:hover{
   color: #4ec6d8;
