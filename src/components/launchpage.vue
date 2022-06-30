@@ -57,7 +57,7 @@
     <div class="box-color">
             <h3> Employee Expenses</h3>
             <p>${{empexpensestotal}}</p>
-          <router-link to="/emplyexpensesData" ><h6 style="color: blue;">Acess data</h6></router-link>
+          <router-link to="/employeexpensedata" ><h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
      </div> 
@@ -74,7 +74,7 @@
      <div class="box-color">
             <h3>Management Expenses</h3>
             <p>$ {{mgmtexpensestotal}}</p>
-           <router-link to="/mngmtexpensesData"> <h6 style="color: blue;">Acess data</h6>
+           <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
            <slot/></router-link>
     </div>
        </div>
@@ -82,7 +82,7 @@
       <div class="box-color">
             <h3>Payroll Expenses</h3>
             <p>$ {{payrollexpensestotal}}</p>
-           <router-link to="/payrollData"><h6 style="color: blue;">Acess data</h6></router-link>
+           <router-link to="/payrollaccessdata"><h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
      <div class="box-color">

@@ -6,7 +6,7 @@ import resetpassword from '../components/resetpassword.vue';
 import registrationPage from '../components/registrationPage .vue';
 import dashpage from '../components/dashpage.vue';
 import Ldbpage from '../components/Ldbpage.vue';
-import padpage from '../components/padpage.vue';
+import payrollaccessdata from '../components/payrollaccessdata.vue';
 import reportpage from '../components/reportpage.vue';
 import activeemplydata from '../components/activeemplydata.vue';
 import amdpage from '../components/amdpage.vue';
@@ -23,6 +23,12 @@ import RegistrationOne from '../components/RegistrationOne.vue';
 import RegistrationTwo from '../components/RegistrationTwo.vue';
 import RegistrationThree from '../components/RegistrationThree.vue';
 import receiVables from '../components/receiVables.vue'
+import managmentexpenses from '../components/managmentexpenses.vue'
+import employeexpensedata from '../components/employeexpensedata.vue'
+
+
+
+
 
 import FileUpload from '../components/CSVFileUpload.vue';
 const routes = [
@@ -30,6 +36,21 @@ const routes = [
     path: '/login',
     name: 'login',
     component: login
+  },
+  {
+    path: '/managmentexpenses',
+    name: 'managmentexpenses',
+    component: managmentexpenses
+  },
+  {
+    path: '/employeexpensedata',
+    name: 'employeexpensedata',
+    component: employeexpensedata
+  },
+  {
+    path: '/payrollaccessdata',
+    name: 'payrollaccessdata',
+    component: payrollaccessdata
   },
  
   {
@@ -64,11 +85,7 @@ const routes = [
     name: 'Ldbpage',
     component: Ldbpage
   },
-  {
-    path: '/padpage',
-    name: 'padpage',
-    component: padpage
-  },
+ 
   {
     path: '/reportpage',
     name: 'reportpage',
