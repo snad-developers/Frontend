@@ -23,6 +23,7 @@ import updateData from '../components/updateData';
 import RegistrationTwo from '../components/RegistrationTwo.vue';
 import RegistrationThree from '../components/RegistrationThree.vue';
 import RegistrationOne from '../components/RegistrationOne.vue';
+import FileUpload from '../components/CSVFileUpload.vue';
 const routes = [
   {
     path: '/login',
@@ -149,9 +150,12 @@ const routes = [
     path: '/updateData',
     name: 'updateData',
     component: updateData
-  }
- 
- 
+  },
+  {
+    path: '/FileUpload',
+    name: 'FileUpload',
+    component: FileUpload
+  },
 
 
 
