@@ -33,7 +33,7 @@
        <i class="uil uil-user" style="margin-left:-38px"></i>
       <label for="UserId"></label>
      
-      <input required style="margin: 7px -17px 12px 0px;" type="email" class="user" placeholder="UserId" v-model="person.UserId"
+      <input style="margin: 7px -17px 12px 0px;" type="email" class="user" placeholder="UserId" v-model="person.UserId"
             :class="
               v$.person.UserId.$error === true
                 ? 'text-fields-error'
@@ -51,14 +51,17 @@
           >
             {{ error.$message }}
           </p>
-      <i class="uil uil-eye-slash" style="margin-left:-20px;"></i>
-  <input  style="margin: 7px 0px 12px 0px" type="password"   placeholder="Password"  class="user" 
+     
+  <input :type="passwordFieldType"  style="margin: 7px 0px 12px 0px;margin-left:-11px"   placeholder="Password"  class="user" 
       v-model="person.Password"
             :class="
               v$.person.Password.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
+          <a type="password" @click="switchVisibility"><span class="icon is-small is-right"><i style="margin-left:-20px;"  class="uil" :class="{ 'uil-eye-slash': showPassword, 'uil uil-eye': !showPassword }"> </i> 
+            </span> 
+          </a>
             </div>
          
             
@@ -71,7 +74,7 @@
         </p>
     <label for="Entity" placeholder="Entity" >
       <i class="uil uil-clipboard-notes"  style="margin-left:-20px;"></i>
-     <select style="margin: 7px 0px 12px 0px;border-color: black;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
+     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
@@ -100,7 +103,7 @@
     <h6>OR</h6>
   <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label>
     <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
-    <a href="/abc">abc</a>
+   
    
    </div> 
    
@@ -135,7 +138,9 @@ export default {
             logid:null,
           },
           message:"",
-          responsedata:[]
+          responsedata:[],
+          password:"",
+          passwordFieldType:"password"
         };
       },
  
@@ -176,6 +181,9 @@ export default {
 
 
  methods: {
+  switchVisibility(){
+    this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
+  },
     submit() {
        this.v$.$touch();
        if(!this.v$.$invalid){
@@ -248,8 +256,20 @@ input[type=email]{
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
+     transition-duration: 5s;
    
 }
+input[type=text]:hover{
+  border-color: rgb(87, 239, 87);
+  transition-duration: 5s;
+ transition-duration: 5s;
+}
+input[type=email]:hover{
+  border-color: rgb(87, 239, 87);
+  transition-duration: 5s;
+ transition-duration: 5s;
+}
+
 input[type=password]{
 
     padding: 12px 20px;
