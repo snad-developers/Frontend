@@ -55,10 +55,10 @@
                EmpID
             </th>
             <th>
-               Gender
+               First Name
             </th>
             <th>
-               Jobtitle
+               Last Name
             </th>
             <th>
                Sum
@@ -70,8 +70,8 @@
             <tr>
 
 <td>{{data.employeeid}}</td>
-<td>{{data.gender}}</td>
-<td>{{data.jobtitle}}</td>
+<td>{{data.firstname}}</td>
+<td>{{data.lastname}}</td>
 <td>{{data.sum}}</td>
 
 
