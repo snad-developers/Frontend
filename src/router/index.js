@@ -19,16 +19,18 @@ import HomePage from '../components/HomePage.vue';
 import penReq from '../components/penReq.vue';
 import viewDetails from '../components/viewDetails';
 import updateData from '../components/updateData';
-
+import RegistrationOne from '../components/RegistrationOne.vue';
 import RegistrationTwo from '../components/RegistrationTwo.vue';
 import RegistrationThree from '../components/RegistrationThree.vue';
-import RegistrationOne from '../components/RegistrationOne.vue';
+
+
 const routes = [
   {
     path: '/login',
     name: 'login',
     component: login
   },
+ 
   {
     path: '/forgotpassword',
     name: 'forgotpassword',

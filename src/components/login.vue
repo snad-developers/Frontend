@@ -1,4 +1,5 @@
 <template>
+
 <div class = "main-container"> 
 
   <div class="child-div1">
@@ -84,8 +85,9 @@
 
     <div class="main-div">
       <div>
-       <input type="checkbox" id="Remember me" value="Remember me" >
+       <input type="checkbox" id="customCheck" value="Remember me"  class="custom-control-input remember" >
     <label for="remember me"> Remember me</label>
+    
 </div>
 <div>
     <span>
@@ -100,7 +102,7 @@
     <h6>OR</h6>
   <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label>
     <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
-    <a href="/abc">abc</a>
+    <!-- <a href="/abc">abc</a> -->
    
    </div> 
    
@@ -213,9 +215,10 @@ export default {
     }
 
   },
+ 
 
-   
-}
+  }
+
 </script> 
 
 <style>
@@ -330,6 +333,8 @@ body{
   margin-top: 50px;
   position: relative;
    font-family: sans-serif;
+   background: #634ed8;
+   
 
 }  
 .loginhere,
