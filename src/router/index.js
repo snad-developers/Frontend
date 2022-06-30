@@ -22,6 +22,7 @@ import updateData from '../components/updateData';
 import RegistrationOne from '../components/RegistrationOne.vue';
 import RegistrationTwo from '../components/RegistrationTwo.vue';
 import RegistrationThree from '../components/RegistrationThree.vue';
+import receiVables from '../components/receiVables.vue'
 
 import FileUpload from '../components/CSVFileUpload.vue';
 const routes = [
@@ -156,6 +157,11 @@ const routes = [
     path: '/FileUpload',
     name: 'FileUpload',
     component: FileUpload
+  },
+  {
+    path: '/receiVables',
+    name: 'receiVables',
+    component: receiVables
   },
 
 

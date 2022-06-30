@@ -40,21 +40,21 @@
       <img alt="" src="../assets/snadicon.png" />
    </div> -->
     <h2>Select the data you want Load </h2>
-     <div class="forms" style="padding:10px">
+     <div class="forms" style="padding:10px; width:;">
  <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " required>
  <label for="html" style="margin:2px">Client</label><br><br>
- <input type="radio" id="css" name="fav_language" value="CSS" style="margin-left: -269px;">
+ <input type="radio" id="css" name="fav_language" value="Payroll" style="margin-left: -269px;">
  <label for="css"  style="margin:2px">Pay Roll</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -249px;">
- <label for="javascript"  style="margin:2px">Time Sheet</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -172px;">
- <label for="javascript"  style="margin:2px">Managment Expenses</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -222px;">
- <label for="javascript"  style="margin:2px">Employee Data</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -186px;">
- <label for="javascript"  style="margin:2px">Employee Expenses</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -173px;">
- <label for="javascript"  style="margin:2px">Immigration Expenses</label><br><br>
+ <input type="radio" id="java" name="fav_language" value="Timesheet" style="margin-left: -249px;">
+ <label for="java"  style="margin:2px">Time Sheet</label><br><br>
+ <input type="radio" id="script" name="fav_language" value="Management Expenses" style="margin-left: -172px;">
+ <label for="script"  style="margin:2px">Managment Expenses</label><br><br>
+ <input type="radio" id="empdata" name="fav_language" value="Employee Data" style="margin-left: -222px;">
+ <label for="empdata"  style="margin:2px">Employee Data</label><br><br>
+ <input type="radio" id="jav" name="fav_language" value="Employee Expenses" style="margin-left: -186px;">
+ <label for="jav"  style="margin:2px">Employee Expenses</label><br><br>
+ <input type="radio" id="ript" name="fav_language" value="Immigration Expenses" style="margin-left: -173px;">
+ <label for="ript"  style="margin:2px">Immigration Expenses</label><br><br>
  
   <input id="ldb" name="empexpense" type="file" required>
   <b-alert><input id ="upload" type="submit" value="Upload" @click="Upload"  style="border-radius: 25px;
@@ -251,7 +251,7 @@ h1{
 }
 .loginhere{
   height: 97%;
-   width: 400px;
+   width: 500px;
    /* max-height: 5%; */
    margin: 10px auto;
    border-radius: 15px;

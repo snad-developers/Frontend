@@ -35,9 +35,9 @@
    <template  v-for="(employeedata,index) in responsedata" :key="index">
        <tr v-if="employeedata.empstatus == 'Active'">
    
-        <td >{{employeedata.employeenumber}}</td>
-<td>{{employeedata.employeefirstName}}</td>
-<td>{{employeedata.employeelastName}}</td>
+        <td >{{employeedata.employeeid}}</td>
+<td>{{employeedata.firstname}}</td>
+<td>{{employeedata.lastname}}</td>
 <td>{{employeedata.emailaddress}}</td>
 <td>{{employeedata.contactnumber}}</td>
 <td>{{employeedata.jobtitle}}</td>

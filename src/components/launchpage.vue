@@ -65,7 +65,8 @@
      <div class="box-color">
             <h3>Outstanding Receivables</h3>
             <p>$ {{Receivables}}</p>
-             <h6 style="color: blue;">Acess data</h6>
+             <router-link to="/receiVables"><h6 style="color: blue;">Acess data</h6></router-link> 
+             
         
     </div>
    

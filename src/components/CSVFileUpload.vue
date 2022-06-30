@@ -52,26 +52,23 @@
     <thead style=" background-color:rgb(240, 232, 232); color:grey; fill-opacity: initial;">
         <tr>
             <th>
-               EmpID
+               ClientID
             </th>
             <th>
-               First Name
+               Client Name
             </th>
             <th>
-               Last Name
+               Receivables
             </th>
-            <th>
-               Sum
-            </th>
+           
         </tr>
     </thead>
     <tbody>
           <template v-for="(data,index) in showdata" :key="index" > 
             <tr>
 
-<td>{{data.employeeid}}</td>
-<td>{{data.firstname}}</td>
-<td>{{data.lastname}}</td>
+<td>{{data.clientid}}</td>
+<td>{{data.clientname}}</td>
 <td>{{data.sum}}</td>
 
 
