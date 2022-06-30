@@ -80,17 +80,8 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-<option disabled selected value  > Select Role </option>
-<option value ="Management">Management</option>
-<option value ="Department heads">Department heads</option>
-<option value ="Department heads">Department heads</option>
-<option value ="Accounting clerks">Accounting clerks</option>
-<option value ="Resource managers">Department heads</option>
-<option value ="Admin">Admin</option>
-<option value ="Payroll Admin">Payroll Admin</option>
-<option value ="HR Manager">HR Manager</option>
-<option value ="HR Analyst">HR Analyst</option>
-<option value ="Payroll Analyst">Payroll Analyst</option>
+<option selected value  > Select Role </option>
+      <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
 </select>
   <p
             class="text-red-500 text-xs font-thin"
@@ -186,7 +177,7 @@
 <script>
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
-//import loginapi from '../services/loginapi';
+import loginapi from '../services/loginapi';
 import { required, helpers, minLength, numeric } from "@vuelidate/validators";
 
 export default {
@@ -231,6 +222,7 @@ export default {
                  confirmpwd:this.data.confirmpwd,
                   buttonvalue:""
         },
+        responsedata:[]
         
 
        }
@@ -254,32 +246,32 @@ export default {
           },
 
           AdressLine1: { 
-            required: helpers.withMessage("Enter Address Line 1", required), 
+            // required: helpers.withMessage("Enter Address Line 1", required), 
             $autoDirty: true 
           },
 
           AdressLine2: { 
-            required: helpers.withMessage("Enter Address Line 2", required), 
+            // required: helpers.withMessage("Enter Address Line 2", required), 
             $autoDirty: true 
           },
 
           country: { 
-            required: helpers.withMessage("Enter Country Name", required), 
+            // required: helpers.withMessage("Enter Country Name", required), 
             $autoDirty: true 
           },
 
           state: { 
-            required: helpers.withMessage("Entner State Name", required), 
+            // required: helpers.withMessage("Entner State Name", required), 
             $autoDirty: true
           },
 
           city: { 
-            required: helpers.withMessage("Enter City Name", required), 
+            // required: helpers.withMessage("Enter City Name", required), 
             $autoDirty: true 
           },
 
           zipcode: { 
-            required: helpers.withMessage("Enter Zipcode", required), 
+            // required: helpers.withMessage("Enter Zipcode", required), 
             $autoDirty: true,
             numeric,
             minLength:helpers.withMessage("Zipcode shoud have min 6 numbers", minLength(6) ) 
@@ -307,6 +299,14 @@ export default {
       },
     };
   },
+   mounted(){
+      this.fetch();
+    },
+
+    created(){
+      this.fetch();
+    },
+
       methods:{
       
     passEvent()
@@ -317,6 +317,12 @@ export default {
       this.$emit('ChangeReg2',this.person)
       }
     },
+    fetch(){
+      loginapi.rolesgetvalues().then(response=>{
+        this.responsedata=response.data
+        console.log(this.responsedata)
+      })
+    }
   
   }
 }
@@ -452,21 +458,6 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
-<<<<<<< HEAD
-/* p::after{
-  content: " ";
-  position: absolute;
-  display: block;
-  left: 46%;
-  bottom: 0%;
-  width:8%;
-  height: 2px;
-  background-color: aqua;
-   font-family: sans-serif;
-} */
-=======
-
->>>>>>> b23bd1771c9167445932a94f1a9a8afabfb1300c
 .img{
   text-align: left 2px;
   margin-left:-10px ;

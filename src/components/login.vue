@@ -51,7 +51,7 @@
           >
             {{ error.$message }}
           </p>
-      <i class="uil uil-eye" style="margin-left:-20px;"></i>
+      <i class="uil uil-eye-slash" style="margin-left:-20px;"></i>
   <input  style="margin: 7px 0px 12px 0px" type="password"   placeholder="Password"  class="user" 
       v-model="person.Password"
             :class="
@@ -78,8 +78,7 @@
                 : 'text-fields'
             ">
      <option disabled selected value>Entity</option>
-      <option value="Averon Solutions">Averon Solutions</option>
-      <option value="SNAD">SNAD</option>
+      <option   v-for="(entity,index) in responsedata" :key="index">{{entity.entity}}</option>
      </select>
     </label>
 
@@ -101,6 +100,7 @@
     <h6>OR</h6>
   <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label>
     <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
+    <a href="/abc">abc</a>
    
    </div> 
    
@@ -115,6 +115,7 @@
 </template>
 
 <script>
+
 // eslint-disable-next-line no-unused-vars
 import useVuelidate from "@vuelidate/core";
 import { required, helpers, email,    } from "@vuelidate/validators";
@@ -124,72 +125,95 @@ export default {
      name: "login",
 
       data() {
-    return {
-      v$: useVuelidate(),
-      person: {
-        UserId: null,
-        Password: null,
-        Entity: null,
-        rmemberMe: null,
-        logid:null,
+        return {
+          v$: useVuelidate(),
+          person: {
+            UserId: null,
+            Password: null,
+            Entity: null,
+            rmemberMe: null,
+            logid:null,
+          },
+          message:"",
+          responsedata:[]
+        };
       },
-      message:""
-    };
-  },
  
 
-  validations() {
-    return {
-      person: {
-        UserId: {
-          required: helpers.withMessage("Please Enter Userid", required),
-          $autoDirty: true,
-          email: helpers.withMessage("Please enter a valid email id", email),
+    validations() {
+      return {
+        person: {
+          UserId: {
+            required: helpers.withMessage("Please Enter Userid", required),
+            $autoDirty: true,
+            email: helpers.withMessage("Please enter a valid email id", email),
           
+          },
+          Password: {
+            required:helpers.withMessage("Please Enter password", required),
+            $autoDirty: true 
+          },
+
+          Entity: { 
+            required:helpers.withMessage("Please Select Entity", required), 
+            $autoDirty: true 
+          },
+
+          rmemberMe: {  $autoDirty: true },
+
         },
-        Password: {
-           required:helpers.withMessage("Please Enter password", required),
-           $autoDirty: true },
-
-        Entity: { 
-          required:helpers.withMessage("Please Select Entity", required), 
-          $autoDirty: true },
-
-        rmemberMe: {  $autoDirty: true },
-
-      },
   
-    };
-  },
+      };
+    },
+
+    mounted(){
+      this.fetch();
+    },
+
+    created(){
+      this.fetch();
+    },
+
+
  methods: {
     submit() {
        this.v$.$touch();
        if(!this.v$.$invalid){
-        let sdata = {
-    "password":this.person.Password,
-    "email":this.person.UserId,
-    "entity":this.person.Entity
-}
- this.responsedata=loginapi.loginservice(sdata).then(response=>{
-console.log(response,"response data");
-if(response.data){
-  console.log("if condition")
- if(response.data.status == "success" && response.data.statuscode == 200  ){
-    this.$router.push({name:"launchpage",params:response.data.logid});
-    console.log(this.logid)
- }
-  if(response.data.status == "failure" && response.data.statuscode == 201){
-  this.message=response.data.message
- }
+          let sdata = {
+            "password":this.person.Password,
+            "email":this.person.UserId,
+            "entity":this.person.Entity
+          }
 
-}
+          this.responsedata=loginapi.loginservice(sdata).then(response=>{
+            console.log(response,"response data");
+            if(response.data){
+              console.log("if condition")
+              if(response.data.status == "success" && response.data.statuscode == 200  ){
+                this.$router.push({name:"launchpage",params:response.data.logid});
+                console.log(this.logid)
+              }
+
+              if(response.data.status == "failure" && response.data.statuscode == 201){
+                this.message=response.data.message
+              }
+
+            }
   
-       })
+          })
 
-       }
- },
+        }
+     },
+
+    fetch(){
+      loginapi.orgndatagetvalues().then(response=>{
+        this.responsedata=response.data
+        console.log(this.responsedata)
+      })
+    }
 
   },
+
    
 }
 </script> 
@@ -390,7 +414,7 @@ p{
   right: 10px;
 }
 .regis1{
-  color:#0a090a;
+  color:#000000;
 }
 .regis1:hover{
   color: #4ec6d8;
