@@ -43,5 +43,11 @@ export default{
         var datareq='/reg/'+id
         return API('http://localhost:3000/').post(datareq,data)
     },
+    fileUpload(data){
+        return API('http://localhost:3000/').post('/fileupload',data)  
+    },
+    accessdata(){
+        return API('http://localhost:3000/').get('/accessdata')
+    }
     
 }
