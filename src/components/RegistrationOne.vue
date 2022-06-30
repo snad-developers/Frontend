@@ -6,7 +6,7 @@
       <div class="child-4">
          <div class="id">
       <label for="firstname"></label>
-       <input style="margin:10px" type="text" placeholder="First Name" v-model="person.firstname" 
+       <input style="margin:10px;border-color:light green;transition-duration:0.6s" type="text" placeholder="First Name" v-model="person.firstname" 
              :class="
               v$.person.firstname.$error === true
                 ? 'text-fields-error'
@@ -64,10 +64,9 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-     <option disabled selected value>Select Entity</option>
+     <option  selected value>Select Entity</option>
 
-      <option value="Averon Solutions">Averon Solutions</option>
-      <option value="SNAD">SNAD</option>
+      <option v-for="(entity,index) in responsedata" :key="index" >{{entity.entity}}</option>
      </select>
       <p
             class="text-red-500 text-xs font-thin"
@@ -138,7 +137,7 @@
        <div class="id">
         <label for="dateofBirth"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input  style="margin:10px" type="date" placeholder="Date Of Birth" v-model="person.dateofBirth"
+       <input  style="margin:10px;width:226px;padding:10px" type="date" placeholder="Date Of Birth" v-model="person.dateofBirth"
             :class="
               v$.person.dateofBirth.$error === true
                 ? 'text-fields-error'
@@ -169,7 +168,7 @@
 // eslint-disable-next-line no-unused-vars
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
-//import loginapi from '../services/loginapi';
+import loginapi from '../services/loginapi';
 import { required, helpers,email,numeric, minLength, maxLength} from "@vuelidate/validators";
 export default { 
     
@@ -198,10 +197,19 @@ export default {
 
                 // currentStep:this.currentStep
         },
+        responsedata:[],
         
 
        }
      },
+      mounted(){
+      this.fetch();
+    },
+
+    created(){
+      this.fetch();
+    },
+    
       validations() {
     return {
       person: {
@@ -272,6 +280,12 @@ export default {
       this.$emit('ChangeReg1',this.person)
       }
     },
+    fetch(){
+      loginapi.orgndatagetvalues().then(response=>{
+        this.responsedata=response.data
+        console.log(this.responsedata)
+      })
+    }
   
   }
    
@@ -428,21 +442,8 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
-<<<<<<< HEAD
-/* p::after{
-  content: " ";
-  position: absolute;
-  display: block;
-  left: 46%;
-  bottom: 0%;
-  width:8%;
-  height: 2px;
-  /* background-color: aqua; */
-   /* font-family: sans-serif; */
-/* } */
-=======
 
->>>>>>> b23bd1771c9167445932a94f1a9a8afabfb1300c
+
 .img{
   text-align: left 2px;
   margin-left:-10px ;
@@ -450,7 +451,7 @@ input[type=button]{
 }
 
 .backbtn{
-  align-items: baselhsl(180, 100%, 50%)252, 255, 255)
+  align-items: baselhsl(180, 100%, 50%);
    font-family: sans-serif;
 }
 input[type="checkbox"] {

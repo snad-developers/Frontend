@@ -1,5 +1,4 @@
 <template>
-<div>{{logid.id}}</div>
 <div class="maincontainer">
  <div class="sidebar">
     <div class="img">
