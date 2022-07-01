@@ -10,36 +10,52 @@
                     <div class="fields">
                         <div class="input-field">
                             <label for="firstname">First Name</label>
-                            <input type="text" for="firstName" name="firstName" placeholder="Enter your name" required v-model="person.firstName">
+                            <input type="text" for="firstName" name="firstName" placeholder="Enter your name" required v-model="person.firstName" style="outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 20px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;">
                         </div>
 
                         <div class="input-field">
                             <label for="lastName">Last Name</label>
-                            <input type="text" name="lastName" for="LastName" placeholder="Enter your name" required v-model="person.lastName">
+                            <input type="text" name="lastName" for="LastName" placeholder="Enter your name" required v-model="person.lastName"  style=" border-radius: 20px;">
                         </div>
                         <div class="input-field">
                             <label for="idnumber">Idnmber</label>
-                            <input type="text" name="idnumber" for="idnumber" placeholder="Enter your name" required v-model="person.idnumber">
+                            <input type="text" name="idnumber" for="idnumber" placeholder="Enter your name" required v-model="person.idnumber" style="outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 20px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;">
                         </div>
 
                         <div class="input-field">
                              <label for="address1">Adress Line1</label>
-                              <input type="text" for="address1" name="address1" class="last name" placeholder="Adress Line1" required v-model="person.address1" >
+                              <input type="text" for="address1" name="address1" class="last name" placeholder="Adress Line1" required v-model="person.address1"  style=" border-radius: 20px;">
                         </div>
                          <div class="input-field">
                              <label for="address2">Adress Line2</label>
-                              <input type="text" for="address2" name="address2" class="last name" placeholder="Adress Line1" required v-model="person.address2" >
+                              <input type="text" for="address2" name="address2" class="last name" placeholder="Adress Line1" required v-model="person.address2"  style=" border-radius: 20px;">
                         </div>
 
 
                         <div class="input-field">
                             <label for="city">City</label>
-                           <input for="city" name="city" type="text" class="company" placeholder="City" required v-model="person.city" >
+                           <input for="city" name="city" type="text" class="company" placeholder="City" required v-model="person.city"   style=" border-radius: 20px;">
                         </div>
 
                         <div class="input-field">
                             <label for="gender">Gender</label>
-                            <select required name="gender" for="gender" v-model="person.gender" style="width: 100%;">
+                            <select required name="gender" for="gender" v-model="person.gender" style="width: 100%; border-radius:20px;">
                                 <option disabled selected>Select gender</option>
                                 <option>Male</option>
                                 <option>Female</option>
@@ -49,21 +65,21 @@
 
                         <div class="input-field" >
                            <label for="state">State</label>
-                            <input for="state" name="state" type="text" class="username" placeholder="State" required v-model="person.state" style="width: 100%;" >
+                            <input for="state" name="state" type="text" class="username" placeholder="State" required v-model="person.state" style="width: 100%;  border-radius:20px;" >
                         </div>
                         <div class="input-field">
                            <label for="zipcode">Zip Code</label>
-      <input type="text" for="zipcode" name="zipcode" class="phone" placeholder="Zip Zode" required v-model="person.zipcode" >
+      <input type="text" for="zipcode" name="zipcode" class="phone" placeholder="Zip Zode" required v-model="person.zipcode" style=" border-radius:20px;">
                         </div>
                           <div class="input-field">
                            <label for="country">Country</label>
-      <input type="text" for="country" name="country" class="phone" placeholder="Country" required v-model="person.country">
+      <input type="text" for="country" name="country" class="phone" placeholder="Country" required v-model="person.country" style=" border-radius:20px;">
                          </div>
 
 
         <div class="input-field">
         <lable for="Entity">Entity</lable>
-      <select name="Entity" for="Entity" id ="repeat1" required v-model="person.entity"  placeholder="Entity" align="right" class="user">
+      <select name="Entity" for="Entity" id ="repeat1" required v-model="person.entity"  placeholder="Entity" align="right" class="user" style=" border-radius:20px;">
        
       <option disabled selected value  > Choose Entity </option>
       <option value="Averon Solutions">Averon Solutions</option>
@@ -71,7 +87,7 @@
      </select>
    
      </div>
-      
+
 
                          </div>
                        
@@ -85,13 +101,11 @@
                     <div class="fields">
                         <div class="input-field">
                                 <label for="role">Role</label>
-      <select name="role" for="role" id ="repeat1" required v-model="person.role"  placeholder="entity" align="right" class="user">
-<option disabled selected value  > Choose Role </option>
+      <select name="role" for="role" id ="repeat1" required v-model="person.role"  placeholder="entity" align="right" class="user" style=" border-radius:20px;">
+<option selected value  > Choose Role </option>
 <option value ="Management" >Management</option>
-<option value ="Department heads">Department heads</option>
-<option value ="Department heads">Department heads</option>
-<option value ="Accounting clerks">Accounting clerks</option>
-<option value ="Resource managers">Department heads</option>
+<option value ="Accounting clerks">Accounting clerk</option>
+<option value ="Resource managers">Department head</option>
 <option value ="Admin">Admin</option>
 <option value ="Payroll Admin">Payroll Admin</option>
 <option value ="HR Manager">HR Manager</option>
@@ -103,24 +117,24 @@
                         
 
                         <div class="input-field">
-                             <label for="email">User id</label>
+                             <label for="email" style="top:-89px">User id</label>
                              <input type="email" name="email" for="email" class="username" placeholder="User Id" required v-model="person.email" style="width: 100%; 
-    margin-bottom: -8px;" >
+    margin-bottom: -8px; top:-92px; text-align:center;  border-radius:20px;" >
                         </div>
                         <div class="input-field">
-                             <label for="phoneNumber">Phone number</label>
+                             <label for="phoneNumber" style=" margin-left:-498px;">Phone number</label>
                              <input type="text" name="PhoneNumber" for="PhoneNumber" class="username" placeholder="Phone Number" required v-model="person.phoneNumber" style="width: 100%; 
-    margin-bottom: -8px;" >
+    margin-bottom: -8px; top:-8px; margin-left:-248px; border-radius:20px;" >
                         </div>
 
                       <div class="input-field">
-                             <label for="password">Create Password</label>
-      <input type="text" for="password" name="password" class="phone" placeholder="Create Password" required v-model="person.password" >
+                             <label for="password" style="margin-right:-991px; top:-76px;">Create Password</label>
+      <input type="text" for="password" name="password" class="phone" placeholder="Create Password" required v-model="person.password" style="left:503px; top:-83px; border-radius:20px;" >
                         </div>
 
                         <div class="input-field">
-                              <label for="confirmPassword"> Confirm Password</label>
-      <input type="text" for="confirmPassword" name="confirmPassword" class="phone" placeholder="Confirm Password" required v-model="person.confirmPassword">
+                              <label for="confirmPassword" style="left:-510px;"> Confirm Password</label>
+      <input type="text" for="confirmPassword" name="confirmPassword" class="phone" placeholder="Confirm Password" required v-model="person.confirmPassword" style="left:-500px; border-radius:20px;">
                         </div>
 
                        
@@ -413,3 +427,19 @@ form .buttons button , .backBtn{
 }
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

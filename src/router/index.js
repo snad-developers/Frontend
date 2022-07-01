@@ -6,7 +6,7 @@ import resetpassword from '../components/resetpassword.vue';
 import registrationPage from '../components/registrationPage .vue';
 import dashpage from '../components/dashpage.vue';
 import Ldbpage from '../components/Ldbpage.vue';
-import padpage from '../components/padpage.vue';
+import payrollaccessdata from '../components/payrollaccessdata.vue';
 import reportpage from '../components/reportpage.vue';
 import activeemplydata from '../components/activeemplydata.vue';
 import amdpage from '../components/amdpage.vue';
@@ -19,10 +19,17 @@ import HomePage from '../components/HomePage.vue';
 import penReq from '../components/penReq.vue';
 import viewDetails from '../components/viewDetails';
 import updateData from '../components/updateData';
-
+import RegistrationOne from '../components/RegistrationOne.vue';
 import RegistrationTwo from '../components/RegistrationTwo.vue';
 import RegistrationThree from '../components/RegistrationThree.vue';
-import RegistrationOne from '../components/RegistrationOne.vue';
+import receiVables from '../components/receiVables.vue'
+import managmentexpenses from '../components/managmentexpenses.vue'
+import employeexpensedata from '../components/employeexpensedata.vue'
+
+
+
+
+
 import FileUpload from '../components/CSVFileUpload.vue';
 const routes = [
   {
@@ -30,6 +37,22 @@ const routes = [
     name: 'login',
     component: login
   },
+  {
+    path: '/managmentexpenses',
+    name: 'managmentexpenses',
+    component: managmentexpenses
+  },
+  {
+    path: '/employeexpensedata',
+    name: 'employeexpensedata',
+    component: employeexpensedata
+  },
+  {
+    path: '/payrollaccessdata',
+    name: 'payrollaccessdata',
+    component: payrollaccessdata
+  },
+ 
   {
     path: '/forgotpassword',
     name: 'forgotpassword',
@@ -62,11 +85,7 @@ const routes = [
     name: 'Ldbpage',
     component: Ldbpage
   },
-  {
-    path: '/padpage',
-    name: 'padpage',
-    component: padpage
-  },
+ 
   {
     path: '/reportpage',
     name: 'reportpage',
@@ -155,6 +174,11 @@ const routes = [
     path: '/FileUpload',
     name: 'FileUpload',
     component: FileUpload
+  },
+  {
+    path: '/receiVables',
+    name: 'receiVables',
+    component: receiVables
   },
 
 

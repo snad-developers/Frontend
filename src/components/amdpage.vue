@@ -20,8 +20,8 @@
     <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
-    overflow: hidden; width:1200px;
-    margin-left: 300px;
+    overflow: hidden; width:1050px;
+    margin-left: 278px;
     background-color:white">
 
         <thead style="background-color:rgb(240, 232, 232); color:grey; ">

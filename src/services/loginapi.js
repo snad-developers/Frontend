@@ -63,4 +63,13 @@ export default{
     rolespost(data){
         return API('http://localhost:3000/').post('/roles',data)
     },
+   payrollaccessdata(){
+        return API('http://localhost:3000/').get('/payrollaccess')
+    },
+    employeeaccessdata(){
+        return API('http://localhost:3000/').get('/employeeaccessdata')
+    },
+    managmentaccessdata(){
+        return API('http://localhost:3000/').get('/managmentaccessdata')
+    },
 }

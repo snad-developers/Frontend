@@ -33,13 +33,14 @@
    
     
  
-  <form  class="loginhere" >
+  <form  class="loginhere" style="right:-178px;" >
     <br>
     <br>
     <!-- <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div> -->
     <h2>Select the data you want Load </h2>
+
      <div class="forms" style="padding:10px">
  <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " required @click="(filename='0')">
  <label for="html" style="margin:2px">Client</label><br><br>
@@ -55,6 +56,7 @@
  <label for="javascript"  style="margin:2px">Employee Expenses</label><br><br>
  <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -173px;" @click="(filename='6')">
  <label for="javascript"  style="margin:2px">Immigration Expenses</label><br><br>
+
  
   <input id="ldb" name="empexpense" required  type="file" accept=".csv" @change="handleFileUpload( $event )">
   <b-alert><input id ="upload" type="submit" value="Upload" @click.prevent="validatefields"  style="border-radius: 25px;
@@ -388,7 +390,7 @@ h1{
 }
 .loginhere{
   height: 97%;
-   width: 400px;
+   width: 500px;
    /* max-height: 5%; */
    margin: 10px auto;
    border-radius: 15px;

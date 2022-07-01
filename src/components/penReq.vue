@@ -20,12 +20,12 @@
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
 
-<h2><b>Pending Requests</b></h2>
+<h2 style="margin-left:278px;"><b>Pending Requests</b></h2>
  <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
     overflow: hidden; width:950px;
-    margin-left: 400px;
+    margin-left: 360px;
     margin-top: 20px;
     margin-bottom: 50px;
     background-color:white">

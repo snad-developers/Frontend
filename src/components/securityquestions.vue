@@ -242,7 +242,7 @@ var count=0;
 if(count >= 3){
 this.$router.push({ name: 'resetpassword', params: { id: response.data.mailid}});
 }else{
-this.message="Please Enter Valid Deatails";
+this.message="Please Enter Valid Details";
 }
      
   }
