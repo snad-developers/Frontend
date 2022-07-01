@@ -24,7 +24,7 @@
       <div class="id">
       <label for="city"></label>
       <!-- <input  type="text" for="city" class="company" placeholder="city" required v-model="person.city"> -->
-        <input  style="margin:10px" type="text" placeholder="City" v-model="person.city"  class="user"
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="City" v-model="person.city" 
              :class="
               v$.person.city.$error === true
                 ? 'text-fields-error'
@@ -114,7 +114,7 @@
        <div class="id">
         <label for="state"></label>
       <!-- <input  type="text" for="state" class="username" placeholder="state" required v-model="person.state"> -->
-        <input  style="margin:10px" type="text" placeholder="State" v-model="person.state"  class="user"
+        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="State" v-model="person.state" 
              :class="
               v$.person.state.$error === true
                 ? 'text-fields-error'
@@ -131,7 +131,7 @@
               <div class="id">
         <label for="country"></label>
       <!-- <input  type="text" for="country" class="phone" placeholder="country" required v-model="person.country"> -->
-        <input style="margin:10px" type="text" placeholder="Country" v-model="person.country"  class="user"
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="Country" v-model="person.country" 
              :class="
               v$.person.country.$error === true
                 ? 'text-fields-error'
@@ -178,7 +178,7 @@
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
 import loginapi from '../services/loginapi';
-import { required, helpers, minLength, numeric } from "@vuelidate/validators";
+import { required, helpers, minLength, numeric, } from "@vuelidate/validators";
 
 export default {
      // eslint-disable-next-line vue/multi-word-component-names
@@ -261,7 +261,7 @@ export default {
           },
 
           state: { 
-            // required: helpers.withMessage("Entner State Name", required), 
+            // required: helpers.withMessage("Enter State Name", required), 
             $autoDirty: true
           },
 
@@ -274,7 +274,7 @@ export default {
             // required: helpers.withMessage("Enter Zipcode", required), 
             $autoDirty: true,
             numeric,
-            minLength:helpers.withMessage("Zipcode shoud have min 6 numbers", minLength(6) ) 
+            minLength:helpers.withMessage("Zipcode shoud have min 5 numbers", minLength(5) ) 
           },
 
           createpwd: { 
