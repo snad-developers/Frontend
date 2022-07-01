@@ -207,6 +207,7 @@ for (var i=0; i<data.length; i++){
   for (var i=0; i<data.length; i++){
     data[i].employeeid=parseInt(data[i].employeeid);
     data[i].supervisor=parseInt(data[i].supervisor);
+    data[i].contactnumber=parseInt(data[i].contactnumber);
    
 }
 }
