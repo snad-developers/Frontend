@@ -40,28 +40,33 @@
       <img alt="" src="../assets/snadicon.png" />
    </div> -->
     <h2>Select the data you want Load </h2>
-     <div class="forms" style="padding:10px; width:;">
- <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " required>
+
+     <div class="forms" style="padding:10px">
+ <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " required @click="(filename='0')">
  <label for="html" style="margin:2px">Client</label><br><br>
- <input type="radio" id="css" name="fav_language" value="Payroll" style="margin-left: -269px;">
+ <input type="radio" id="css" name="fav_language" value="CSS" style="margin-left: -269px;" @click="(filename='1')">
  <label for="css"  style="margin:2px">Pay Roll</label><br><br>
- <input type="radio" id="java" name="fav_language" value="Timesheet" style="margin-left: -249px;">
- <label for="java"  style="margin:2px">Time Sheet</label><br><br>
- <input type="radio" id="script" name="fav_language" value="Management Expenses" style="margin-left: -172px;">
- <label for="script"  style="margin:2px">Managment Expenses</label><br><br>
- <input type="radio" id="empdata" name="fav_language" value="Employee Data" style="margin-left: -222px;">
- <label for="empdata"  style="margin:2px">Employee Data</label><br><br>
- <input type="radio" id="jav" name="fav_language" value="Employee Expenses" style="margin-left: -186px;">
+ <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -249px;" @click="(filename='2')">
+ <label for="javascript"  style="margin:2px">Time Sheet</label><br><br>
+ <input type="radio" id="javas" name="fav_language" value="JavaScript" style="margin-left: -172px;" @click="(filename='3')">
+ <label for="javas"  style="margin:2px">Managment Expenses</label><br><br>
+ <input type="radio" id="script" name="fav_language" value="JavaScript" style="margin-left: -222px;" @click="(filename='4')">
+ <label for="script"  style="margin:2px">Employee Data</label><br><br>
+ <input type="radio" id="jav" name="fav_language" value="JavaScript" style="margin-left: -186px;" @click="(filename='5')">
  <label for="jav"  style="margin:2px">Employee Expenses</label><br><br>
- <input type="radio" id="ript" name="fav_language" value="Immigration Expenses" style="margin-left: -173px;">
- <label for="ript"  style="margin:2px">Immigration Expenses</label><br><br>
+ <input type="radio" id="ascript" name="fav_language" value="JavaScript" style="margin-left: -173px;" @click="(filename='6')">
+ <label for="ascript"  style="margin:2px">Immigration Expenses</label><br><br>
+
  
-  <input id="ldb" name="empexpense" type="file" required>
-  <b-alert><input id ="upload" type="submit" value="Upload" @click="Upload"  style="border-radius: 25px;
+  <input id="ldb" name="empexpense" required  type="file" accept=".csv" @change="handleFileUpload( $event )">
+  <b-alert><input id ="upload" type="submit" value="Upload" @click.prevent="validatefields"  style="border-radius: 25px;
     width: 25%;
     padding: 10px;
     background-color: blue;
     color:white"></b-alert>
+     <p  style="color: red;">{{validate_message}}</p>
+
+    <p v-if="insertmessage" style="color: green;">{{insertmessage}}</p>
      
 
        
@@ -74,18 +79,25 @@
 
 <script>
 // eslint-disable-next-line no-unused-vars
-import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
+//import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
+import loginapi from '../services/loginapi';
+import Papa from 'papaparse';
 export default { 
     // eslint-disable-next-line vue/multi-word-component-names
      name: "login",
-//      data:function () {
-//        return {
-//          UserId : '',
-//          Password:'',
-//          Entity:''
+      data() {
+    return {
+       file: '',
+        content: [],
+        parsed: false,
+        filename:'',
+        show:false,
+        showdata:[],
+        insertmessage:'',
+        validate_message:''
+    };
+  },
 
-//        }
-//      },
 //      validations:{
 //          // eslint-disable-next-line no-undef
 //          UserId:{
@@ -100,20 +112,147 @@ export default {
 //            maxLength: maxLength(16),
 //          }
 //      },
-//      methods:{
-//            validationStatus: function(validation) {
-//              return typeof validation !="undefined" ? validation.$error : false;
-//            },
+   methods: {
+handleFileUpload( event ){
+    this.file = event.target.files[0];
+    this.parseFile();
+},
+parseFile(){
+    Papa.parse( this.file, {
+        header: true,
+        skipEmptyLines: true,
+        complete: function( results ){
+            this.content = results;
+            console.log(this.content.data)
+            this.parsed = true;
+        }.bind(this)
+    } );
+},
 
-//        Submit: function(){
-//          this.$v.$touch();
-//          if (this.$v.$pending || this.$v.$error) return;
+validatefields(){
+  if((!this.filename || !this.content.length > 0) && !this.content.data.length > 0){
+    if(!this.filename && !this.content.length > 0){
+      this.validate_message="Please Select File Name  and choose file";
+    }
+    else if(!this.filename){
+    this.validate_message="Please Select File Name ";
+    }
+    else if(!this.content.length > 0){
+    this.validate_message="Please Select File";
+    }
+  }
+  else{
+this.submitUpdates()
+  }
 
-//          alert('Data Submit');
+},
 
+submitUpdates(){  
+    var data;
+        if(this.filename=='0'){
+          console.log("client data")
+ data=this.content.data;
+ for (var i=0; i<data.length; i++){
+    data[i].clientcode=parseInt(data[i].clientcode);
+    data[i].taxfederal=parseInt(data[i].taxfederal);
+   
+}
+}
+    if(this.filename=='1'){
+       console.log("payroll")
+ data=this.content.data;
+ for (var i=0; i<data.length; i++){
+    data[i].employeeid=parseInt(data[i].employeeid);
+    data[i].noofhours=parseInt(data[i].noofhours);
+    data[i].payrate=parseInt(data[i].payrate);
+    data[i].grosspay=parseInt(data[i].grosspay);
+    data[i].payrollexpense=parseInt(data[i].payrollexpense);
+    data[i].insurancebycompany=parseInt(data[i].insurancebycompany);
+    data[i].totalpayroll=parseInt(data[i].totalpayroll);
+    data[i].createdby=parseInt(data[i].createdby);
+    data[i].updatedby=parseInt(data[i].updatedby);
+   
+}
+}
+if(this.filename=='2'){
+   console.log("time sheet")
+ data=this.content.data
+for (var i=0; i<data.length; i++){
+    data[i].employeeid=parseInt(data[i].employeeid);
+    data[i].clientid=parseInt(data[i].clientid);
+    data[i].noofhours=parseInt(data[i].noofhours);
+    data[i].payrate=parseInt(data[i].payrate);
+    data[i].revenuerate=parseInt(data[i].revenuerate);
+    data[i].operationalcost=parseInt(data[i].operationalcost);
+    data[i].receivables=parseInt(data[i].receivables);
+    data[i].createdby=parseInt(data[i].createdby);
+    data[i].updatedby=parseInt(data[i].updatedby);
+   
+}
+}
+    if(this.filename=='3'){
+       console.log("management expenses")
+ data=this.content.data;
+ for (var i=0; i<data.length; i++){
+    data[i].employeeid=parseInt(data[i].employeeid);
+    data[i].amount=parseInt(data[i].amount);
+    data[i].approvedby=parseInt(data[i].approvedby);
+    data[i].createdby=parseInt(data[i].createdby);
+   
+}
+}
+    if(this.filename=='4'){
+       console.log("employee data")
+ data=this.content.data;
+  for (var i=0; i<data.length; i++){
+    data[i].employeeid=parseInt(data[i].employeeid);
+    data[i].supervisor=parseInt(data[i].supervisor);
+   
+}
+}
+    if(this.filename=='5'){
+       console.log("employee expenses")
+ data=this.content.data;
+ for (var i=0; i<data.length; i++){
+    data[i].employeeid=parseInt(data[i].employeeid);
+    data[i].clientcode=parseInt(data[i].clientcode);
+    data[i].amount=parseInt(data[i].amount);
+    data[i].approvedby=parseInt(data[i].approvedby);
+    data[i].createdby=parseInt(data[i].createdby);
+    data[i].updatedby=parseInt(data[i].updatedby);
+   
+}
+}
 
-//        },
-//      }  
+if(this.filename=='6'){
+   console.log("immigration expenses")
+ data=this.content.data
+for (var i=0; i<data.length; i++){
+    data[i].employeeid=parseInt(data[i].employeeid)
+    data[i].amount=parseInt(data[i].amount)
+    data[i].approvedby=parseInt(data[i].approvedby)
+    data[i].createdby=parseInt(data[i].createdby)
+    data[i].updatedby=parseInt(data[i].updatedby)
+   
+}
+}
+console.log(data)
+      let sdata = {
+
+ "FileUploadData":data,
+ "filename":this.filename,
+
+}
+console.log(sdata)
+   this.responsedata=loginapi.fileUpload(sdata).then(response=>{
+ console.log(response)
+ this.insertmessage=response.data.message;
+ this.validate_message="";
+
+   })
+   
+}
+   }
 }
 
 </script> 

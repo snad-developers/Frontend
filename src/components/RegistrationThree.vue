@@ -142,7 +142,7 @@
   
  <div class="id" style="margin:8px;" >
     <label for="ans1"></label>
-    <input  type="text" for="ans1" placeholder="Give your answer" v-model="person.ans1" class="user"
+    <input  type="text" for="ans1" placeholder="Give your answer" v-model="person.ans1"
      :class="
               v$.person.ans1.$error === true
                 ? 'text-fields-error'
@@ -158,7 +158,7 @@
       </div>
        <div class="id"  style="margin:8px;" >
             <label for="ans2"></label>
-    <input  type="text" for="ans2" placeholder="Give your answer" v-model="person.ans2" class="user"
+    <input  type="text" for="ans2" placeholder="Give your answer" v-model="person.ans2"
      :class="
               v$.person.ans2.$error === true
                 ? 'text-fields-error'
@@ -174,7 +174,7 @@
       </div>
        <div class="id"  style="margin:13px;">
             <label for="ans3"></label>
-    <input  type="text" for="ans3" placeholder="Give your answer" v-model="person.ans3" class="user"
+    <input  type="text" for="ans3" placeholder="Give your answer" v-model="person.ans3"
      :class="
               v$.person.ans3.$error === true
                 ? 'text-fields-error'
@@ -190,7 +190,7 @@
       </div>
        <div class="id"  style="margin:13px;">
             <label for="ans4"></label>
-    <input  type="text" for="ans4" placeholder="Give your answer" v-model="person.ans4" class="user"
+    <input  type="text" for="ans4" placeholder="Give your answer" v-model="person.ans4"
      :class="
               v$.person.ans4.$error === true
                 ? 'text-fields-error'
@@ -206,7 +206,7 @@
       </div>
        <div class="id"  style="margin:13px;">
             <label for="ans5"></label>
-    <input type="text" for="ans5" placeholder="Give your answer" v-model="person.ans5" class="user"
+    <input type="text" for="ans5" placeholder="Give your answer" v-model="person.ans5"
      :class="
               v$.person.ans5.$error === true
                 ? 'text-fields-error'
@@ -466,6 +466,7 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
+<<<<<<< HEAD
 /* p::after{
   content: " ";
   position: absolute;
@@ -477,6 +478,9 @@ input[type=button]{
   background-color: aqua;
    font-family: sans-serif;
 } */
+=======
+
+>>>>>>> b23bd1771c9167445932a94f1a9a8afabfb1300c
 .img{
   text-align: left 2px;
   margin-left:-10px ;
@@ -531,7 +535,7 @@ h1{
    margin: 10px auto;
    border-radius: 15px;
    overflow: hidden;
-   /* box-shadow: 0 0 15px rgba(0,0,0,0.15);   */
+   box-shadow: 0 0 15px rgba(0,0,0,0.15);  
    /* margin-left:519px ; */
    margin-bottom: 0%;
    font-family: sans-serif;

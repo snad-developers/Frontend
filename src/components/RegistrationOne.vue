@@ -6,7 +6,7 @@
       <div class="child-4">
          <div class="id">
       <label for="firstname"></label>
-       <input style="margin:10px" type="text" placeholder="First Name" v-model="person.firstname" class="user"
+       <input style="margin:10px" type="text" placeholder="First Name" v-model="person.firstname" 
              :class="
               v$.person.firstname.$error === true
                 ? 'text-fields-error'
@@ -24,7 +24,7 @@
       <div class="id">
       <label for="companyid"></label>
       <!-- <input  name="companyid" type="text" class="companyid" placeholder="company id" required v-model="person.lastname"> -->
-       <input  style="margin:10px" type="text" placeholder="Company Id" v-model="person.companyid"  class="user"
+       <input  style="margin:10px" type="text" placeholder="Company Id" v-model="person.companyid" 
         :class="
               v$.person.companyid.$error === true
                 ? 'text-fields-error'
@@ -41,7 +41,7 @@
         <div class="id">
         <label for="phonenumber"></label>
       <!-- <input  name="phonenumber" type="text" for="phonenumber" class="phone" placeholder="phone number" required v-model="person.companyid"> -->
-       <input  style="margin:10px" type="text" placeholder="Phone Number" v-model="person.phonenumber"  class="user"
+       <input  style="margin:10px" type="text" placeholder="Phone Number" v-model="person.phonenumber" 
         :class="
               v$.person.phonenumber.$error === true
                 ? 'text-fields-error'
@@ -58,7 +58,7 @@
        <div class="id">
          <label for="Entity"></label>
       <!-- <input  name="phonenumber" type="text" for="phonenumber" class="phone" placeholder="phone number" required v-model="person.companyid"> -->
-       <select  style="border-radius:18px;margin:10px;width:100%;" align="right"  v-model="person.Entity" class="user"
+       <select  style="border-radius:18px;margin:10px;width:226px;" align="right" class="user" v-model="person.Entity"
        :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
@@ -81,7 +81,7 @@
       <div class="id">
         <label for="lastname"></label>
       <!-- <input name="lastname" type="text" for="lastname" class="last name" placeholder="last name" required v-model="person.userid"> -->
-      <input  style="margin:10px" type="text" placeholder="Last Name" v-model="person.lastname"  class="user"
+      <input  style="margin:10px" type="text" placeholder="Last Name" v-model="person.lastname" 
         :class="
               v$.person.lastname.$error === true
                 ? 'text-fields-error'
@@ -98,7 +98,7 @@
        <div class="id">
         <label for="userid"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input  style="margin:10px" type="text" placeholder="User Id" v-model="person.userid" class="user" 
+       <input  style="margin:10px" type="text" placeholder="User Id" v-model="person.userid" 
         :class="
               v$.person.userid.$error === true
                 ? 'text-fields-error'
@@ -115,7 +115,7 @@
        <div class="id">
         <label for="gender"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-           <select    style="margin-bottom:1px;border-radius:20px;margin:10px;width:100%;padding:12px 20px" v-model="person.gender" align="right" class="user"
+           <select    style="margin-bottom:1px;border-radius:20px;margin:10px;width:226px;padding:12px 20px" v-model="person.gender" align="right" class="user"
               :class="
               v$.person.gender.$error === true
                 ? 'text-fields-error'
@@ -137,7 +137,7 @@
        <div class="id">
         <label for="dateofBirth"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input  style="margin:10px;width:100%;padding:10px" type="date" placeholder="Date Of Birth" v-model="person.dateofBirth" class="user"
+       <input  style="margin:10px;width:226px;padding:10px" type="date" placeholder="Date Of Birth" v-model="person.dateofBirth"
             :class="
               v$.person.dateofBirth.$error === true
                 ? 'text-fields-error'
@@ -527,10 +527,10 @@ body{
   margin-bottom: 1px;
   padding: 10px;
   border-radius: 50px;
-  /* border: 2px solid #dddddd; */
+  border: 2px solid #dddddd;
   background: #ffffff;
-  /* outline: none; */
-  /* transition: border-color 0.5s; */
+  outline: none;
+  transition: border-color 0.5s;
   font-family: sans-serif;
 
 }
