@@ -33,12 +33,12 @@
             </p>
        <i class="uil uil-user" style="margin-left:-38px"></i>
       <label for="UserId"></label>
-     
-      <input style="margin: 7px -17px 12px 0px;" type="email" class="user" placeholder="UserId" v-model="person.UserId"
+    <input style="margin: 7px -17px 12px 0px; " type="email" class="file" placeholder="UserId" v-model="person.UserId"
             :class="
               v$.person.UserId.$error === true
                 ? 'text-fields-error'
-                : 'text-fields'
+                :  
+      'text-fields'
             " >
 
       </div>
@@ -60,7 +60,7 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-          <a type="password" @click="switchVisibility"><span class="icon is-small is-right"><i style="margin-left:-20px;"  class="uil" :class="{ 'uil-eye-slash': showPassword, 'uil uil-eye': !showPassword }"> </i> 
+          <a type="password" @click="switchVisibility"><span class="icon is-small is-right"><i style="margin-left:-20px;"  class="uil" :class="{ 'uil uil-eye-slash': showPassword, 'uil uil-eye': !showPassword }"> </i> 
             </span> 
           </a>
             </div>
@@ -230,221 +230,18 @@ export default {
 </script> 
 
 <style>
-.font-thin{
-  font-size: 14px;
-  color: #c40b0b;
-}
-.main-container{
-  display: flex;
-  flex-direction: row;
-}
-.child-div1{
-  width: 65%;
-}
-.child-div2{
-  width: 35%;
-}
 
-div{
-  text-align: center;
-}
-.backbtn{
-    text-align: left;
-}
-
-input[type=email]{
-    
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-     font-family: sans-serif;
-     transition-duration: 5s;
-   
-}
-input[type=text]:hover{
-  border-color: rgb(87, 239, 87);
-  transition-duration: 5s;
- transition-duration: 5s;
-}
-input[type=email]:hover{
-  border-color: rgb(87, 239, 87);
-  transition-duration: 5s;
- transition-duration: 5s;
-}
-
-input[type=password]{
-
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-     font-family: sans-serif;
-}
-select{
-    width: 28%;
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-     font-family: sans-serif;
-}
-input[type=button]{
-    width: 10%; 
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-    background-color: rgb(119, 6, 6);
-    color: white;
-     font-family: sans-serif;
-}
-.button{
-    
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 50px;
-  border: 2px solid #dddddd;
-  background: #634ed8;
-  outline: none;
-  transition: border-color 0.5s;
-  font-family: sans-serif;
-}
-.button1{
-    
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-    background-color:  rgb(15, 6, 119);
-    color: white;
-     font-family: sans-serif;
-     transition: 0.5s;
-}
-
- 
-
-.img{
-  text-align: left 2px;
-  margin-left:-10px ;
-  margin-bottom: 10px;
-}
-
-.backbtn{
-  align-items: baseline;
-   font-family: sans-serif;
-}
-input[type="checkbox"] {
-  -webkit-appearance: checkbox;
-     -moz-appearance: checkbox;
-          appearance: checkbox;
-  display: inline-block;
-  font-family: sans-serif;
- width: auto;
-}
-.FG{
-   text-justify: auto;
-   text-align: right;
-}
-body{
-  background:-webkit-linear-gradient(left #bb8c9a) ;
-  margin: 15px;
-  margin-top: 50px;
-  position: relative;
-   font-family: sans-serif;
-   background: #634ed8;
-   
-
-}  
-.loginhere,
-.loginhere * {
-  box-sizing: border-box;
-  font-family: sans-serif;
-  margin:0px;
-
-
-  
-  
-
+.file{
+  border-radius:23px;
+  width:100%;
   
 }
+.file:focus{
 
-
-.loginhere{
-  height: 97%;
-   max-width: 400px;
-   /* max-height: 5%; */
-   margin: 10px auto;
-   border-radius: 15px;
-   overflow: hidden;
-   box-shadow: 0 0 15px rgba(0,0,0,0.15);  
-   
-   margin-bottom: 0%;
-   font-family: sans-serif;
-   background-color:white;
-   
+ transition-duration: 0.5s;
+  border-color:red;
 }
 
-
-.imgs{
-  display: block;
-  max-width: 125px;
-  margin: 0 auto;
-}
-.forms{
-  padding: 30px;
-
-
-}
-
-
-
-
-
-.user::placeholder{
-  color: #090808;
-
-}
-
-.regis{
-   box-sizing: border-box;
-  font-family: sans-serif;
-  margin-right: 75%;
-  background: #eeee;
-  margin-left: 5%;
-  border-radius: 25px;
-
-
-  
-  
-}
-.form{
-  background-color: #dddddd;
-}
-
-
-.main-div{
-      display: flex;
-    justify-content: space-around;
-}
-p{
-  margin: 0px;
-}
-.child-div1{
-  margin:0px !important
-}
-.input i{
-  left: 0px;
-  right: 10px;
-}
-.regis1{
-  color:#000000;
-}
-.regis1:hover{
-  color: #4ec6d8;
-  transition-duration: 0.6s;
-}
 
 
 

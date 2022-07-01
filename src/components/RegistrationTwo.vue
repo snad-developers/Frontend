@@ -7,7 +7,7 @@
          <div class="id">
       <label for="AdressLine1"></label>
       <!-- <input  type="text" for="AdressLine1" class="main" placeholder="Adress Line1" required v-model="person.AdressLine1" ref="AdressLine1"> -->
-        <input style="margin:10px" type="text" placeholder="Address Line1" v-model="person.AdressLine1" 
+        <input style="margin:10px" type="text" placeholder="Address Line1" v-model="person.AdressLine1"  class="user"
              :class="
               v$.person.AdressLine1.$error === true
                 ? 'text-fields-error'
@@ -24,7 +24,7 @@
       <div class="id">
       <label for="city"></label>
       <!-- <input  type="text" for="city" class="company" placeholder="city" required v-model="person.city"> -->
-        <input  style="margin:10px" type="text" placeholder="City" v-model="person.city" 
+        <input  style="margin:10px" type="text" placeholder="City" v-model="person.city"  class="user"
              :class="
               v$.person.city.$error === true
                 ? 'text-fields-error'
@@ -41,7 +41,7 @@
         <div class="id">
         <label for="zipcode"></label>
       <!-- <input  type="text" for="zipcode" class="phone" placeholder="zip code" required v-model="person.zipcode"> -->
-        <input  style="margin:10px" type="text" placeholder="ZipCode" v-model="person.zipcode" 
+        <input  style="margin:10px" type="text" placeholder="ZipCode" v-model="person.zipcode" class="user"
              :class="
               v$.person.zipcode.$error === true
                 ? 'text-fields-error'
@@ -58,7 +58,7 @@
               <div class="id">
         <label for="createpwd"></label>
       <!-- <input  type="text" for="createpwd" class="phone" placeholder="create password" required v-model="person.createpwd"> -->
-        <input  style="margin:10px" type="password" placeholder="Password" v-model="person.createpwd" 
+        <input  style="margin:10px" type="password" placeholder="Password" v-model="person.createpwd"  class="user"
              :class="
               v$.person.createpwd.$error === true
                 ? 'text-fields-error'
@@ -74,7 +74,7 @@
       </div>
              <div class="">
        <label for="role"></label>
-      <select style="border-color:black;border-radius:20px;margin:10px;width:226px;padding:12px 20px" align="right" class="user" v-model="person.role"
+      <select style="border-radius:20px;margin:10px;width:100%;padding:12px 20px" align="right" class="user" v-model="person.role"
        :class="
               v$.person.role.$error === true
                 ? 'text-fields-error'
@@ -97,7 +97,7 @@
  <div class="id">
         <label for="AdressLine2"></label>
       <!-- <input  type="text" for="AdressLine2" class="last name" placeholder="Adress Line2" required  v-model="person.AdressLine2"> -->
-        <input  style="margin:10px" type="text" placeholder="Address Line2" v-model="person.AdressLine2" 
+        <input  style="margin:10px" type="text" placeholder="Address Line2" v-model="person.AdressLine2"  class="user"
              :class="
               v$.person.AdressLine2.$error === true
                 ? 'text-fields-error'
@@ -114,7 +114,7 @@
        <div class="id">
         <label for="state"></label>
       <!-- <input  type="text" for="state" class="username" placeholder="state" required v-model="person.state"> -->
-        <input  style="margin:10px" type="text" placeholder="State" v-model="person.state" 
+        <input  style="margin:10px" type="text" placeholder="State" v-model="person.state"  class="user"
              :class="
               v$.person.state.$error === true
                 ? 'text-fields-error'
@@ -131,7 +131,7 @@
               <div class="id">
         <label for="country"></label>
       <!-- <input  type="text" for="country" class="phone" placeholder="country" required v-model="person.country"> -->
-        <input style="margin:10px" type="text" placeholder="Country" v-model="person.country" 
+        <input style="margin:10px" type="text" placeholder="Country" v-model="person.country"  class="user"
              :class="
               v$.person.country.$error === true
                 ? 'text-fields-error'
@@ -148,7 +148,7 @@
                     <div class="id">
         <label for="confirmpwd"></label>
       <!-- <input  type="text" for="confirmpwd" class="phone" placeholder="confirm password" required v-model="person.confirmpwd"> -->
-        <input  style="margin:10px" type="password" placeholder="Confirm Password" v-model="person.confirmpwd" 
+        <input  style="margin:10px" type="password" placeholder="Confirm Password" v-model="person.confirmpwd"  class="user"
              :class="
               v$.person.confirmpwd.$error === true
                 ? 'text-fields-error'
