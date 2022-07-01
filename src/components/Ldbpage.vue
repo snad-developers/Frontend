@@ -48,14 +48,14 @@
  <label for="css"  style="margin:2px">Pay Roll</label><br><br>
  <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -249px;" @click="(filename='2')">
  <label for="javascript"  style="margin:2px">Time Sheet</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -172px;" @click="(filename='3')">
- <label for="javascript"  style="margin:2px">Managment Expenses</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -222px;" @click="(filename='4')">
- <label for="javascript"  style="margin:2px">Employee Data</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -186px;" @click="(filename='5')">
- <label for="javascript"  style="margin:2px">Employee Expenses</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -173px;" @click="(filename='6')">
- <label for="javascript"  style="margin:2px">Immigration Expenses</label><br><br>
+ <input type="radio" id="javas" name="fav_language" value="JavaScript" style="margin-left: -172px;" @click="(filename='3')">
+ <label for="javas"  style="margin:2px">Managment Expenses</label><br><br>
+ <input type="radio" id="script" name="fav_language" value="JavaScript" style="margin-left: -222px;" @click="(filename='4')">
+ <label for="script"  style="margin:2px">Employee Data</label><br><br>
+ <input type="radio" id="jav" name="fav_language" value="JavaScript" style="margin-left: -186px;" @click="(filename='5')">
+ <label for="jav"  style="margin:2px">Employee Expenses</label><br><br>
+ <input type="radio" id="ascript" name="fav_language" value="JavaScript" style="margin-left: -173px;" @click="(filename='6')">
+ <label for="ascript"  style="margin:2px">Immigration Expenses</label><br><br>
 
  
   <input id="ldb" name="empexpense" required  type="file" accept=".csv" @change="handleFileUpload( $event )">
@@ -162,6 +162,7 @@ submitUpdates(){
        console.log("payroll")
  data=this.content.data;
  for (var i=0; i<data.length; i++){
+    data[i].employeeid=parseInt(data[i].employeeid);
     data[i].noofhours=parseInt(data[i].noofhours);
     data[i].payrate=parseInt(data[i].payrate);
     data[i].grosspay=parseInt(data[i].grosspay);
@@ -206,7 +207,6 @@ for (var i=0; i<data.length; i++){
   for (var i=0; i<data.length; i++){
     data[i].employeeid=parseInt(data[i].employeeid);
     data[i].supervisor=parseInt(data[i].supervisor);
-    data[i].contactnumber=parseInt(data[i].contactnumber);
    
 }
 }
