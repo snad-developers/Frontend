@@ -133,6 +133,7 @@ console.log(response,"response data");
 if(response.data){
   console.log("if condition")
  if(response.data.status == "success" && response.data.statuscode == 200){
+    alert("Password changed successfully, Please Login")
     this.$router.push({ name: 'login'})
 
  }

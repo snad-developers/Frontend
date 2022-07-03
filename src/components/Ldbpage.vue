@@ -277,9 +277,7 @@ div{
 .backbtn{
     text-align: left;
 }
-h1{
-  /* text-align: center; */
-}
+
 input[type=text]{
     
     padding: 12px 20px;
@@ -383,12 +381,7 @@ body{
 
   
 }
-p{
-  /* margin: 0px !important; */
-}
-h1{
-  /* margin: 0px !important; */
-}
+
 .loginhere{
   height: 97%;
    width: 500px;
@@ -417,9 +410,7 @@ h1{
   color: #aaaaaa;
 
 }
-h1{
-  /* font-family: sans-serif; */
-}
+
 .regis{
    box-sizing: border-box;
   font-family: sans-serif;
@@ -435,19 +426,7 @@ h1{
 .form{
   background-color: #dddddd;
 }
-h1{
-  /* text-align: center  ;
-  margin-left:-600px;
-  font-size:50px;
-  margin-top: 20px; */
-  
 
-}
-p{
-  /* text-align: center  ;
-  margin-left:-600px;
-  font-size: 30px; */
-}
 .main-div{
       display: flex;
     justify-content: space-around;

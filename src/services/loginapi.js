@@ -63,7 +63,7 @@ export default{
     rolespost(data){
         return API('http://localhost:3000/').post('/roles',data)
     },
-   payrollaccessdata(){
+    payrollaccessdata(){
         return API('http://localhost:3000/').get('/payrollaccess')
     },
     employeeaccessdata(){
@@ -71,5 +71,12 @@ export default{
     },
     managmentaccessdata(){
         return API('http://localhost:3000/').get('/managmentaccessdata')
+    },
+    expgetvalues(){
+        return API('http://localhost:3000/').get('/expenses')
+    },
+
+    expdatapost(data){
+        return API('http://localhost:3000/').post('/expenses',data)
     },
 }
