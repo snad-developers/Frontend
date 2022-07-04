@@ -46,7 +46,7 @@
 
 <div class="box-container">
     <div>
-      <div class="box-color">
+      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
          <h3>Active Employees</h3>
             <p>{{activeemp}}</p>
             <router-link to="/activeemplydata" >
@@ -54,7 +54,7 @@
             </router-link>
         <!-- <router-link to="/activeemplydata" > <a @click="() =>togglepopup"><h6 style="color: blue;">Acess data</h6></a></router-link>  -->
      </div>
-    <div class="box-color">
+    <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3> Employee Expenses</h3>
             <p>${{empexpensestotal}}</p>
           <router-link to="/employeexpensedata" ><h6 style="color: blue;">Acess data</h6></router-link>
@@ -62,7 +62,7 @@
     </div>
      </div> 
        <div>
-     <div class="box-color">
+     <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Outstanding Receivables</h3>
             <p>$ {{Receivables}}</p>
              <router-link to="/receiVables"><h6 style="color: blue;">Acess data</h6></router-link> 
@@ -71,7 +71,7 @@
     </div>
    
   
-     <div class="box-color">
+     <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Management Expenses</h3>
             <p>$ {{mgmtexpensestotal}}</p>
            <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
@@ -79,13 +79,13 @@
     </div>
        </div>
        <div>
-      <div class="box-color">
+      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Payroll Expenses</h3>
             <p>$ {{payrollexpensestotal}}</p>
            <router-link to="/payrollaccessdata"><h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
-     <div class="box-color">
+     <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Operational Costs</h3>
             <p>$ 68 k</p>
           <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link>

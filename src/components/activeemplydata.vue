@@ -15,7 +15,7 @@
     background-color:white">
       
         <!-- <div id=""> -->
-          <thead style=" background-color:#F3F6F9; color:grey; fill-opacity: initial;">
+          <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
          
         <tr>
             <th> Employee Number</th>

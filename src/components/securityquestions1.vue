@@ -11,19 +11,19 @@
 
     
         <lable>What is your favourite food/dish ?</lable><br>
-        <input type="text" required id="fq" name="first" placeholder="Give your answer"><br>
+        <input type="text" class="user" required id="fq" name="first" placeholder="Give your answer"><br>
         <br>
         <lable>Who is your childhood hero ?</lable><br>
-        <input type="text" required id="fq" name="first" placeholder="Give your answer"><br>
+        <input type="text" class="user" required id="fq" name="first" placeholder="Give your answer"><br>
         <br>
         <lable>What is the name of your favourite pet ?</lable><br>
-        <input type="text" required id="fq" name="first" placeholder="Give your answer"><br>
+        <input type="text" class="user" required id="fq" name="first" placeholder="Give your answer"><br>
         <br>
         <lable>In what city you were born ?</lable><br>
-        <input type="text" required id="fq" name="first" placeholder="Give your answer"><br>
+        <input type="text" class="user" required id="fq" name="first" placeholder="Give your answer"><br>
         <br>
         <lable>What is the name of your first school ?</lable><br>
-        <input type="text" required id="fq" name="first" placeholder="Give your answer">
+        <input type="text" class="user" required id="fq" name="first" placeholder="Give your answer">
         <br>
         <br>
         <button class="sub">Submit</button>

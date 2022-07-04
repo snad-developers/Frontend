@@ -58,12 +58,12 @@
  <label for="ascript"  style="margin:2px">Immigration Expenses</label><br><br>
 
  
-  <input id="ldb" name="empexpense" required  type="file" accept=".csv" @change="handleFileUpload( $event )">
+  <input id="ldb" name="empexpense" required  type="file" accept=".csv" @change="handleFileUpload( $event )" requried>
   <b-alert><input id ="upload" type="submit" value="Upload" @click.prevent="validatefields"  style="border-radius: 25px;
     width: 25%;
     padding: 10px;
     background-color: blue;
-    color:white"></b-alert>
+    color:white" ></b-alert>
      <p  style="color: red;">{{validate_message}}</p>
 
     <p v-if="insertmessage" style="color: red;">{{insertmessage}}</p>

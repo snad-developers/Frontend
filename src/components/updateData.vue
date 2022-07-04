@@ -1,6 +1,19 @@
 <template>
    <div class="container" style ="margin-left: 291px;margin-top:100px;border-radius:25px">
-        <header>Update Details</header>
+        <h2  style="  border-spacing: 0;
+
+ overflow: hidden; width:950px;
+
+    margin-left:-31px ;
+
+    margin-top: -30px;
+
+    margin-bottom: 50px;
+
+    text-align:center;
+
+    width:901px;border-radius:25px;padding:7px;
+ background-color: #dfb5bc">User Details</h2>
 
         <form action="#">
             <div class="form first">

@@ -58,7 +58,7 @@
        <div class="id">
          <label for="Entity"></label>
       <!-- <input  name="phonenumber" type="text" for="phonenumber" class="phone" placeholder="phone number" required v-model="person.companyid"> -->
-       <select  style="border-radius:18px;margin:10px;width:226px;" align="right" class="user" v-model="person.Entity"
+       <select  style="border-radius:18px;margin:10px;width:100%;" align="right" class="user" v-model="person.Entity"
        :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
@@ -115,7 +115,7 @@
        <div class="id">
         <label for="gender"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-           <select    style="margin-bottom:1px;border-radius:20px;margin:10px;width:226px;padding:12px 20px" v-model="person.gender" align="right" class="user"
+           <select    style="margin-bottom:1px;border-radius:20px;margin:10px;width:100%;padding:12px 20px" v-model="person.gender" align="right" class="user"
               :class="
               v$.person.gender.$error === true
                 ? 'text-fields-error'
