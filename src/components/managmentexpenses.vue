@@ -10,7 +10,7 @@
     margin-top: 20px;
     margin-bottom: 50px;
     background-color:white">
-    <thead style=" background-color:rgb(240, 232, 232); color:grey; fill-opacity: initial;">
+    <thead style=" background-color:#F3F6F9; color:grey; fill-opacity: initial;">
         <tr>
             <th>
                EMPLOYEE ID

@@ -6,19 +6,23 @@
 <div class="main-container">
     <table  class="table-content" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
-    border-radius: 15px 15px 0 0;
-    overflow: hidden; width:100%">
-     
+    border-radius: 10px 10px 0 0;
+    overflow: hidden; width:950px;
+    margin-left:300px ;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color:white">
+      
         <!-- <div id=""> -->
-          <thead>
+          <thead style=" background-color:#F3F6F9; color:grey; fill-opacity: initial;">
          
         <tr>
-            <td> Employee Number</td>
-            <td> First Name </td>
-            <td> Last Name </td>
-            <td> Email </td>
-            <td> Contact Number </td>
-            <td> Role </td>
+            <th> Employee Number</th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Email </th>
+            <th> Contact Number </th>
+            <th> Role </th>
         </tr>
         </thead>
          <!-- <tr>

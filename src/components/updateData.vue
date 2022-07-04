@@ -26,7 +26,7 @@
                             <input type="text" name="lastName" for="LastName" placeholder="Enter your name" required v-model="person.lastName"  style=" border-radius: 20px;">
                         </div>
                         <div class="input-field">
-                            <label for="idnumber">Idnmber</label>
+                            <label for="idnumber">Id Number</label>
                             <input type="text" name="idnumber" for="idnumber" placeholder="Enter your name" required v-model="person.idnumber" style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -39,11 +39,11 @@
                         </div>
 
                         <div class="input-field">
-                             <label for="address1">Adress Line1</label>
+                             <label for="address1">Address Line1</label>
                               <input type="text" for="address1" name="address1" class="last name" placeholder="Adress Line1" required v-model="person.address1"  style=" border-radius: 20px;">
                         </div>
                          <div class="input-field">
-                             <label for="address2">Adress Line2</label>
+                             <label for="address2">Address Line2</label>
                               <input type="text" for="address2" name="address2" class="last name" placeholder="Adress Line1" required v-model="person.address2"  style=" border-radius: 20px;">
                         </div>
 
@@ -117,14 +117,14 @@
                         
 
                         <div class="input-field">
-                             <label for="email" style="top:-89px">User id</label>
+                             <label for="email" style="top:-89px">User Id</label>
                              <input type="email" name="email" for="email" class="username" placeholder="User Id" required v-model="person.email" style="width: 100%; 
     margin-bottom: -8px; top:-92px; text-align:center;  border-radius:20px;" >
                         </div>
                         <div class="input-field">
-                             <label for="phoneNumber" style=" margin-left:-498px;">Phone number</label>
+                             <label for="phoneNumber" style=" margin-left:-498px;">Phone Number</label>
                              <input type="text" name="PhoneNumber" for="PhoneNumber" class="username" placeholder="Phone Number" required v-model="person.phoneNumber" style="width: 100%; 
-    margin-bottom: -8px; top:-8px; margin-left:-248px; border-radius:20px;" >
+    margin-bottom: -8px; top:-8px; margin-left:-248px; border-radius:20px;">
                         </div>
 
                       <div class="input-field">

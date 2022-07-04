@@ -24,7 +24,7 @@
     margin-left: 278px;
     background-color:white">
 
-        <thead style="background-color:rgb(240, 232, 232); color:grey; ">
+        <thead style="background-color:#F3F6F9; color:grey; ">
         <tr>
             <!-- <td> S No</td> -->
             <th> First Name </th>

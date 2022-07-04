@@ -142,7 +142,7 @@
   
  <div class="id" style="margin:8px;" >
     <label for="ans1"></label>
-    <input  type="text" for="ans1" placeholder="Give your answer" v-model="person.ans1"
+    <input  type="text" for="ans1" class="user" placeholder="Give your answer" v-model="person.ans1"
      :class="
               v$.person.ans1.$error === true
                 ? 'text-fields-error'
@@ -158,7 +158,7 @@
       </div>
        <div class="id"  style="margin:8px;" >
             <label for="ans2"></label>
-    <input  type="text" for="ans2" placeholder="Give your answer" v-model="person.ans2"
+    <input  type="text" for="ans2" placeholder="Give your answer" class="user" v-model="person.ans2"
      :class="
               v$.person.ans2.$error === true
                 ? 'text-fields-error'
@@ -174,7 +174,7 @@
       </div>
        <div class="id"  style="margin:13px;">
             <label for="ans3"></label>
-    <input  type="text" for="ans3" placeholder="Give your answer" v-model="person.ans3"
+    <input  type="text" for="ans3" placeholder="Give your answer" class="user" v-model="person.ans3"
      :class="
               v$.person.ans3.$error === true
                 ? 'text-fields-error'
@@ -190,7 +190,7 @@
       </div>
        <div class="id"  style="margin:13px;">
             <label for="ans4"></label>
-    <input  type="text" for="ans4" placeholder="Give your answer" v-model="person.ans4"
+    <input  type="text" for="ans4" placeholder="Give your answer" class="user" v-model="person.ans4"
      :class="
               v$.person.ans4.$error === true
                 ? 'text-fields-error'
@@ -206,7 +206,7 @@
       </div>
        <div class="id"  style="margin:13px;">
             <label for="ans5"></label>
-    <input type="text" for="ans5" placeholder="Give your answer" v-model="person.ans5"
+    <input type="text" for="ans5" placeholder="Give your answer" class="user" v-model="person.ans5"
      :class="
               v$.person.ans5.$error === true
                 ? 'text-fields-error'

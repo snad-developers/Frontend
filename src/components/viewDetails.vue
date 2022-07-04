@@ -36,7 +36,7 @@
                         <div class="input-field">
                             <label for="F" style="margin-left: -845px;
     font-size: 20px;
-<!-- <!-- }">First Name :  </label>
+<!-- <!-- }">First Name   </label>
                             <input type="text" name="firstName"   v-model=this.rowdata.firstName style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -52,7 +52,7 @@
 
                         <div class="input-field">
                             <label for="" style="margin-left: -120px;
-    font-size: 20px; top:-82px;">LastName: </label>
+    font-size: 20px; top:-82px;">LastName</label>
                             <input type="text" v-model=this.rowdata.lastName style="outline: none;
     font-size: 14px;
     top:-82px;
@@ -68,7 +68,7 @@
 
                         <div class="input-field">
                              <label for="" style="margin-left: -826px; top:-60px;
-    font-size: 20px;">Entity:  </label>   
+    font-size: 20px;">Entity </label>   
                               <input type="text" v-model=this.rowdata.entity style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -85,7 +85,7 @@
                         <div class="input-field">
                            
         <label for="" style="margin-left: -853px; top:-31px;
-    font-size: 20px;">Gender: </label> 
+    font-size: 20px;">Gender </label> 
                            <input type="text" v-model=this.rowdata.gender style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -101,7 +101,7 @@
                         <div class="input-field">
                          <label for="" style="margin-left: 599px;top: -301px;
     position: relative;
-    font-size: 20px;">Role: </label>
+    font-size: 20px;">Role</label>
                             <input type="text" v-model=this.rowdata.role style="outline: none;
     font-size: 14px;
     top:-301px;
@@ -117,7 +117,7 @@
 
                         <div class="input-field" >
                             <label for="" style="margin-left: -878px; top:-45px;
-    font-size: 20px;">Address1: </label> 
+    font-size: 20px;">Address Line1 </label> 
                             <input type="text" v-model=this.rowdata.address1 style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -132,7 +132,7 @@
                         <br>
                         <div class="input-field">
                            <label for="" style="margin-left: -115px;top:-121px;
-    font-size: 20px;">Address2: </label> 
+    font-size: 20px;">Address Line2 </label> 
       <input type="text" v-model=this.rowdata.address2  style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -147,7 +147,7 @@
                           <div class="input-field">
                           <label for="" style="margin-left: 608px;position: relative;
     top: -277px;
-    font-size: 20px;">Country: </label>
+    font-size: 20px;">Country</label>
       <input type="text" v-model=this.rowdata.country  style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -162,7 +162,7 @@
                           <div class="input-field">
                          <label for="" style="margin-left: 645px;top: -235px;
     position: relative;
-    font-size: 20px;">state: </label>
+    font-size: 20px;">State </label>
                             <input type="text" v-model=this.rowdata.state style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -178,7 +178,7 @@
                               <div class="input-field"  >
                            <label for="" style="margin-left: -74px;position: relative;
     top: -507px;
-    font-size: 20px;">City: </label>
+    font-size: 20px;">City </label>
                               <input type="text" v-model=this.rowdata.city style="outline: none;
     font-size: 14px;
     top:-506px;
@@ -194,7 +194,7 @@
                               <div class="input-field">
                             <label for="" style="margin-left: 593px;
     top: -561px;font-size:20px
-    <!-- font-size: 20px;" >Zipcode: </label> 
+    <!-- font-size: 20px;" >Zipcode </label> 
                               <input type="text" v-model=this.rowdata.zipcode style="outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -210,7 +210,7 @@
                          <div class="input-field">
                             <label for="" style="margin-left: -127px;position: relative;
     top: -515px;font-size:20px
-    <!-- font-size: 20px;" >Company Id: </label> 
+    <!-- font-size: 20px;" >Company Id </label> 
                               <input type="text" v-model=this.rowdata.idnumber style="outline: none;
     font-size: 14px;
     font-weight: 400;

@@ -36,13 +36,13 @@
   </div>
   </div>
  <div class="gross-container">
-<div class="Expenses" >
+<!-- <div class="Expenses" >
     <h3>Gross profit</h3>
     <h3>Before taxes</h3>
     <p>$ 180,000</p>
   <h6 style="color: yellow;">Acess data</h6>
    
-</div>
+</div> -->
 
 <div class="box-container">
     <div>
