@@ -116,9 +116,16 @@ export default {
     };
   },
    created() {
+    this.GetloginDetails();
             this.id = this.$route.params.id;
         },
  methods: {
+   GetloginDetails(){
+                 if(localStorage.getItem('currentUser')){
+                 this.$router.push({name:"launchpage"});
+                 }
+        
+    },
     submit() {
        this.v$.$touch();
        console.log(this.v$)
