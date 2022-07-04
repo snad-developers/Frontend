@@ -18,7 +18,8 @@
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
-
+<table style="margin-left:17%" class="orgndata">
+  <td class="orgndata">
 <div class="addentity">
  <h4 style="margin-left:-360px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Entities</b></h4>
  <input type="text" placeholder="Enter Entity Name" class="tbox" v-model="person.entity">
@@ -29,6 +30,9 @@
   </template>
 
 </div>
+</td>
+
+<td class="orgndata">
 <div class="subentity">
  <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Roles</b></h4>
  <input type="text" placeholder="Enter Role Name" class="tbox" v-model="person.role">
@@ -40,6 +44,58 @@
 
 
 </div>
+</td>
+
+<td class="expdata">
+<div class="expenses">
+ <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Roles</b></h4>
+ <input type="text" placeholder="Expense Name" class="expbox" v-model="person.expense">
+  <input type="text" placeholder="Expense Code" class="expbox" v-model="person.expcode">
+
+ <button class="addbtn" @click.prevent="exphandle"> Add Expense</button>
+
+<table align="center" class="expdata" id="expdata" style="  border-spacing: 0;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden; width:95%;
+    margin-left:0 ;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color:white;
+    align-content: center;"
+    >
+    <thead style=" background-color:rgb(240, 232, 232); color:grey; fill-opacity: initial;">
+        <tr align="left" >
+            <th style="margin-left:30px">
+              Expense 
+            </th>
+            <th>
+               Expense Code
+            </th>
+           
+           
+        </tr>
+    </thead>
+    <tbody align="left" style="margin-left:30px" >
+          <template v-for="(data,index) in expdata" :key="index" > 
+            <tr>
+
+<td>{{data.expenses}}</td>
+<td>{{data.expensecode}}</td>
+
+
+
+       </tr>
+       
+</template>
+       
+    </tbody>
+</table>
+
+
+</div>
+</td>
+</table>
+
 </template>
 
 
@@ -53,9 +109,12 @@ export default{
       return{
         entitydata:[],
         rolesdata:[],
+        expdata:[],
         person:{
           role:"",
           entity:"",
+          expense:"",
+          expcode:"",
         }
       }
     },
@@ -63,12 +122,15 @@ export default{
     mounted() {
       this.orgn();
       this.role();
+      this.expense();
 
     },
 
     created() {
       this.orgn();
       this.role();
+      this.expense();
+
     },
 
     methods:{
@@ -85,6 +147,13 @@ export default{
           console.log(this.rolesdata)
         });
       },
+      expense(){
+        loginapi.expgetvalues().then(response=>{
+          this.expdata=response.data;
+          console.log(this.expdata)
+        });
+
+      },
 
       entityhandle(){
         const sdata ={
@@ -100,7 +169,7 @@ export default{
         });
       },
 
-       rolehandle(){
+      rolehandle(){
         const sdata ={
           "roles":this.person.role
         }
@@ -112,7 +181,23 @@ export default{
             document.location.reload(true)
           }
         });
-      }
+      },
+
+      exphandle(){
+        const sdata ={
+          "expenses":this.person.expense,
+          "expensecode":this.person.expcode
+        }
+        console.log(sdata);
+        loginapi.expdatapost(sdata).then(response =>{
+          if(response.status==201 ){
+            console.log(response);
+            alert("Expense Updated Successfully");
+            document.location.reload(true)
+          }
+        });
+      },
+
     }
 
 
@@ -123,11 +208,11 @@ export default{
 .addentity{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 410px;
-  height: auto;
+  width: 375px;
+  height: fit-content;
   background-color:white;
   margin-top: 27px;
-  margin-left: 330px; 
+  margin:0%; 
   padding-bottom: 2%;
 
    overflow: hidden;
@@ -136,19 +221,43 @@ export default{
 .subentity{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 410px;
+  width: 360px;
 
-  height: auto;
+  height: fit-content;
   background-color:white;
   margin-top: -14.5%;
-  margin-left: 800px;
+  margin: 0;
   padding-bottom: 2%;
 
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15); 
   }  
+  .expenses{
+  border-radius: 25px;
+  box-sizing: border-box;
+  width: 95%;
+  margin-right: 1%;
+
+  height: fit-content;
+  background-color:white;
+  margin-top: -14.5%;
+  margin:0 ;
+  padding-bottom: 0%;
+
+   overflow: hidden;
+   box-shadow: 0 0 15px rgba(0,0,0,0.15); 
+  }  
+
+
 .tbox{
-  margin-left: 10px;
+  margin:1%;
+  width:45%;
+  
+} 
+.expbox{
+  margin:1%;
+  width:30%;
+  
 }  
 .addbtn{
   margin: 20px;
@@ -163,4 +272,14 @@ export default{
   position: relative;
   
 }
+.orgndata table{
+  padding:1% ;
+}
+#expdata td, th {
+    border-top: 0.5px solid rgb(240, 232, 232);
+
+    padding: 5px;
+    padding-left: 10px;
+}
+
 </style>
