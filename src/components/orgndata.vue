@@ -159,7 +159,8 @@ export default{
         const sdata ={
           "entity":this.person.entity
         }
-        console.log(sdata);
+        if(!this.person.entity==""){
+          console.log(sdata);
         loginapi.orgndatapost(sdata).then(response =>{
           if(response.status==201 ){
             console.log(response);
@@ -167,13 +168,18 @@ export default{
             document.location.reload(true)
           }
         });
+        }
+        else{
+          alert("Please enter Entity")
+        }
       },
 
       rolehandle(){
         const sdata ={
           "roles":this.person.role
         }
-        console.log(sdata);
+        if(!this.person.role==""){
+          console.log(sdata);
         loginapi.rolespost(sdata).then(response =>{
           if(response.status==201 ){
             console.log(response);
@@ -181,6 +187,10 @@ export default{
             document.location.reload(true)
           }
         });
+        }
+        else{
+          alert("Please enter Role")
+        }
       },
 
       exphandle(){
@@ -188,7 +198,8 @@ export default{
           "expenses":this.person.expense,
           "expensecode":this.person.expcode
         }
-        console.log(sdata);
+       if(!this.person.expense=="" && !this.person.expcode==""){
+         console.log(sdata);
         loginapi.expdatapost(sdata).then(response =>{
           if(response.status==201 ){
             console.log(response);
@@ -196,6 +207,10 @@ export default{
             document.location.reload(true)
           }
         });
+       }
+       else{
+        alert('Please enter Expense name and Expense code')
+       }
       },
 
     }

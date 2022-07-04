@@ -224,7 +224,9 @@ export default {
         
         companyid: { 
           required: helpers.withMessage("Enter Company Id", required), 
-          $autoDirty: true },
+          $autoDirty: true,
+         maxLength:helpers.withMessage("Company id should be maximum 12",maxLength(12)) 
+        }, 
         
         userid: {
           required: helpers.withMessage("Enter User Id ", required), 

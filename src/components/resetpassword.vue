@@ -128,6 +128,7 @@ export default {
 "password":this.person.Password,
 "confirmPassword":this.person.Conform
 }
+if(this.person.Password==this.person.Conform){
  this.responsedata=loginapi.resetpassword(sdata,this.id).then(response=>{
 console.log(response,"response data");
 if(response.data){
@@ -144,6 +145,11 @@ if(response.data){
 }
   
        })
+
+}
+else{
+  alert("password are not same")
+}
 
        }
  },
