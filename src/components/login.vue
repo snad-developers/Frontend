@@ -179,10 +179,17 @@ export default {
 
     created(){
       this.fetch();
+       this.GetloginDetails();
     },
 
 
  methods: {
+    GetloginDetails(){
+                 if(localStorage.getItem('currentUser')){
+                 this.$router.push({name:"launchpage"});
+                 }
+        
+    },
   switchVisibility(){
     this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
   },
@@ -195,13 +202,23 @@ export default {
             "entity":this.person.Entity
           }
 
-          this.responsedata=loginapi.loginservice(sdata).then(response=>{
+          loginapi.loginservice(sdata).then(response=>{
             console.log(response,"response data");
             if(response.data){
               console.log("if condition")
               if(response.data.status == "success" && response.data.statuscode == 200  ){
-                this.$router.push({name:"launchpage",params:response.data.logid});
-                console.log(this.logid)
+                 localStorage.setItem(
+            "currentUser",
+            response.data.loginedIn
+           
+          );
+              localStorage.setItem(
+            "UserDetails",
+            JSON.stringify(response.data.logindetails)
+           
+          );
+                this.$router.push({name:"launchpage"});
+               // console.log(this.logid)
               }
 
               if(response.data.status == "failure" && response.data.statuscode == 201){

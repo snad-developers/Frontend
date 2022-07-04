@@ -8,7 +8,7 @@
   <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
   <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
   <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
-   <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
+   <a href="" @click.prevent="logout"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
 </div>
       <!-- <a href="#" style="background-color:white" class="active">
@@ -25,9 +25,8 @@
         <span>Contact</span>
       </a> -->
     </div>
-    
 <div class="welcomediv">
-  <div class="welcome-header">
+  <div class="welcome-header" v-if="logid">
    <h2 class="welcome"><b>Welcome back, {{logid.firstName}}</b></h2>
   <div>
     <!-- <img alt="" src="../assets/snadicon.png" /> -->
@@ -128,13 +127,21 @@ export default {
  
          mounted() {
   this.empdatafetch();
+   //this.GetloginDetails();
   },
     created () {
         this.empdatafetch();
-        this.logid = (this.$route.params);
-        console.log(this.logid);
+      //this.GetloginDetails();
+       const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+      this.logid=userdetails
       },
       methods:{
+
+  logout(){
+localStorage.removeItem('UserDetails')
+localStorage.removeItem('currentUser')
+  this.$router.push({name:"login"});
+  },
   empdatafetch() {
  loginapi.dashboarddata().then(response=>{
 this.responsedata=response.data;

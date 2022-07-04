@@ -11,6 +11,7 @@
 
 
 <script>
+import loginapi from './services/loginapi';
 export default {
   name: "App",
   
@@ -20,7 +21,24 @@ export default {
     
      
   },
-  
+
+
+    created(){
+      console.log("created")
+      this.GetloginDetails();
+    },
+   methods: {
+    GetloginDetails(){
+      loginapi.loginservice("").then(response=>{
+          if(response.data.status == "success" && response.data.statuscode == 200  ){
+                 localStorage.setItem("currentUser",response.data.loginedIn);
+                   localStorage.setItem("UserDetails",JSON.stringify(response.data.logindetails));
+                
+          }
+      })
+    }
+   }
+
   
 }
 </script>

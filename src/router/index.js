@@ -25,12 +25,29 @@ import RegistrationThree from '../components/RegistrationThree.vue';
 import receiVables from '../components/receiVables.vue'
 import managmentexpenses from '../components/managmentexpenses.vue'
 import employeexpensedata from '../components/employeexpensedata.vue'
-
-
-
-
-
 import FileUpload from '../components/CSVFileUpload.vue';
+
+
+function guardMyroute(to, from, next)
+{
+ var isAuthenticated= false;
+//this is just an example. You will have to find a better or 
+// centralised way to handle you localstorage data handling 
+console.log(localStorage.getItem('currentUser'))
+if(localStorage.getItem('currentUser'))
+  isAuthenticated = true;
+ else
+  isAuthenticated= false;
+ if(isAuthenticated) 
+ {
+  next(); // allow to enter route
+ } 
+ else
+ {
+  next('/login'); // go to '/login';
+ }
+}
+
 const routes = [
   {
     path: '/login',
@@ -40,17 +57,23 @@ const routes = [
   {
     path: '/managmentexpenses',
     name: 'managmentexpenses',
-    component: managmentexpenses
+    component: managmentexpenses,
+    beforeEnter : guardMyroute,
+    meta: {title: 'managmentexpenses'}
   },
   {
     path: '/employeexpensedata',
     name: 'employeexpensedata',
-    component: employeexpensedata
+    component: employeexpensedata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'employeexpensedata'}
   },
   {
     path: '/payrollaccessdata',
     name: 'payrollaccessdata',
-    component: payrollaccessdata
+    component: payrollaccessdata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'payrollaccessdata'}
   },
  
   {
@@ -83,7 +106,9 @@ const routes = [
   {
     path: '/Ldbpage',
     name: 'Ldbpage',
-    component: Ldbpage
+    component: Ldbpage,
+    beforeEnter : guardMyroute,
+    meta: {title: 'Ldbpage'}
   },
  
   {
@@ -94,12 +119,16 @@ const routes = [
   {
     path: '/activeemplydata',
     name: 'activeemplydata',
-    component: activeemplydata
+    component: activeemplydata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'activeemplydata'}
   },
   {
     path: '/amdpage',
     name: 'amdpage',
-    component: amdpage
+    component: amdpage,
+    beforeEnter : guardMyroute,
+    meta: {title: 'amdpage'}
   },
   {
     path: '/employeedata',
@@ -109,12 +138,16 @@ const routes = [
   {
     path: '/launchpage',
     name: 'launchpage',
-    component: launchpage
+    component: launchpage,
+    beforeEnter : guardMyroute,
+    meta: {title: 'launchpage'}
   },
   {
     path: '/orgndata',
     name: 'orgndata',
-    component: orgndata
+    component: orgndata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'orgndata'}
   },
   {
     path: '/About',
@@ -156,7 +189,9 @@ const routes = [
   {
     path: '/penReq',
     name: 'penReq',
-    component: penReq
+    component: penReq,
+    beforeEnter : guardMyroute,
+    meta: {title: 'penReq'}
   },
 
   {
@@ -178,7 +213,9 @@ const routes = [
   {
     path: '/receiVables',
     name: 'receiVables',
-    component: receiVables
+    component: receiVables,
+    beforeEnter : guardMyroute,
+    meta: {title: 'receiVables'}
   },
 
 
