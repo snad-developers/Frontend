@@ -39,7 +39,7 @@
     <!-- <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div> -->
-    <h2>Select the data you want Load </h2>
+    <h2>Select the data you want to Load </h2>
 
      <div class="forms" style="padding:10px">
  <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " required @click="(filename='0')">
@@ -49,7 +49,7 @@
  <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -249px;" @click="(filename='2')">
  <label for="javascript"  style="margin:2px">Time Sheet</label><br><br>
  <input type="radio" id="javas" name="fav_language" value="JavaScript" style="margin-left: -172px;" @click="(filename='3')">
- <label for="javas"  style="margin:2px">Managment Expenses</label><br><br>
+ <label for="javas"  style="margin:2px">Management Expenses</label><br><br>
  <input type="radio" id="script" name="fav_language" value="JavaScript" style="margin-left: -222px;" @click="(filename='4')">
  <label for="script"  style="margin:2px">Employee Data</label><br><br>
  <input type="radio" id="jav" name="fav_language" value="JavaScript" style="margin-left: -186px;" @click="(filename='5')">
@@ -66,7 +66,7 @@
     color:white"></b-alert>
      <p  style="color: red;">{{validate_message}}</p>
 
-    <p v-if="insertmessage" style="color: green;">{{insertmessage}}</p>
+    <p v-if="insertmessage" style="">{{insertmessage}}</p>
      
 
        
@@ -248,6 +248,7 @@ console.log(sdata)
    this.responsedata=loginapi.fileUpload(sdata).then(response=>{
  console.log(response)
  this.insertmessage=response.data.message;
+//  alert(this.insertmessage);
  this.validate_message="";
 
    })

@@ -30,7 +30,7 @@
 
 <td>{{data.clientid}}</td>
 <td>{{data.clientname}}</td>
-<td>{{data.sum}}</td>
+<td>$ {{data.sum}}</td>
 
 
        </tr>
