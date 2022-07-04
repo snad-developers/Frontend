@@ -81,7 +81,7 @@
                 : 'text-fields'
             ">
 <option selected value  > Select Role </option>
-      <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
+      <option v-for="(role,index) in roledata" :key="index" >{{role.roles}}</option>
 </select>
   <p
             class="text-red-500 text-xs font-thin"
@@ -222,7 +222,8 @@ export default {
                  confirmpwd:this.data.confirmpwd,
                   buttonvalue:""
         },
-        responsedata:[]
+        responsedata:[],
+        roledata:[],
         
 
        }
@@ -319,8 +320,8 @@ export default {
     },
     fetch(){
       loginapi.rolesgetvalues().then(response=>{
-        this.responsedata=response.data
-        console.log(this.responsedata)
+        this.roledata=response.data
+        console.log(this.roledata)
       })
     }
   

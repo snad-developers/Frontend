@@ -66,7 +66,7 @@
             ">
      <option  selected value>Select Entity</option>
 
-      <option v-for="(entity,index) in responsedata" :key="index" >{{entity.entity}}</option>
+      <option v-for="(entity,index) in entitydata" :key="index" >{{entity.entity}}</option>
      </select>
       <p
             class="text-red-500 text-xs font-thin"
@@ -198,6 +198,7 @@ export default {
                 // currentStep:this.currentStep
         },
         responsedata:[],
+        entitydata:[],
         
 
        }
@@ -284,8 +285,8 @@ export default {
     },
     fetch(){
       loginapi.orgndatagetvalues().then(response=>{
-        this.responsedata=response.data
-        console.log(this.responsedata)
+        this.entitydata=response.data
+        console.log(this.entitydata)
       })
     }
   

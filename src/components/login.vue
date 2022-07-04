@@ -195,7 +195,7 @@ export default {
             "entity":this.person.Entity
           }
 
-          this.responsedata=loginapi.loginservice(sdata).then(response=>{
+          loginapi.loginservice(sdata).then(response=>{
             console.log(response,"response data");
             if(response.data){
               console.log("if condition")

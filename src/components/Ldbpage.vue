@@ -66,7 +66,9 @@
     color:white"></b-alert>
      <p  style="color: red;">{{validate_message}}</p>
 
-    <p v-if="insertmessage" style="">{{insertmessage}}</p>
+    <p v-if="show" style="color: green;">{{insertmessage}}</p>
+        <p v-if="!show" style="color: red;">{{insertmessage}}</p>
+
      
 
        
@@ -94,7 +96,8 @@ export default {
         show:false,
         showdata:[],
         insertmessage:'',
-        validate_message:''
+        validate_message:'',
+        show:null
     };
   },
 
@@ -247,6 +250,12 @@ console.log(data)
 console.log(sdata)
    this.responsedata=loginapi.fileUpload(sdata).then(response=>{
  console.log(response)
+ if(response.data.statuscode==200){
+  this.show=true
+ }
+ else{
+  this.show=false
+ }
  this.insertmessage=response.data.message;
 //  alert(this.insertmessage);
  this.validate_message="";
