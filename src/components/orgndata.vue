@@ -14,7 +14,6 @@
 <div class="B1">
  
    <a href="/amdpage" class="b1" >Employee Data</a>
- 
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
@@ -48,7 +47,7 @@
 
 <td class="expdata">
 <div class="expenses">
- <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Roles</b></h4>
+ <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Expenses</b></h4>
  <input type="text" placeholder="Expense Name" class="expbox" v-model="person.expense">
   <input type="text" placeholder="Expense Code" class="expbox" v-model="person.expcode">
 
@@ -63,13 +62,13 @@
     background-color:white;
     align-content: center;"
     >
-    <thead style=" background-color:rgb(240, 232, 232); color:grey; fill-opacity: initial;">
+    <thead style=" background-color:#F3F6F9; color:grey; fill-opacity: initial;width:100%">
         <tr align="left" >
             <th style="margin-left:30px">
-              Expense 
+              Expense Name
             </th>
             <th>
-               Expense Code
+              Expense Code
             </th>
            
            

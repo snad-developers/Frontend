@@ -1,5 +1,4 @@
 <template>
-<!DOCTYPE html>
 <!--=== Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
 <head>
@@ -15,13 +14,13 @@
 
     <!--<title>Responsive Regisration Form </title>--> 
 </head>
-<body>
-    <div class="container" style ="margin-left: 41px; width:110%;">
+
+    <div class="container" style ="margin-left: 41px; width:103%;">
         
 
         <form action="#">
              
-            <div class="form first" style="border-radius: 20px; background-color:white; margin-top:70px" >
+            <div class="form first" style="border-radius: 20px; background-color:white; margin-top:70px;width:80%;margin-left:10%;padding:5%;overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);" >
                 <br>
                 <div class="hello" style="font-size:35px">
                  <header>User Details</header>
@@ -225,166 +224,20 @@
                         </div>
                         
                         
-                       <!-- <a href="/penReq"><button  class="back"  style="margin-left: -102px;
-    top: -337px; margin:0%;  width: 14%;
-    padding: 12px;
-    background-color:blue;
-    border-radius: 20px;">back</button></a> -->
-
                    
-                </div>
-               
-
-                <!-- <div class="details ID">
-                    
-
-                  
-                        <div class="input-field">
-                                <label for="role">Role</label>
-      <select name="entity" id ="repeat1" required  placeholder="entity" align="right" class="user">
-<option disabled selected value  >  </option>
-<option value ="Management">Management</option>
-<option value ="Department heads">Department heads</option>
-<option value ="Department heads">Department heads</option>
-<option value ="Accounting clerks">Accounting clerks</option>
-<option value ="Resource managers">Department heads</option>
-<option value ="Admin">Admin</option>
-<option value ="Payroll Admin">Payroll Admin</option>
-<option value ="HR Manager">HR Manager</option>
-<option value ="HR Analyst">HR Analyst</option>
-<option value ="Payroll Analyst">Payroll Analyst</option>
-</select>
-                         </div> -->
-
-                        <!-- <div class="input-field">
-                            <label for="company id">Company Id</label>
-      <input type="text" class="company" placeholder="Company Id" required style="
-    margin-bottom: -8px;" >
-                        </div>
-
-                        <div class="input-field">
-                             <label for="user id">User id</label>
-                             <input type="text" class="username" placeholder="User Id" required style="width: 100%; 
-    margin-bottom: -8px;" >
-                        </div> -->
-
-                      <!-- <div class="input-field">
-                             <label for="create password">Create Password</label>
-      <input type="text" class="phone" placeholder="Create Password" required >
-                        </div>
-
-                        <div class="input-field">
-                              <label for="confirm  password"> Confirm Password</label>
-      <input type="text" class="phone" placeholder="Confirm Password" required >
-                        </div> -->
-
-                        -->
-                    <!-- </div> -->
-
-                   <!-- <button class="sumbit" style="margin-left: 326px;">
-                            <span class="btnText">Submit</span>
-                            <i class="uil uil-navigator"></i>
-                        </button>
-                    
-                </div> 
-            </div> -->
-
-            <!-- <div class="form second">
-                <div class="details address">
-                    <span class="title">Address Details</span>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Address Type</label>
-                            <input type="text" placeholder="Permanent or Temporary" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Nationality</label>
-                            <input type="text" placeholder="Enter nationality" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>State</label>
-                            <input type="text" placeholder="Enter your state" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>District</label>
-                            <input type="text" placeholder="Enter your district" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Block Number</label>
-                            <input type="number" placeholder="Enter block number" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Ward Number</label>
-                            <input type="number" placeholder="Enter ward number" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="details family">
-                    <span class="title">Family Details</span>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Father Name</label>
-                            <input type="text" placeholder="Enter father name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Mother Name</label>
-                            <input type="text" placeholder="Enter mother name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Grandfather</label>
-                            <input type="text" placeholder="Enter grandfther name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Spouse Name</label>
-                            <input type="text" placeholder="Enter spouse name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Father in Law</label>
-                            <input type="text" placeholder="Father in law name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Mother in Law</label>
-                            <input type="text" placeholder="Mother in law name" required>
-                        </div>
-                    </div>
-
-                    <div class="buttons">
-                        <div class="backBtn">
-                            <i class="uil uil-navigator"></i>
-                            <span class="btnText">Back</span>
-                        </div>
-                        
-                        <button class="sumbit">
-                            <span class="btnText">Submit</span>
-                            <i class="uil uil-navigator"></i>
-                        </button>
-                    </div>
-                </div>  -->
-            <!-- </div> -->
             </div>
             
-            
+          </div>  
             
         </form>
         
     </div>
     
-   <!--<script src="script.js"></script>-->
-</body>
+
+
+
 </html>
+
   <a href="/penReq"><button  class="back"  style="margin-left: -102px;
     top: -337px; margin:0%;  width: 14%;
     padding: 12px;
@@ -429,4 +282,3 @@
 
 
 </style>
-

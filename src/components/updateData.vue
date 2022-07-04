@@ -1,16 +1,16 @@
 <template>
-   <div class="container" style ="margin-left: 291px;margin-top:68px;border-radius:25px">
+   <div class="container" style ="margin-left: 291px;margin-top:100px;border-radius:25px">
         <header>Update Details</header>
 
         <form action="#">
             <div class="form first">
-                <div class="details personal">
+                <div class="details personal" style="margin-top:44px">
                     <!-- <span class="title">Personal Details</span> -->
 
                     <div class="fields">
                         <div class="input-field">
                             <label for="firstname">First Name</label>
-                            <input type="text" for="firstName" name="firstName" placeholder="Enter your name" required v-model="person.firstName" style="outline: none;
+                            <input type="text" for="firstName" name="firstName" placeholder="Enter your Name" required v-model="person.firstName" style="outline: none;
     font-size: 14px;
     font-weight: 400;
     color: #333;
@@ -23,11 +23,11 @@
 
                         <div class="input-field">
                             <label for="lastName">Last Name</label>
-                            <input type="text" name="lastName" for="LastName" placeholder="Enter your name" required v-model="person.lastName"  style=" border-radius: 20px;">
+                            <input type="text" name="lastName" for="LastName" placeholder="Enter your Name" required v-model="person.lastName"  style=" border-radius: 20px;">
                         </div>
                         <div class="input-field">
                             <label for="idnumber">Id Number</label>
-                            <input type="text" name="idnumber" for="idnumber" placeholder="Enter your name" required v-model="person.idnumber" style="outline: none;
+                            <input type="text" name="idnumber" for="idnumber" placeholder="Enter your Id number" required v-model="person.idnumber" style="outline: none;
     font-size: 14px;
     font-weight: 400;
     color: #333;
@@ -40,11 +40,11 @@
 
                         <div class="input-field">
                              <label for="address1">Address Line1</label>
-                              <input type="text" for="address1" name="address1" class="last name" placeholder="Adress Line1" required v-model="person.address1"  style=" border-radius: 20px;">
+                              <input type="text" for="address1" name="address1" class="last name" placeholder="Adress Line 1" required v-model="person.address1"  style=" border-radius: 20px;">
                         </div>
                          <div class="input-field">
                              <label for="address2">Address Line2</label>
-                              <input type="text" for="address2" name="address2" class="last name" placeholder="Adress Line1" required v-model="person.address2"  style=" border-radius: 20px;">
+                              <input type="text" for="address2" name="address2" class="last name" placeholder="Adress Line 2" required v-model="person.address2"  style=" border-radius: 20px;">
                         </div>
 
 
@@ -101,7 +101,7 @@
                     <div class="fields">
                         <div class="input-field">
                                 <label for="role">Role</label>
-      <select name="role" for="role" id ="repeat1" required v-model="person.role"  placeholder="entity" align="right" class="user" style=" border-radius:20px;">
+      <select name="role" for="role" id ="repeat1" required v-model="person.role"  placeholder="Role" align="right" class="user" style=" border-radius:20px;">
 <option selected value  > Choose Role </option>
 <option value ="Management" >Management</option>
 <option value ="Accounting clerks">Accounting clerk</option>
@@ -129,12 +129,12 @@
 
                       <div class="input-field">
                              <label for="password" style="margin-right:-991px; top:-76px;">Create Password</label>
-      <input type="text" for="password" name="password" class="phone" placeholder="Create Password" required v-model="person.password" style="left:503px; top:-83px; border-radius:20px;" >
+      <input type="password" for="password" name="password" class="phone" placeholder="Create Password" required v-model="person.password" style="left:503px; top:-83px; border-radius:20px;" >
                         </div>
 
                         <div class="input-field">
                               <label for="confirmPassword" style="left:-510px;"> Confirm Password</label>
-      <input type="text" for="confirmPassword" name="confirmPassword" class="phone" placeholder="Confirm Password" required v-model="person.confirmPassword" style="left:-500px; border-radius:20px;">
+      <input type="passowrd" for="password" name="password" class="phone" placeholder="Confirm Password" required v-model="person.confirmPassword" style="left:-500px; border-radius:20px;text-align:center;">
                         </div>
 
                        
@@ -170,7 +170,7 @@
            </div> -->
                 </div>
 
-                   <button class="sumbit" @click.prevent="handleupdate"  style="margin-left: 326px;">
+                   <button class="sumbit" @click.prevent="handleupdate"  style="margin-left: 326px;margin-top:0%">
                             <span class="btnText">Update Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -286,16 +286,7 @@ body{
     font-weight: 600;
     color: #333;
 }
-.container header::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    height: 3px;
-    width: 27px;
-    border-radius: 8px;
-    background-color: #4070f4;
-}
+
 .container form{
     position: relative;
     margin-top: 16px;

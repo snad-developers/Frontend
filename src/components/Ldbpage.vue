@@ -39,7 +39,7 @@
     <!-- <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div> -->
-    <h2>Select the data you want Load </h2>
+    <h2>Select the data you want to Load </h2>
 
      <div class="forms" style="padding:10px">
  <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " required @click="(filename='0')">
@@ -66,7 +66,7 @@
     color:white"></b-alert>
      <p  style="color: red;">{{validate_message}}</p>
 
-    <p v-if="insertmessage" style="color: green;">{{insertmessage}}</p>
+    <p v-if="insertmessage" style="color: red;">{{insertmessage}}</p>
      
 
        

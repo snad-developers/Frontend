@@ -103,7 +103,7 @@
    <br>
     <button  class= "button" @click.prevent="submit">Login </button>
     <h6>OR</h6>
-  <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label>
+   <a href=""> <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label></a>
     <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
     <!-- <a href="/abc">abc</a> -->
    
