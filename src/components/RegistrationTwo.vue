@@ -287,7 +287,7 @@ export default {
           confirmpwd: { 
             required: helpers.withMessage("Enter Confirm Password", required), 
             $autoDirty: true,
-            // sameAs: helpers.withMessage("confirm password and create Password should be same", sameAs('createpwd'))  
+            // sameAspass: helpers.withMessage("confirm password and create Password should be same", sameAs(createpwd))  
           },
         //   ans1: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
         // ans2: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },

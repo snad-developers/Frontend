@@ -229,9 +229,9 @@ export default {
 "entity":this.formvalue[0].Entity,
 "status":"pending"
 }
-console.log(senddata);
-// if(!this.v$.$invalid){
-      loginapi.createpost(senddata).then(response=>{
+// console.log(senddata);
+if(this.formvalue[1].createpwd==this.formvalue[1].confirmpwd){
+     loginapi.createpost(senddata).then(response=>{
       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
 if(response.status == 201 && response.data.firstName == this.formvalue[0].firstname && response.data.firstName){
  console.log(response);
@@ -240,6 +240,12 @@ if(response.status == 201 && response.data.firstName == this.formvalue[0].firstn
  this.$router.push('login');
 }
  });
+}
+else{
+  alert("passwords are not same")
+}
+// if(!this.v$.$invalid){
+   
 // }
     },
 
