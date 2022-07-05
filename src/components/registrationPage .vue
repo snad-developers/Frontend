@@ -15,12 +15,12 @@
    
     
  
-  <form  class="register" style="width:105%;height:105%;margin-right:400px;top:50px">
+  <form  class="register" style="width:105%;height:105%;margin-right:394px;margin-top: 10%;right: 5%;">
    
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-   <div class="child-div4" style="width:70%">
+   <div class="child-div4">
       
 
    </div>
@@ -138,16 +138,7 @@ export default {
                 
             }
         },
-         created() {
-    this.GetloginDetails();
-        },
         methods:{
-           GetloginDetails(){
-                 if(localStorage.getItem('currentUser')){
-                 this.$router.push({name:"launchpage"});
-                 }
-        
-    },
 
             Continue(){
                 this.currentStep += 1;
@@ -238,13 +229,14 @@ export default {
 "entity":this.formvalue[0].Entity,
 "status":"pending"
 }
-// console.log(senddata);
-if(this.formvalue[1].createpwd==this.formvalue[1].confirmpwd){
+console.log(senddata);
+// if(!this.v$.$invalid){
+ if(this.formvalue[1].createpwd==this.formvalue[1].confirmpwd){
      loginapi.createpost(senddata).then(response=>{
       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
 if(response.status == 201 && response.data.firstName == this.formvalue[0].firstname && response.data.firstName){
  console.log(response);
- alert("Registration completed, Please contact Administartor")
+ alert("Registration completed, Please wait for Approval")
  //this.sendEmail(e);
  this.$router.push('login');
 }
@@ -253,9 +245,6 @@ if(response.status == 201 && response.data.firstName == this.formvalue[0].firstn
 else{
   alert("passwords are not same")
 }
-// if(!this.v$.$invalid){
-   
-// }
     },
 
         },
@@ -285,6 +274,7 @@ else{
      font-family: sans-serif;
      transition: 0.5s;
 }
+
 buttn{
     
   width: 100%;

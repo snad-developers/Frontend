@@ -3,15 +3,15 @@
 {{currentStep}} -->
  <form @submit.prevent="passEvent('Next')">
  <div class="forms main-container2">
-      <div class="child-4" style="margin-left:-19px">
+      <div class="child-4">
          <div class="id">
       <label for="firstname"></label>
-       <input style="margin:10px" type="text" placeholder="First Name" v-model="person.firstname" v-on:keypress="isLetter($event)"
+       <input style="margin:10px" type="text" class="user" placeholder="First Name" v-model="person.firstname" 
              :class="
               v$.person.firstname.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.firstname.$errors"
@@ -22,14 +22,14 @@
       <!-- <input  name="firstname" id="firstname" type="text" for=firstname class="main" placeholder="firstname" required v-model="person.firstname"> -->
       </div>
       <div class="id">
-      <label for="companyid"></label>
+      <label for="EmployeeId"></label>
       <!-- <input  name="companyid" type="text" class="companyid" placeholder="company id" required v-model="person.lastname"> -->
-       <input  style="margin:10px" type="text" class="user" placeholder="Company Id" v-model="person.companyid" 
+       <input  style="margin:10px" type="text" class="user" placeholder="Employee Id" v-model="person.companyid" 
         :class="
               v$.person.companyid.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
            <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.companyid.$errors"
@@ -46,7 +46,7 @@
               v$.person.phonenumber.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
            <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.phonenumber.$errors"
@@ -63,11 +63,11 @@
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
      <option  selected value>Select Entity</option>
 
-      <option v-for="(entity,index) in entitydata" :key="index" >{{entity.entity}}</option>
-     </select>
+      <option v-for="(entity,index) in responsedata" :key="index" >{{entity.entity}}</option>
+     </select><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
       <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.Entity.$errors"
@@ -81,12 +81,12 @@
       <div class="id">
         <label for="lastname"></label>
       <!-- <input name="lastname" type="text" for="lastname" class="last name" placeholder="last name" required v-model="person.userid"> -->
-      <input  style="margin:10px" type="text" placeholder="Last Name" v-model="person.lastname" v-on:keypress="isLetter($event)"
+      <input  style="margin:10px" type="text" class="user" placeholder="Last Name" v-model="person.lastname" 
         :class="
               v$.person.lastname.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
            <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.lastname.$errors"
@@ -96,14 +96,14 @@
           </p>  
      </div>
        <div class="id">
-        <label for="userid"></label>
+        <label for="Emailid"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input  style="margin:10px" type="text" class="user" placeholder="User Id" v-model="person.userid" 
+       <input  style="margin:10px" type="text" class="user" placeholder="Email Id" v-model="person.userid" 
         :class="
               v$.person.userid.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
            <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.userid.$errors"
@@ -120,12 +120,12 @@
               v$.person.gender.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " >
+            "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
 <option disabled selected value>Gender</option>
 <option value ="Male">Male</option>
 <option value ="Female">Female</option>
 <option value ="Others">Others</option>
-     </select><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+     </select><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
        <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.gender.$errors"
@@ -142,7 +142,7 @@
               v$.person.dateofBirth.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " /><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            " /><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.dateofBirth.$errors"
@@ -198,7 +198,6 @@ export default {
                 // currentStep:this.currentStep
         },
         responsedata:[],
-        entitydata:[],
         
 
        }
@@ -225,9 +224,7 @@ export default {
         
         companyid: { 
           required: helpers.withMessage("Enter Company Id", required), 
-          $autoDirty: true,
-         maxLength:helpers.withMessage("Company id should be maximum 12",maxLength(12)) 
-        }, 
+          $autoDirty: true },
         
         userid: {
           required: helpers.withMessage("Enter User Id ", required), 
@@ -285,15 +282,10 @@ export default {
     },
     fetch(){
       loginapi.orgndatagetvalues().then(response=>{
-        this.entitydata=response.data
-        console.log(this.entitydata)
+        this.responsedata=response.data
+        console.log(this.responsedata)
       })
-    },
-     isLetter(e) {
-       let char = String.fromCharCode(e.keyCode); // Get the character
-      if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
-      else e.preventDefault(); // If not match, don't add to input text
-}
+    }
   
   }
    
@@ -375,7 +367,7 @@ input[type=text] input[type=email]{
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
-     transition: 0.2s;
+     transition: 0.6s;
    
 }
 
@@ -535,10 +527,10 @@ body{
   margin-bottom: 1px;
   padding: 10px;
   border-radius: 50px;
-  border: 2px solid #dddddd;
-  background: #ffffff;
+  /* border: 1px solid black; */
+  /* background:black; */
   outline: none;
-  transition: border-color 0.2s;
+  /* transition: border-color 0.2s; */
   font-family: sans-serif;
 
 }
@@ -546,7 +538,7 @@ body{
 
 
 .user::placeholder{
-  color: #aaaaaa;
+  color: #c5c2c2;
 
 }
 

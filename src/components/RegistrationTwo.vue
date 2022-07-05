@@ -3,7 +3,7 @@
 {{currentStep}} -->
 <form @submit.prevent="passEvent()">
   <div class="forms main-container2" >
-      <div class="child-4" style="margin-left:-19px">
+      <div class="child-4">
          <div class="id">
       <label for="AdressLine1"></label>
       <!-- <input  type="text" for="AdressLine1" class="main" placeholder="Adress Line1" required v-model="person.AdressLine1" ref="AdressLine1"> -->
@@ -24,7 +24,7 @@
       <div class="id">
       <label for="city"></label>
       <!-- <input  type="text" for="city" class="company" placeholder="city" required v-model="person.city"> -->
-        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="City" v-model="person.city" v-on:keypress="isLetter($event)" 
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="City" v-model="person.city" 
              :class="
               v$.person.city.$error === true
                 ? 'text-fields-error'
@@ -46,7 +46,7 @@
               v$.person.zipcode.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.zipcode.$errors"
@@ -63,7 +63,7 @@
               v$.person.createpwd.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.createpwd.$errors"
@@ -74,14 +74,14 @@
       </div>
              <div class="">
        <label for="role"></label>
-      <select style="border-radius:20px;margin:10px;width:100%;padding:13px 20px;" align="right" class="user" v-model="person.role"
+      <select style="border-radius:20px;margin:10px;width:100%;padding:12px 20px" align="right" class="user" v-model="person.role"
        :class="
               v$.person.role.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
 <option selected value  > Select Role </option>
-      <option v-for="(role,index) in roledata" :key="index" >{{role.roles}}</option>
+      <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
 </select>
   <p
             class="text-red-500 text-xs font-thin"
@@ -114,7 +114,7 @@
        <div class="id">
         <label for="state"></label>
       <!-- <input  type="text" for="state" class="username" placeholder="state" required v-model="person.state"> -->
-        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="State" v-model="person.state" v-on:keypress="isLetter($event)"
+        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="State" v-model="person.state" 
              :class="
               v$.person.state.$error === true
                 ? 'text-fields-error'
@@ -131,7 +131,7 @@
               <div class="id">
         <label for="country"></label>
       <!-- <input  type="text" for="country" class="phone" placeholder="country" required v-model="person.country"> -->
-        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="Country" v-model="person.country" v-on:keypress="isLetter($event)"
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="Country" v-model="person.country" 
              :class="
               v$.person.country.$error === true
                 ? 'text-fields-error'
@@ -153,7 +153,7 @@
               v$.person.confirmpwd.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.confirmpwd.$errors"
@@ -222,8 +222,7 @@ export default {
                  confirmpwd:this.data.confirmpwd,
                   buttonvalue:""
         },
-        responsedata:[],
-        roledata:[],
+        responsedata:[]
         
 
        }
@@ -288,7 +287,7 @@ export default {
           confirmpwd: { 
             required: helpers.withMessage("Enter Confirm Password", required), 
             $autoDirty: true,
-            // sameAspass: helpers.withMessage("confirm password and create Password should be same", sameAs(createpwd))  
+            // sameAs: helpers.withMessage("confirm password and create Password should be same", sameAs('createpwd'))  
           },
         //   ans1: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
         // ans2: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
@@ -320,15 +319,10 @@ export default {
     },
     fetch(){
       loginapi.rolesgetvalues().then(response=>{
-        this.roledata=response.data
-        console.log(this.roledata)
+        this.responsedata=response.data
+        console.log(this.responsedata)
       })
-    },
-    isLetter(e) {
-       let char = String.fromCharCode(e.keyCode); // Get the character
-      if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
-      else e.preventDefault(); // If not match, don't add to input text
-}
+    }
   
   }
 }
@@ -530,26 +524,26 @@ body{
 }
 .forms1{
   margin-bottom: 0px;
-  color: #c51414;
+  color: red;
 }
 .user{
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 50px;
-  border: 2px solid #dddddd;
-  background: #ffffff;
+  border: 1px solid black;
+  background: black;
   outline: none;
   transition: border-color 0.5s;
   font-family: sans-serif;
 
 }
 .user:focus{
-  border-color: #46d40e;
+  border-color: black;
 
 }
 .user::placeholder{
-  color: #aaaaaa;
+  color: black;
 
 }
 
