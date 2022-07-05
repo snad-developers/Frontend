@@ -15,12 +15,12 @@
    
     
  
-  <form  class="register" style="width:105%;height:105%;margin-right:250px">
+  <form  class="register" style="width:105%;height:105%;margin-right:400px">
    
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-   <div class="child-div4">
+   <div class="child-div4" style="width:70%">
       
 
    </div>

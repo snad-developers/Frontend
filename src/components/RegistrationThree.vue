@@ -2,11 +2,11 @@
 <!-- {{data}}
 {{currentStep}} -->
 <form @submit.prevent="passEvent()">
-    <div class="forms main-container2" >
-      <div class="child-4" style="width:50%">
+    <div class="forms main-container2" style="margin-left:-19px">
+      <div class="child-4" style="width:70%">
         
-        <div style="margin:18px;">
-  <label for="Select Questions">
+        <div style="margin:20px;position:relative">
+  <label for="Select Questions" style="margin-left:-44px">
     What is your favourite food/dish ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question1"
       :class="
@@ -30,8 +30,8 @@
           </p> -->
   </label>
   </div>
-      <div class="" style="margin:36px;">
-  <label for="Select Questions">
+      <div class="" style="margin:44px;">
+  <label for="Select Questions" style="margin-left:-74px">
     Who is your childhood hero ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question2"
       :class="
@@ -58,7 +58,7 @@
    
      
  
-      <div class="" style="margin-top: 43px;margin-bottom: 35px;">
+      <div class="" style="margin-top: 52px;margin-bottom: 35px;">
   <label for="Select Questions">
     What is the name of your favourite pet ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question3"
@@ -84,8 +84,8 @@
      </label>
      </div>
   
-        <div class="" style="margin:18px;">
-  <label for="Select Questions">
+        <div class="" style="margin:60px;">
+  <label for="Select Questions" style="margin-left:-74px">
     In what city you were born ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question4"
       :class="
@@ -110,8 +110,8 @@
           </p> -->
      </label>
 </div>
-        <div class="" style="margin-top: 38px;">
-  <label for="Select Questions">
+        <div class="" style="margin-top: -9px;">
+  <label for="Select Questions" style="margin-left:-6px">
     What is the name of your first school ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question5"
       :class="
@@ -147,7 +147,7 @@
               v$.person.ans1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "> 
+            "> <p style="top:-34px;color:red;margin-top:-15%;right:-52%">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans1.$errors"
@@ -163,7 +163,7 @@
               v$.person.ans2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="top:-34px;color:red;margin-top:-15%;right:-52%">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans2.$errors"
@@ -179,7 +179,7 @@
               v$.person.ans3.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="top:-34px;color:red;margin-top:-15%;right:-52%">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans3.$errors"
@@ -195,7 +195,7 @@
               v$.person.ans4.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="top:-34px;color:red;margin-top:-15%;right:-52%">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans4.$errors"
@@ -211,7 +211,7 @@
               v$.person.ans5.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="top:-34px;color:red;margin-top:-15%;right:-52%">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans5.$errors"
@@ -466,21 +466,9 @@ input[type=button]{
      font-family: sans-serif;
      transition: 0.5s;
 }
-<<<<<<< HEAD
-/* p::after{
-  content: " ";
-  position: absolute;
-  display: block;
-  left: 46%;
-  bottom: 0%;
-  width:8%;
-  height: 2px;
-  background-color: aqua;
-   font-family: sans-serif;
-} */
-=======
 
->>>>>>> b23bd1771c9167445932a94f1a9a8afabfb1300c
+
+
 .img{
   text-align: left 2px;
   margin-left:-10px ;

@@ -11,7 +11,7 @@
 
     
         <lable>What is your favourite food/dish ?</lable><br>
-        <input type="text" class="user" required id="fq" name="first" placeholder="Give your answer"><br>
+        <input  type="text" class="user" required id="fq" name="first" placeholder="Give your answer"><br>
         <br>
         <lable>Who is your childhood hero ?</lable><br>
         <input type="text" class="user" required id="fq" name="first" placeholder="Give your answer"><br>

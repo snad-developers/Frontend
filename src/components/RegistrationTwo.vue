@@ -3,7 +3,7 @@
 {{currentStep}} -->
 <form @submit.prevent="passEvent()">
   <div class="forms main-container2" >
-      <div class="child-4">
+      <div class="child-4" style="margin-left:-19px">
          <div class="id">
       <label for="AdressLine1"></label>
       <!-- <input  type="text" for="AdressLine1" class="main" placeholder="Adress Line1" required v-model="person.AdressLine1" ref="AdressLine1"> -->
@@ -12,7 +12,7 @@
               v$.person.AdressLine1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.AdressLine1.$errors"
@@ -29,7 +29,7 @@
               v$.person.city.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.city.$errors"
@@ -46,7 +46,7 @@
               v$.person.zipcode.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.zipcode.$errors"
@@ -63,7 +63,7 @@
               v$.person.createpwd.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.createpwd.$errors"
@@ -74,7 +74,7 @@
       </div>
              <div class="">
        <label for="role"></label>
-      <select style="border-color:black;border-radius:20px;margin:10px;width:226px;padding:12px 20px" align="right" class="user" v-model="person.role"
+      <select style="border-radius:20px;margin:10px;width:100%;padding:13px 20px;" align="right" class="user" v-model="person.role"
        :class="
               v$.person.role.$error === true
                 ? 'text-fields-error'
@@ -82,7 +82,7 @@
             ">
 <option selected value  > Select Role </option>
       <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
-</select>
+</select><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
   <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.role.$errors"
@@ -102,7 +102,7 @@
               v$.person.AdressLine2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.AdressLine2.$errors"
@@ -119,7 +119,7 @@
               v$.person.state.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.state.$errors"
@@ -136,7 +136,7 @@
               v$.person.country.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.country.$errors"
@@ -153,7 +153,7 @@
               v$.person.confirmpwd.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.confirmpwd.$errors"
