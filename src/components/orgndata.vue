@@ -48,7 +48,7 @@
 
 <td class="expdata">
 <div class="expenses">
- <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Roles</b></h4>
+ <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Expenses</b></h4>
  <input type="text" placeholder="Expense Name" class="expbox" v-model="person.expense">
   <input type="text" placeholder="Expense Code" class="expbox" v-model="person.expcode">
 
