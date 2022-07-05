@@ -1,26 +1,28 @@
 <template>
-<h2>Outstanding Receivables Collections</h2>
+<h2>MANAGEMENT EXPENSES</h2>
 
   <div class="">
-    <a href="/launchpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:5%">Back</button></a>
     <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
     overflow: hidden; width:950px;
-    margin-left:300px ;
+    margin-left:215px ;
     margin-top: 20px;
     margin-bottom: 50px;
     background-color:white">
-    <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
+    <thead style=" background-color:rgb(240, 232, 232); color:grey; fill-opacity: initial;">
         <tr>
             <th>
-               ClientID
+               EMPLOYEE ID
             </th>
             <th>
-               Client Name
+               FIRST NAME
             </th>
             <th>
-               Receivables
+               LAST NAME
+            </th>
+             <th>
+               TOTAL OPERATIONAL EXPENSES
             </th>
            
         </tr>
@@ -29,9 +31,10 @@
           <template v-for="(data,index) in showdata" :key="index" > 
             <tr>
 
-<td>{{data.clientid}}</td>
-<td>{{data.clientname}}</td>
-<td>$ {{data.sum}}</td>
+<td>{{data.employeeid}}</td>
+<td>{{data.firstname}}</td>
+<td>{{data.lastname}}</td>
+<td>$ {{data.totalexpenses}}</td>
 
 
        </tr>
@@ -43,11 +46,10 @@
 </div>
    
 </template>
-
 <script>
 import loginapi from '@/services/loginapi'
 export default {
-    name: "receiVables",
+    name: "operationalCost",
     data(){
         return{
             showdata:[],
@@ -62,11 +64,8 @@ export default {
 
     methods:{
        getaccessdata(){
-   this.responsedata=loginapi.accessdata().then(response=>{
- console.log(response)
-  console.log(response.data.result)
+   this.responsedata=loginapi.operationalaccess().then(response=>{
  if(response && response.data.result){
-      console.log(response.data.result)
 this.showdata=response.data.result;
   
  }

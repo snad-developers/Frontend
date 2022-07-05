@@ -116,9 +116,16 @@ export default {
     };
   },
    created() {
+    this.GetloginDetails();
             this.id = this.$route.params.id;
         },
  methods: {
+   GetloginDetails(){
+                 if(localStorage.getItem('currentUser')){
+                 this.$router.push({name:"launchpage"});
+                 }
+        
+    },
     submit() {
        this.v$.$touch();
        console.log(this.v$)
@@ -128,6 +135,7 @@ export default {
 "password":this.person.Password,
 "confirmPassword":this.person.Conform
 }
+if(this.person.Password==this.person.Conform){
  this.responsedata=loginapi.resetpassword(sdata,this.id).then(response=>{
 console.log(response,"response data");
 if(response.data){
@@ -144,6 +152,11 @@ if(response.data){
 }
   
        })
+
+}
+else{
+  alert("password are not same")
+}
 
        }
  },

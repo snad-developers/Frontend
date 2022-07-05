@@ -49,7 +49,7 @@
  <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -249px;" @click="(filename='2')">
  <label for="javascript"  style="margin:2px">Time Sheet</label><br><br>
  <input type="radio" id="javas" name="fav_language" value="JavaScript" style="margin-left: -172px;" @click="(filename='3')">
- <label for="javas"  style="margin:2px">Managment Expenses</label><br><br>
+ <label for="javas"  style="margin:2px">Management Expenses</label><br><br>
  <input type="radio" id="script" name="fav_language" value="JavaScript" style="margin-left: -222px;" @click="(filename='4')">
  <label for="script"  style="margin:2px">Employee Data</label><br><br>
  <input type="radio" id="jav" name="fav_language" value="JavaScript" style="margin-left: -186px;" @click="(filename='5')">
@@ -66,7 +66,9 @@
     color:white" ></b-alert>
      <p  style="color: red;">{{validate_message}}</p>
 
-    <p v-if="insertmessage" style="color: red;">{{insertmessage}}</p>
+    <p v-if="show" style="color: green;">{{insertmessage}}</p>
+        <p v-if="!show" style="color: red;">{{insertmessage}}</p>
+
      
 
        
@@ -94,7 +96,8 @@ export default {
         show:false,
         showdata:[],
         insertmessage:'',
-        validate_message:''
+        validate_message:'',
+        show:null
     };
   },
 
@@ -247,7 +250,14 @@ console.log(data)
 console.log(sdata)
    this.responsedata=loginapi.fileUpload(sdata).then(response=>{
  console.log(response)
+ if(response.data.statuscode==200){
+  this.show=true
+ }
+ else{
+  this.show=false
+ }
  this.insertmessage=response.data.message;
+//  alert(this.insertmessage);
  this.validate_message="";
 
    })

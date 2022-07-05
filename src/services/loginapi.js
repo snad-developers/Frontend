@@ -16,7 +16,21 @@ export default{
         return API('http://localhost:3000/').post('/reg',data)
     },
     loginservice(data){
-        return API('http://localhost:3000/').post('/login',data)
+        //var sendDAta=data;
+        if(data){
+            
+            return API('http://localhost:3000/').post('/login',data)
+        }
+        else{
+            const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+            data= {
+                "password":userdetails.password ? userdetails.password : '',
+                "email":userdetails.email ? userdetails.email : '',
+                "entity":userdetails.entity ? userdetails.entity : ''
+              }
+              return  API('http://localhost:3000/').post('/login',data)
+        }
+       // return API('http://localhost:3000/').post('/login',data)
     },
     forgotpassword(data){
         return API('http://localhost:3000/').post('/forgotpassword',data)
@@ -78,5 +92,8 @@ export default{
 
     expdatapost(data){
         return API('http://localhost:3000/').post('/expenses',data)
+    },
+    operationalaccess(){
+        return API('http://localhost:3000/').get('/operationalaccess')
     },
 }

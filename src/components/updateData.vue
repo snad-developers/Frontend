@@ -84,8 +84,8 @@
       <select name="Entity" for="Entity" id ="repeat1" required v-model="person.entity"  placeholder="Entity" align="right" class="user" style=" border-radius:20px;">
        
       <option disabled selected value  > Choose Entity </option>
-      <option value="Averon Solutions">Averon Solutions</option>
-      <option value="SNAD">SNAD</option>
+            <option v-for="(entity,index) in entityresponse" :key="index" >{{entity.entity}}</option>
+
      </select>
    
      </div>
@@ -105,14 +105,8 @@
                                 <label for="role" style="right:-15px">Role</label>
       <select name="role" for="role" id ="repeat1" required v-model="person.role"  placeholder="Role" align="right" class="user" style=" border-radius:20px;width:261px">
 <option selected value  > Choose Role </option>
-<option value ="Management" >Management</option>
-<option value ="Accounting clerks">Accounting clerk</option>
-<option value ="Resource managers">Department head</option>
-<option value ="Admin">Admin</option>
-<option value ="Payroll Admin">Payroll Admin</option>
-<option value ="HR Manager">HR Manager</option>
-<option value ="HR Analyst">HR Analyst</option>
-<option value ="Payroll Analyst">Payroll Analyst</option>
+      <option v-for="(entity,index) in roleresponse" :key="index" >{{entity.roles}}</option>
+
 </select>
                          </div>
 
@@ -190,18 +184,27 @@ export default {
         return{
 
 
-            person:null
+            person:null,
+            entityresponse:[],
+            roleresponse:[]
 
             
 
         }
     },
+    mounted(){
+         this.entityfetch();
+        this.rolefetch();
+    },
 
     created(){
         this.person=(this.$route.params);
         console.log(this.person);
+        this.entityfetch();
+        this.rolefetch();
     
     },
+
     
     methods: {
     handleupdate() {
@@ -249,7 +252,22 @@ if(response.status == 200 && response.data.firstName == this.person.firstName &&
  }
  });
     // }
-    }
+    },
+
+    entityfetch(){
+        loginapi.orgndatagetvalues().then(response=>{
+        this.entityresponse=response.data
+        console.log(this.entityresponse)
+        })
+    },
+     rolefetch(){
+        loginapi.rolesgetvalues().then(response=>{
+        this.roleresponse=response.data
+        console.log(this.roleresponse)
+        })
+    },
+
+
     }
 }
 

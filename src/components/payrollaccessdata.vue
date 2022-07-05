@@ -35,7 +35,7 @@
 <td>{{data.employeeid}}</td>
 <td>{{data.firstname}}</td>
 <td>{{data.lastname}}</td>
-<td>{{data.sum}}</td>
+<td>$ {{data.sum}}</td>
 
 
        </tr>

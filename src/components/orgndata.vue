@@ -47,7 +47,7 @@
 
 <td class="expdata">
 <div class="expenses">
- <h4 style="margin-left:-36px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Expenses</b></h4>
+ <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Expenses</b></h4>
  <input type="text" placeholder="Expense Name" class="expbox" v-model="person.expense">
   <input type="text" placeholder="Expense Code" class="expbox" v-model="person.expcode">
 
@@ -158,7 +158,8 @@ export default{
         const sdata ={
           "entity":this.person.entity
         }
-        console.log(sdata);
+        if(!this.person.entity==""){
+          console.log(sdata);
         loginapi.orgndatapost(sdata).then(response =>{
           if(response.status==201 ){
             console.log(response);
@@ -166,13 +167,18 @@ export default{
             document.location.reload(true)
           }
         });
+        }
+        else{
+          alert("Please enter Entity")
+        }
       },
 
       rolehandle(){
         const sdata ={
           "roles":this.person.role
         }
-        console.log(sdata);
+        if(!this.person.role==""){
+          console.log(sdata);
         loginapi.rolespost(sdata).then(response =>{
           if(response.status==201 ){
             console.log(response);
@@ -180,6 +186,10 @@ export default{
             document.location.reload(true)
           }
         });
+        }
+        else{
+          alert("Please enter Role")
+        }
       },
 
       exphandle(){
@@ -187,7 +197,8 @@ export default{
           "expenses":this.person.expense,
           "expensecode":this.person.expcode
         }
-        console.log(sdata);
+       if(!this.person.expense=="" && !this.person.expcode==""){
+         console.log(sdata);
         loginapi.expdatapost(sdata).then(response =>{
           if(response.status==201 ){
             console.log(response);
@@ -195,6 +206,10 @@ export default{
             document.location.reload(true)
           }
         });
+       }
+       else{
+        alert('Please enter Expense name and Expense code')
+       }
       },
 
     }

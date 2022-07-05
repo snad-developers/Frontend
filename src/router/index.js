@@ -4,7 +4,6 @@ import forgotpassword from '../components/forgotpassword.vue';
 import securityquestions from '../components/securityquestions.vue';
 import resetpassword from '../components/resetpassword.vue';
 import registrationPage from '../components/registrationPage .vue';
-import dashpage from '../components/dashpage.vue';
 import Ldbpage from '../components/Ldbpage.vue';
 import payrollaccessdata from '../components/payrollaccessdata.vue';
 import reportpage from '../components/reportpage.vue';
@@ -14,7 +13,6 @@ import employeedata from '../components/employeedata.vue';
 import orgndata from '../components/orgndata.vue';
 import launchpage from '../components/launchpage.vue';
 import About from '../components/About.vue';
-import securityquestions1 from '../components/securityquestions1.vue';
 import HomePage from '../components/HomePage.vue';
 import penReq from '../components/penReq.vue';
 import viewDetails from '../components/viewDetails';
@@ -25,12 +23,29 @@ import RegistrationThree from '../components/RegistrationThree.vue';
 import receiVables from '../components/receiVables.vue'
 import managmentexpenses from '../components/managmentexpenses.vue'
 import employeexpensedata from '../components/employeexpensedata.vue'
+import operationalCost from '../components/operationalCost.vue';
 
 
+function guardMyroute(to, from, next)
+{
+ var isAuthenticated= false;
+//this is just an example. You will have to find a better or 
+// centralised way to handle you localstorage data handling 
+console.log(localStorage.getItem('currentUser'))
+if(localStorage.getItem('currentUser'))
+  isAuthenticated = true;
+ else
+  isAuthenticated= false;
+ if(isAuthenticated) 
+ {
+  next(); // allow to enter route
+ } 
+ else
+ {
+  next('/login'); // go to '/login';
+ }
+}
 
-
-
-import FileUpload from '../components/CSVFileUpload.vue';
 const routes = [
   {
     path: '/login',
@@ -40,17 +55,23 @@ const routes = [
   {
     path: '/managmentexpenses',
     name: 'managmentexpenses',
-    component: managmentexpenses
+    component: managmentexpenses,
+    beforeEnter : guardMyroute,
+    meta: {title: 'managmentexpenses'}
   },
   {
     path: '/employeexpensedata',
     name: 'employeexpensedata',
-    component: employeexpensedata
+    component: employeexpensedata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'employeexpensedata'}
   },
   {
     path: '/payrollaccessdata',
     name: 'payrollaccessdata',
-    component: payrollaccessdata
+    component: payrollaccessdata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'payrollaccessdata'}
   },
  
   {
@@ -75,57 +96,64 @@ const routes = [
     name: 'registrationPage',
     component: registrationPage
   },
-  {
-    path: '/dashpage',
-    name: 'dashpage',
-    component: dashpage
-  },
+  
   {
     path: '/Ldbpage',
     name: 'Ldbpage',
-    component: Ldbpage
+    component: Ldbpage,
+    beforeEnter : guardMyroute,
+    meta: {title: 'Ldbpage'}
   },
  
   {
     path: '/reportpage',
     name: 'reportpage',
-    component: reportpage
+    component: reportpage,
+    beforeEnter : guardMyroute,
+    meta: {title: 'reportpage'}
   },
   {
     path: '/activeemplydata',
     name: 'activeemplydata',
-    component: activeemplydata
+    component: activeemplydata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'activeemplydata'}
   },
   {
     path: '/amdpage',
     name: 'amdpage',
-    component: amdpage
+    component: amdpage,
+    beforeEnter : guardMyroute,
+    meta: {title: 'amdpage'}
   },
   {
     path: '/employeedata',
     name: 'employeedata',
-    component: employeedata
+    component: employeedata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'employeedata'}
+    
   },
   {
     path: '/launchpage',
     name: 'launchpage',
-    component: launchpage
+    component: launchpage,
+    beforeEnter : guardMyroute,
+    meta: {title: 'launchpage'}
   },
   {
     path: '/orgndata',
     name: 'orgndata',
-    component: orgndata
+    component: orgndata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'orgndata'}
   },
   {
     path: '/About',
     name: 'About',
     component: About
   },
-  {
-    path: '/securityquestions1',
-    name: 'securityquestions1',
-    component: securityquestions1
-  },
+ 
   {
     path: '/HomePage',
     name: 'HomePage',
@@ -156,29 +184,41 @@ const routes = [
   {
     path: '/penReq',
     name: 'penReq',
-    component: penReq
+    component: penReq,
+    beforeEnter : guardMyroute,
+    meta: {title: 'penReq'}
   },
 
   {
     path: '/viewDetails',
     name: 'viewDetails',
-    component: viewDetails
+    component: viewDetails,
+    beforeEnter : guardMyroute,
+    meta: {title: 'viewDetails'}
   },
 
   {
     path: '/updateData',
     name: 'updateData',
-    component: updateData
+    component: updateData,
+    beforeEnter : guardMyroute,
+    meta: {title: 'updateData'}
   },
-  {
-    path: '/FileUpload',
-    name: 'FileUpload',
-    component: FileUpload
-  },
+ 
   {
     path: '/receiVables',
     name: 'receiVables',
-    component: receiVables
+    component: receiVables,
+    beforeEnter : guardMyroute,
+    meta: {title: 'receiVables'}
+  },
+
+  {
+    path: '/operationalCost',
+    name: 'operationalCost',
+    component: operationalCost,
+    beforeEnter : guardMyroute,
+    meta: {title: 'operationalCost'}
   },
 
 

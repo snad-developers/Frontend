@@ -4,11 +4,11 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-   <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
-   <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
+  <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+  <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
+  <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+   <a href="" @click.prevent="logout"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
 </div>
       <!-- <a href="#" style="background-color:white" class="active">
@@ -25,9 +25,8 @@
         <span>Contact</span>
       </a> -->
     </div>
-    
 <div class="welcomediv">
-  <div class="welcome-header">
+  <div class="welcome-header" v-if="logid">
    <h2 class="welcome"><b>Welcome back, {{logid.firstName}}</b></h2>
   <div>
     <!-- <img alt="" src="../assets/snadicon.png" /> -->
@@ -87,7 +86,7 @@
     </div>
      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Operational Costs</h3>
-            <p>$ 68 k</p>
+            <p>$ {{operationalcount}} </p>
           <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
@@ -123,18 +122,29 @@ export default {
      empexpensestotal:null,
      mgmtexpensestotal:null,
     logid:null,
+    operationalcount:0,
   }
        },
  
          mounted() {
   this.empdatafetch();
+   //this.GetloginDetails();
+   this.getaccessdata();
   },
     created () {
         this.empdatafetch();
-        this.logid = (this.$route.params);
-        console.log(this.logid);
+      //this.GetloginDetails();
+       const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+      this.logid=userdetails,
+      this.getaccessdata();
       },
       methods:{
+
+  logout(){
+localStorage.removeItem('UserDetails')
+localStorage.removeItem('currentUser')
+  this.$router.push({name:"login"});
+  },
   empdatafetch() {
  loginapi.dashboarddata().then(response=>{
 this.responsedata=response.data;
@@ -144,8 +154,25 @@ this.Receivables=response.data.receivablestotal;
 this.payrollexpensestotal=response.data.payrollexpensestotal;
 this.empexpensestotal=response.data.empexpensestotal;
 this.mgmtexpensestotal=response.data.mgmtexpensestotal;
+
  });
       },
+        getaccessdata(){
+   this.responsedata=loginapi.operationalaccess().then(response=>{
+ console.log(response)
+  console.log(response.data.result)
+ if(response && response.data.result){
+      console.log(response.data.result)
+var showdata=response.data.result;
+
+      for(var i =0; i<showdata.length; i++){
+        this.operationalcount=this.operationalcount+parseInt(showdata[i].totalexpenses);
+      }
+      console.log(this.operationalcount)
+  
+ }
+   });
+},
 
 
        
