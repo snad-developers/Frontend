@@ -114,7 +114,9 @@ const routes = [
   {
     path: '/reportpage',
     name: 'reportpage',
-    component: reportpage
+    component: reportpage,
+    beforeEnter : guardMyroute,
+    meta: {title: 'reportpage'}
   },
   {
     path: '/activeemplydata',
@@ -133,7 +135,10 @@ const routes = [
   {
     path: '/employeedata',
     name: 'employeedata',
-    component: employeedata
+    component: employeedata,
+    beforeEnter : guardMyroute,
+    meta: {title: 'employeedata'}
+    
   },
   {
     path: '/launchpage',
@@ -197,18 +202,24 @@ const routes = [
   {
     path: '/viewDetails',
     name: 'viewDetails',
-    component: viewDetails
+    component: viewDetails,
+    beforeEnter : guardMyroute,
+    meta: {title: 'viewDetails'}
   },
 
   {
     path: '/updateData',
     name: 'updateData',
-    component: updateData
+    component: updateData,
+    beforeEnter : guardMyroute,
+    meta: {title: 'updateData'}
   },
   {
     path: '/FileUpload',
     name: 'FileUpload',
-    component: FileUpload
+    component: FileUpload,
+    beforeEnter : guardMyroute,
+    meta: {title: 'FileUpload'}
   },
   {
     path: '/receiVables',
