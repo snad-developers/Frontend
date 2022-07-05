@@ -4,7 +4,6 @@ import forgotpassword from '../components/forgotpassword.vue';
 import securityquestions from '../components/securityquestions.vue';
 import resetpassword from '../components/resetpassword.vue';
 import registrationPage from '../components/registrationPage .vue';
-import dashpage from '../components/dashpage.vue';
 import Ldbpage from '../components/Ldbpage.vue';
 import payrollaccessdata from '../components/payrollaccessdata.vue';
 import reportpage from '../components/reportpage.vue';
@@ -14,7 +13,6 @@ import employeedata from '../components/employeedata.vue';
 import orgndata from '../components/orgndata.vue';
 import launchpage from '../components/launchpage.vue';
 import About from '../components/About.vue';
-import securityquestions1 from '../components/securityquestions1.vue';
 import HomePage from '../components/HomePage.vue';
 import penReq from '../components/penReq.vue';
 import viewDetails from '../components/viewDetails';
@@ -25,7 +23,7 @@ import RegistrationThree from '../components/RegistrationThree.vue';
 import receiVables from '../components/receiVables.vue'
 import managmentexpenses from '../components/managmentexpenses.vue'
 import employeexpensedata from '../components/employeexpensedata.vue'
-import FileUpload from '../components/CSVFileUpload.vue';
+import operationalCost from '../components/operationalCost.vue';
 
 
 function guardMyroute(to, from, next)
@@ -98,11 +96,7 @@ const routes = [
     name: 'registrationPage',
     component: registrationPage
   },
-  {
-    path: '/dashpage',
-    name: 'dashpage',
-    component: dashpage
-  },
+  
   {
     path: '/Ldbpage',
     name: 'Ldbpage',
@@ -159,11 +153,7 @@ const routes = [
     name: 'About',
     component: About
   },
-  {
-    path: '/securityquestions1',
-    name: 'securityquestions1',
-    component: securityquestions1
-  },
+ 
   {
     path: '/HomePage',
     name: 'HomePage',
@@ -214,19 +204,21 @@ const routes = [
     beforeEnter : guardMyroute,
     meta: {title: 'updateData'}
   },
-  {
-    path: '/FileUpload',
-    name: 'FileUpload',
-    component: FileUpload,
-    beforeEnter : guardMyroute,
-    meta: {title: 'FileUpload'}
-  },
+ 
   {
     path: '/receiVables',
     name: 'receiVables',
     component: receiVables,
     beforeEnter : guardMyroute,
     meta: {title: 'receiVables'}
+  },
+
+  {
+    path: '/operationalCost',
+    name: 'operationalCost',
+    component: operationalCost,
+    beforeEnter : guardMyroute,
+    meta: {title: 'operationalCost'}
   },
 
 

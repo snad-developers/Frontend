@@ -86,7 +86,7 @@
     </div>
      <div class="box-color">
             <h3>Operational Costs</h3>
-            <p>$ 68 k</p>
+            <p>$ {{operationalcount}} </p>
           <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
@@ -122,18 +122,21 @@ export default {
      empexpensestotal:null,
      mgmtexpensestotal:null,
     logid:null,
+    operationalcount:0,
   }
        },
  
          mounted() {
   this.empdatafetch();
    //this.GetloginDetails();
+   this.getaccessdata();
   },
     created () {
         this.empdatafetch();
       //this.GetloginDetails();
        const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
-      this.logid=userdetails
+      this.logid=userdetails,
+      this.getaccessdata();
       },
       methods:{
 
@@ -151,8 +154,25 @@ this.Receivables=response.data.receivablestotal;
 this.payrollexpensestotal=response.data.payrollexpensestotal;
 this.empexpensestotal=response.data.empexpensestotal;
 this.mgmtexpensestotal=response.data.mgmtexpensestotal;
+
  });
       },
+        getaccessdata(){
+   this.responsedata=loginapi.operationalaccess().then(response=>{
+ console.log(response)
+  console.log(response.data.result)
+ if(response && response.data.result){
+      console.log(response.data.result)
+var showdata=response.data.result;
+
+      for(var i =0; i<showdata.length; i++){
+        this.operationalcount=this.operationalcount+parseInt(showdata[i].totalexpenses);
+      }
+      console.log(this.operationalcount)
+  
+ }
+   });
+},
 
 
        
