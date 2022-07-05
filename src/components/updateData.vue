@@ -1,11 +1,11 @@
 <template>
 <a href="/amdpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:5%;bottom:20px">Back</button></a>
-   <div class="container" style ="margin-left: 291px;margin-top:100px;border-radius:25px">
-     <h2 style="border-spacing: 0;overflow: hidden; width:100%;margin-left:-31px ;margin-top: -30px;margin-bottom: 50px;text-align:center;width:901px;border-radius:25px;padding:7px;background-color: #dfb5bc">User Details</h2>
+   <div class="container" style ="margin-left: 291px;margin-top:20px;border-radius:25px">
+     <h2 style="border-spacing: 0;overflow: hidden; width:100%;margin-left:-31px ;margin-top: -40px;margin-bottom: 50px;text-align:center;width:901px;border-radius:22px 22px 0 0;padding:7px;background-color: #dfb5bc">User Details</h2>
 
         <form action="#">
             <div class="form first">
-                <div class="details personal" style="margin-top:44px;width:114%">
+                <div class="details personal" style="margin-top:0px;width:114%">
                        
                     <!-- <span class="title">Personal Details</span> -->
 
