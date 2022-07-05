@@ -2,7 +2,7 @@
 <h2>EMPLOYEE EXPENSES</h2>
 
   <div class="">
-    <a href="/launchpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:5%">Back</button></a>
+    <a href="/launchpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
     <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;

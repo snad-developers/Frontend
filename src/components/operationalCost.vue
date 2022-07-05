@@ -1,12 +1,13 @@
 <template>
-<h2>MANAGEMENT EXPENSES</h2>
+<h2>OPERATIONAL EXPENSES</h2>
 
   <div class="">
+        <a href="/launchpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
     <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
     overflow: hidden; width:950px;
-    margin-left:215px ;
+    margin-left:20% ;
     margin-top: 20px;
     margin-bottom: 50px;
     background-color:white">

@@ -20,7 +20,6 @@
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
 
-<h2 style="margin-left:278px;"><b>Pending Requests</b></h2>
  <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;

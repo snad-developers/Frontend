@@ -23,7 +23,7 @@
 
         <form action="#">
              
-            <div class="form first" style="border-radius: 20px; background-color:white; margin-top:70px;width:80%;margin-left:10%;padding:5%;overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);" >
+            <div class="form first" style="border-radius: 20px; height:600px; background-color:white; margin-top:70px;width:80%;margin-left:10%;padding:5%;overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);" >
                 <br>
                  <h2  style="  border-spacing: 0;
 
@@ -249,10 +249,11 @@
     </div>
     
  <a href="/penReq"><button  class="back"  style="margin-left: -102px;
-    top: -337px; margin:0%;  width: 14%;
-    padding: 12px;
+    top: -644px; margin:0%;  width: 5%;
+    padding: 5px;cursor: pointer;
     background-color:blue;
-    border-radius: 20px; cursor: pointer;">back</button></a>
+    border-radius: 20px; cursor: pointer;right: 607px;
+">Back</button></a>
 
 
 </html>

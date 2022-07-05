@@ -4,10 +4,10 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-  <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+ <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
+  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
    <a href="" @click.prevent="logout"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
 </div>
@@ -30,8 +30,11 @@
    <h2 class="welcome"><b>Welcome back, {{logid.firstName}}</b></h2>
   <div>
     <!-- <img alt="" src="../assets/snadicon.png" /> -->
-    <h4>{{logid.firstName}} {{logid.lastName}}</h4>
-    <h4>{{logid.role}}</h4>
+      <h6 style="margin-bottom:0;">{{logid.firstName}} {{logid.lastName}}</h6>
+       <h6 style="margin-right:75px; ">{{logid.role}}</h6> 
+
+  
+    
   </div>
   </div>
  <div class="gross-container">
@@ -47,7 +50,7 @@
     <div>
       <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
          <h3>Active Employees</h3>
-            <p>{{activeemp}}</p>
+            <p><i class="uil uil-user" style="margin-left:0"></i> {{activeemp}}</p>
             <router-link to="/activeemplydata" >
              <h6 style="color: blue;">Acess data</h6>
             </router-link>
@@ -55,7 +58,7 @@
      </div>
     <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3> Employee Expenses</h3>
-            <p>${{empexpensestotal}}</p>
+            <p>${{(empexpensestotal/1000).toFixed(2)}}K</p>
           <router-link to="/employeexpensedata" ><h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
@@ -63,7 +66,7 @@
        <div>
      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Outstanding Receivables</h3>
-            <p>$ {{Receivables}}</p>
+            <p>$ {{(Receivables/1000).toFixed(1)}}K</p>
              <router-link to="/receiVables"><h6 style="color: blue;">Acess data</h6></router-link> 
              
         
@@ -72,7 +75,7 @@
   
      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Management Expenses</h3>
-            <p>$ {{mgmtexpensestotal}}</p>
+            <p>$ {{(mgmtexpensestotal/1000).toFixed(2)}}K</p>
            <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
            <slot/></router-link>
     </div>
@@ -80,13 +83,13 @@
        <div>
       <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Payroll Expenses</h3>
-            <p>$ {{payrollexpensestotal}}</p>
+            <p>$ {{(payrollexpensestotal/1000).toFixed(2)}}K</p>
            <router-link to="/payrollaccessdata"><h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Operational Costs</h3>
-            <p>$ {{operationalcount}} </p>
+            <p>$ {{(operationalcount/1000).toFixed(2)}}K </p>
           <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
@@ -335,13 +338,14 @@ label #cancel{
 .box-container{
       display: flex;
     justify-content: space-evenly;
-    width: 75%;
+    width: 60%;
 }
 .box-color{
   border-radius: 25px;
     background-color: white;
     padding: 8px;
     margin-bottom: 25px;
+    width: 100%;
 }
 .gross-container{
     display: flex;
