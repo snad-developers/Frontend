@@ -93,4 +93,7 @@ export default{
     expdatapost(data){
         return API('http://localhost:3000/').post('/expenses',data)
     },
+    operationalaccess(){
+        return API('http://localhost:3000/').get('/operationalaccess')
+    },
 }
