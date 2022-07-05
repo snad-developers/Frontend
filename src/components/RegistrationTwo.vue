@@ -24,7 +24,7 @@
       <div class="id">
       <label for="city"></label>
       <!-- <input  type="text" for="city" class="company" placeholder="city" required v-model="person.city"> -->
-        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="City" v-model="person.city" 
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="City" v-model="person.city" v-on:keypress="isLetter($event)" 
              :class="
               v$.person.city.$error === true
                 ? 'text-fields-error'
@@ -81,7 +81,7 @@
                 : 'text-fields'
             ">
 <option selected value  > Select Role </option>
-      <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
+      <option v-for="(role,index) in roledata" :key="index" >{{role.roles}}</option>
 </select>
   <p
             class="text-red-500 text-xs font-thin"
@@ -114,7 +114,7 @@
        <div class="id">
         <label for="state"></label>
       <!-- <input  type="text" for="state" class="username" placeholder="state" required v-model="person.state"> -->
-        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="State" v-model="person.state" 
+        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="State" v-model="person.state" v-on:keypress="isLetter($event)"
              :class="
               v$.person.state.$error === true
                 ? 'text-fields-error'
@@ -131,7 +131,7 @@
               <div class="id">
         <label for="country"></label>
       <!-- <input  type="text" for="country" class="phone" placeholder="country" required v-model="person.country"> -->
-        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="Country" v-model="person.country" 
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" placeholder="Country" v-model="person.country" v-on:keypress="isLetter($event)"
              :class="
               v$.person.country.$error === true
                 ? 'text-fields-error'
@@ -222,7 +222,8 @@ export default {
                  confirmpwd:this.data.confirmpwd,
                   buttonvalue:""
         },
-        responsedata:[]
+        responsedata:[],
+        roledata:[],
         
 
        }
@@ -319,10 +320,15 @@ export default {
     },
     fetch(){
       loginapi.rolesgetvalues().then(response=>{
-        this.responsedata=response.data
-        console.log(this.responsedata)
+        this.roledata=response.data
+        console.log(this.roledata)
       })
-    }
+    },
+    isLetter(e) {
+       let char = String.fromCharCode(e.keyCode); // Get the character
+      if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
+      else e.preventDefault(); // If not match, don't add to input text
+}
   
   }
 }

@@ -6,7 +6,7 @@
       <div class="child-4">
          <div class="id">
       <label for="firstname"></label>
-       <input style="margin:10px" type="text" placeholder="First Name" v-model="person.firstname" 
+       <input style="margin:10px" type="text" placeholder="First Name" v-model="person.firstname" v-on:keypress="isLetter($event)"
              :class="
               v$.person.firstname.$error === true
                 ? 'text-fields-error'
@@ -66,7 +66,7 @@
             ">
      <option  selected value>Select Entity</option>
 
-      <option v-for="(entity,index) in responsedata" :key="index" >{{entity.entity}}</option>
+      <option v-for="(entity,index) in entitydata" :key="index" >{{entity.entity}}</option>
      </select>
       <p
             class="text-red-500 text-xs font-thin"
@@ -81,7 +81,7 @@
       <div class="id">
         <label for="lastname"></label>
       <!-- <input name="lastname" type="text" for="lastname" class="last name" placeholder="last name" required v-model="person.userid"> -->
-      <input  style="margin:10px" type="text" placeholder="Last Name" v-model="person.lastname" 
+      <input  style="margin:10px" type="text" placeholder="Last Name" v-model="person.lastname" v-on:keypress="isLetter($event)"
         :class="
               v$.person.lastname.$error === true
                 ? 'text-fields-error'
@@ -198,6 +198,7 @@ export default {
                 // currentStep:this.currentStep
         },
         responsedata:[],
+        entitydata:[],
         
 
        }
@@ -284,10 +285,15 @@ export default {
     },
     fetch(){
       loginapi.orgndatagetvalues().then(response=>{
-        this.responsedata=response.data
-        console.log(this.responsedata)
+        this.entitydata=response.data
+        console.log(this.entitydata)
       })
-    }
+    },
+     isLetter(e) {
+       let char = String.fromCharCode(e.keyCode); // Get the character
+      if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
+      else e.preventDefault(); // If not match, don't add to input text
+}
   
   }
    
