@@ -1,5 +1,5 @@
 <template>
-<a href="/amdpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:5%;bottom:20px">Back</button></a>
+<a href="/amdpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:6%;bottom:20px;border:;height: 5%;box-shadow: grey;cursor: pointer;">Back</button></a>
    <div class="container" style ="margin-left: 291px;margin-top:20px;border-radius:25px">
      <h2 style="border-spacing: 0;overflow: hidden; width:100%;margin-left:-31px ;margin-top: -40px;margin-bottom: 50px;text-align:center;width:901px;border-radius:22px 22px 0 0;padding:7px;background-color: #dfb5bc">User Details</h2>
 
