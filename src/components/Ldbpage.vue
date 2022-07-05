@@ -3,10 +3,10 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-  <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+   <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
+  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
     <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
 </div>
 <div class="main-box">
@@ -58,12 +58,12 @@
  <label for="ascript"  style="margin:2px">Immigration Expenses</label><br><br>
 
  
-  <input id="ldb" name="empexpense" required  type="file" accept=".csv" @change="handleFileUpload( $event )">
+  <input id="ldb" name="empexpense" required  type="file" accept=".csv" @change="handleFileUpload( $event )" requried>
   <b-alert><input id ="upload" type="submit" value="Upload" @click.prevent="validatefields"  style="border-radius: 25px;
     width: 25%;
     padding: 10px;
     background-color: blue;
-    color:white"></b-alert>
+    color:white" ></b-alert>
      <p  style="color: red;">{{validate_message}}</p>
 
     <p v-if="show" style="color: green;">{{insertmessage}}</p>

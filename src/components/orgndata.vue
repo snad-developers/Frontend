@@ -3,10 +3,10 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-  <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+   <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
+  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
    <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
 </div>
@@ -14,14 +14,13 @@
 <div class="B1">
  
    <a href="/amdpage" class="b1" >Employee Data</a>
- 
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
 <table style="margin-left:17%" class="orgndata">
   <td class="orgndata">
 <div class="addentity">
- <h4 style="margin-left:-360px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Entities</b></h4>
+ <h4 style="margin-left:-360px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Entities</b></h4>
  <input type="text" placeholder="Enter Entity Name" class="tbox" v-model="person.entity">
  <button class="addbtn" @click.prevent ="entityhandle"> Add Entity</button>
 
@@ -34,7 +33,7 @@
 
 <td class="orgndata">
 <div class="subentity">
- <h4 style="margin-left:-36px;box-sizing:border-box;background-color:#F3F6F9;padding:15px;margin:0px"><b>Roles</b></h4>
+ <h4 style="margin-left:-36px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Roles</b></h4>
  <input type="text" placeholder="Enter Role Name" class="tbox" v-model="person.role">
  <button class="addbtn" @click.prevent="rolehandle"> Add Role</button>
 
@@ -63,13 +62,13 @@
     background-color:white;
     align-content: center;"
     >
-    <thead style=" background-color:rgb(240, 232, 232); color:grey; fill-opacity: initial;">
+    <thead style=" background-color:#F3F6F9; color:grey; fill-opacity: initial;width:100%">
         <tr align="left" >
             <th style="margin-left:30px">
-              Expense 
+              Expense Name
             </th>
             <th>
-               Expense Code
+              Expense Code
             </th>
            
            

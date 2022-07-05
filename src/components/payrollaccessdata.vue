@@ -2,6 +2,7 @@
 <h2>PAYROLL EXPENSES</h2>
 
   <div class="">
+    <a href="/launchpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:5%">Back</button></a>
     <table align="center" class="table-content" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
@@ -10,7 +11,7 @@
     margin-top: 20px;
     margin-bottom: 50px;
     background-color:white">
-    <thead style=" background-color:rgb(240, 232, 232); color:grey; fill-opacity: initial;">
+    <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
         <tr>
             <th>
                EMPLOYEE ID

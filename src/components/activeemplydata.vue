@@ -4,21 +4,26 @@
 <br>
 <br>
 <div class="main-container">
+   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%">Back</button></a>
     <table  class="table-content" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
-    border-radius: 15px 15px 0 0;
-    overflow: hidden; width:100%">
-     
+    border-radius: 10px 10px 0 0;
+    overflow: hidden; width:1300px;
+    margin-left:0% ;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color:white">
+      
         <!-- <div id=""> -->
-          <thead>
+          <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
          
         <tr>
-            <td> Employee Number</td>
-            <td> First Name </td>
-            <td> Last Name </td>
-            <td> Email </td>
-            <td> Contact Number </td>
-            <td> Role </td>
+            <th> Employee Number</th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Email </th>
+            <th> Contact Number </th>
+            <th> Role </th>
         </tr>
         </thead>
          <!-- <tr>
@@ -53,7 +58,7 @@
         
        
     </table><br><br><br> 
-    <a href="/launchpage"><button style="margin-left:-1200px;color:white;background-color:blue">back</button></a>
+   
 </div>
 </router-view>
 <router-view/>
