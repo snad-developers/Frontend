@@ -4,10 +4,10 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-  <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+   <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
+  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
    <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
 </div>

@@ -4,7 +4,7 @@
 <br>
 <br>
 <div class="main-container">
-   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%">back</button></a>
+   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%">Back</button></a>
     <table  class="table-content" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;

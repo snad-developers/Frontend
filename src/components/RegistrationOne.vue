@@ -367,7 +367,7 @@ input[type=text] input[type=email]{
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
-     transition: 0.6s;
+     transition: 0.2s;
    
 }
 

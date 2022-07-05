@@ -12,7 +12,7 @@
               v$.person.AdressLine1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.AdressLine1.$errors"
@@ -29,7 +29,7 @@
               v$.person.city.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.city.$errors"
@@ -46,7 +46,7 @@
               v$.person.zipcode.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.zipcode.$errors"
@@ -82,7 +82,7 @@
             ">
 <option selected value  > Select Role </option>
       <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
-</select><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+</select>
   <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.role.$errors"
@@ -102,7 +102,7 @@
               v$.person.AdressLine2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.AdressLine2.$errors"
@@ -119,7 +119,7 @@
               v$.person.state.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.state.$errors"
@@ -136,7 +136,7 @@
               v$.person.country.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/><p style="top:-34px;color:red;margin-top:-15%;right:-56%">*</p>
+            "/>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.country.$errors"
