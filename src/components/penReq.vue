@@ -20,7 +20,7 @@
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
 
- <table align="center" class="table-content" id="update" style="  border-spacing: 0;
+ <table align="center" class="table-content scrolldown" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
     overflow: hidden; width:950px;
@@ -62,7 +62,8 @@
 <td>{{employeedata.email}}</td>
 <td>{{employeedata.role}}</td>
 <td>{{employeedata.entity}}</td>
-<td><button style="border-radius:10px;
+<td>
+    <div style="display: flex;"><button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;
@@ -87,7 +88,9 @@ color: white;
 cursor: pointer;
 padding: 10px;
 margin: 5px;
-border: 0.5px solid white ;" @click.prevent="handlereject(employeedata.id)">Reject</button></td>
+border: 0.5px solid white ;" @click.prevent="handlereject(employeedata.id)">Reject</button>
+</div>
+</td>
 
        </tr>
        
@@ -219,5 +222,47 @@ export default {
 
     padding: 10px;
 }
+
+ table.scrolldown {
+            width: 100%;
+              
+            /* border-collapse: collapse; */
+            /* border-spacing: 0;
+            border: 2px solid black; */
+        }
+          
+        /* To display the block as level element */
+        table.scrolldown tbody, table.scrolldown thead {
+            display: block;
+        } 
+          
+        thead tr th {
+            height: 40px; 
+            line-height: 40px;
+        }
+          
+        table.scrolldown tbody {
+              
+            /* Set the height of table body */
+            height: 500px; 
+              
+            /* Set vertical scroll */
+            overflow-y: auto;
+              
+            /* Hide the horizontal scroll */
+            overflow-x: hidden; 
+        }
+          
+        tbody { 
+            /* border-top: 2px solid black; */
+        }
+          
+        tbody td, thead th {
+            width : 200px;
+            /* border-right: 2px solid black; */
+        }
+        td {
+            text-align:center;
+        }
 
 </style>
