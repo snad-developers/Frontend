@@ -15,7 +15,7 @@
    
     
  
-  <form  class="loginhere" style="top:50px">
+  <form  class="loginhere">
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
@@ -53,7 +53,7 @@
             {{ error.$message }}
           </p>
      
-  <input :type="passwordFieldType"  style="margin: 7px 0px 12px 0px;margin-left:-11px"   placeholder="Password"  class="user" 
+  <input :type="passwordFieldType"  style="margin: 7px 0px 12px 0px;margin-left:-11px"   placeholder="Password"  class="user drop" 
       v-model="person.Password"
             :class="
               v$.person.Password.$error === true
@@ -75,7 +75,7 @@
         </p>
     <label for="Entity" placeholder="Entity" >
       <i class="uil uil-clipboard-notes"  style="margin-left:-20px;"></i>
-     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
+     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="dropdown"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
@@ -179,17 +179,10 @@ export default {
 
     created(){
       this.fetch();
-       this.GetloginDetails();
     },
 
 
  methods: {
-    GetloginDetails(){
-                 if(localStorage.getItem('currentUser')){
-                 this.$router.push({name:"launchpage"});
-                 }
-        
-    },
   switchVisibility(){
     this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
   },
@@ -207,18 +200,8 @@ export default {
             if(response.data){
               console.log("if condition")
               if(response.data.status == "success" && response.data.statuscode == 200  ){
-                 localStorage.setItem(
-            "currentUser",
-            response.data.loginedIn
-           
-          );
-              localStorage.setItem(
-            "UserDetails",
-            JSON.stringify(response.data.logindetails)
-           
-          );
-                this.$router.push({name:"launchpage"});
-               // console.log(this.logid)
+                this.$router.push({name:"launchpage",params:response.data.logid});
+                console.log(this.logid)
               }
 
               if(response.data.status == "failure" && response.data.statuscode == 201){
@@ -251,6 +234,30 @@ export default {
   font-size: 14px;
   color: #c40b0b;
 }
+.dropdown{
+  width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 50px;
+    /* border: 2px solid #dddddd; */
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.5s;
+    font-family: sans-serif;
+}
+.dropdown:focus{
+ border-color: rgb(55, 209, 55);
+
+}
+
+.password:focus{
+ border-color: rgb(55, 209, 55);
+
+
+}
+.passworrd{
+  border: 1px;
+}
 .main-container{
   display: flex;
   flex-direction: row;
@@ -279,7 +286,7 @@ input[type=email]{
      transition-duration: 5s;
    
 }
-input[type=text]:hover{
+/* input[type=text]:hover{
   border-color: rgb(87, 239, 87);
   transition-duration: 5s;
  transition-duration: 5s;
@@ -288,7 +295,7 @@ input[type=email]:hover{
   border-color: rgb(87, 239, 87);
   transition-duration: 5s;
  transition-duration: 5s;
-}
+} */
 
 input[type=password]{
 
@@ -305,6 +312,7 @@ select{
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
+    
 }
 input[type=button]{
     width: 10%; 
@@ -420,7 +428,7 @@ body{
 
 
 .user::placeholder{
-  color: #090808;
+  color: rgb(204, 60, 60)
 
 }
 
@@ -458,10 +466,10 @@ p{
 .regis1{
   color:#000000;
 }
-.regis1:hover{
+/* .regis1:hover{
   color: #4ec6d8;
   transition-duration: 0.6s;
-}
+} */
 
 
 

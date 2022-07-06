@@ -58,7 +58,7 @@
        <div class="id">
          <label for="Entity"></label>
       <!-- <input  name="phonenumber" type="text" for="phonenumber" class="phone" placeholder="phone number" required v-model="person.companyid"> -->
-       <select  style="border-radius:18px;margin:10px;width:100%;" align="right" class="user" v-model="person.Entity"
+       <select  style="border-radius:18px;margin:10px;width:100%;" align="right" class="user drop" v-model="person.Entity"
        :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
@@ -67,7 +67,7 @@
      <option  selected value>Select Entity</option>
 
       <option v-for="(entity,index) in responsedata" :key="index" >{{entity.entity}}</option>
-     </select><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
+     </select>
       <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.Entity.$errors"
@@ -115,7 +115,7 @@
        <div class="id">
         <label for="gender"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-           <select    style="margin-bottom:1px;border-radius:20px;margin:10px;width:100%;padding:12px 20px" v-model="person.gender" align="right" class="user"
+           <select    style="margin-bottom:1px;border-radius:20px;margin:10px;width:100%;padding:12px 20px" v-model="person.gender" align="right" class="user gender"
               :class="
               v$.person.gender.$error === true
                 ? 'text-fields-error'
@@ -125,7 +125,7 @@
 <option value ="Male">Male</option>
 <option value ="Female">Female</option>
 <option value ="Others">Others</option>
-     </select><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
+     </select>
        <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.gender.$errors"
@@ -527,8 +527,8 @@ body{
   margin-bottom: 1px;
   padding: 10px;
   border-radius: 50px;
-  /* border: 1px solid black; */
-  /* background:black; */
+  border: 1px solid black;
+  background:black;
   outline: none;
   /* transition: border-color 0.2s; */
   font-family: sans-serif;
@@ -571,6 +571,19 @@ p{
 }
 .company{
    margin:10px;
+}
+.drop{
+ border:1px solid !important;
+}
+.drop:focus{
+ border-color: rgb(55, 209, 55) !important;
+}
+
+.gender{
+ border:1px solid !important;
+}
+.gender:focus{
+ border-color: rgb(55, 209, 55) !important;
 }
 
 
