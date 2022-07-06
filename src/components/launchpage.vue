@@ -28,10 +28,10 @@
 <div class="welcomediv">
   <div class="welcome-header" v-if="logid">
    <h2 class="welcome"><b>Welcome back, {{logid.firstName}}</b></h2>
-  <div>
+  <div class="profile">
     <!-- <img alt="" src="../assets/snadicon.png" /> -->
       <h6 style="margin-bottom:0;">{{logid.firstName}} {{logid.lastName}}</h6>
-       <h6 style="margin-right:75px; ">{{logid.role}}</h6> 
+       <h6 >{{logid.role}}</h6> 
 
   
     
@@ -402,5 +402,10 @@ body {font-family: "Lato", sans-serif;}
 }
 .img{
   margin-left: 2px;
+}
+.profile{
+  display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 </style>

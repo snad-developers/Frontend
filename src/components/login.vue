@@ -75,7 +75,7 @@
         </p>
     <label for="Entity" placeholder="Entity" >
       <i class="uil uil-clipboard-notes"  style="margin-left:-20px;"></i>
-     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
+     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px;border: 1px solid black;"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
@@ -102,8 +102,8 @@
      
    <br>
     <button  class= "button" @click.prevent="submit">Login </button>
-    <h6>OR</h6>
-   <a href=""> <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label></a>
+    <!-- <h6>OR</h6>
+   <a href=""> <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label></a> -->
     <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
     <!-- <a href="/abc">abc</a> -->
    
@@ -195,6 +195,7 @@ export default {
   },
     submit() {
        this.v$.$touch();
+       this.message="";
        if(!this.v$.$invalid){
           let sdata = {
             "password":this.person.Password,

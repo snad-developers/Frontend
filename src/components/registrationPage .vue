@@ -138,7 +138,16 @@ export default {
                 
             }
         },
+           created() {
+    this.GetloginDetails();
+        },
         methods:{
+
+           GetloginDetails(){
+                 if(localStorage.getItem('currentUser')){
+                 this.$router.push({name:"launchpage"});
+                 }
+           },
 
             Continue(){
                 this.currentStep += 1;

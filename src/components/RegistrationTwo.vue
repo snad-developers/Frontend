@@ -74,7 +74,7 @@
       </div>
              <div class="">
        <label for="role"></label>
-      <select style="border-radius:20px;margin:10px;width:100%;padding:12px 20px" align="right" class="user" v-model="person.role"
+      <select style="border-radius:20px;margin:10px;width:100%;padding:12px 20px;border: 1px solid black;" align="right" class="user" v-model="person.role"
        :class="
               v$.person.role.$error === true
                 ? 'text-fields-error'

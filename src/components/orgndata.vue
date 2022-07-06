@@ -21,19 +21,21 @@
   <td class="orgndata">
 <div class="addentity">
  <h4 style="margin-left:-360px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Entities</b></h4>
+  <div class="scroller">
  <input type="text" placeholder="Enter Entity Name" class="tbox" v-model="person.entity">
  <button class="addbtn" @click.prevent ="entityhandle"> Add Entity</button>
 
   <template  v-for="(entity,index) in entitydata" :key="index">
   <li style="text-align: left; margin-left: 10%;">{{entity.entity}}</li>
   </template>
-
+</div>
 </div>
 </td>
 
 <td class="orgndata">
 <div class="subentity">
  <h4 style="margin-left:-36px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Roles</b></h4>
+ <div class="scroller">
  <input type="text" placeholder="Enter Role Name" class="tbox" v-model="person.role">
  <button class="addbtn" @click.prevent="rolehandle"> Add Role</button>
 
@@ -41,13 +43,14 @@
   <li style="text-align: left; margin-left: 10%;">{{role.roles}}</li>
   </template>
 
-
+</div>
 </div>
 </td>
 
 <td class="expdata">
 <div class="expenses">
  <h4 style="margin-left:-36px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Expenses</b></h4>
+  <div class="scroller">
  <input type="text" placeholder="Expense Name" class="expbox" v-model="person.expense">
   <input type="text" placeholder="Expense Code" class="expbox" v-model="person.expcode">
 
@@ -89,7 +92,7 @@
        
     </tbody>
 </table>
-
+</div>
 
 </div>
 </td>
@@ -228,7 +231,7 @@ export default{
   margin-top: 27px;
   margin:0%; 
   padding-bottom: 2%;
-
+margin-right: 11px;
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15);
   }
@@ -242,7 +245,7 @@ export default{
   margin-top: -14.5%;
   margin: 0;
   padding-bottom: 2%;
-
+margin-right: 11px;
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15); 
   }  
@@ -295,6 +298,11 @@ export default{
 
     padding: 5px;
     padding-left: 10px;
+}
+.scroller{
+  overflow-x: hidden;
+    overflow-y: auto;
+    height: 400px;
 }
 
 </style>
