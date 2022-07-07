@@ -131,7 +131,7 @@
 
                         <div class="input-field" >
                             <label for="" style="margin-left: -878px; top:-45px;
-    font-size: 20px;right:-4%">Address Line1 </label> 
+    font-size: 20px;right:-4%">Address Line 1 </label> 
                             <input type="text" v-model=this.rowdata.address1 style="outline: none;
     font-size: 14px;
     font-weight: 400;
