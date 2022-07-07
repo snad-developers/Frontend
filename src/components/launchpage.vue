@@ -30,8 +30,8 @@
    <h2 class="welcome"><b>Welcome back, {{logid.firstName}}</b></h2>
   <div class="profile">
     <!-- <img alt="" src="../assets/snadicon.png" /> -->
-      <h6 style="margin-bottom:0;">{{logid.firstName}} {{logid.lastName}}</h6>
-       <h6 >{{logid.role}}</h6> 
+      <h6 style="margin-bottom:0;font-size:15px;font-family: sans-serif;">{{logid.firstName}} {{logid.lastName}}</h6>
+       <h6 style="margin-bottom:0;font-size:14px;font-family: sans-serif; color: grey;" >{{logid.role}}</h6> 
 
   
     
