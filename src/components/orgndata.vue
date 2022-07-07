@@ -66,7 +66,7 @@
     align-content: center;"
     >
     <thead style=" background-color:#F3F6F9; color:grey; fill-opacity: initial;width:100%">
-        <tr align="left" >
+        <tr align="center" >
             <th style="margin-left:30px">
               Expense Name
             </th>
@@ -77,11 +77,11 @@
            
         </tr>
     </thead>
-    <tbody align="left" style="margin-left:30px" >
+    <tbody align="center" style="margin-left:0" >
           <template v-for="(data,index) in expdata" :key="index" > 
-            <tr>
+            <tr align="left">
 
-<td>{{data.expenses}}</td>
+<td >{{data.expenses}}</td>
 <td>{{data.expensecode}}</td>
 
 

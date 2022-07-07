@@ -7,7 +7,7 @@
          <div class="id">
       <label for="AdressLine1"></label>
       <!-- <input  type="text" for="AdressLine1" class="main" placeholder="Adress Line1" required v-model="person.AdressLine1" ref="AdressLine1"> -->
-        <input style="margin:10px" type="text" placeholder="Address Line1" class="user" v-model="person.AdressLine1" 
+        <input style="margin:10px" type="text" placeholder="Address Line 1" class="user" v-model="person.AdressLine1" 
              :class="
               v$.person.AdressLine1.$error === true
                 ? 'text-fields-error'
@@ -24,7 +24,7 @@
       <div class="id">
       <label for="city"></label>
       <!-- <input  type="text" for="city" class="company" placeholder="city" required v-model="person.city"> -->
-        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="City" v-model="person.city" 
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="City" v-model="person.city" v-on:keypress="isLetter($event)"
              :class="
               v$.person.city.$error === true
                 ? 'text-fields-error'
@@ -97,7 +97,7 @@
  <div class="id">
         <label for="AdressLine2"></label>
       <!-- <input  type="text" for="AdressLine2" class="last name" placeholder="Adress Line2" required  v-model="person.AdressLine2"> -->
-        <input  style="margin:10px" type="text" placeholder="Address Line2" class="user" v-model="person.AdressLine2" 
+        <input  style="margin:10px" type="text" placeholder="Address Line 2" class="user" v-model="person.AdressLine2" 
              :class="
               v$.person.AdressLine2.$error === true
                 ? 'text-fields-error'
@@ -114,7 +114,7 @@
        <div class="id">
         <label for="state"></label>
       <!-- <input  type="text" for="state" class="username" placeholder="state" required v-model="person.state"> -->
-        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="State" v-model="person.state" 
+        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="State" v-model="person.state" v-on:keypress="isLetter($event)"
              :class="
               v$.person.state.$error === true
                 ? 'text-fields-error'
@@ -131,7 +131,7 @@
               <div class="id">
         <label for="country"></label>
       <!-- <input  type="text" for="country" class="phone" placeholder="country" required v-model="person.country"> -->
-        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="Country" v-model="person.country" 
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="Country" v-model="person.country" v-on:keypress="isLetter($event)"
              :class="
               v$.person.country.$error === true
                 ? 'text-fields-error'
@@ -308,6 +308,11 @@ export default {
     },
 
       methods:{
+        isLetter(e) {
+          let char = String.fromCharCode(e.keyCode); // Get the character
+          if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
+          else e.preventDefault(); // If not match, don't add to input text
+        },
       
     passEvent()
     {

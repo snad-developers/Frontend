@@ -155,7 +155,7 @@ if(response.data){
 
 }
 else{
-  alert("password are not same")
+  alert("Password and Confrim Passwords are not same")
 }
 
        }
