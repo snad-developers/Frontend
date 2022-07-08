@@ -164,7 +164,7 @@
       </div>
          </div>
          </div>
-          <button class= "butn"  :disabled="currentStep === 0" @click.prevent="passEvent(person.buttonvalue='Prev')">Go Back</button>
+          <button class= "butn"  :disabled="currentStep === 0" @click.prevent="passEventback(person.buttonvalue='Prev')">Go Back</button>
 
  <button  class= "butn" :disabled="currentStep === step - 1" @click.prevent="passEvent(person.buttonvalue='Next')">Next</button>
  <!-- <button @click.prevent="currentStep--" :disabled="currentStep === 0">Prev</button>
@@ -287,7 +287,7 @@ export default {
           confirmpwd: { 
             required: helpers.withMessage("Enter Confirm Password", required), 
             $autoDirty: true,
-            // sameAs: helpers.withMessage("confirm password and create Password should be same", sameAs('createpwd'))  
+           // sameAs: helpers.withMessage("confirm password and create Password should be same", sameAs(this.person.createpwd))  
           },
         //   ans1: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
         // ans2: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
@@ -308,6 +308,10 @@ export default {
     },
 
       methods:{
+
+        passEventback(){
+this.$emit('ChangeReg2',this.person)
+        },
       
     passEvent()
     {
