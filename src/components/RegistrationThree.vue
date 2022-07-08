@@ -225,7 +225,7 @@
 
 
 </div>
-<button class= "butn"  :disabled="currentStep === 0" @click.prevent="passEvent(person.buttonvalue='Prev')">Go Back</button>
+<button class= "butn"  :disabled="currentStep === 0" @click.prevent="passEventback(person.buttonvalue='Prev')">Go Back</button>
 
  <button  class= "butn"  @click.prevent="passEvent(person.buttonvalue='submit')">Submit</button>
 </form>
@@ -315,6 +315,9 @@ export default {
     };
   },
          methods:{
+               passEventback(){
+this.$emit('ChangeReg3',this.person)
+        },
     passEvent()
     {
      // this.person.buttonvalue=data;

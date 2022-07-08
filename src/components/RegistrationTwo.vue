@@ -176,7 +176,7 @@
       </div>
          </div>
          </div>
-          <button class= "butn"  :disabled="currentStep === 0" @click.prevent="passEvent(person.buttonvalue='Prev')">Go Back</button>
+          <button class= "butn"  :disabled="currentStep === 0" @click.prevent="passEventback(person.buttonvalue='Prev')">Go Back</button>
 
  <button  class= "butn" :disabled="currentStep === step - 1" @click.prevent="passEvent(person.buttonvalue='Next')">Next</button>
  <!-- <button @click.prevent="currentStep--" :disabled="currentStep === 0">Prev</button>
@@ -302,7 +302,6 @@ export default {
             required: helpers.withMessage("Enter Confirm Password", required), 
             $autoDirty: true,
             sameAsPassword:helpers.withMessage("Passwords are not matched",sameAs(this.person.createpwd)  ) , 
-            
           },
         //   ans1: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
         // ans2: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
@@ -323,10 +322,16 @@ export default {
     },
 
       methods:{
+
+
+        passEventback(){
+this.$emit('ChangeReg2',this.person)
+
         isLetter(e) {
           let char = String.fromCharCode(e.keyCode); // Get the character
           if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
           else e.preventDefault(); // If not match, don't add to input text
+
         },
       
     passEvent()
