@@ -137,7 +137,7 @@
        <div class="id">
         <label for="dateofBirth"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input id="birthdate"  style="margin:10px;width:100%;padding:10px" type="date" placeholder="Date Of Birth"  class="user" v-model="person.dateofBirth" v-on:change="checkBirthday"
+       <input id="birthdate"  style="margin:10px;width:100%;padding:10px" type="date" placeholder="Date Of Birth"  class="user" v-model="person.dateofBirth" 
             :class="
               v$.person.dateofBirth.$error === true
                 ? 'text-fields-error'
@@ -150,7 +150,19 @@
           >
             {{ error.$message }}
           </p> 
-          <p v-if="!show" class="text-red-500 text-xs font-thin"> Age should between 18 and 75 </p>
+          <p
+
+            class="text-red-500 text-xs font-thin"
+
+           v-if="!v$.person.dateofBirth.isUnique.$response"
+
+          >
+
+            Age should be between 18 to 75
+
+          </p>
+        
+        
       </div>
          </div>
 
@@ -158,7 +170,7 @@
   <!-- <button type="button" @click='passEvent'> continue</button> -->
   <!-- <button @click.prevent="passEvent" >Next</button> -->
   <!-- <button class= "butn" v-if="person.currentStep > 1" @click="passEvent">Go Back</button> -->
- <button @click.prevent="checkBirthday" class= "butn" :disabled="currentStep === step - 1">Next</button>
+ <button  class= "butn" :disabled="currentStep === step - 1">Next</button>
  <!-- <button  class="butn" v-if="currentStep < 3" @click.prevent="passEvent">Next</button> -->
 
  <!-- <button class= "butn" v-else @click="Submit">Submit</button> -->
@@ -171,7 +183,7 @@
 import useVuelidate from "@vuelidate/core";
 import * as moment from "moment";
 import loginapi from '../services/loginapi';
-import { required, helpers,email,numeric, minLength, maxLength, between, requiredIf} from "@vuelidate/validators";
+import { required, helpers,email,numeric, minLength, maxLength,} from "@vuelidate/validators";
 export default { 
     
      name: 'RegistrationOne',
@@ -200,20 +212,18 @@ export default {
                 // currentStep:this.currentStep
         },
         responsedata:[],
-        show:'false',
-        age:0
-        
+      
 
        }
      },
       mounted(){
       this.fetch();
-      // this.checkBirthday();
+     
     },
 
     created(){
       this.fetch();
-      // this.checkBirthday();
+     
     },
     
       validations() {
@@ -253,9 +263,26 @@ export default {
 
         dateofBirth: { 
           required: helpers.withMessage("Choose Date of Birth", required), 
-          required:helpers.withMessage("AGE MINIMUM", requiredIf(this.show)),
-          
           $autoDirty: true,
+           isUnique(value) {
+
+          if (value === '') return true
+
+        // standalone validator ideally should not assume a field is required
+
+          var age = moment(moment.now()).diff(value,"years");
+
+    if(age >=18 && age <=75 ){
+
+return true
+
+          }else{
+
+ return false
+
+          }
+
+      }
            },
 
        
@@ -303,25 +330,7 @@ export default {
         console.log(this.responsedata)
       })
     },
-    checkBirthday() {
-          
-          const birthDayDate = document.getElementById("birthdate").value;
-          console.log(birthDayDate)
-          this.age = moment(moment.now()).diff(birthDayDate,"years");
-                      
-
-          // let birthday = moment(moment.now()).diff(moment('01.01.1990', "DD.MM.YYYY"), "years");
-          if(this.age >=18 && this.age <=75 ){
-            console.log(this.age)
-             
-            return this.age
-          }else{
-            this.show=true
-            console.log(this.show)
-           
-            
-          }
-        },  
+    
   }
    
 
