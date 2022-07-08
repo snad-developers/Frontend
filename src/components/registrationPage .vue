@@ -240,20 +240,18 @@ export default {
 }
 console.log(senddata);
 // if(!this.v$.$invalid){
- if(this.formvalue[1].createpwd==this.formvalue[1].confirmpwd){
-     loginapi.createpost(senddata).then(response=>{
+ 
+       loginapi.createpost(senddata).then(response=>{
       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
-if(response.status == 201 && response.data.firstName == this.formvalue[0].firstname && response.data.firstName){
- console.log(response);
- alert("Registration completed, Please wait for Approval")
- //this.sendEmail(e);
- this.$router.push('login');
-}
+      if(response.status == 201 && response.data.firstName == this.formvalue[0].firstname && response.data.firstName){
+        console.log(response);
+        alert("Registration completed, Please wait for Approval")
+        //this.sendEmail(e);
+        this.$router.push('login');
+      }
  });
-}
-else{
-  alert("passwords are not same")
-}
+
+
     },
 
         },

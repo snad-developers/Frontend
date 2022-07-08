@@ -137,7 +137,7 @@
        <div class="id">
         <label for="dateofBirth"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input  style="margin:10px;width:100%;padding:10px" type="date" placeholder="Date Of Birth" class="user" v-model="person.dateofBirth"
+       <input id="birthdate"  style="margin:10px;width:100%;padding:10px" type="date" placeholder="Date Of Birth"  class="user" v-model="person.dateofBirth" v-on:change="checkBirthday"
             :class="
               v$.person.dateofBirth.$error === true
                 ? 'text-fields-error'
@@ -150,6 +150,7 @@
           >
             {{ error.$message }}
           </p> 
+          <p v-if="!show" class="text-red-500 text-xs font-thin"> Age should between 18 and 75 </p>
       </div>
          </div>
 
@@ -157,7 +158,7 @@
   <!-- <button type="button" @click='passEvent'> continue</button> -->
   <!-- <button @click.prevent="passEvent" >Next</button> -->
   <!-- <button class= "butn" v-if="person.currentStep > 1" @click="passEvent">Go Back</button> -->
- <button  class= "butn" :disabled="currentStep === step - 1">Next</button>
+ <button @click.prevent="checkBirthday" class= "butn" :disabled="currentStep === step - 1">Next</button>
  <!-- <button  class="butn" v-if="currentStep < 3" @click.prevent="passEvent">Next</button> -->
 
  <!-- <button class= "butn" v-else @click="Submit">Submit</button> -->
@@ -168,8 +169,9 @@
 // eslint-disable-next-line no-unused-vars
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
+import * as moment from "moment";
 import loginapi from '../services/loginapi';
-import { required, helpers,email,numeric, minLength, maxLength} from "@vuelidate/validators";
+import { required, helpers,email,numeric, minLength, maxLength, between, requiredIf} from "@vuelidate/validators";
 export default { 
     
      name: 'RegistrationOne',
@@ -198,16 +200,20 @@ export default {
                 // currentStep:this.currentStep
         },
         responsedata:[],
+        show:'false',
+        age:0
         
 
        }
      },
       mounted(){
       this.fetch();
+      // this.checkBirthday();
     },
 
     created(){
       this.fetch();
+      // this.checkBirthday();
     },
     
       validations() {
@@ -247,8 +253,12 @@ export default {
 
         dateofBirth: { 
           required: helpers.withMessage("Choose Date of Birth", required), 
+          required:helpers.withMessage("AGE MINIMUM", requiredIf(this.show)),
+          
           $autoDirty: true,
            },
+
+       
 
         gender: { 
           required: helpers.withMessage("Gender is required", required), 
@@ -292,8 +302,26 @@ export default {
         this.responsedata=response.data
         console.log(this.responsedata)
       })
-    }
-  
+    },
+    checkBirthday() {
+          
+          const birthDayDate = document.getElementById("birthdate").value;
+          console.log(birthDayDate)
+          this.age = moment(moment.now()).diff(birthDayDate,"years");
+                      
+
+          // let birthday = moment(moment.now()).diff(moment('01.01.1990', "DD.MM.YYYY"), "years");
+          if(this.age >=18 && this.age <=75 ){
+            console.log(this.age)
+             
+            return this.age
+          }else{
+            this.show=true
+            console.log(this.show)
+           
+            
+          }
+        },  
   }
    
 

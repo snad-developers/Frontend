@@ -159,8 +159,20 @@
             v-for="error of v$.person.confirmpwd.$errors"
             :key="error.$uid"
           >
-            {{ error.$message }}
+             {{ error.$message }}
+         
+           
           </p>
+           <!-- <span
+            class="text-red-500 text-xs font-thin"
+            v-for="error of v$.person.confirmpwd.sameAsPassword.$errors"
+            :key="error.$uid"
+          >
+            {{ error.$message }}
+          </span> -->
+
+          
+     
       </div>
          </div>
          </div>
@@ -178,7 +190,7 @@
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
 import loginapi from '../services/loginapi';
-import { required, helpers, minLength, numeric, } from "@vuelidate/validators";
+import { required, helpers, minLength, numeric, sameAs } from "@vuelidate/validators";
 
 export default {
      // eslint-disable-next-line vue/multi-word-component-names
@@ -278,6 +290,8 @@ export default {
           },
 
           createpwd: { 
+          
+            
             required: helpers.withMessage("Enter Password ", required), 
             $autoDirty: true,
             minLength: helpers.withMessage("Password Must be 6 char ", minLength(6)) 
@@ -287,7 +301,8 @@ export default {
           confirmpwd: { 
             required: helpers.withMessage("Enter Confirm Password", required), 
             $autoDirty: true,
-            // sameAs: helpers.withMessage("confirm password and create Password should be same", sameAs('createpwd'))  
+            sameAsPassword:helpers.withMessage("Passwords are not matched",sameAs(this.person.createpwd)  ) , 
+            
           },
         //   ans1: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
         // ans2: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
