@@ -7,7 +7,7 @@
          <div class="id">
       <label for="AdressLine1"></label>
       <!-- <input  type="text" for="AdressLine1" class="main" placeholder="Adress Line1" required v-model="person.AdressLine1" ref="AdressLine1"> -->
-        <input style="margin:10px" type="text" placeholder="Address Line1" class="user" v-model="person.AdressLine1" 
+        <input style="margin:10px" type="text" placeholder="Address Line 1" class="user" v-model="person.AdressLine1" 
              :class="
               v$.person.AdressLine1.$error === true
                 ? 'text-fields-error'
@@ -24,7 +24,7 @@
       <div class="id">
       <label for="city"></label>
       <!-- <input  type="text" for="city" class="company" placeholder="city" required v-model="person.city"> -->
-        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="City" v-model="person.city" 
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="City" v-model="person.city" v-on:keypress="isLetter($event)"
              :class="
               v$.person.city.$error === true
                 ? 'text-fields-error'
@@ -97,7 +97,7 @@
  <div class="id">
         <label for="AdressLine2"></label>
       <!-- <input  type="text" for="AdressLine2" class="last name" placeholder="Adress Line2" required  v-model="person.AdressLine2"> -->
-        <input  style="margin:10px" type="text" placeholder="Address Line2" class="user" v-model="person.AdressLine2" 
+        <input  style="margin:10px" type="text" placeholder="Address Line 2" class="user" v-model="person.AdressLine2" 
              :class="
               v$.person.AdressLine2.$error === true
                 ? 'text-fields-error'
@@ -114,7 +114,7 @@
        <div class="id">
         <label for="state"></label>
       <!-- <input  type="text" for="state" class="username" placeholder="state" required v-model="person.state"> -->
-        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="State" v-model="person.state" 
+        <input  pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="State" v-model="person.state" v-on:keypress="isLetter($event)"
              :class="
               v$.person.state.$error === true
                 ? 'text-fields-error'
@@ -131,7 +131,7 @@
               <div class="id">
         <label for="country"></label>
       <!-- <input  type="text" for="country" class="phone" placeholder="country" required v-model="person.country"> -->
-        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="Country" v-model="person.country" 
+        <input pattern="[a-zA-Z]+" style="margin:10px" type="text" class="user" placeholder="Country" v-model="person.country" v-on:keypress="isLetter($event)"
              :class="
               v$.person.country.$error === true
                 ? 'text-fields-error'
@@ -159,8 +159,20 @@
             v-for="error of v$.person.confirmpwd.$errors"
             :key="error.$uid"
           >
-            {{ error.$message }}
+             {{ error.$message }}
+         
+           
           </p>
+           <!-- <span
+            class="text-red-500 text-xs font-thin"
+            v-for="error of v$.person.confirmpwd.sameAsPassword.$errors"
+            :key="error.$uid"
+          >
+            {{ error.$message }}
+          </span> -->
+
+          
+     
       </div>
          </div>
          </div>
@@ -178,7 +190,7 @@
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
 import loginapi from '../services/loginapi';
-import { required, helpers, minLength, numeric, } from "@vuelidate/validators";
+import { required, helpers, minLength, numeric, sameAs } from "@vuelidate/validators";
 
 export default {
      // eslint-disable-next-line vue/multi-word-component-names
@@ -278,6 +290,8 @@ export default {
           },
 
           createpwd: { 
+          
+            
             required: helpers.withMessage("Enter Password ", required), 
             $autoDirty: true,
             minLength: helpers.withMessage("Password Must be 6 char ", minLength(6)) 
@@ -287,7 +301,7 @@ export default {
           confirmpwd: { 
             required: helpers.withMessage("Enter Confirm Password", required), 
             $autoDirty: true,
-           // sameAs: helpers.withMessage("confirm password and create Password should be same", sameAs(this.person.createpwd))  
+            sameAsPassword:helpers.withMessage("Passwords are not matched",sameAs(this.person.createpwd)  ) , 
           },
         //   ans1: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
         // ans2: { required: helpers.withMessage("Answer is required", required), $autoDirty: true },
@@ -309,8 +323,15 @@ export default {
 
       methods:{
 
+
         passEventback(){
 this.$emit('ChangeReg2',this.person)
+
+        isLetter(e) {
+          let char = String.fromCharCode(e.keyCode); // Get the character
+          if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
+          else e.preventDefault(); // If not match, don't add to input text
+
         },
       
     passEvent()

@@ -6,7 +6,7 @@
       <div class="child-4">
          <div class="id">
       <label for="firstname"></label>
-       <input style="margin:10px" type="text" class="user" placeholder="First Name" v-model="person.firstname" 
+       <input style="margin:10px" type="text" class="user" placeholder="First Name" v-model="person.firstname" v-on:keypress="isLetter($event)"
              :class="
               v$.person.firstname.$error === true
                 ? 'text-fields-error'
@@ -81,7 +81,7 @@
       <div class="id">
         <label for="lastname"></label>
       <!-- <input name="lastname" type="text" for="lastname" class="last name" placeholder="last name" required v-model="person.userid"> -->
-      <input  style="margin:10px" type="text" class="user" placeholder="Last Name" v-model="person.lastname" 
+      <input  style="margin:10px" type="text" class="user" placeholder="Last Name" v-model="person.lastname" v-on:keypress="isLetter($event)"
         :class="
               v$.person.lastname.$error === true
                 ? 'text-fields-error'
@@ -137,7 +137,7 @@
        <div class="id">
         <label for="dateofBirth"></label>
       <!-- <input  name="userid" type="text" for="userid" class="username" placeholder="user id" required v-model="person.phonenumber"> -->
-       <input  style="margin:10px;width:100%;padding:10px" type="date" placeholder="Date Of Birth" class="user" v-model="person.dateofBirth"
+       <input id="birthdate"  style="margin:10px;width:100%;padding:10px" type="date" placeholder="Date Of Birth"  class="user" v-model="person.dateofBirth" 
             :class="
               v$.person.dateofBirth.$error === true
                 ? 'text-fields-error'
@@ -150,6 +150,19 @@
           >
             {{ error.$message }}
           </p> 
+          <p
+
+            class="text-red-500 text-xs font-thin"
+
+           v-if="!v$.person.dateofBirth.isUnique.$response"
+
+          >
+
+            Age should be between 18 to 75
+
+          </p>
+        
+        
       </div>
          </div>
 
@@ -168,8 +181,9 @@
 // eslint-disable-next-line no-unused-vars
 // import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import useVuelidate from "@vuelidate/core";
+import * as moment from "moment";
 import loginapi from '../services/loginapi';
-import { required, helpers,email,numeric, minLength, maxLength} from "@vuelidate/validators";
+import { required, helpers,email,numeric, minLength, maxLength,} from "@vuelidate/validators";
 export default { 
     
      name: 'RegistrationOne',
@@ -198,16 +212,18 @@ export default {
                 // currentStep:this.currentStep
         },
         responsedata:[],
-        
+      
 
        }
      },
       mounted(){
       this.fetch();
+     
     },
 
     created(){
       this.fetch();
+     
     },
     
       validations() {
@@ -223,8 +239,9 @@ export default {
            $autoDirty: true },
         
         companyid: { 
-          required: helpers.withMessage("Enter Company Id", required), 
-          $autoDirty: true },
+          required: helpers.withMessage("Enter Employee Id", required), 
+          $autoDirty: true, 
+          maxLength:helpers.withMessage("Employee Id should be 10 charecters ",maxLength(10))},
         
         userid: {
           required: helpers.withMessage("Enter User Id ", required), 
@@ -247,7 +264,28 @@ export default {
         dateofBirth: { 
           required: helpers.withMessage("Choose Date of Birth", required), 
           $autoDirty: true,
+           isUnique(value) {
+
+          if (value === '') return true
+
+        // standalone validator ideally should not assume a field is required
+
+          var age = moment(moment.now()).diff(value,"years");
+
+    if(age >=18 && age <=75 ){
+
+return true
+
+          }else{
+
+ return false
+
+          }
+
+      }
            },
+
+       
 
         gender: { 
           required: helpers.withMessage("Gender is required", required), 
@@ -273,6 +311,12 @@ export default {
     };
   },
       methods:{
+
+        isLetter(e) {
+          let char = String.fromCharCode(e.keyCode); // Get the character
+          if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
+          else e.preventDefault(); // If not match, don't add to input text
+        },
     passEvent()
     {
       this.v$.$touch();
@@ -285,8 +329,8 @@ export default {
         this.responsedata=response.data
         console.log(this.responsedata)
       })
-    }
-  
+    },
+    
   }
    
 

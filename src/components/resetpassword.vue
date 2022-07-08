@@ -75,7 +75,7 @@
 
 <script>
 import useVuelidate from "@vuelidate/core";
-import { required, helpers,minLength } from "@vuelidate/validators";
+import { required, helpers,minLength, sameAs } from "@vuelidate/validators";
 import loginapi from '../services/loginapi';
 export default {
  // eslint-disable-next-line vue/multi-word-component-names
@@ -108,7 +108,7 @@ export default {
          Conform: {
           required: helpers.withMessage("Confirm Password is required", required),
           $autoDirty: true,
-          // sameAspassword: helpers.withMessage("confirm password shuld be same as password", sameAs('Password'))
+          sameAsPassword: helpers.withMessage("Passwords are not Matched", sameAs(this.person.Password))
 
         },
       
@@ -135,7 +135,7 @@ export default {
 "password":this.person.Password,
 "confirmPassword":this.person.Conform
 }
-if(this.person.Password==this.person.Conform){
+
  this.responsedata=loginapi.resetpassword(sdata,this.id).then(response=>{
 console.log(response,"response data");
 if(response.data){
@@ -153,10 +153,8 @@ if(response.data){
   
        })
 
-}
-else{
-  alert("password are not same")
-}
+
+
 
        }
  },
