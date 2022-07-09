@@ -20,15 +20,13 @@
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
    </div>
-   <div class="child-div4">
-      
-
-   </div>
     <h2>Signup for new account</h2>
   <component v-bind:is="steps[currentStep].component" :currentStep="currentStep" :step="steps.length"
            :data="formvalue[currentStep]" @ChangeReg1="ChangeReg1($event)" @ChangeReg2="ChangeReg2($event)" @ChangeReg3="ChangeReg3($event)"/>
 
 <div class="my name">
+    <p  style="color: red;">  {{message}}</p>
+
    <!-- <router-link to="registrationpage2"> -->
     <!-- <button  class= "button" @click.prevent="Continue">Continue</button> -->
     <!-- </router-link> -->
@@ -74,6 +72,7 @@ export default {
      data(){
 
         return{
+            message:"",
             currentStep: 0,
             formvalue:[
                {
@@ -150,11 +149,12 @@ export default {
            },
 
             Continue(){
+                this.message="";
                 this.currentStep += 1;
             },
 
             Previous(){
-
+               this.message="";
                this.currentStep -= 1;
             },
              ChangeReg1(data)
@@ -242,12 +242,15 @@ console.log(senddata);
 // if(!this.v$.$invalid){
  
        loginapi.createpost(senddata).then(response=>{
+                console.log(response);
       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
-      if(response.status == 201 && response.data.firstName == this.formvalue[0].firstname && response.data.firstName){
+      if(response.data.status == "success" && response.data.statuscode == 200){
         console.log(response);
         alert("Registration completed, Please wait for Approval")
         //this.sendEmail(e);
         this.$router.push('login');
+      }else{
+        this.message=response.data.message;
       }
  });
 

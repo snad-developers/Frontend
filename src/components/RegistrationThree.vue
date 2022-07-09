@@ -147,7 +147,7 @@
               v$.person.ans1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "> 
+            "> <p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans1.$errors"
@@ -163,7 +163,7 @@
               v$.person.ans2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans2.$errors"
@@ -179,7 +179,7 @@
               v$.person.ans3.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans3.$errors"
@@ -195,7 +195,7 @@
               v$.person.ans4.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans4.$errors"
@@ -211,7 +211,7 @@
               v$.person.ans5.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
              <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.ans5.$errors"
