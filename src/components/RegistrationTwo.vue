@@ -253,7 +253,7 @@ export default {
         //   dateofBirth: { required: helpers.withMessage("Date of Birth is required", required), $autoDirty: true },
         // gender: { required: helpers.withMessage("Gender is required", required), $autoDirty: true },
            role: { 
-            required: helpers.withMessage("Etner Role", required), 
+            required: helpers.withMessage("Enter Role", required), 
             $autoDirty: true 
           },
 
