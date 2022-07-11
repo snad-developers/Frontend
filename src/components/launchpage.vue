@@ -93,15 +93,24 @@
           <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link>
         
     </div>
-    </div>
+       </div>
+    
    </div>
  </div>  
+ 
 
 
 
     
   
 </div>
+<div class="Bargraph"  v-if="data.length>0">
+     <GChart
+      type="ColumnChart"
+      :options="options"
+      :data="data"
+    />   
+    </div>
   
 
 
@@ -112,10 +121,14 @@
 <script>
 // import { get } from 'http';
 // import { } from 'process'
+import { GChart } from "vue-google-charts";
 import loginapi from '../services/loginapi';
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'launchpage',
+    components: {
+    GChart
+  },
        data:function(){
   return {
      responsedata:[],
@@ -126,6 +139,19 @@ export default {
      mgmtexpensestotal:null,
     logid:null,
     operationalcount:0,
+    data: [
+      // ['Element', 'Density', { role: 'style' }],
+      //    ['Outstandingreceivables',this.Receivables, '#3CB371'],
+      //    ['Payrollexpenses', this.payrollexpensestotal, '#DC143C'],
+      //    ['Employeeexpenses', this.empexpensestotal, '#F8D12F'],
+      //    ['Managementexpenses', this.mgmtexpensestotal, 'color: #AFEEEE' ],
+      //    ['Operationalcost', this.operationalcount, 'color: #6B58E2' ]
+       
+      ],
+      options: {
+        width: 1000,
+        height: 400
+      }
   }
        },
  
@@ -157,6 +183,13 @@ this.Receivables=response.data.receivablestotal;
 this.payrollexpensestotal=response.data.payrollexpensestotal;
 this.empexpensestotal=response.data.empexpensestotal;
 this.mgmtexpensestotal=response.data.mgmtexpensestotal;
+ this.data=[ 
+        ['Element', 'Density', { role: 'style' }],
+         ['Outstandingreceivables',this.Receivables, '#3CB371'],
+         ['Payrollexpenses', this.payrollexpensestotal, '#DC143C'],
+         ['Employeeexpenses', this.empexpensestotal, '#F8D12F'],
+         ['Managementexpenses', this.mgmtexpensestotal, 'color: #AFEEEE' ],
+         ['Operationalcost', this.operationalcount, 'color: #6B58E2' ]]
 
  });
       },
@@ -172,10 +205,12 @@ var showdata=response.data.result;
         this.operationalcount=this.operationalcount+parseInt(showdata[i].totalexpenses);
       }
       console.log(this.operationalcount)
+     
   
  }
    });
 },
+
 
 
        
@@ -407,5 +442,10 @@ body {font-family: "Lato", sans-serif;}
   display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+.Bargraph{
+  width:40%;
+  margin-left: 300px;
+
 }
 </style>
