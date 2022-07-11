@@ -50,7 +50,7 @@
                         <div class="input-field">
                             <label for="F" style="margin-left: -845px;
     font-size: 20px;right:-3%
-<!-- <!-- }">First Name   </label>
+ ">First Name   </label>
                             <input type="text" name="firstName"   v-model=this.rowdata.firstName style="outline: none;
     font-size: 14px;
     font-weight: 400;
