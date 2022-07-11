@@ -253,9 +253,7 @@ export default {
             overflow-x: hidden; 
         }
           
-        tbody { 
-            /* border-top: 2px solid black; */
-        }
+       
           
         tbody td, thead th {
             width : 200px;
