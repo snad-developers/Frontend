@@ -82,7 +82,7 @@
             "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
 <option selected value  > Select Role </option>
       <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
-</select><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
+</select> <p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
   <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.role.$errors"
