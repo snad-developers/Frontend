@@ -12,7 +12,7 @@
               v$.person.AdressLine1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.AdressLine1.$errors"
@@ -29,7 +29,7 @@
               v$.person.city.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.city.$errors"
@@ -46,7 +46,7 @@
               v$.person.zipcode.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.zipcode.$errors"
@@ -63,7 +63,7 @@
               v$.person.createpwd.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.createpwd.$errors"
@@ -74,12 +74,12 @@
       </div>
              <div class="">
        <label for="role"></label>
-      <select style="border-color:black;border-radius:20px;margin:10px;width:226px;padding:12px 20px" align="right" class="user" v-model="person.role"
+      <select style="border-radius:20px;margin:10px;width:100%;padding:12px 20px" align="right" class="user" v-model="person.role"
        :class="
               v$.person.role.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
+            "><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
 <option selected value  > Select Role </option>
       <option v-for="(role,index) in responsedata" :key="index" >{{role.roles}}</option>
 </select>
@@ -102,7 +102,7 @@
               v$.person.AdressLine2.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.AdressLine2.$errors"
@@ -119,7 +119,7 @@
               v$.person.state.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.state.$errors"
@@ -136,7 +136,7 @@
               v$.person.country.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.country.$errors"
@@ -153,7 +153,7 @@
               v$.person.confirmpwd.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            "/>
+            "/><p style="margin-top: -39px;right: -141px;top: -32px;color: red;">*</p>
               <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.confirmpwd.$errors"
@@ -524,28 +524,30 @@ body{
 }
 .forms1{
   margin-bottom: 0px;
-  color: #c51414;
+  color: red;
 }
 .user{
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 50px;
-  border: 2px solid #dddddd;
-  background: #ffffff;
+  border: 1px solid black;
+  background: black;
   outline: none;
   transition: border-color 0.5s;
   font-family: sans-serif;
 
 }
 .user:focus{
-  border-color: #46d40e;
+  border-color:rgb(55, 209, 55);
 
 }
 .user::placeholder{
-  color: #aaaaaa;
+  color: black;
 
 }
+
+
 
 .regis{
    box-sizing: border-box;

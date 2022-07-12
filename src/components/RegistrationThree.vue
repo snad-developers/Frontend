@@ -574,10 +574,10 @@ h1{
 
 
 
-.user::placeholder{
+/* .user::placeholder{
   color: #aaaaaa;
 
-}
+} */
 
 .regis{
    box-sizing: border-box;

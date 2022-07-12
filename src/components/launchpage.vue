@@ -7,7 +7,7 @@
   <a href="/launchpage"><i class="fa fa-fw fa-home"></i> Dashboard</a>
   <a href="/Ldbpage" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
   <a href="/amdpage"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+  <a href=""><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br>
    <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
 </div>
@@ -35,7 +35,7 @@
     <h4>{{logid.role}}</h4>
   </div>
   </div>
- <div class="gross-container">
+ <div class="gross-container" style="width:106%">
 <!-- <div class="Expenses" >
     <h3>Gross profit</h3>
     <h3>Before taxes</h3>
@@ -50,7 +50,7 @@
          <h3>Active Employees</h3>
             <p>{{activeemp}}</p>
             <router-link to="/activeemplydata" >
-             <h6 style="color: blue;">Acess data</h6>
+             <h6 class="accessdata" style="color: blue;">Acess data</h6>
             </router-link>
         <!-- <router-link to="/activeemplydata" > <a @click="() =>togglepopup"><h6 style="color: blue;">Acess data</h6></a></router-link>  -->
      </div>
@@ -174,6 +174,12 @@ child-part2{
     margin-top:-382px;
     
 }
+.accesdata a:active{
+color:rgb(201, 186, 103)
+}
+
+
+
 .h6{
     color:blue;
 }

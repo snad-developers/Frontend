@@ -15,7 +15,7 @@
    
     
  
-  <form  class="register" style="width:105%;height:105%;margin-right:250px">
+  <form  class="register" style="width:105%;height:105%;margin-right:394px">
    
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
@@ -270,6 +270,7 @@ if(response.status == 201 && response.data.firstName == this.formvalue[0].firstn
      font-family: sans-serif;
      transition: 0.5s;
 }
+
 buttn{
     
   width: 100%;

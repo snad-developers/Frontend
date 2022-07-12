@@ -86,13 +86,13 @@
                         </div>
                           <div class="input-field">
                            <label for="country">Country</label>
-      <input type="text" for="country" name="country" class="phone" placeholder="Country" required v-model="person.country" style=" border-radius:20px;">
+      <input type="text" for="country" name="country" class="user" placeholder="Country" required v-model="person.country" style=" border-radius:20px;">
                          </div>
 
 
         <div class="input-field">
         <lable for="Entity">Entity</lable>
-      <select name="Entity" for="Entity" id ="repeat1" required v-model="person.entity"  placeholder="Entity" align="right" class="user" style=" border-radius:20px;">
+      <select name="Entity" for="Entity" id ="repeat1" required v-model="person.entity"  placeholder="Entity" align="right" class="user drop" style=" border-radius:20px;">
        
       <option disabled selected value  > Choose Entity </option>
       <option value="Averon Solutions">Averon Solutions</option>
@@ -114,7 +114,7 @@
                     <div class="fields">
                         <div class="input-field">
                                 <label for="role">Role</label>
-      <select name="role" for="role" id ="repeat1" required v-model="person.role"  placeholder="Role" align="right" class="user" style=" border-radius:20px;">
+      <select name="role" for="role" id ="repeat1" required v-model="person.role"  placeholder="Role" align="right" class="user role" style=" border-radius:20px;">
 <option selected value  > Choose Role </option>
 <option value ="Management" >Management</option>
 <option value ="Accounting clerks">Accounting clerk</option>
@@ -283,6 +283,9 @@ body{
     justify-content: center;
     background: #4070f4;
 }
+.drop{
+ border:1px solid !important;
+}
 .container{
     position: relative;
     max-width: 900px;
@@ -429,6 +432,13 @@ form .buttons button , .backBtn{
         width: 100%;
     }
 }
+
+.role{
+ border:1px solid !important;
+}
+/* .drop:focus{
+ border-color: rgb(55, 209, 55) !important;
+} */
 
 </style>
 

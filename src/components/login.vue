@@ -75,7 +75,7 @@
         </p>
     <label for="Entity" placeholder="Entity" >
       <i class="uil uil-clipboard-notes"  style="margin-left:-20px;"></i>
-     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
+     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px"  name="Entity" id="Entity" class="dropdown"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
@@ -234,6 +234,21 @@ export default {
   font-size: 14px;
   color: #c40b0b;
 }
+.dropdown{
+  width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 50px;
+    /* border: 2px solid #dddddd; */
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.5s;
+    font-family: sans-serif;
+}
+.dropdown:focus{
+ border-color: rgb(55, 209, 55);
+
+}
 .main-container{
   display: flex;
   flex-direction: row;
@@ -262,7 +277,7 @@ input[type=email]{
      transition-duration: 5s;
    
 }
-input[type=text]:hover{
+/* input[type=text]:hover{
   border-color: rgb(87, 239, 87);
   transition-duration: 5s;
  transition-duration: 5s;
@@ -271,7 +286,7 @@ input[type=email]:hover{
   border-color: rgb(87, 239, 87);
   transition-duration: 5s;
  transition-duration: 5s;
-}
+} */
 
 input[type=password]{
 
@@ -288,6 +303,7 @@ select{
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
+    
 }
 input[type=button]{
     width: 10%; 
@@ -403,7 +419,7 @@ body{
 
 
 .user::placeholder{
-  color: #090808;
+  color: rgb(204, 60, 60)
 
 }
 
@@ -441,10 +457,10 @@ p{
 .regis1{
   color:#000000;
 }
-.regis1:hover{
+/* .regis1:hover{
   color: #4ec6d8;
   transition-duration: 0.6s;
-}
+} */
 
 
 

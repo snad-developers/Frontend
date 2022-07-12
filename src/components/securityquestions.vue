@@ -25,7 +25,7 @@
      <div class="forms">
        <div class="forms1">
        <label for="Entity" placeholder="Select Question" >
-     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
+     <select  style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
