@@ -184,7 +184,7 @@ this.payrollexpensestotal=response.data.payrollexpensestotal;
 this.empexpensestotal=response.data.empexpensestotal;
 this.mgmtexpensestotal=response.data.mgmtexpensestotal;
  this.data=[ 
-        ['Element', 'Density', { role: 'style' }],
+        ['Element', ' ', { role: 'style' }],
          ['Outstandingreceivables',this.Receivables, '#3CB371'],
          ['Payrollexpenses', this.payrollexpensestotal, '#DC143C'],
          ['Employeeexpenses', this.empexpensestotal, '#F8D12F'],
@@ -446,6 +446,12 @@ body {font-family: "Lato", sans-serif;}
 .Bargraph{
   width:40%;
   margin-left: 300px;
+
+}
+
+g > rect:nth-of-type(2) {
+
+display: none !important;
 
 }
 </style>
