@@ -448,4 +448,10 @@ body {font-family: "Lato", sans-serif;}
   margin-left: 300px;
 
 }
+
+g > rect:nth-of-type(2) {
+
+display: none !important;
+
+}
 </style>
