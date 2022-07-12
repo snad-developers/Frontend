@@ -184,7 +184,7 @@ this.payrollexpensestotal=response.data.payrollexpensestotal;
 this.empexpensestotal=response.data.empexpensestotal;
 this.mgmtexpensestotal=response.data.mgmtexpensestotal;
  this.data=[ 
-        ['Element', 'Density', { role: 'style' }],
+        ['Element', ' ', { role: 'style' }],
          ['Outstandingreceivables',this.Receivables, '#3CB371'],
          ['Payrollexpenses', this.payrollexpensestotal, '#DC143C'],
          ['Employeeexpenses', this.empexpensestotal, '#F8D12F'],
