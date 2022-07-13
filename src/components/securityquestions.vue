@@ -18,26 +18,24 @@
        <div class="img">
          <img alt="" src="../assets/snadicon.png" />
    </div>
-    <h2>Forgot Password? </h2>
+    <h2>Forgot Password?  </h2>
     <br>
       <h6>Please answer the below security questions to reset password</h6>
       <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
      <div class="forms">
        <div class="forms1">
        <label for="Entity" placeholder="Select Question" >
-     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
+      <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            ">
-             <option disabled selected value  >Select Questions </option>
-     <option value="0">What is your favourite food/dish ?</option>
-      <option value="1">Who is your childhood hero ?</option>
-      <option value="2">What is the name of your favourite pet ?</option>
-       <option value="3">In what city you were born ?</option>
-      <option value="4">What is the name of your first school ?</option>
-     </select>
+            " >
+            <option disabled selected value  >Select Questions </option>
+    <option v-for="subject in subjects">
+      {{ subject }}
+    </option>
+  </select>
         <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.question1.$errors"
@@ -61,19 +59,17 @@
             {{ error.$message }}
           </p>
              <label for="Entity" placeholder="Select Question" >
-     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question2"
+     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question2" :disabled="!person.question1"
             :class="
-              v$.person.question2.$error === true
+              v$.person.question1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             " >
-      <option disabled selected value  >Select Questions </option>
-     <option value="0">What is your favourite food/dish ?</option>
-      <option value="1">Who is your childhood hero ?</option>
-      <option value="2">What is the name of your favourite pet ?</option>
-       <option value="3">In what city you were born ?</option>
-      <option value="4">What is the name of your first school ?</option>
-     </select>
+            <option disabled selected value  >Select Questions </option>
+    <option v-for="subject in subjects.filter(item => item.indexOf(this.person.question1))">
+      {{ subject }}
+    </option>
+  </select>
         <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.question2.$errors"
@@ -98,19 +94,16 @@
             {{ error.$message }}
           </p>
              <label for="Entity" placeholder="Select Question" >
-     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question3"
+     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question3" :disabled="!person.question2"
             :class="
-              v$.person.question3.$error === true
+              v$.person.question1.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
             " >
-     <option disabled selected value  >Select Questions </option>        
-     <option value="0">What is your favourite food/dish ?</option>
-      <option value="1">Who is your childhood hero ?</option>
-      <option value="2">What is the name of your favourite pet ?</option>
-       <option value="3">In what city you were born ?</option>
-      <option value="4">What is the name of your first school ?</option>
-     </select>
+    <option v-for="subject in subjects.filter(item => item.indexOf(this.person.question1) && item.indexOf(this.person.question2))">
+      {{ subject }}
+    </option>
+  </select>
         <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.question3.$errors"
@@ -160,6 +153,19 @@ export default {
      name: 'securityquestions',
            data() {
     return {
+       subjects: [
+        "What is your favourite food/dish ?",
+        "Who is your childhood hero ?",
+        "What is the name of your favourite pet ?",
+        "In which city you were born ?",
+        "What is the name of your first school ?",
+        
+       
+      ],
+      one: "",
+      two: "",
+      three: "",
+      
       v$: useVuelidate(),
       person: {
         question1: null,
@@ -168,6 +174,7 @@ export default {
         answer1:null,
         answer2:null,
         answer3:null,
+        
        
       },
       message:"",
@@ -218,6 +225,8 @@ methods: {
                  }
         
     },
+
+    
     submit() {
        this.v$.$touch();
        if(!this.v$.$invalid){
@@ -238,10 +247,18 @@ console.log(sdata)
   // console.log("if condition")
   if(response.data.status == "success" && response.data.statuscode == 200){
     var cortrectanswers=response.data.answers;
-var questins=[this.person.question1,this.person.question2,this.person.question3];
+    var questins=[];
+     for (var i = 0; i<this.subjects.length; i++) {
+      if(this.subjects[i]==this.person.question1 || this.subjects[i]==this.person.question2 || this.subjects[i]==this.person.question3){
+      questins.push(i)
+      
+      }
+  }
+  console.log(questins)
+// var questins=[this.person.question1,this.person.question2,this.person.question3];
 var answers=[this.person.answer1,this.person.answer2,this.person.answer3]
 var count=0;
-  for (var i = 0; i<questins.length; i++) {
+  for (var i = 0; i<cortrectanswers.length; i++) {
       if(answers[i]==cortrectanswers[questins[i]]){
       count=count+1;
       
