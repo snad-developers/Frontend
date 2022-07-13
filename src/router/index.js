@@ -24,6 +24,7 @@ import receiVables from '../components/receiVables.vue'
 import managmentexpenses from '../components/managmentexpenses.vue'
 import employeexpensedata from '../components/employeexpensedata.vue'
 import operationalCost from '../components/operationalCost.vue';
+import newEmp from '../components/newEmp.vue';
 
 
 function guardMyroute(to, from, next)
@@ -103,6 +104,13 @@ const routes = [
     component: Ldbpage,
     beforeEnter : guardMyroute,
     meta: {title: 'Ldbpage'}
+  },
+  {
+    path: '/newEmp',
+    name: 'newEmp',
+    component: newEmp,
+    beforeEnter : guardMyroute,
+    meta: {title: 'newEmp'}
   },
  
   {
