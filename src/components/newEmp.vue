@@ -506,8 +506,6 @@ export default {
 
 }
 
-.container div{
-}
 
 </style>>
 
