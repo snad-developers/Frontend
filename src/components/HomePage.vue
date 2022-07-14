@@ -11,7 +11,7 @@
             <li><a href="#">HOME</a></li>
              <router-link to="/About"><li><a href="#">ABOUT</a></li></router-link>
               <li><a href="#">SERVICES</a></li>
-               <li><a href="#">CONTACT</a></li>
+               <router-link to="/PersonalData"><li><button href="#">CONTACT</button></li></router-link>
                <router-link to="/login"><li><a href="#">LOGIN</a></li></router-link>
        
         </ul>

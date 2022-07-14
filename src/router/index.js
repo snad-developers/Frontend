@@ -24,6 +24,8 @@ import receiVables from '../components/receiVables.vue'
 import managmentexpenses from '../components/managmentexpenses.vue'
 import employeexpensedata from '../components/employeexpensedata.vue'
 import operationalCost from '../components/operationalCost.vue';
+import PersonalData from '../components/PersonalData.vue';
+
 
 
 function guardMyroute(to, from, next)
@@ -95,6 +97,11 @@ const routes = [
     path: '/registrationPage',
     name: 'registrationPage',
     component: registrationPage
+  },
+  {
+    path: '/PersonalData',
+    name: 'PersonalData',
+    component: PersonalData
   },
   
   {
