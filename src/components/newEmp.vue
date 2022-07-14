@@ -7,7 +7,7 @@
             
                     <div class="child-1">
                         <div >
-                            <label align="left" for="empid">Employee Number</label>
+                            <label align="left" for="empid">Employee Id</label>
                         </div>
                         <div>
                             <input type="number" name="empid" style="padding:5% ;border-radius:15px">
@@ -364,15 +364,16 @@
                    </div>
 
                    <div class="child-4">
-                    <div>
+                      <div>
                         <label for="jobrole">Job Role</label>
-                    </div>
-                    <div>
-                        <select name="role" for="role" id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;padding:10% ;width: min-content; border: 1px solid black;">
+                      </div>
+                       <div>
+                         <select name="role" for="role" id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;padding:10% ;width: min-content; border: 1px solid black;">
                             <option selected value  > Select Role </option>
                             <option v-for="(entity,index) in roleresponse" :key="index" >{{entity.roles}}</option>
 
-                        </select>
+                          </select>
+                       </div>
                     </div>
 
                     <div class="child-4">
@@ -383,11 +384,47 @@
                             <input type="number" name="supervisorid" style="padding:5% ;border-radius:15px" >
                         </div>
                     </div>
-                   </div>
+                    <div class="child-4">
+                        <div> 
+                            <label for="client name">Client Name</label>
+                        </div>
+                        <div> 
+                            <input type="text" name="clientname" style="padding:5% ;border-radius:15px">
+                        </div>
+                    </div>
+                    
                 </div>
-      
+                <!-- <div class="box-5">
+                     <h3>Compensation</h3>
+                     <div class="child-5">
+                       <div>
+                            <label for="payshedule">Payshedule</label>
+                        </div>
+
+                        <div>
+                            <select style="margin-bottom:1px;border-radius:15px;margin:0px;padding:10% ;width: min-content; border: 1px solid black;" align="right" >
+                                <option disabled selected value>Select</option>
+                                <option value ="every other week">Every Other Week</option>
+                                <option value ="twice a month">Twice A Month</option>
+                            </select>
+                        </div>
+                      <div> 
+                        <label for="payrate">Payrate</label>
+                      </div>
+                      <div>
+                        <select style="margin-bottom:1px;border-radius:15px;margin:0px;padding:10% ;width: min-content; border: 1px solid black;" align="right" >
+                                <option disabled selected value>Select</option>
+                                <option value ="salary">salary</option>
+                                <option value ="Hourly">Hourly</option>
+                                <option value ="commissiononly">Commission Only</option>
+                            </select>
+                      </div>
+                     </div>
+                    
+
+                </div> -->
             </div>
-       
+
 </form>
   
 </template>
@@ -505,9 +542,27 @@ export default {
     margin-block-start:5%;
 
 }
-
-.container div{
+.box-5{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-block-start: 2%;
+    border-block-end: 1px solid #ccc;
 }
+.child-5{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom:2%;
+    margin-inline-start:0%;
+    margin-block-start:5%;
+}
+
+
+
+/* ontainer div{
+    display: flex;
+}.c */
 
 </style>>
 
