@@ -18,7 +18,7 @@
                         <div>
                             <label for="name">Name</label>
                         </div>
-                        <div>       
+                        <div style="display: flex;">       
                             <input type="text" name="firstname" placeholder="First Name*">
                             <input type="text" name="lastname" placeholder="Last Name*">
                         </div>
@@ -38,7 +38,7 @@
                             Gender <template style="color: red;">*</template>
                         </div>
                         <div>
-                            <select    style="margin-bottom:1px;border-radius:15px;margin:0px;padding:10% ;width: min-content; border: 1px solid black;" align="right" >
+                            <select    style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" >
                                 <option disabled selected value>Select Gender</option>
                                 <option value ="Male">Male</option>
                                 <option value ="Female">Female</option>
@@ -57,7 +57,7 @@
                     </div>
 
                 </div>
-
+<div style="border-block-end: 1px solid #ccc;"></div>
                 <div class="box-2">
                     <h3>Address</h3>
 
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="child-2">
-                            <div>
+                            <div style="display: flex;">
                                 <input type="text" placeholder="City">
                                 <input type="text" placeholder="State">
                                 <input type="text" placeholder="Zip">
@@ -80,7 +80,7 @@
     
                         </div>
                         <div class="child-2">
-                            <select style="margin-bottom:1px;border-radius:19px;margin:0px;padding:5% ;width: 50%; border: 1px solid black;" >
+                            <select style="margin-bottom:1px;border-radius:19px;margin:0px;width: 50%; border: 1px solid black;" >
                                 <option disabled selected value>Select Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -355,7 +355,7 @@
                         </div>
 
                         <div>
-                            <select style="margin-bottom:1px;border-radius:15px;margin:0px;padding:10% ;width: min-content; border: 1px solid black;" align="right" >
+                            <select style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" >
                                 <option disabled selected value>Select Status</option>
                                 <option value ="Active">Active</option>
                                 <option value ="Inactive">Inactive</option>
@@ -368,11 +368,12 @@
                         <label for="jobrole">Job Role</label>
                     </div>
                     <div>
-                        <select name="role" for="role" id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;padding:10% ;width: min-content; border: 1px solid black;">
-                            <option selected value  > Select Role </option>
+                        <select name="role" for="role" id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;">
+                            <option disabled selected value  > Select Role </option>
                             <option v-for="(entity,index) in roleresponse" :key="index" >{{entity.roles}}</option>
 
                         </select>
+                    </div>
                     </div>
 
                     <div class="child-4">
@@ -383,9 +384,17 @@
                             <input type="number" name="supervisorid" style="padding:5% ;border-radius:15px" >
                         </div>
                     </div>
-                   </div>
+                     <div class="child-4">
+                        <div> 
+                            <label for="client name">Client Name</label>
+                        </div>
+                        <div> 
+                            <input type="text" name="clientname" style="padding:5% ;border-radius:15px">
+                        </div>
+                    </div>
+                    
                 </div>
-      
+
             </div>
        
 </form>
@@ -428,7 +437,8 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    margin-inline-start: 2%;
+    margin-inline-start: 4%;
+        margin-inline-end: 4%;
 
 
 }
@@ -437,6 +447,7 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     border-block-end: 1px solid #ccc;
+        width: 100%;
 
     
 
@@ -445,15 +456,16 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom: 5%;
+   padding-bottom: 1%;
 
 }
 .box-2{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-block-start: 2%;
+    margin-block-start: 1%;
     border-block-end: 1px solid #ccc;
+    width: 100%;
 
     
 
@@ -462,7 +474,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom:2%;
+    padding-bottom:1%;
     margin-inline-start:0%;
 
 }
@@ -472,7 +484,8 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     border-block-end: 1px solid #ccc;
-    margin-block-start: 2%;
+    margin-block-start: 1%;
+    width: 100%;
 
     
 
@@ -481,7 +494,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom:5%;
+    padding-bottom:1%;
     margin-inline-start:0%;
 
 }
@@ -490,8 +503,9 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-block-start: 2%;
+    margin-block-start: 1%;
     border-block-end: 1px solid #ccc;
+ width: 100%;
 
     
 
@@ -500,12 +514,17 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom:5%;
+    padding-bottom:1%;
     margin-inline-start:0%;
-    margin-block-start:5%;
+    margin-block-start:0%;
 
 }
 
 
-</style>>
+input{
+    margin-right: 8px;
+}
+
+
+</style>
 
