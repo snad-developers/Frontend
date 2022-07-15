@@ -10,7 +10,7 @@
                             <label align="left" for="empid">Employee Number</label>
                         </div>
                         <div>
-                            <input type="number" name="empid" style="padding:5% ;border-radius:15px">
+                            <input required type="number" name="empid" v-model="person.empid" style="padding:5% ;border-radius:15px">
                         </div>
                     </div>
 
@@ -19,8 +19,8 @@
                             <label for="name">Name</label>
                         </div>
                         <div style="display: flex;">       
-                            <input type="text" name="firstname" placeholder="First Name*">
-                            <input type="text" name="lastname" placeholder="Last Name*">
+                            <input required type="text" name="firstname" v-model="person.firstname" placeholder="First Name*">
+                            <input required type="text" name="lastname" v-model="person.lastname" placeholder="Last Name*">
                         </div>
                     </div>
                     
@@ -29,16 +29,16 @@
                             <label for="birthdate">Date of Birth</label>
                         </div>
                         <div>
-                            <input type="date" name="dateofbirth">
+                            <input required type="date" name="dateofbirth" v-model="person.dateofbirth">
                         </div>
                     </div>
                     
                     <div class="child-1">
                         <div>
-                            Gender <template style="color: red;">*</template>
+                            Gender <span style="color: red;">*</span>
                         </div>
                         <div>
-                            <select    style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" >
+                            <select  v-model="person.gender"  style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" >
                                 <option disabled selected value>Select Gender</option>
                                 <option value ="Male">Male</option>
                                 <option value ="Female">Female</option>
@@ -52,7 +52,7 @@
                             <label for="SSN">SSN</label>
                         </div>
                         <div>
-                            <input type="text" name="SSN" placeholder="SSN">
+                            <input required type="text" name="SSN" v-model="person.ssn" placeholder="SSN">
                         </div>
                     </div>
 
@@ -63,24 +63,24 @@
 
                    
                         <div class="child-2">
-                            <input type="text" placeholder="Address Line 1">
+                            <input required type="text" v-model="person.add1" placeholder="Address Line 1">
                         </div>
 
                         <div class="child-2">
-                            <input type="text" placeholder="Address Line 2">
+                            <input required type="text" v-model="person.add2" placeholder="Address Line 2">
                         </div>
 
                         <div class="child-2">
                             <div style="display: flex;">
-                                <input type="text" placeholder="City">
-                                <input type="text" placeholder="State">
-                                <input type="text" placeholder="Zip">
+                                <input required type="text" v-model="person.city" placeholder="City">
+                                <input required type="text" v-model="person.state" placeholder="State">
+                                <input required type="number" v-model="person.zipcode" placeholder="Zipcode" style="padding:1.5% ;border-radius:20px; text-align: center;">
                             </div>
                                 
     
                         </div>
                         <div class="child-2">
-                            <select style="margin-bottom:1px;border-radius:19px;margin:0px;width: 50%; border: 1px solid black;" >
+                            <select v-model="person.country" style="margin-bottom:1px;border-radius:19px;margin:0px;width: 50%; border: 1px solid black;" >
                                 <option disabled selected value>Select Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -330,11 +330,11 @@
                 <div class="box-3">
                     <h3>Contact</h3>
                     <div class="child-3">
-                        <input type="text" placeholder="Mobile Number">
+                        <input required type="number" v-model="person.mobile"  placeholder="Mobile Number" style="padding:5% ;border-radius:20px; text-align: center; width:100%;">
                     </div>
 
                     <div class="child-3">
-                        <input type="email" placeholder="Email">
+                        <input required type="email" v-model="person.email" placeholder="Email">
                     </div>
                 </div>
 
@@ -345,7 +345,7 @@
                             <label for="startdate">Hire Date</label>
                         </div>
                         <div>
-                            <input type="date">
+                            <input required type="date"  v-model="person.hiredate" >
                         </div>
                     </div>
 
@@ -355,7 +355,7 @@
                         </div>
 
                         <div>
-                            <select style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" >
+                            <select v-model="person.empstatus"  style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" >
                                 <option disabled selected value>Select Status</option>
                                 <option value ="Active">Active</option>
                                 <option value ="Inactive">Inactive</option>
@@ -368,7 +368,7 @@
                         <label for="jobrole">Job Role</label>
                     </div>
                     <div>
-                        <select name="role" for="role" id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;">
+                        <select name="role" for="role"  v-model="person.jobrole"  id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;">
                             <option disabled selected value  > Select Role </option>
                             <option v-for="(entity,index) in roleresponse" :key="index" >{{entity.roles}}</option>
 
@@ -381,7 +381,7 @@
                             <label for="supervisor id">Supervisor Id</label>
                         </div>
                         <div>
-                            <input type="number" name="supervisorid" style="padding:5% ;border-radius:15px" >
+                            <input required type="number"  v-model="person.supervisor"  name="supervisorid" style="padding:5% ;border-radius:15px" >
                         </div>
                     </div>
                      <div class="child-4">
@@ -389,14 +389,20 @@
                             <label for="client name">Client Name</label>
                         </div>
                         <div> 
-                            <input type="text" name="clientname" style="padding:5% ;border-radius:15px">
+                            <input required type="text" v-model="person.clientname"  name="clientname" style="padding:5% ;border-radius:15px">
                         </div>
                     </div>
                     
                 </div>
 
             </div>
+                               <button class="sumbit" @click.prevent="handlesumbit"  style="margin-left: 0;margin-top:0%;margin-bottom:2%;">
+                            <span class="btnText">Save Details</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
 
+
+       
 </form>
   
 </template>
@@ -407,7 +413,30 @@ export default {
     name:"newEmp",
     data(){
         return{
-            roleresponse:[]
+            roleresponse:[],
+            person:{
+                empid:null,
+                firstname:"",
+                lastname:"",
+                dateofbirth:"",
+                gender:"",
+                ssn:"",
+                add1:"",
+                add2:"",
+                city:"",
+                state:"",
+                zipcode:null,
+                country:"",
+                mobile:null,
+                email:"",
+                hiredate:"",
+                empstatus:"",
+                jobrole:"",
+                supervisor:null,
+                clientname:"",
+
+
+            }
         }
     },
 
@@ -426,6 +455,87 @@ export default {
                 console.log(this.roleresponse)
             })
         },
+
+        handlesumbit() {
+     
+         //this.v$.$touch();
+         
+     // console.log(this.person); // logs the input value
+      const senddata={
+        "employeeid": this.person.empid,
+        "firstname": this.person.firstname,
+        "lastname": this.person.lastname,
+        "fullname": this.person.firstname +" "+ this.person.lastname,
+        "empstatus": this.person.empstatus,
+        "emailaddress": this.person.email,
+        "jobtitle": this.person.jobrole,
+        "internalstaff": " ",
+        "supervisor": this.person.supervisor,
+        "visastatus": "NA",
+        "gender": this.person.gender,
+        "entity": "NA",
+        "dateofbirth": this.person.dateofbirth,
+        "clientname": this.person.clientname,
+        "clientcode": "NA",
+        "startdate": this.person.hiredate,
+        "createdby": "NA",
+        "updatedby": "NA",
+        "immigrationstatus": "NA",
+        "highestdegree": "NA",
+        "university": "NA",
+        "contactnumber": this.person.mobile,
+        "addressline1": this.person.add1,
+        "addressline2": this.person.add2,
+        "city": this.person.city,
+        "state": this.person.state,
+        "zipcode": this.person.zipcode,
+        "country": this.person.country,
+        "ssn":this.person.ssn,
+        "taxfilenumber": 0,
+        "emergencynumber": 0,
+        "effectivedate": "NA",
+        "location": "NA",
+        "reportsto": "NA",
+        "payschedule": "NA",
+        "paytype": "NA",
+        "payrate": "NA",
+        "overtime": "NA",
+        "overtimerate": "NA",
+        "changereason": "NA",
+        "comment": "NA",
+        "specialization": "NA",
+        "gpa": "NA",
+        "degreestartdate": "NA",
+        "degreeenddate": "NA",
+        "date": "NA",
+        "issuingcountry": "NA",
+        "issueddate": "NA",
+        "expirationdate": "NA",
+        "status": "NA"
+
+
+
+
+}
+console.log(senddata);
+// if(!this.v$.$invalid){
+ 
+       loginapi.newemp(senddata).then(response=>{
+                console.log(response);
+      //  console.log(response,response.status,response.data.firstName,this.person.firstName);
+      if(response.data.status == "success" && response.data.statuscode == 200){
+        console.log(response);
+        alert("Details saved successfully ")
+        //this.sendEmail(e);
+        this.$router.push('activeemplydata');
+      }else{
+        this.message=response.data.message;
+      }
+ });
+
+
+    },
+
     }
 
 }
@@ -436,9 +546,14 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
-    margin-inline-start: 4%;
-        margin-inline-end: 4%;
+    padding: 1%;
+    margin-inline-start: 25%;
+        margin-inline-end: 25%;
+        background-color: white;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      border-radius: 25px;
+      box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
 
 
 }
@@ -457,6 +572,7 @@ export default {
     flex-direction: column;
     align-items: flex-start;
    padding-bottom: 1%;
+   margin-left: 2%;
 
 }
 .box-2{
@@ -476,6 +592,8 @@ export default {
     align-items: flex-start;
     padding-bottom:1%;
     margin-inline-start:0%;
+    margin-left: 2%;
+
 
 }
 
@@ -496,6 +614,7 @@ export default {
     align-items: flex-start;
     padding-bottom:1%;
     margin-inline-start:0%;
+    margin-left: 2%;
 
 }
 
@@ -504,7 +623,6 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     margin-block-start: 1%;
-    border-block-end: 1px solid #ccc;
  width: 100%;
 
     
@@ -517,27 +635,32 @@ export default {
     padding-bottom:1%;
     margin-inline-start:0%;
     margin-block-start:0%;
+    margin-left: 2%;
 
-}
-.box-5{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-block-start: 2%;
-    border-block-end: 1px solid #ccc;
-}
-.child-5{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom:2%;
-    margin-inline-start:0%;
-    margin-block-start:5%;
+
 }
 
 
 input{
     margin-right: 8px;
+}
+
+button{
+
+    
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: 1px solid white;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: blue;
+    transition: all 0.3s linear;
+    cursor: pointer;
 }
 
 

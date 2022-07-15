@@ -96,4 +96,8 @@ export default{
     operationalaccess(){
         return API('http://localhost:3000/').get('/operationalaccess')
     },
+    newemp(data){
+        return API('http://localhost:3000/').post('/empdata',data)
+    },
+    
 }
