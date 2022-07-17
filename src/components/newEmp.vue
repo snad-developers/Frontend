@@ -7,52 +7,136 @@
             
                     <div class="child-1">
                         <div >
-                            <label align="left" for="empid">Employee Number</label>
+                            <label align="left" for="empid">Employee Number<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="number" name="empid" v-model="person.empid" style="padding:5% ;border-radius:15px">
+                            <input required type="number" name="empid" v-model="person.empid" style="padding:5% ;border-radius:15px"
+                                :class="
+                                    v$.person.empid.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.empid.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                         </div>
                     </div>
 
                     <div class="child-1">
                         <div>
-                            <label for="name">Name</label>
+                            <label for="name">Name<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div style="display: flex;">       
-                            <input required type="text" name="firstname" v-model="person.firstname" placeholder="First Name*">
-                            <input required type="text" name="lastname" v-model="person.lastname" placeholder="Last Name*">
+                            <input required type="text" name="firstname" v-model="person.firstname" placeholder="First Name*"
+                                :class="
+                                    v$.person.firstname.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.firstname.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p>                         
+                            <input required type="text" name="lastname" v-model="person.lastname" placeholder="Last Name*"
+                                :class="
+                                    v$.person.lastname.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.lastname.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                         </div>
                     </div>
                     
                     <div class="child-1">
                         <div>
-                            <label for="birthdate">Date of Birth</label>
+                            <label for="birthdate">Date of Birth<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="date" name="dateofbirth" v-model="person.dateofbirth">
+                            <input required type="date" name="dateofbirth" v-model="person.dateofbirth" 
+                                :class="
+                                    v$.person.dateofbirth.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.dateofbirth.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                         </div>
                     </div>
                     
                     <div class="child-1">
                         <div>
-                            Gender <span style="color: red;">*</span>
+                            Gender<span style="color: red;font-size: large;">*</span>
                         </div>
                         <div>
-                            <select  v-model="person.gender"  style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" >
+                            <select  v-model="person.gender"  style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" 
+                                :class="
+                                    v$.person.gender.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            >
+
                                 <option disabled selected value>Select Gender</option>
                                 <option value ="Male">Male</option>
                                 <option value ="Female">Female</option>
                                 <option value ="Others">Others</option>
                             </select>
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.gender.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                         </div>
                     </div>
                     
                     <div class="child-1">
                         <div>
-                            <label for="SSN">SSN</label>
+                            <label for="SSN">SSN<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="text" name="SSN" v-model="person.ssn" placeholder="SSN">
+                            <input required type="text" name="SSN" v-model="person.ssn" placeholder="SSN"
+                                :class="
+                                    v$.person.ssn.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.ssn.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                         </div>
                     </div>
 
@@ -330,11 +414,39 @@
                 <div class="box-3">
                     <h3>Contact</h3>
                     <div class="child-3">
-                        <input required type="number" v-model="person.mobile"  placeholder="Mobile Number" style="padding:5% ;border-radius:20px; text-align: center; width:100%;">
+                        <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:5% ;border-radius:20px; text-align: center; width:100%;"
+                                :class="
+                                    v$.person.mobile.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.mobile.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p>        
                     </div>
 
                     <div class="child-3">
-                        <input required type="email" v-model="person.email" placeholder="Email">
+                        <input required type="email" v-model="person.email" placeholder="Email*"
+                                :class="
+                                    v$.person.email.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.email.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                     </div>
                 </div>
 
@@ -342,54 +454,127 @@
                     <h3>Job Information</h3>
                     <div class="child-4">
                         <div>
-                            <label for="startdate">Hire Date</label>
+                            <label for="startdate">Hire Date<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="date"  v-model="person.hiredate" >
+                            <input required type="date"  v-model="person.hiredate" 
+                                :class="
+                                    v$.person.hiredate.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.hiredate.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                         </div>
                     </div>
 
                    <div class="child-4">
                         <div>
-                            <label for="empstatus">Employement Satus</label>
+                            <label for="empstatus">Employement Satus<span style="color: red;font-size: large;">*</span></label>
                         </div>
 
                         <div>
-                            <select v-model="person.empstatus"  style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" >
+                            <select v-model="person.empstatus"  style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" 
+                                :class="
+                                    v$.person.empstatus.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            >
+
                                 <option disabled selected value>Select Status</option>
                                 <option value ="Active">Active</option>
                                 <option value ="Inactive">Inactive</option>
                             </select>
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.empstatus.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                         </div>
                    </div>
 
                    <div class="child-4">
                     <div>
-                        <label for="jobrole">Job Role</label>
+                        <label for="jobrole">Job Role<span style="color: red;font-size: large;">*</span></label>
                     </div>
                     <div>
-                        <select name="role" for="role"  v-model="person.jobrole"  id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;">
+                        <select name="role" for="role"  v-model="person.jobrole"  id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;"
+                                :class="
+                                    v$.person.jobrole.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            >
+
+
                             <option disabled selected value  > Select Role </option>
                             <option v-for="(entity,index) in roleresponse" :key="index" >{{entity.roles}}</option>
 
                         </select>
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.jobrole.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
                     </div>
                     </div>
 
                     <div class="child-4">
                         <div>
-                            <label for="supervisor id">Supervisor Id</label>
+                            <label for="supervisor id">Supervisor Id<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="number"  v-model="person.supervisor"  name="supervisorid" style="padding:5% ;border-radius:15px" >
+                            <input required type="number"  v-model="person.supervisor"  name="supervisorid" style="padding:5% ;border-radius:15px" 
+                                :class="
+                                    v$.person.supervisor.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.supervisor.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
+
                         </div>
                     </div>
                      <div class="child-4">
                         <div> 
-                            <label for="client name">Client Name</label>
+                            <label for="client name">Client Name<span style="color: red; font-size: large;">*</span></label>
                         </div>
                         <div> 
-                            <input required type="text" v-model="person.clientname"  name="clientname" style="padding:5% ;border-radius:15px">
+                            <input required type="text" v-model="person.clientname"  name="clientname" style="padding:5% ;border-radius:15px"
+                                :class="
+                                    v$.person.clientname.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.clientname.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
+
                         </div>
                     </div>
                     
@@ -408,12 +593,16 @@
 </template>
 
 <script>
-import loginapi from '@/services/loginapi'
+import loginapi from '@/services/loginapi';
+import { required, helpers, email,numeric,minLength, maxLength} from "@vuelidate/validators";
+
 export default {
     name:"newEmp",
     data(){
         return{
             roleresponse:[],
+            v$: useVuelidate(),
+
             person:{
                 empid:null,
                 firstname:"",
@@ -438,6 +627,75 @@ export default {
 
             }
         }
+    },
+
+    validations(){
+        return{
+            person:{
+                empid:{
+                    required:helpers.withMessage("Please Enter Employe Id", required),
+                    $autoDirty: true,
+                    
+                },
+                firstname:{
+                    required:helpers.withMessage("Please Enter First Name",required),
+                    $autoDirty: true,
+                },
+                lastname:{
+                    required:helpers.withMessage("Please Enter Last Name",required),
+                    $autoDirty: true,
+                },
+                dateofbirth:{
+                    required:helpers.withMessage("Please Enter Date of Birth",required),
+                    $autoDirty: true,
+                },
+                ssn:{
+                    required:helpers.withMessage("Please Enter SSN",required),
+                    $autoDirty: true,
+                },
+                gender:{
+                    required:helpers.withMessage("Please Select Gender",required),
+                    $autoDirty: true,
+                },
+                mobile: { 
+                    required: helpers.withMessage("Enter Phone Number", required), 
+                    $autoDirty: true,
+                    numeric,
+                    minLength: minLength(10),
+                    maxLength: maxLength(10)
+                },
+                email: {
+                    required: helpers.withMessage("Please Enter Userid", required),
+                    $autoDirty: true,
+                    email: helpers.withMessage("Please enter a valid email id", email),
+          
+                },
+                hiredate:{
+                    required:helpers.withMessage("Please Enter Hire Date",required),
+                    $autoDirty: true,
+                },
+                empstatus:{
+                    required:helpers.withMessage("Please Select Employee Status",required),
+                    $autoDirty: true,
+                },
+                jobrole:{
+                    required:helpers.withMessage("Please Select Job Role",required),
+                    $autoDirty: true,
+                },
+                supervisor:{
+                    required:helpers.withMessage("Please Enter Supervisor Id",required),
+                    $autoDirty: true,
+                },
+                clientname:{
+                    required:helpers.withMessage("Please Enter Client Name",required),
+                    $autoDirty: true,
+                },
+                
+
+
+            }
+        }
+
     },
 
     mounted(){
