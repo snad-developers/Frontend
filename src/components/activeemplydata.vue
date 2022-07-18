@@ -4,15 +4,18 @@
 <br>
 <br>
 <div class="main-container">
-   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+  <div >
+      <a href="/launchpage"><button style="padding: 0.5%; align-items: flex-start; margin-left:-0;color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">Back</button></a>
    <router-link to="newEmp">
-   <button style="margin-left: 90%;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">New Employee</button>
+   <button style="margin-left:80%;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">New Employee</button>
 
    </router-link>
+  </div>
+   
     <table  class="table-content" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
-    overflow: hidden; width:1300px;
+    overflow: hidden; width:100%;
     margin-left:0% ;
     margin-top: 20px;
     margin-bottom: 50px;

@@ -558,7 +558,7 @@
 
                    <div class="child-4">
                         <div>
-                            <label for="empstatus">Employement Satus<span style="color: red;font-size: large;">*</span></label>
+                            <label for="empstatus">Employment Satus<span style="color: red;font-size: large;">*</span></label>
                         </div>
 
                         <div>
@@ -718,7 +718,7 @@ export default {
         return{
             person:{
                 empid:{
-                    required:helpers.withMessage("Please Enter Employe Id", required),
+                    required:helpers.withMessage("Please Enter Employee Id", required),
                     $autoDirty: true,
                     
                 },
@@ -750,7 +750,7 @@ export default {
                     maxLength: maxLength(10)
                 },
                 email: {
-                    required: helpers.withMessage("Please Enter Userid", required),
+                    required: helpers.withMessage("Please Enter Eamil", required),
                     $autoDirty: true,
                     email: helpers.withMessage("Please enter a valid email id", email),
           
