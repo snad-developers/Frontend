@@ -32,8 +32,9 @@
                         <div>
                             <label for="name">Name<span style="color: red;font-size: large;">*</span></label>
                         </div>
-                        <div style="display: flex;">       
-                            <input required type="text" name="firstname" v-model="person.firstname" placeholder="First Name*"
+                        <div style="display: flex;"> 
+                            <div>
+                                <input required type="text" name="firstname" v-model="person.firstname" placeholder="First Name*"
                                 :class="
                                     v$.person.firstname.$error === true
                                     ? 'text-fields-error'
@@ -48,7 +49,10 @@
                                 >
                                 {{ error.$message }}
                             </p>                         
-                            <input required type="text" name="lastname" v-model="person.lastname" placeholder="Last Name*"
+                            </div>      
+                            
+                            <div>
+                                <input required type="text" name="lastname" v-model="person.lastname" placeholder="Last Name*"
                                 :class="
                                     v$.person.lastname.$error === true
                                     ? 'text-fields-error'
@@ -62,7 +66,9 @@
                                 :key="error.$uid"
                                 >
                                 {{ error.$message }}
-                            </p> 
+                            </p>
+                            </div>
+                             
                         </div>
                     </div>
                     
@@ -481,7 +487,7 @@
                         </div>
 
                         <div>
-                            <select v-model="person.empstatus"  style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;" align="right" 
+                            <select v-model="person.empstatus"  style="margin-bottom:1px;border-radius:15px;margin:0px;width:100%; border: 1px solid black;" align="right" 
                                 :class="
                                     v$.person.empstatus.$error === true
                                     ? 'text-fields-error'
@@ -593,6 +599,7 @@
 </template>
 
 <script>
+import useVuelidate from "@vuelidate/core";
 import loginapi from '@/services/loginapi';
 import { required, helpers, email,numeric,minLength, maxLength} from "@vuelidate/validators";
 
@@ -769,27 +776,31 @@ export default {
         "issuingcountry": "NA",
         "issueddate": "NA",
         "expirationdate": "NA",
-        "status": "NA"
+        "status": "NA",
+        "employementstatus": "Active"
 
 
 
 
 }
 console.log(senddata);
-// if(!this.v$.$invalid){
+this.v$.$touch();
+    
+if(!this.v$.$invalid){
  
        loginapi.newemp(senddata).then(response=>{
                 console.log(response);
       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
-      if(response.data.status == "success" && response.data.statuscode == 200){
-        console.log(response);
-        alert("Details saved successfully ")
-        //this.sendEmail(e);
-        this.$router.push('activeemplydata');
-      }else{
-        this.message=response.data.message;
-      }
- });
+                if(response.data.status == "success" && response.data.statuscode == 200){
+                    console.log(response);
+                    alert("Details saved successfully ")
+                    //this.sendEmail(e);
+                    this.$router.push('activeemplydata');
+                }else{
+                    this.message=response.data.message;
+                }
+        });
+    }
 
 
     },
