@@ -7,26 +7,26 @@
        
         <p style="margin-left: 20px;">Basic Information</p>
     <label for="Employee Id" style="margin-left: 20px;">Employee Id</label><br>
-    <input type="text"  placeholder="Employee Id" style="margin-left: 20px;"><br>
+    <input type="text"  placeholder="Employee Id" v-model="EmployeeId" style="margin-left: 20px;"><br>
 
     <label for="Status" style="margin-left: 20px;">Status</label><br>
-    <select name="Status" id="Status" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+    <select name="Status" id="Status"  v-model="Status" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
         <option disabled selected value>Status</option>
         <option value="Active" >Active</option>
         <option value="Inactive" >Inactive</option>
     </select><br>
 
      <label for="FirstName" style="margin-left: 20px;">First Name</label><br>
-    <input type="text"  placeholder="First Name" style="margin-left: 20px;"><br>
+    <input type="text"  placeholder="First Name" v-model="Firstname" style="margin-left: 20px;"><br>
 
      <label for="LastName" style="margin-left: 20px;">Last Name</label><br>
-    <input type="text" placeholder="Last Name" style="margin-left: 20px;"><br>
+    <input type="text" placeholder="Last Name"  v-model="Lastname" style="margin-left: 20px;"><br>
 
     <label for="FullName" style="margin-left: 20px;">Full Name</label><br>
-    <input type="text"  placeholder="Full Name" style="margin-left: 20px;"><br>
+    <input type="text"  placeholder="Full Name"  v-model="Fullname" style="margin-left: 20px;"><br>
 
     <label for="birthdate" style="margin-left: 20px;">Date Of Birth</label><br>
-    <input  name="Date of Birth" id="birthdate" type="date" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+    <input  name="Date of Birth" id="birthdate" type="date" v-model="DOB" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
     
     <hr class="hr">
 
@@ -342,7 +342,7 @@
     <span style="top: -50px;"><input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
 
     
-                   <button class="sumbit" @click.prevent="handleupdate"  style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+                   <button  @click="submit" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
                             <span class="btnText">Update Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -359,7 +359,33 @@
 </div>
 </template>
 <script>
+import useVuelidate from "@vuelidate/core";
+import { required, helpers, email,    } from "@vuelidate/validators";
+import loginapi from '../services/loginapi';
+export default {
+  
+  name:"PersonalData",
+  data(){
+    return{
+      EmployeeId:'',
+      Status:'',
+      Firstname:'',
+      Lastname:'',
+      Fullname:'',
 
+    }
+  },
+
+
+  
+  methods:{
+
+    submit(){
+      alert('Details saved successfully')
+      
+    }
+  }
+}
 
 </script>
 <style>
