@@ -60,7 +60,7 @@
                 ? 'text-fields-error'
                 : 'text-fields'
             ">
-          <a type="password" @click="switchVisibility"><span class="icon is-small is-right"><i style="margin-left:-20px;"  class="uil" :class="{ 'uil-eye-slash': showPassword, 'uil uil-eye': !showPassword }"> </i> 
+          <a type="password" @click="switchVisibility"><span class="icon is-small is-right"><i style="margin-left:-20px;"  class="uil" :class="{ 'uil uil-eye': showPassword, 'uil uil-eye-slash': !showPassword }"> </i> 
             </span> 
           </a>
             </div>
@@ -142,8 +142,11 @@ export default {
           message:"",
           responsedata:[],
           password:"",
-          passwordFieldType:"password"
+          passwordFieldType:"password",
+          showPassword:true
+
         };
+      
       },
  
 
@@ -191,7 +194,20 @@ export default {
         
     },
   switchVisibility(){
-    this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
+    if(this.showPassword){
+      this.showPassword=false;
+     
+      
+    } 
+    else{
+      this.showPassword=true;
+     
+    } 
+    
+
+    this.passwordFieldType = this.showPassword==false? "text" : "password";
+    
+    
   },
     submit() {
        this.v$.$touch();

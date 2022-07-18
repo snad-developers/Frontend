@@ -4,7 +4,7 @@
 <br>
 <br>
 <div class="main-container">
-   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+   <a href="/launchpage"><button class="break" style="margin-left:-1300px;border-radius:22px;width:5%;cursor: pointer; color:blue">Back</button></a>
     <table  class="table-content" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
@@ -15,16 +15,16 @@
     background-color:white">
       
         <!-- <div id=""> -->
-          <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
+          <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;text-align: justify; ">
          
-        <tr>
+        <!-- <tr> -->
             <th> Employee Number</th>
             <th> First Name </th>
             <th> Last Name </th>
             <th> Email </th>
             <th> Contact Number </th>
             <th> Role </th>
-        </tr>
+        <!-- </tr> -->
         </thead>
          <!-- <tr>
             <td> Employee Number</td>
@@ -38,14 +38,16 @@
             <td> Action </td>
         </tr> -->
    <template  v-for="(employeedata,index) in responsedata" :key="index">
-       <tr v-if="employeedata.empstatus == 'Active'">
+    
+      <tr class="emp"  @click="active(employeedata)" v-if="employeedata.empstatus == 'Active'">
    
-        <td >{{employeedata.employeeid}}</td>
+        <td>{{employeedata.employeeid}}</td>
 <td>{{employeedata.firstname}}</td>
 <td>{{employeedata.lastname}}</td>
 <td>{{employeedata.emailaddress}}</td>
 <td>{{employeedata.contactnumber}}</td>
 <td>{{employeedata.jobtitle}}</td>
+
     
        </tr>
  
@@ -90,6 +92,20 @@ import loginapi from '../services/loginapi';
         this.fetch();
       },
       methods:{
+         active(data){
+
+          
+          
+        
+            
+            // this.$router.push({name:"newEmp"}); 
+             this.$router.push({name:"PersonalData",params:data});
+
+          
+         
+            
+
+        },
   fetch() {
  loginapi.empgetvalues().then(response=>{
 this.responsedata=response.data;
@@ -159,6 +175,22 @@ console.log(this.responsedata)
     flex-direction: column;
     margin-left: 105px;
 }
+.break{
+   border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+ td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color: coral;}
+
 
 /* #customers tr:nth-child(even){background-color: #f2f2f2;}
 #customers tr:hover {background-color: #ddd;}

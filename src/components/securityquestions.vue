@@ -18,32 +18,15 @@
        <div class="img">
          <img alt="" src="../assets/snadicon.png" />
    </div>
-    <h2>Forgot Password?  </h2>
+    <h2>Forgot Password? {{chosenName.length > 1}}</h2>
     <br>
       <h6>Please answer the below security questions to reset password</h6>
       <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
-     <div class="forms">
-       <div class="forms1">
-       <label for="Entity" placeholder="Select Question" >
-      <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
-            :class="
-              v$.person.question1.$error === true
-                ? 'text-fields-error'
-                : 'text-fields'
-            " >
-            <option disabled selected value  >Select Questions </option>
-    <option v-for="subject in subjects">
-      {{ subject }}
-    </option>
-  </select>
-        <p
-            class="text-red-500 text-xs font-thin"
-            v-for="error of v$.person.question1.$errors"
-            :key="error.$uid"
-          >
-            {{ error.$message }}
-          </p>
-    </label>
+     <div class="forms" v-if="showquestions">
+       <div class="">
+       
+        <h5>{{ chosenName[0] }}</h5>
+        
       
       <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer1"
             :class="
@@ -58,27 +41,8 @@
           >
             {{ error.$message }}
           </p>
-             <label for="Entity" placeholder="Select Question" >
-     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question2" :disabled="!person.question1"
-            :class="
-              v$.person.question1.$error === true
-                ? 'text-fields-error'
-                : 'text-fields'
-            " >
-            <option disabled selected value  >Select Questions </option>
-    <option v-for="subject in subjects.filter(item => item.indexOf(this.person.question1))">
-      {{ subject }}
-    </option>
-  </select>
-        <p
-            class="text-red-500 text-xs font-thin"
-            v-for="error of v$.person.question2.$errors"
-            :key="error.$uid"
-          >
-            {{ error.$message }}
-          </p>
-    </label>
-
+            
+ <h5>{{ chosenName[1] }}</h5>
       
       <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer2"
             :class="
@@ -93,26 +57,8 @@
           >
             {{ error.$message }}
           </p>
-             <label for="Entity" placeholder="Select Question" >
-     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question3" :disabled="!person.question2"
-            :class="
-              v$.person.question1.$error === true
-                ? 'text-fields-error'
-                : 'text-fields'
-            " >
-    <option v-for="subject in subjects.filter(item => item.indexOf(this.person.question1) && item.indexOf(this.person.question2))">
-      {{ subject }}
-    </option>
-  </select>
-        <p
-            class="text-red-500 text-xs font-thin"
-            v-for="error of v$.person.question3.$errors"
-            :key="error.$uid "
-          >
-            {{ error.$message }}
-          </p>
-    </label>
-
+            
+ <h5>{{ chosenName[2] }}</h5>
       
       <input style="margin:5px;" type="text" class="user" placeholder="Answer" v-model="person.answer3"
             :class="
@@ -151,21 +97,14 @@ import loginapi from '../services/loginapi';
 export default {
      // eslint-disable-next-line vue/multi-word-component-names
      name: 'securityquestions',
-           data() {
+           data(){
+
+           
+           
+                    
+ 
+   
     return {
-       subjects: [
-        "What is your favourite food/dish ?",
-        "Who is your childhood hero ?",
-        "What is the name of your favourite pet ?",
-        "In which city you were born ?",
-        "What is the name of your first school ?",
-        
-       
-      ],
-      one: "",
-      two: "",
-      three: "",
-      
       v$: useVuelidate(),
       person: {
         question1: null,
@@ -174,12 +113,16 @@ export default {
         answer1:null,
         answer2:null,
         answer3:null,
-        
        
       },
       message:"",
-       id:""
+       id:"",
+        list: ['What is your favourite food/dish ?','Who is your childhood hero ?','What is the name of your favourite pet ?','In what city you were born ?','What is the name of your first school ?'],
+        chosenName : [],
+        timeinterval:0,
+        showquestions:false
     };
+
   },
  
 
@@ -215,6 +158,7 @@ export default {
   },
    created() {
     this.GetloginDetails();
+    this.pollData();
             this.id = this.$route.params.id;
         },
 methods: {
@@ -225,8 +169,19 @@ methods: {
                  }
         
     },
+    pollData () {
+		this.polling = setInterval(() => {
+      var rand = Math.floor(Math.random() * this.list.length);
+      this.timeinterval=this.timeinterval+1;
+      this.chosenName.push(this.list[rand])
+			console.log("Hello world",rand);
+      if(this.timeinterval == 3){
+        this.showquestions=true;
+        clearInterval(this.polling)
+      }
+		}, 3000)
+	},
 
-    
     submit() {
        this.v$.$touch();
        if(!this.v$.$invalid){
@@ -247,18 +202,10 @@ console.log(sdata)
   // console.log("if condition")
   if(response.data.status == "success" && response.data.statuscode == 200){
     var cortrectanswers=response.data.answers;
-    var questins=[];
-     for (var i = 0; i<this.subjects.length; i++) {
-      if(this.subjects[i]==this.person.question1 || this.subjects[i]==this.person.question2 || this.subjects[i]==this.person.question3){
-      questins.push(i)
-      
-      }
-  }
-  console.log(questins)
-// var questins=[this.person.question1,this.person.question2,this.person.question3];
+var questins=[this.person.question1,this.person.question2,this.person.question3];
 var answers=[this.person.answer1,this.person.answer2,this.person.answer3]
 var count=0;
-  for (var i = 0; i<cortrectanswers.length; i++) {
+  for (var i = 0; i<questins.length; i++) {
       if(answers[i]==cortrectanswers[questins[i]]){
       count=count+1;
       
@@ -482,6 +429,7 @@ p{
 .child-div1{
   margin:0px !important
 }
+
 
 
 

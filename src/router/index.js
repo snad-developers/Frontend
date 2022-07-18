@@ -25,6 +25,8 @@ import managmentexpenses from '../components/managmentexpenses.vue'
 import employeexpensedata from '../components/employeexpensedata.vue'
 import operationalCost from '../components/operationalCost.vue';
 import newEmp from '../components/newEmp.vue';
+import PersonalData from '../components/PersonalData.vue';
+
 
 
 function guardMyroute(to, from, next)
@@ -53,6 +55,18 @@ const routes = [
     name: 'login',
     component: login
   },
+  {
+    path: '/PersonalData',
+    name: 'PersonalData',
+    component: PersonalData
+  },
+  {
+    path: '/newEmp',
+    name: 'newEmp',
+    component: newEmp
+  },
+ 
+ 
   {
     path: '/managmentexpenses',
     name: 'managmentexpenses',
@@ -104,13 +118,6 @@ const routes = [
     component: Ldbpage,
     beforeEnter : guardMyroute,
     meta: {title: 'Ldbpage'}
-  },
-  {
-    path: '/newEmp',
-    name: 'newEmp',
-    component: newEmp,
-    beforeEnter : guardMyroute,
-    meta: {title: 'newEmp'}
   },
  
   {
