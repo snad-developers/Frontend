@@ -17,7 +17,7 @@
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
-<table style="margin-left:17%" class="orgndata">
+<table style="margin-left:19%" class="orgndata">
   <td class="orgndata">
 <div class="addentity">
  <h4 style="margin-left:-360px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Entities</b></h4>
@@ -277,7 +277,7 @@ margin-right: 11px;
   
 }  
 .addbtn{
-  margin: 20px;
+  margin:0;
   cursor: pointer;
   border-radius: 25px;
     width: 25%;

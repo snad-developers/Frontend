@@ -42,7 +42,7 @@
     <h3>Gross profit</h3>
     <h3>Before taxes</h3>
     <p>$ 180,000</p>
-  <h6 style="color: yellow;">Acess data</h6>
+  <h6 style="color: yellow;">Access data</h6>
    
 </div> -->
 
@@ -52,14 +52,14 @@
          <h3>Active Employees</h3>
             <p><i class="uil uil-user" style="margin-left:0"></i> {{activeemp}}</p>
             <router-link to="/activeemplydata" >
-             <h6 style="color: blue;">Acess data</h6>
+             <h6 style="color: blue;">Access data</h6>
             </router-link>
-        <!-- <router-link to="/activeemplydata" > <a @click="() =>togglepopup"><h6 style="color: blue;">Acess data</h6></a></router-link>  -->
+        <!-- <router-link to="/activeemplydata" > <a @click="() =>togglepopup"><h6 style="color: blue;">Access data</h6></a></router-link>  -->
      </div>
     <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3> Employee Expenses</h3>
             <p>${{(empexpensestotal/1000).toFixed(2)}}K</p>
-          <router-link to="/employeexpensedata" ><h6 style="color: blue;">Acess data</h6></router-link>
+          <router-link to="/employeexpensedata" ><h6 style="color: blue;">Access data</h6></router-link>
         
     </div>
      </div> 
@@ -67,7 +67,7 @@
      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Outstanding Receivables</h3>
             <p>$ {{(Receivables/1000).toFixed(1)}}K</p>
-             <router-link to="/receiVables"><h6 style="color: blue;">Acess data</h6></router-link> 
+             <router-link to="/receiVables"><h6 style="color: blue;">Access data</h6></router-link> 
              
         
     </div>
@@ -76,7 +76,7 @@
      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Management Expenses</h3>
             <p>$ {{(mgmtexpensestotal/1000).toFixed(2)}}K</p>
-           <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
+           <router-link to="/managmentexpenses"> <h6 style="color: blue;">Access data</h6>
            <slot/></router-link>
     </div>
        </div>
@@ -84,13 +84,13 @@
       <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Payroll Expenses</h3>
             <p>$ {{(payrollexpensestotal/1000).toFixed(2)}}K</p>
-           <router-link to="/payrollaccessdata"><h6 style="color: blue;">Acess data</h6></router-link>
+           <router-link to="/payrollaccessdata"><h6 style="color: blue;">Access data</h6></router-link>
         
     </div>
      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Operational Costs</h3>
             <p>$ {{(operationalcount/1000).toFixed(2)}}K </p>
-          <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link>
+          <router-link to="/operationalCost">  <h6 style="color: blue;">Access data</h6></router-link>
         
     </div>
        </div>
