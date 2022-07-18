@@ -4,7 +4,11 @@
 <br>
 <br>
 <div class="main-container">
-   <a href="/launchpage"><button class="break" style="margin-left:-1300px;border-radius:22px;width:5%;cursor: pointer; color:blue">Back</button></a>
+   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+   <router-link to="newEmp">
+   <button style="margin-left: 90%;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">New Employee</button>
+
+   </router-link>
     <table  class="table-content" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;

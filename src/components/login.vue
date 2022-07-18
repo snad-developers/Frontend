@@ -193,6 +193,7 @@ export default {
                  }
         
     },
+
   switchVisibility(){
     if(this.showPassword){
       this.showPassword=false;
@@ -222,6 +223,8 @@ export default {
           loginapi.loginservice(sdata).then(response=>{
             console.log(response,"response data");
             if(response.data){
+            console.log("hii")
+
               console.log("if condition")
               if(response.data.status == "success" && response.data.statuscode == 200  ){
                  localStorage.setItem(
