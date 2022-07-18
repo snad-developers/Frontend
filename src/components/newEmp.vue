@@ -417,7 +417,8 @@
                    
                 </div>
 
-                <div class="box-3">
+
+                 <div class="box-3">
                     <h3>Contact</h3>
                     <div class="child-3">
                         <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:5% ;border-radius:20px; text-align: center; width:100%;"
@@ -441,6 +442,80 @@
                         <input required type="email" v-model="person.email" placeholder="Email*"
                                 :class="
                                     v$.person.email.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            />
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.email.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
+                    </div>
+                </div>
+
+                <div class="box-3">
+                    <h3>Compensation</h3>
+                    <div class="child-3">
+                       <select v-model="person.payschedule"  style="margin-bottom:1px;border-radius:15px;margin:0px;width:100%; border: 1px solid black;" align="right" 
+                                :class="
+                                    v$.person.payschedule.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            >
+
+                                <option disabled selected value>Select Pay Schedule</option>
+                                <option value ="Every Other Week">Every Other Week</option>
+                                <option value ="Every Month">Every Month</option>
+                                <option value ="Twice A Month">Twice A Month</option>
+                                
+                            </select>
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.payschedule.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
+                    </div>
+
+                    <div class="child-3">
+
+                        <select v-model="person.paytype"  style="margin-bottom:1px;border-radius:15px;margin:0px;width:100%; border: 1px solid black;" align="right" 
+                                :class="
+                                    v$.person.paytype.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            >
+
+                                <option disabled selected value>Select Pay Type</option>
+                                <option value ="Salary">Salary</option>
+                                <option value ="Hourly">Hourly</option>
+                                <option value ="Commission Only">Commission Only</option>
+                                
+                            </select>
+
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.paytype.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
+
+
+                    </div>
+
+                    <div class="child-3">
+                        <input required type="text" v-model="person.payrate" placeholder="Pay Rate*"
+                                :class="
+                                    v$.person.payrate.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
@@ -630,6 +705,9 @@ export default {
                 jobrole:"",
                 supervisor:null,
                 clientname:"",
+                payschedule:"",
+                paytype:"",
+                payrate:"",
 
 
             }
@@ -697,6 +775,20 @@ export default {
                     required:helpers.withMessage("Please Enter Client Name",required),
                     $autoDirty: true,
                 },
+                 payrate: { 
+                    required: helpers.withMessage("Enter Pay Rate", required), 
+                    $autoDirty: true,
+                    numeric,
+                    
+                },
+                payschedule:{
+                    required:helpers.withMessage("Please Select Pay Schedule",required),
+                    $autoDirty: true,
+                },
+                paytype:{
+                    required:helpers.withMessage("Please Select Paytype",required),
+                    $autoDirty: true,
+                },
                 
 
 
@@ -761,9 +853,9 @@ export default {
         "effectivedate": "NA",
         "location": "NA",
         "reportsto": "NA",
-        "payschedule": "NA",
-        "paytype": "NA",
-        "payrate": "NA",
+        "payschedule": this.person.payschedule,
+        "paytype": this.person.paytype,
+        "payrate": this.person.payrate,
         "overtime": "NA",
         "overtimerate": "NA",
         "changereason": "NA",
