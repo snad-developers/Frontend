@@ -423,7 +423,7 @@
                     <div class="child-3">
                         <div style="display:flex">
                             <div>
-                                <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:6% ;border-radius:20px; text-align: center; width:100%;"
+                                <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:5% ;border-radius:20px; text-align: center; width:100%;"
                                 :class="
                                     v$.person.mobile.$error === true
                                     ? 'text-fields-error'
@@ -655,7 +655,7 @@
                             <label for="supervisor id">Supervisor Id<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="number"  v-model="person.supervisor"  name="supervisorid" style="padding:5% ;border-radius:15px" 
+                           <input required type="number" name="empid" v-model="person.supervisor" style="padding:5% ;border-radius:15px"
                                 :class="
                                     v$.person.supervisor.$error === true
                                     ? 'text-fields-error'
@@ -686,9 +686,12 @@
                                 " 
                             >
 
-
+                            
                             <option disabled selected value  > Select Client </option>
-                            <option v-for="(response,index) in clientresponse" :key="index" >{{response.clientname}}</option>
+                            <template v-for="(response,index) in clientresponse" :key="index" >
+                                <option >{{response.clientname}}</option>
+                            </template>
+                            
 
                         </select>
                             <p
@@ -705,7 +708,7 @@
                 </div>
 
             </div>
-                               <button class="sumbit" @click.prevent="handlesumbit"  style="margin-left: 0;margin-top:0%;margin-bottom:2%;">
+                        <button class="sumbit" @click.prevent="handlesumbit"  style="margin-left: 0;margin-top:0%;margin-bottom:2%;">
                             <span class="btnText">Save Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -727,6 +730,7 @@ export default {
         return{
             roleresponse:[],
             clientresponse:[],
+            empresponse:[],
             v$: useVuelidate(),
 
             person:{
@@ -791,8 +795,8 @@ export default {
                     required: helpers.withMessage("Enter Phone Number", required), 
                     $autoDirty: true,
                     numeric,
-                    minLength: minLength(10),
-                    maxLength: maxLength(10)
+                    minLength:helpers.withMessage("Enter Valid Number", minLength(10)) ,
+                    maxLength:helpers.withMessage("Enter Valid Number", maxLength(10))
                 },
                 email: {
                     required: helpers.withMessage("Please Enter Eamil", required),
@@ -849,11 +853,13 @@ export default {
     mounted(){
         this.rolefetch();
         this.clientfetch();
+        this.empfetch();
     },
 
     created(){
         this.rolefetch();
         this.clientfetch();
+        this.empfetch();
     },
 
     methods:{
@@ -867,7 +873,14 @@ export default {
         clientfetch(){
             loginapi.getclient().then(response=>{
                 this.clientresponse=response.data
-                console.log(this.roleresponse)
+                console.log(this.clientresponse)
+            })
+        },
+
+        empfetch(){
+            loginapi.getempvalues().then(response=>{
+                this.empresponse=response.data
+                console.log(this.empresponse)
             })
         },
         
@@ -928,7 +941,9 @@ export default {
         "issueddate": "NA",
         "expirationdate": "NA",
         "status": "NA",
-        "employementstatus": this.employementstatus
+        "employementstatus": this.person.employementstatus,
+        "jobeffectivedate": "NA",
+        "compensationeffectivedate": "NA"
 
 
 
@@ -967,8 +982,8 @@ if(!this.v$.$invalid){
     flex-direction: column;
     align-items: flex-start;
     padding: 1%;
-    margin-inline-start: 25%;
-        margin-inline-end: 25%;
+    margin-inline-start: 20%;
+        margin-inline-end: 20%;
         background-color: white;
       margin-top: 2%;
       margin-bottom: 2%;
