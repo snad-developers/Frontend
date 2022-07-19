@@ -190,6 +190,7 @@ export default {
                  }
         
     },
+
   switchVisibility(){
     this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
   },
@@ -206,6 +207,8 @@ export default {
           loginapi.loginservice(sdata).then(response=>{
             console.log(response,"response data");
             if(response.data){
+            console.log("hii")
+
               console.log("if condition")
               if(response.data.status == "success" && response.data.statuscode == 200  ){
                  localStorage.setItem(
