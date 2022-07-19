@@ -1,22 +1,21 @@
 <template>
- 
+ <div id="App">
+  <router-view />
+    </div>
 
-<div id="App">
- <router-view/>
-</div>
- <!-- <router-view/> -->
 
  
 </template>
 
 
 <script>
+// import JobUpdate from './components/JobUpdate';
 import loginapi from './services/loginapi';
 export default {
   name: "App",
   
   components: {
-  
+    // JobUpdate,
     
     
      
