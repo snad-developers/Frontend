@@ -246,6 +246,7 @@ console.log(data)
 
  "FileUploadData":data,
  "filename":this.filename,
+ "FileData":data
 
 }
 console.log(sdata)
