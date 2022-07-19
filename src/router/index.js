@@ -25,8 +25,13 @@ import managmentexpenses from '../components/managmentexpenses.vue'
 import employeexpensedata from '../components/employeexpensedata.vue'
 import operationalCost from '../components/operationalCost.vue';
 import PersonalData from '../components/PersonalData.vue';
+import jobupdate from '../components/jobupdate.vue';
+import compensationupdate from '../components/compensationupdate.vue';
+import EducationUpdate from '../components/EducationUpdate.vue';
+
 
 import newEmp from '../components/newEmp.vue';
+import VisaUpdate from '../components/VisaUpdate.vue';
 
 
 function guardMyroute(to, from, next)
@@ -87,6 +92,27 @@ const routes = [
     name: 'securityquestions',
     component: securityquestions
   },
+  {
+    path: '/EducationUpdate',
+    name: 'EducationUpdate',
+    component: EducationUpdate
+  },
+  {
+    path: '/jobupdate',
+    name: 'jobupdate',
+    component: jobupdate
+  },
+  {
+    path: '/VisaUpdate',
+    name: 'VisaUpdate',
+    component: VisaUpdate
+  },
+  {
+    path: '/compensationupdate',
+    name: 'compensationupdate',
+    component: compensationupdate
+  },
+  
   
   
   {

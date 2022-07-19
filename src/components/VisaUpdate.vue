@@ -1,56 +1,24 @@
 <template>
-<p>Personal Data</p>
+<h2>Update Visa Information</h2>
+<div class="comp">
+<label for="date" style="margin-left: 20px;">Date</label><br>
+<input  name=" date" id="date" type="date" v-model="date" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
-<div class="PersonalData">
-    
-    <div class="P1">
-       
-        <p style="margin-left: 20px;">Basic Information</p>
-    <label for="Employee Id" style="margin-left: 20px;">Employee Id</label><br>
-    <input type="text"  placeholder="Employee Id" v-model="EmployeeId" style="margin-left: 20px;"><br>
+ <label for="Visatype" style="margin-left: 20px;">Visa Type</label><br>
+                            <select name="Visatype" id="Visatype" style="margin-left: 20px;padding: 14px;width: 30%;" >
+                                <option disabled selected value>Select Type</option>
+                                <option value="B1">B1</option>
+                                <option value="B2">B2</option>
+                              <option value="H1B">H1B</option>
+                              <option value="H2B">H2B</option>
+                              <option value="L1A">L1A</option>
+                              <option value="L2A">L2A</option>
+                              <option value="permanent">Permanent Resident </option>
+                            </select><br>
 
-    <label for="Status" style="margin-left: 20px;">Status</label><br>
-    <select name="Status" id="Status"  v-model="Status" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
-        <option disabled selected value>Status</option>
-        <option value="Active" >Active</option>
-        <option value="Inactive" >Inactive</option>
-    </select><br>
-
-     <label for="FirstName" style="margin-left: 20px;">First Name</label><br>
-    <input type="text"  placeholder="First Name" v-model="Firstname" style="margin-left: 20px;"><br>
-
-     <label for="LastName" style="margin-left: 20px;">Last Name</label><br>
-    <input type="text" placeholder="Last Name"  v-model="Lastname" style="margin-left: 20px;"><br>
-
-    <label for="FullName" style="margin-left: 20px;">Full Name</label><br>
-    <input type="text"  placeholder="Full Name"  v-model="Fullname" style="margin-left: 20px;"><br>
-
-    <label for="birthdate" style="margin-left: 20px;">Date Of Birth</label><br>
-    <input  name="Date of Birth" id="birthdate" type="date" v-model="DOB" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
-    
-    <hr class="hr">
-
-    
-    <p style="margin-left: 20px;">Address</p>
-     <label for="AddressLine1" style="margin-left: 20px;">AddressLine 1</label><br>
-    <input type="text"  placeholder="AddressLine 1" style="margin-left: 20px;"><br>
-
-     <label for="Addressline2" style="margin-left: 20px;">Addressline 2</label><br>
-    <input type="text"  placeholder="Addressline 2" style="margin-left: 20px;"><br>
-
-     <label for="City" style="margin-left: 20px;">City</label><br>
-    <input type="text"  placeholder="City" style="margin-left: 20px;"><br>
-
-     <label for="State" style="margin-left: 20px;">State</label><br>
-    <input type="text"  placeholder="State" style="margin-left: 20px;"><br>
-
-     <label for="Zipcode" style="margin-left: 20px;">Zipcode</label><br>
-    <input type="text"  placeholder="Zipcode" style="margin-left: 20px;"><br>
-
-
-     <label for="Country" style="margin-left: 20px;">Country</label><br>
-     <select name="Country" id="Country" style="margin-left: 20px;padding: 14px;width: 30%;" >
-                                <option disabled selected value>Select Country</option>
+<label for="Issueing Country" style="margin-left: 20px;">Issueing Country</label><br>
+     <select name="Issueing Country" id="Issueing Country" style="margin-left: 20px;padding: 14px;width: 30%;" >
+                                <option disabled selected value>Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -290,108 +258,34 @@
                                 <option value="Serbia">Serbia</option>
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
-                            </select>
-
-    <hr class="hr">
-    
-     <p style="margin-left: 20px;">Contact</p>
-
-    <label for="Phone" style="margin-left: 20px;">Phone Number</label><br>
-    <input type="text"  placeholder="Phone Number" style="margin-left: 20px;"><br>
-
-     <label for="Phone" style="margin-left: 20px;"> Alternate Phone Number</label><br>
-    <input type="text"  placeholder="Alternate Phone Number" style="margin-left: 20px;"><br>
+                            </select><br>
 
 
-      <label for="EmailId" style="margin-left: 20px;">Email Id</label><br>
-    <input type="email"  placeholder="Email Id" style="margin-left: 20px;"><br>
-   
-   <hr class="hr">
 
-    <p style="margin-left: 20px;">Education</p>
-       <p style="margin-left: 75px;">Master's</p>
-    <label for="University" style="margin-left: 20px;">University</label><br>
-    <input type="text"  placeholder="University" style="margin-left: 20px;"><br>
+     <label for="Comment" style="margin-left: 20px;">Comment</label><br>
+     <textarea name="Comment" id="Comment" cols="50" rows="4"></textarea>
 
-    <label for="Stream" style="margin-left: 20px;">Stream</label><br>
-    <input type="text"  placeholder="Stream" style="margin-left: 20px;"><br>
-
-    <label for="Course" style="margin-left: 20px;">Course</label><br>
-    <input type="text"  placeholder="Course" style="margin-left: 20px;"><br>
-
-    <label for="CGPA" style="margin-left: 260px;top: -57px;">CGPA</label><br>
-    <input type="number"  placeholder="CGPA" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>    
-    
-    <span  style="top: -50px;"><input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
-  
-  <hr class="hr">
-  
-    <p style="margin-left: 20px;">UG</p>
-    <label for="University" style="margin-left: 20px;">University</label><br>
-    <input type="text"  placeholder="University" style="margin-left: 20px;"><br>
-
-    <label for="Stream" style="margin-left: 20px;">Stream</label><br>
-    <input type="text"  placeholder="Stream" style="margin-left: 20px;"><br>
-
-    <label for="Course" style="margin-left: 20px;">Course</label><br>
-    <input type="text"  placeholder="Course" style="margin-left: 20px;"><br>
-
-    <label for="CGPA" style="margin-left: 260px;top: -57px;">CGPA</label><br>
-    <input type="number"  placeholder="CGPA" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>
-
-    <span style="top: -50px;"><input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
-
-    
-                   <button  @click="submit" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+   <button  @click="submit" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
                             <span class="btnText">Update Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
-</div>
-
-
-
-
-    
 
 
 
 
 </div>
+
 </template>
 <script>
-import useVuelidate from "@vuelidate/core";
-import { required, helpers, email,    } from "@vuelidate/validators";
-import loginapi from '../services/loginapi';
 export default {
-  
-  name:"PersonalData",
-  data(){
-    return{
-      EmployeeId:'',
-      Status:'',
-      Firstname:'',
-      Lastname:'',
-      Fullname:'',
+    name:"compensationupdate",
 
-    }
-  },
-
-
-  
-  methods:{
-
-    submit(){
-      alert('Details saved successfully')
-      
-    }
-  }
 }
-
 </script>
-<style>
 
-.P1{
-    border-radius: 25px;
+<style>
+.comp{
+  border-radius: 25px;
   box-sizing: border-box;
   width: 50%;
   height: fit-content;
@@ -399,12 +293,11 @@ export default {
   margin-top: 27px;
   margin:0%; 
   padding-bottom: 2%;
-margin-left: 360px;
- text-align:justify;
- overflow: hidden;
-   box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  margin-left: 360px;
+  text-align:justify;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+   
 }
-.hr{
-    border: 1px solid black;
-}
+
 </style>
