@@ -153,11 +153,11 @@
 
                    
                         <div class="child-2">
-                            <input required type="text" v-model="person.add1" placeholder="Address Line 1">
-                        </div>
-
-                        <div class="child-2">
-                            <input required type="text" v-model="person.add2" placeholder="Address Line 2">
+                            <div style="display:flex">
+                                <input required type="text" v-model="person.add1" placeholder="Address Line 1">
+                                <input required type="text" v-model="person.add2" placeholder="Address Line 2">
+                            </div>
+                            
                         </div>
 
                         <div class="child-2">
@@ -421,39 +421,47 @@
                  <div class="box-3">
                     <h3>Contact</h3>
                     <div class="child-3">
-                        <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:5% ;border-radius:20px; text-align: center; width:100%;"
+                        <div style="display:flex">
+                            <div>
+                                <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:6% ;border-radius:20px; text-align: center; width:100%;"
                                 :class="
                                     v$.person.mobile.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
-                            />
+                                />
 
-                            <p
-                                class="text-red-500 text-xs font-thin"
-                                v-for="error of v$.person.mobile.$errors"
-                                :key="error.$uid"
+                                <p
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.mobile.$errors"
+                                    :key="error.$uid"
                                 >
-                                {{ error.$message }}
-                            </p>        
-                    </div>
+                                    {{ error.$message }}
+                                </p>
 
-                    <div class="child-3">
-                        <input required type="email" v-model="person.email" placeholder="Email*"
-                                :class="
+                            </div>
+                                    
+                            <div style="margin-left:1%">
+                                <input required type="email" v-model="person.email" placeholder="Email*"
+                                    :class="
                                     v$.person.email.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
-                            />
+                                />
 
-                            <p
-                                class="text-red-500 text-xs font-thin"
-                                v-for="error of v$.person.email.$errors"
-                                :key="error.$uid"
+                                <p
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.email.$errors"
+                                    :key="error.$uid"
                                 >
-                                {{ error.$message }}
-                            </p> 
+                                    {{ error.$message }}
+                                </p>
+                            </div>
+                   
+                            
+                        </div>
+                         
                     </div>
                 </div>
 
@@ -583,6 +591,36 @@
                             </p> 
                         </div>
                    </div>
+                    
+                    <div class="child-4">
+                        <div>
+                            <label for="empstatus">Employment Type<span style="color: red;font-size: large;">*</span></label>
+                        </div>
+
+                        <div>
+                            <select v-model="person.employementstatus"  style="margin-bottom:1px;border-radius:15px;margin:0px;width:100%; border: 1px solid black;" align="right" 
+                                :class="
+                                    v$.person.employementstatus.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            >
+
+                                <option disabled selected value>Select Employeement Type</option>
+                                <option value ="Full Time">Full Time</option>
+                                <option value ="Part Time">Part Time</option>
+                                <option value ="Intern">Intern</option>
+
+                            </select>
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.employementstatus.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
+                        </div>
+                   </div>
 
                    <div class="child-4">
                     <div>
@@ -640,14 +678,19 @@
                             <label for="client name">Client Name<span style="color: red; font-size: large;">*</span></label>
                         </div>
                         <div> 
-                            <input required type="text" v-model="person.clientname"  name="clientname" style="padding:5% ;border-radius:15px"
+                            <select name="client" for="client"  v-model="person.clientname"  id ="repeat1" required   placeholder="Client" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;"
                                 :class="
                                     v$.person.clientname.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
-                            />
+                            >
 
+
+                            <option disabled selected value  > Select Client </option>
+                            <option v-for="(response,index) in clientresponse" :key="index" >{{response.clientname}}</option>
+
+                        </select>
                             <p
                                 class="text-red-500 text-xs font-thin"
                                 v-for="error of v$.person.clientname.$errors"
@@ -683,6 +726,7 @@ export default {
     data(){
         return{
             roleresponse:[],
+            clientresponse:[],
             v$: useVuelidate(),
 
             person:{
@@ -708,6 +752,7 @@ export default {
                 payschedule:"",
                 paytype:"",
                 payrate:"",
+                employementstatus:""
 
 
             }
@@ -772,7 +817,7 @@ export default {
                     $autoDirty: true,
                 },
                 clientname:{
-                    required:helpers.withMessage("Please Enter Client Name",required),
+                    required:helpers.withMessage("Please Select Client Name",required),
                     $autoDirty: true,
                 },
                  payrate: { 
@@ -789,6 +834,10 @@ export default {
                     required:helpers.withMessage("Please Select Paytype",required),
                     $autoDirty: true,
                 },
+                employementstatus:{
+                    required:helpers.withMessage("Please Select Employeement Type",required),
+                    $autoDirty: true,
+                },
                 
 
 
@@ -799,10 +848,12 @@ export default {
 
     mounted(){
         this.rolefetch();
+        this.clientfetch();
     },
 
     created(){
         this.rolefetch();
+        this.clientfetch();
     },
 
     methods:{
@@ -812,6 +863,14 @@ export default {
                 console.log(this.roleresponse)
             })
         },
+
+        clientfetch(){
+            loginapi.getclient().then(response=>{
+                this.clientresponse=response.data
+                console.log(this.roleresponse)
+            })
+        },
+        
 
         handlesumbit() {
      
@@ -869,7 +928,7 @@ export default {
         "issueddate": "NA",
         "expirationdate": "NA",
         "status": "NA",
-        "employementstatus": "Active"
+        "employementstatus": this.employementstatus
 
 
 
