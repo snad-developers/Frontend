@@ -94,8 +94,8 @@ border: 0.5px solid white ;" @click.prevent="handlereject(employeedata.id)">Reje
 
        </tr>
        
-</template>
-</tbody>
+ </template>
+ </tbody>
    
        
         
@@ -110,15 +110,7 @@ export default {
     name:'penReq',
     data:function(){
             return {
-                // name:'jack',
-                // characters:['me','you','anand','nikhil'],
-                // employeedata:[
-        
-                //     { EmployeeNumber:'1000',firstname:'girish',lastname:'kollipara',email:'kgirish81349@gmail.com',contactnumber:'8763452719',role:'system admin',entity:'snad'},
-                //     { EmployeeNumber:'1001',firstname:'girish',lastname:'kollipara',email:'kgirish81349@gmail.com',contactnumber:'8763452719',role:'system admin',entity:'snad'},
-                //     { EmployeeNumber:'1002',firstname:'girish',lastname:'kollipara',email:'kgirish81349@gmail.com',contactnumber:'8763452719',role:'system admin',entity:'snad'},
-                //     { EmployeeNumber:'1003',firstname:'girish',lastname:'kollipara',email:'kgirish81349@gmail.com',contactnumber:'8763452719',role:'system admin',entity:'snad'},
-                // ],
+                
 
                 responsedata:[],
                 approve: "Approved",
