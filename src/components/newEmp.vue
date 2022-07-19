@@ -153,11 +153,11 @@
 
                    
                         <div class="child-2">
-                            <input required type="text" v-model="person.add1" placeholder="Address Line 1">
-                        </div>
-
-                        <div class="child-2">
-                            <input required type="text" v-model="person.add2" placeholder="Address Line 2">
+                            <div style="display:flex">
+                                <input required type="text" v-model="person.add1" placeholder="Address Line 1">
+                                <input required type="text" v-model="person.add2" placeholder="Address Line 2">
+                            </div>
+                            
                         </div>
 
                         <div class="child-2">
@@ -421,39 +421,47 @@
                  <div class="box-3">
                     <h3>Contact</h3>
                     <div class="child-3">
-                        <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:5% ;border-radius:20px; text-align: center; width:100%;"
+                        <div style="display:flex">
+                            <div>
+                                <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:5% ;border-radius:20px; text-align: center; width:100%;"
                                 :class="
                                     v$.person.mobile.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
-                            />
+                                />
 
-                            <p
-                                class="text-red-500 text-xs font-thin"
-                                v-for="error of v$.person.mobile.$errors"
-                                :key="error.$uid"
+                                <p
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.mobile.$errors"
+                                    :key="error.$uid"
                                 >
-                                {{ error.$message }}
-                            </p>        
-                    </div>
+                                    {{ error.$message }}
+                                </p>
 
-                    <div class="child-3">
-                        <input required type="email" v-model="person.email" placeholder="Email*"
-                                :class="
+                            </div>
+                                    
+                            <div style="margin-left:1%">
+                                <input required type="email" v-model="person.email" placeholder="Email*"
+                                    :class="
                                     v$.person.email.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
-                            />
+                                />
 
-                            <p
-                                class="text-red-500 text-xs font-thin"
-                                v-for="error of v$.person.email.$errors"
-                                :key="error.$uid"
+                                <p
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.email.$errors"
+                                    :key="error.$uid"
                                 >
-                                {{ error.$message }}
-                            </p> 
+                                    {{ error.$message }}
+                                </p>
+                            </div>
+                   
+                            
+                        </div>
+                         
                     </div>
                 </div>
 
@@ -583,6 +591,36 @@
                             </p> 
                         </div>
                    </div>
+                    
+                    <div class="child-4">
+                        <div>
+                            <label for="empstatus">Employment Type<span style="color: red;font-size: large;">*</span></label>
+                        </div>
+
+                        <div>
+                            <select v-model="person.employementstatus"  style="margin-bottom:1px;border-radius:15px;margin:0px;width:100%; border: 1px solid black;" align="right" 
+                                :class="
+                                    v$.person.employementstatus.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+                            >
+
+                                <option disabled selected value>Select Employeement Type</option>
+                                <option value ="Full Time">Full Time</option>
+                                <option value ="Part Time">Part Time</option>
+                                <option value ="Intern">Intern</option>
+
+                            </select>
+                            <p
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.employementstatus.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p> 
+                        </div>
+                   </div>
 
                    <div class="child-4">
                     <div>
@@ -617,7 +655,7 @@
                             <label for="supervisor id">Supervisor Id<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="number"  v-model="person.supervisor"  name="supervisorid" style="padding:5% ;border-radius:15px" 
+                           <input required type="number" name="empid" v-model="person.supervisor" style="padding:5% ;border-radius:15px"
                                 :class="
                                     v$.person.supervisor.$error === true
                                     ? 'text-fields-error'
@@ -640,14 +678,22 @@
                             <label for="client name">Client Name<span style="color: red; font-size: large;">*</span></label>
                         </div>
                         <div> 
-                            <input required type="text" v-model="person.clientname"  name="clientname" style="padding:5% ;border-radius:15px"
+                            <select name="client" for="client"  v-model="person.clientname"  id ="repeat1" required   placeholder="Client" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;"
                                 :class="
                                     v$.person.clientname.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
-                            />
+                            >
 
+                            
+                            <option disabled selected value  > Select Client </option>
+                            <template v-for="(response,index) in clientresponse" :key="index" >
+                                <option >{{response.clientname}}</option>
+                            </template>
+                            
+
+                        </select>
                             <p
                                 class="text-red-500 text-xs font-thin"
                                 v-for="error of v$.person.clientname.$errors"
@@ -662,7 +708,7 @@
                 </div>
 
             </div>
-                               <button class="sumbit" @click.prevent="handlesumbit"  style="margin-left: 0;margin-top:0%;margin-bottom:2%;">
+                        <button class="sumbit" @click.prevent="handlesumbit"  style="margin-left: 0;margin-top:0%;margin-bottom:2%;">
                             <span class="btnText">Save Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -683,6 +729,8 @@ export default {
     data(){
         return{
             roleresponse:[],
+            clientresponse:[],
+            empresponse:[],
             v$: useVuelidate(),
 
             person:{
@@ -708,6 +756,7 @@ export default {
                 payschedule:"",
                 paytype:"",
                 payrate:"",
+                employementstatus:""
 
 
             }
@@ -746,8 +795,8 @@ export default {
                     required: helpers.withMessage("Enter Phone Number", required), 
                     $autoDirty: true,
                     numeric,
-                    minLength: minLength(10),
-                    maxLength: maxLength(10)
+                    minLength:helpers.withMessage("Enter Valid Number", minLength(10)) ,
+                    maxLength:helpers.withMessage("Enter Valid Number", maxLength(10))
                 },
                 email: {
                     required: helpers.withMessage("Please Enter Eamil", required),
@@ -772,7 +821,7 @@ export default {
                     $autoDirty: true,
                 },
                 clientname:{
-                    required:helpers.withMessage("Please Enter Client Name",required),
+                    required:helpers.withMessage("Please Select Client Name",required),
                     $autoDirty: true,
                 },
                  payrate: { 
@@ -789,6 +838,10 @@ export default {
                     required:helpers.withMessage("Please Select Paytype",required),
                     $autoDirty: true,
                 },
+                employementstatus:{
+                    required:helpers.withMessage("Please Select Employeement Type",required),
+                    $autoDirty: true,
+                },
                 
 
 
@@ -799,10 +852,14 @@ export default {
 
     mounted(){
         this.rolefetch();
+        this.clientfetch();
+        this.empfetch();
     },
 
     created(){
         this.rolefetch();
+        this.clientfetch();
+        this.empfetch();
     },
 
     methods:{
@@ -812,6 +869,21 @@ export default {
                 console.log(this.roleresponse)
             })
         },
+
+        clientfetch(){
+            loginapi.getclient().then(response=>{
+                this.clientresponse=response.data
+                console.log(this.clientresponse)
+            })
+        },
+
+        empfetch(){
+            loginapi.getempvalues().then(response=>{
+                this.empresponse=response.data
+                console.log(this.empresponse)
+            })
+        },
+        
 
         handlesumbit() {
      
@@ -869,7 +941,9 @@ export default {
         "issueddate": "NA",
         "expirationdate": "NA",
         "status": "NA",
-        "employementstatus": "Active"
+        "employementstatus": this.person.employementstatus,
+        "jobeffectivedate": "NA",
+        "compensationeffectivedate": "NA"
 
 
 
@@ -908,8 +982,8 @@ if(!this.v$.$invalid){
     flex-direction: column;
     align-items: flex-start;
     padding: 1%;
-    margin-inline-start: 25%;
-        margin-inline-end: 25%;
+    margin-inline-start: 20%;
+        margin-inline-end: 20%;
         background-color: white;
       margin-top: 2%;
       margin-bottom: 2%;
