@@ -27,10 +27,10 @@ import operationalCost from '../components/operationalCost.vue';
 import newEmp from '../components/newEmp.vue';
 import PersonalData from'../components/PersonalData.vue';
 import JobTab from'../components/JobTab.vue';
-// import JobUpdate from'../components/JobUpdate.vue';
-// import EducationUpdate from'../components/EducationUpdate.vue';
-// import viewpage from'../components/viewpage.vue';
-
+import jobupdate from'../components/jobupdate.vue';
+import EducationUpdate from'../components/EducationUpdate.vue';
+import compensationupdate from'../components/compensationupdate.vue';
+import VisaUpdate from'../components/VisaUpdate.vue';
 
 function guardMyroute(to, from, next)
 {
@@ -131,24 +131,30 @@ const routes = [
     // beforeEnter : guardMyroute,
     // meta: {title: 'PersonalData'} 
   },
-  // {
-  //   path: '/JobUpdate',
-  //   name: 'JobUpdate',
-  //   component: JobUpdate
+  {
+    path: '/jobupdate',
+    name: 'jobupdate',
+    component: jobupdate
     
-  // },
-  // {
-  //   path: '/viewpage',
-  //   name: 'viewpage',
-  //   component: viewpage
+  },
+     {
+     path: '/VisaUpdate',
+       name: 'VisaUpdate',
+      component: VisaUpdate
+      
+     },
+  {
+    path: '/compensationupdate',
+    name: 'compensationupdate',
+    component: compensationupdate
     
-  // },
-  // {
-  //   path: '/EducationUpdate',
-  //   name: 'EducationUpdate',
-  //   component: EducationUpdate
+  },
+  {
+    path: '/EducationUpdate',
+    name: 'EducationUpdate',
+    component: EducationUpdate
     
-  // },
+  },
  
   {
     path: '/reportpage',

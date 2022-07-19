@@ -173,22 +173,22 @@ export default {
         //  this.v$.$touch();
      // console.log(this.person.firstName); // logs the input value
       const senddata={
-"employeeid": this.person.employeeid,
+"employeeid": parseInt(this.person.employeeid),
 "empstatus": this.person.empstatus,
 "firstname": this.person.firstname,
 "lastname": this.person.lastname,
 "fullname": this.person.fullname,
 "dateofbirth": this.person.dateofbirth,
 "ssn": this.person.ssn,
-"taxfilenumber": this.person.taxfilenumber,
+"taxfilenumber": parseInt(this.person.taxfilenumber),
 "addressline1": this.person.addressline1,
 "addressline2": this.person.addressline2,
 "city": this.person.city,
 "state": this.person.state,
 "country": this.person.country,
-"zipcode": this.person.Zipcode,
-"contactnumber": this.person.contactnumber,
-"emergencynumber": this.person.emergencynumber,
+"zipcode": parseInt(this.person.zipcode),
+"contactnumber": parseInt(this.person.contactnumber),
+"emergencynumber": parseInt(this.person.emergencynumber),
 "emailaddress": this.person.emailaddress,
 // "university": this.person.university,
 // "highestdegree": this.person.highestdegree,
@@ -210,10 +210,19 @@ console.log(senddata);
     
       loginapi.updateempdata(senddata,this.person.id).then(response=>{
         //  console.log(response,response.status,response.data.firstname,this.person.FirstName);
-if(response.status == 200 && response.data.firstname == this.person.FirstName && response.data.firstname){
+if(response.data.status == "success" && response.data.statuscode == 200 ){
          console.log(response);
           alert("User Details Updated");
           this.$router.push('PersonalData');
+          
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+ if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+         console.log(response);
+          alert("Failure ");
+         // this.$router.push('PersonalData');
           
 
 // //  senddata(e);

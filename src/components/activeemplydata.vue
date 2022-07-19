@@ -98,7 +98,7 @@ import loginapi from '../services/loginapi';
         
             
             // this.$router.push({name:"newEmp"}); 
-             this.$router.push({name:"JobTab",params:data});
+             this.$router.push({name:"PersonalData",params:data});
 
           
          
@@ -109,6 +109,7 @@ import loginapi from '../services/loginapi';
  loginapi.empgetvalues().then(response=>{
 this.responsedata=response.data;
 console.log(this.responsedata)
+console.log(this.responsedata.employementstatus)
  });
       }
         

@@ -163,7 +163,7 @@ if(response.status == 200 && response.data.startdate == this.person.startdate &&
          console.log(response);
           alert("User Details Updated");
           this.$router.push('JobTab');
-          
+    
 
 // //  senddata(e);
 //  this.$router.push('login');
@@ -172,10 +172,16 @@ if(response.status == 200 && response.data.startdate == this.person.startdate &&
 
     // }
     },
-    // handleupdate(rowdata){  
-    //             this.$router.push({name:"updateData",params:rowdata});
+    onhandleupdate(){
+        const senddata={
+            
+        }
 
-    //         }
+    },
+     onhandleupdate(rowdata){  
+                this.$router.push({name:"jobupdate",params:rowdata});
+
+            }
     }
  }
 
