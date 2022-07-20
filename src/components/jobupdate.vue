@@ -248,8 +248,8 @@
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </select><br>
 
- <label for="Division" style="margin-left: 20px;">Division</label><br>
-    <select name="Division" id="Division"  v-model="Division" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+ <!-- <label for="Division" style="margin-left: 20px;">Division</label><br>
+    <select name="Division" id="Division"  style="width: 225px;padding: 14px 20px;margin-left: 20px;">
         <option disabled selected value>Division</option>
         <option value="AsiaPacific" >Asia Pacific</option>
         <option value="Europe" >Europe</option>
@@ -259,7 +259,7 @@
 
  <label for="Department" style="margin-left: 20px;">Department</label><br>
     <select name="Department" id="Department"  v-model="Department" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
-        <option  disabled selected value >Ministry</option>
+        <option  disabled selected value >Department</option>
         <option value="Finance" >Finance</option>
         <option value="HR" >HR</option>
         <option value="Marketing" >Marketing</option>
@@ -268,10 +268,12 @@
         <option value="Sales" >Sales</option>
         <option value="Product" >Product</option>
 
-    </select><br>
+    </select><br> -->
+    <label for="clientname" style="margin-left: 20px;">ClientName</label><br>
+<input  name="clientname" id="clientname" type="text" v-model="clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
      <label for="Jobtitle" style="margin-left: 20px;">Job Title</label><br>
-    <select name="jobtitle" id="jobtitle"  v-model="Jobtitle" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+    <select name="jobtitle"   v-model="Jobtitle" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
         <option disabled selected value>Job title</option>
         <option value="Admin" >Admin</option>
         <option value="PayrollAdmin" >Payroll Admin</option>
@@ -300,9 +302,41 @@
 
 </template>
 <script>
+import loginapi from '@/services/loginapi';
 export default {
     name:"compensationupdate",
+    data(){
+        return{
+            person:null,
+         responsedata:[],
+          rowdata:[],
+               
+        }
+    },
+    mounted(){
+    this.fetch();
+ },
+ created(){
+  this.person=(this.$route.params);
+  console.log(this.person);
+  this.fetch();
+  this.rowdata=this.$route.params;
+ },
+  methods:{
+     fetch() {
 
+                loginapi.empgetvalues().then(response=>{
+
+                    this.responsedata=response.data;
+
+                     console.log(response);
+                     console.log("response" , this.responsedata)
+
+                });
+            },
+    //          
+
+   }
 }
 </script>
 

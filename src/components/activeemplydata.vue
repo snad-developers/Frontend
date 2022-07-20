@@ -106,7 +106,7 @@ import loginapi from '../services/loginapi';
         
             
             // this.$router.push({name:"newEmp"}); 
-             this.$router.push({name:"PersonalData",params:data});
+             this.$router.push({name:"TabsView",params:data});
 
           
          
