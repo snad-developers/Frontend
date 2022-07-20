@@ -77,13 +77,14 @@
                             <label for="birthdate">Date of Birth<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="date" name="dateofbirth" v-model="person.dateofbirth" 
+                            <input required type="date" name="dateofbirth" v-model="person.dateofbirth"  @blur="isUnique(this.person.dateofbirth)"
                                 :class="
                                     v$.person.dateofbirth.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
                             />
+                            <span v-if="this.person.age!=''">Age:{{this.person.age}}</span>
 
                             <p
                                 class="text-red-500 text-xs font-thin"
@@ -92,8 +93,26 @@
                                 >
                                 {{ error.$message }}
                             </p> 
+                            <p
+
+            class="text-red-500 text-xs font-thin"
+
+           v-if="!v$.person.dateofbirth.isUnique.$response"
+
+          >
+          
+
+            Age should be between 18 to 75
+
+          </p>
+                          
+
                         </div>
+                        
+                    
                     </div>
+                    
+                           
                     
                     <div class="child-1">
                         <div>
@@ -531,7 +550,7 @@
 
                             <p
                                 class="text-red-500 text-xs font-thin"
-                                v-for="error of v$.person.email.$errors"
+                                v-for="error of v$.person.payrate.$errors"
                                 :key="error.$uid"
                                 >
                                 {{ error.$message }}
@@ -636,7 +655,7 @@
                             >
 
 
-                            <option disabled selected value  > Select Role </option>
+                            <option disabled selected value  > Select Title </option>
                             <option value ="System Admin">System Admin</option>
                             <option value ="HR Anaylst">HR Anaylst</option>
                             <option value ="Recruiting Manager">Recruiting Manager</option>
@@ -672,14 +691,22 @@
                             <label for="supervisor id">Supervisor Id<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                           <input required type="number" name="empid" v-model="person.supervisor" style="padding:5% ;border-radius:15px"
+                            <select name="supervisor" for="supervisor"  v-model="person.supervisor"  id ="repeat1" required   placeholder="Client" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;"
                                 :class="
                                     v$.person.supervisor.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 " 
-                            />
+                            >
 
+                            
+                            <option disabled selected value  > Select Client </option>
+                            <template v-for="(response,index) in empresponse" :key="index" >
+                                <option :value="response.employeeid" >{{response.fullname}}</option>
+                            </template>
+                            
+
+                        </select>
                             <p
                                 class="text-red-500 text-xs font-thin"
                                 v-for="error of v$.person.supervisor.$errors"
@@ -740,6 +767,7 @@
 import useVuelidate from "@vuelidate/core";
 import loginapi from '@/services/loginapi';
 import { required, helpers, email,numeric,minLength, maxLength} from "@vuelidate/validators";
+import * as moment from "moment";
 
 export default {
     name:"newEmp",
@@ -772,7 +800,8 @@ export default {
                 payschedule:"",
                 paytype:"",
                 payrate:"",
-                employementstatus:""
+                employementstatus:"",
+                age:""
 
 
             }
@@ -795,10 +824,29 @@ export default {
                     required:helpers.withMessage("Please Enter Last Name",required),
                     $autoDirty: true,
                 },
-                dateofbirth:{
-                    required:helpers.withMessage("Please Enter Date of Birth",required),
-                    $autoDirty: true,
-                },
+                dateofbirth: { 
+          required: helpers.withMessage("Choose Date of Birth", required), 
+          $autoDirty: true,
+           isUnique(value) {
+
+          if (value === '') return true
+
+        // standalone validator ideally should not assume a field is required
+
+           var  age = moment(moment.now()).diff(value,"years");
+
+    if(age >=18 &&  age <=75 ){
+
+return true
+
+          }else{
+
+ return false
+
+          }
+
+      }
+           },
                 ssn:{
                     required:helpers.withMessage("Please Enter SSN",required),
                     $autoDirty: true,
@@ -815,7 +863,7 @@ export default {
                     maxLength:helpers.withMessage("Enter Valid Number", maxLength(10))
                 },
                 email: {
-                    required: helpers.withMessage("Please Enter Eamil", required),
+                    required: helpers.withMessage("Please Enter Email", required),
                     $autoDirty: true,
                     email: helpers.withMessage("Please enter a valid email id", email),
           
@@ -891,6 +939,28 @@ export default {
                 console.log(this.empresponse)
             })
         },
+
+       
+
+        isUnique(value) {
+
+          if (value === '') return true
+
+        // standalone validator ideally should not assume a field is required
+
+            this.person.age = moment(moment.now()).diff(value,"years");
+
+    if(this.person.age >=18 &&  this.person.age <=75 ){
+
+return true
+
+          }else{
+
+ return false
+
+          }
+
+      },
         
 
         handlesumbit() {
