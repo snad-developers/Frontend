@@ -566,7 +566,7 @@
 
                    <div class="child-4">
                         <div>
-                            <label for="empstatus">Employment Satus<span style="color: red;font-size: large;">*</span></label>
+                            <label for="empstatus">Employment Status<span style="color: red;font-size: large;">*</span></label>
                         </div>
 
                         <div>
@@ -624,7 +624,7 @@
 
                    <div class="child-4">
                     <div>
-                        <label for="jobrole">Job Role<span style="color: red;font-size: large;">*</span></label>
+                        <label for="jobrole">Job Title<span style="color: red;font-size: large;">*</span></label>
                     </div>
                     <div>
                         <select name="role" for="role"  v-model="person.jobrole"  id ="repeat1" required   placeholder="Role" style="margin-bottom:1px;border-radius:15px;margin:0px;width: min-content; border: 1px solid black;"
@@ -637,7 +637,24 @@
 
 
                             <option disabled selected value  > Select Role </option>
-                            <option v-for="(entity,index) in roleresponse" :key="index" >{{entity.roles}}</option>
+                            <option value ="System Admin">System Admin</option>
+                            <option value ="HR Anaylst">HR Anaylst</option>
+                            <option value ="Recruiting Manager">Recruiting Manager</option>
+                            <option value ="Director Operations">Director Operations</option>
+                            <option value ="Business Analyst">Business Analyst</option>
+                            <option value ="IT Manager">IT Manager</option>
+                            <option value ="Executive Board">Executive Board</option>
+                            <option value ="Department Head">Department Head</option>
+                            <option value ="Payroll Admin">Payroll Admin</option>
+                            <option value ="IT Manager">IT Manager</option>
+                            <option value ="HR Manager">HR Manager</option>
+                            <option value ="Software Developer">Software Developer</option>
+                            <option value ="Tester">Tester</option>
+                           
+
+                           
+                            
+
 
                         </select>
                             <p
@@ -728,7 +745,6 @@ export default {
     name:"newEmp",
     data(){
         return{
-            roleresponse:[],
             clientresponse:[],
             empresponse:[],
             v$: useVuelidate(),
@@ -813,7 +829,7 @@ export default {
                     $autoDirty: true,
                 },
                 jobrole:{
-                    required:helpers.withMessage("Please Select Job Role",required),
+                    required:helpers.withMessage("Please Select Job Title",required),
                     $autoDirty: true,
                 },
                 supervisor:{
@@ -851,25 +867,17 @@ export default {
     },
 
     mounted(){
-        this.rolefetch();
         this.clientfetch();
         this.empfetch();
     },
 
     created(){
-        this.rolefetch();
         this.clientfetch();
         this.empfetch();
     },
 
     methods:{
-        rolefetch(){
-            loginapi.rolesgetvalues().then(response=>{
-                this.roleresponse=response.data
-                console.log(this.roleresponse)
-            })
-        },
-
+       
         clientfetch(){
             loginapi.getclient().then(response=>{
                 this.clientresponse=response.data
