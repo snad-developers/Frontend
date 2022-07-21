@@ -3,6 +3,12 @@
 <h2> Active Employee Data </h2>
 <br>
 <br>
+
+<div id="demo">
+  <div class="search-wrapper panel-heading col-sm-12">
+    <input type="text" v-model="search" placeholder="Search" /> <br> <br>
+  </div>  
+</div>
 <div class="main-container">
    <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
    
@@ -87,7 +93,10 @@ import loginapi from '../services/loginapi';
 //              { EmployeeNumber:'1003',firstname:'girish',lastname:'kollipara',email:'kgirish81349@gmail.com',contactnumber:'8763452719',role:'system admin',entity:'snad'},
 //       ],
       responsedata:[],
-      logid :null
+      logid :null,
+       search: ''
+   
+     
       }
       },
         mounted() {
@@ -119,10 +128,25 @@ this.responsedata=response.data;
 console.log(this.responsedata)
 console.log(this.responsedata.employementstatus)
  });
-      }
-        
+      },
+     
         },
-    
+ computed: {
+    responsedata() {
+     let se = []
+     if(this.search !== '') {
+      se = this.responsedata.filter(p => 
+        p.firstname.toLowerCase().includes(this.search.toLowerCase()) ||
+        p.lastname.toLowerCase().includes(this.search.toLowerCase()) ||
+        p.emailaddress.toLowerCase().includes(this.search.toLowerCase())
+      )
+     } else {
+      se = this.responsedata
+     }
+     return se
+    }
+  },
+
     }
 </script>
 <style scoped>
