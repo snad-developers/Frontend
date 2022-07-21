@@ -2,390 +2,244 @@
 <p>Personal Data</p>
 
 <div class="PersonalData">
+  <!-- {{rowdata}} -->
     
     <div class="P1">
        
         <p style="margin-left: 20px;">Basic Information</p>
-    <label for="Employee Id" style="margin-left: 20px;">Employee Id</label><br>
-    <input type="text"  placeholder="Employee Id" v-model="EmployeeId" style="margin-left: 20px;"><br>
-
-    <label for="Status" style="margin-left: 20px;">Status</label><br>
-    <select name="Status" id="Status"  v-model="Status" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+    <label for="employeeid" style="margin-left: 20px;">Employee Id</label><br>
+    <input type="text" name="employeeid" for="employeeid"  placeholder="Employee Id" style="margin-left: 20px;" v-model="person.employeeid" ><br>
+       
+    <label for="empstatus" style="margin-left: 20px;">Status</label><br>
+    <select name="empstatus" for="empstatus" id="empstatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;" v-model="person.empstatus">
+       
         <option disabled selected value>Status</option>
         <option value="Active" >Active</option>
         <option value="Inactive" >Inactive</option>
     </select><br>
 
-     <label for="FirstName" style="margin-left: 20px;">First Name</label><br>
-    <input type="text"  placeholder="First Name" v-model="Firstname" style="margin-left: 20px;"><br>
+     <label for="firstname" style="margin-left: 20px;">First Name</label><br>
+    <input type="text" for="firstname"   name="firstname"  placeholder="First Name" style="margin-left: 20px;" v-model="person.firstname" ><br>
+      
+     <label for="lastname" style="margin-left: 20px;">Last Name</label><br>
+    <input type="text" for="lastname" name="lastname" placeholder="Last Name"  style="margin-left: 20px;" v-model="person.lastname"> <br>
+     
+    <label for="fullname" style="margin-left: 20px;">Full Name</label><br>
+    <input type="text" for="fullname"  name="fullname"  placeholder="Full Name"  style="margin-left: 20px;" v-model="person.fullname" ><br>
+    
+    <label for="dateofbirth" style="margin-left: 20px;">Date Of Birth</label><br>
+    <input  name="dateofbirth" for="dateofbirth" type="text" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.dateofbirth" ><br>
+    
+    <label for="ssn" style="margin-left: 20px;">SSN</label><br>
+    <input  name="ssn" for="ssn"  type="text" placeholder="SSN" style="padding: 10px 20px;width:225px;margin-left: 20px;"  v-model="person.ssn"><br>
+    
+    <label for="taxfilenumber" style="margin-left: 20px;">Tax File Number</label><br>
+    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber"><br><br>
+      <hr class="hr">
+     <p style="margin-left: 20px;">Address</p>
+    
 
-     <label for="LastName" style="margin-left: 20px;">Last Name</label><br>
-    <input type="text" placeholder="Last Name"  v-model="Lastname" style="margin-left: 20px;"><br>
+     <label for="addressline1" style="margin-left: 20px;">AddressLine 1</label><br>
+    <input type="text" for="addressline1" name="addressline1"  placeholder="AddressLine 1" style="margin-left: 20px;" v-model="person.addressline1" ><br>
+       
+     <label for="addressline2" style="margin-left: 20px;">Addressline 2</label><br>
+    <input type="text" for="addressline2" name="addressline2" placeholder="Addressline 2" style="margin-left: 20px;" v-model="person.addressline2" ><br>
+      
+     <label for="city" style="margin-left: 20px;">City</label><br>
+    <input type="text" for="city" name="city"  placeholder="City" style="margin-left: 20px;" v-model="person.city"><br>
+     
+     <label for="state" style="margin-left: 20px;">State</label><br>
+    <input type="text" for="state" name="state"  placeholder="State" style="margin-left: 20px;" v-model="person.state" ><br>
+     
+    <label for="country" style="margin-left: 20px;">Country</label><br>
+    <input type="text" for="country" name="country"  placeholder="country" style="margin-left: 20px;" v-model="person.country"><br>
+     
 
-    <label for="FullName" style="margin-left: 20px;">Full Name</label><br>
-    <input type="text"  placeholder="Full Name"  v-model="Fullname" style="margin-left: 20px;"><br>
-
-    <label for="birthdate" style="margin-left: 20px;">Date Of Birth</label><br>
-    <input  name="Date of Birth" id="birthdate" type="date" v-model="DOB" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+     <label for="zipcode" style="margin-left: 20px;">Zipcode</label><br>
+    <input type="text" for="zipcode" name="zipcode" placeholder="Zipcode" style="margin-left: 20px;" v-model="person.zipcode"><br>
+    
     
     <hr class="hr">
-
-    
-    <p style="margin-left: 20px;">Address</p>
-     <label for="AddressLine1" style="margin-left: 20px;">AddressLine 1</label><br>
-    <input type="text"  placeholder="AddressLine 1" style="margin-left: 20px;"><br>
-
-     <label for="Addressline2" style="margin-left: 20px;">Addressline 2</label><br>
-    <input type="text"  placeholder="Addressline 2" style="margin-left: 20px;"><br>
-
-     <label for="City" style="margin-left: 20px;">City</label><br>
-    <input type="text"  placeholder="City" style="margin-left: 20px;"><br>
-
-     <label for="State" style="margin-left: 20px;">State</label><br>
-    <input type="text"  placeholder="State" style="margin-left: 20px;"><br>
-
-     <label for="Zipcode" style="margin-left: 20px;">Zipcode</label><br>
-    <input type="text"  placeholder="Zipcode" style="margin-left: 20px;"><br>
-
-
-     <label for="Country" style="margin-left: 20px;">Country</label><br>
-     <select name="Country" id="Country" style="margin-left: 20px;padding: 14px;width: 30%;" >
-                                <option disabled selected value>Select Country</option>
-                                <option value="Afghanistan">Afghanistan</option>
-                                <option value="Albania">Albania</option>
-                                <option value="Algeria">Algeria</option>
-                                <option value="American Samoa">American Samoa</option>
-                                <option value="Andorra">Andorra</option>
-                                <option value="Angola">Angola</option>
-                                <option value="Anguilla">Anguilla</option>
-                                <option value="Antartica">Antarctica</option>
-                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Armenia">Armenia</option>
-                                <option value="Aruba">Aruba</option>
-                                <option value="Australia">Australia</option>
-                                <option value="Austria">Austria</option>
-                                <option value="Azerbaijan">Azerbaijan</option>
-                                <option value="Bahamas">Bahamas</option>
-                                <option value="Bahrain">Bahrain</option>
-                                <option value="Bangladesh">Bangladesh</option>
-                                <option value="Barbados">Barbados</option>
-                                <option value="Belarus">Belarus</option>
-                                <option value="Belgium">Belgium</option>
-                                <option value="Belize">Belize</option>
-                                <option value="Benin">Benin</option>
-                                <option value="Bermuda">Bermuda</option>
-                                <option value="Bhutan">Bhutan</option>
-                                <option value="Bolivia">Bolivia</option>
-                                <option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
-                                <option value="Botswana">Botswana</option>
-                                <option value="Bouvet Island">Bouvet Island</option>
-                                <option value="Brazil">Brazil</option>
-                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                                <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                <option value="Bulgaria">Bulgaria</option>
-                                <option value="Burkina Faso">Burkina Faso</option>
-                                <option value="Burundi">Burundi</option>
-                                <option value="Cambodia">Cambodia</option>
-                                <option value="Cameroon">Cameroon</option>
-                                <option value="Canada">Canada</option>
-                                <option value="Cape Verde">Cape Verde</option>
-                                <option value="Cayman Islands">Cayman Islands</option>
-                                <option value="Central African Republic">Central African Republic</option>
-                                <option value="Chad">Chad</option>
-                                <option value="Chile">Chile</option>
-                                <option value="China">China</option>
-                                <option value="Christmas Island">Christmas Island</option>
-                                <option value="Cocos Islands">Cocos (Keeling) Islands</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Comoros">Comoros</option>
-                                <option value="Congo">Congo</option>
-                                <option value="Congo">Congo, the Democratic Republic of the</option>
-                                <option value="Cook Islands">Cook Islands</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Cota D'Ivoire">Cote d'Ivoire</option>
-                                <option value="Croatia">Croatia (Hrvatska)</option>
-                                <option value="Cuba">Cuba</option>
-                                <option value="Cyprus">Cyprus</option>
-                                <option value="Czech Republic">Czech Republic</option>
-                                <option value="Denmark">Denmark</option>
-                                <option value="Djibouti">Djibouti</option>
-                                <option value="Dominica">Dominica</option>
-                                <option value="Dominican Republic">Dominican Republic</option>
-                                <option value="East Timor">East Timor</option>
-                                <option value="Ecuador">Ecuador</option>
-                                <option value="Egypt">Egypt</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                <option value="Eritrea">Eritrea</option>
-                                <option value="Estonia">Estonia</option>
-                                <option value="Ethiopia">Ethiopia</option>
-                                <option value="Falkland Islands">Falkland Islands (Malvinas)</option>
-                                <option value="Faroe Islands">Faroe Islands</option>
-                                <option value="Fiji">Fiji</option>
-                                <option value="Finland">Finland</option>
-                                <option value="France">France</option>
-                                <option value="France Metropolitan">France, Metropolitan</option>
-                                <option value="French Guiana">French Guiana</option>
-                                <option value="French Polynesia">French Polynesia</option>
-                                <option value="French Southern Territories">French Southern Territories</option>
-                                <option value="Gabon">Gabon</option>
-                                <option value="Gambia">Gambia</option>
-                                <option value="Georgia">Georgia</option>
-                                <option value="Germany">Germany</option>
-                                <option value="Ghana">Ghana</option>
-                                <option value="Gibraltar">Gibraltar</option>
-                                <option value="Greece">Greece</option>
-                                <option value="Greenland">Greenland</option>
-                                <option value="Grenada">Grenada</option>
-                                <option value="Guadeloupe">Guadeloupe</option>
-                                <option value="Guam">Guam</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Guinea">Guinea</option>
-                                <option value="Guinea-Bissau">Guinea-Bissau</option>
-                                <option value="Guyana">Guyana</option>
-                                <option value="Haiti">Haiti</option>
-                                <option value="Heard and McDonald Islands">Heard and Mc Donald Islands</option>
-                                <option value="Holy See">Holy See (Vatican City State)</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="Hong Kong">Hong Kong</option>
-                                <option value="Hungary">Hungary</option>
-                                <option value="Iceland">Iceland</option>
-                                <option value="India">India</option>
-                                <option value="Indonesia">Indonesia</option>
-                                <option value="Iran">Iran (Islamic Republic of)</option>
-                                <option value="Iraq">Iraq</option>
-                                <option value="Ireland">Ireland</option>
-                                <option value="Israel">Israel</option>
-                                <option value="Italy">Italy</option>
-                                <option value="Jamaica">Jamaica</option>
-                                <option value="Japan">Japan</option>
-                                <option value="Jordan">Jordan</option>
-                                <option value="Kazakhstan">Kazakhstan</option>
-                                <option value="Kenya">Kenya</option>
-                                <option value="Kiribati">Kiribati</option>
-                                <option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic of</option>
-                                <option value="Korea">Korea, Republic of</option>
-                                <option value="Kuwait">Kuwait</option>
-                                <option value="Kyrgyzstan">Kyrgyzstan</option>
-                                <option value="Lao">Lao People's Democratic Republic</option>
-                                <option value="Latvia">Latvia</option>
-                                <option value="Lebanon">Lebanon</option>
-                                <option value="Lesotho">Lesotho</option>
-                                <option value="Liberia">Liberia</option>
-                                <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
-                                <option value="Liechtenstein">Liechtenstein</option>
-                                <option value="Lithuania">Lithuania</option>
-                                <option value="Luxembourg">Luxembourg</option>
-                                <option value="Macau">Macau</option>
-                                <option value="Macedonia">Macedonia, The Former Yugoslav Republic of</option>
-                                <option value="Madagascar">Madagascar</option>
-                                <option value="Malawi">Malawi</option>
-                                <option value="Malaysia">Malaysia</option>
-                                <option value="Maldives">Maldives</option>
-                                <option value="Mali">Mali</option>
-                                <option value="Malta">Malta</option>
-                                <option value="Marshall Islands">Marshall Islands</option>
-                                <option value="Martinique">Martinique</option>
-                                <option value="Mauritania">Mauritania</option>
-                                <option value="Mauritius">Mauritius</option>
-                                <option value="Mayotte">Mayotte</option>
-                                <option value="Mexico">Mexico</option>
-                                <option value="Micronesia">Micronesia, Federated States of</option>
-                                <option value="Moldova">Moldova, Republic of</option>
-                                <option value="Monaco">Monaco</option>
-                                <option value="Mongolia">Mongolia</option>
-                                <option value="Montserrat">Montserrat</option>
-                                <option value="Morocco">Morocco</option>
-                                <option value="Mozambique">Mozambique</option>
-                                <option value="Myanmar">Myanmar</option>
-                                <option value="Namibia">Namibia</option>
-                                <option value="Nauru">Nauru</option>
-                                <option value="Nepal">Nepal</option>
-                                <option value="Netherlands">Netherlands</option>
-                                <option value="Netherlands Antilles">Netherlands Antilles</option>
-                                <option value="New Caledonia">New Caledonia</option>
-                                <option value="New Zealand">New Zealand</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Niger">Niger</option>
-                                <option value="Nigeria">Nigeria</option>
-                                <option value="Niue">Niue</option>
-                                <option value="Norfolk Island">Norfolk Island</option>
-                                <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-                                <option value="Norway">Norway</option>
-                                <option value="Oman">Oman</option>
-                                <option value="Pakistan">Pakistan</option>
-                                <option value="Palau">Palau</option>
-                                <option value="Panama">Panama</option>
-                                <option value="Papua New Guinea">Papua New Guinea</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Peru">Peru</option>
-                                <option value="Philippines">Philippines</option>
-                                <option value="Pitcairn">Pitcairn</option>
-                                <option value="Poland">Poland</option>
-                                <option value="Portugal">Portugal</option>
-                                <option value="Puerto Rico">Puerto Rico</option>
-                                <option value="Qatar">Qatar</option>
-                                <option value="Reunion">Reunion</option>
-                                <option value="Romania">Romania</option>
-                                <option value="Russia">Russian Federation</option>
-                                <option value="Rwanda">Rwanda</option>
-                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
-                                <option value="Saint LUCIA">Saint LUCIA</option>
-                                <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
-                                <option value="Samoa">Samoa</option>
-                                <option value="San Marino">San Marino</option>
-                                <option value="Sao Tome and Principe">Sao Tome and Principe</option> 
-                                <option value="Saudi Arabia">Saudi Arabia</option>
-                                <option value="Senegal">Senegal</option>
-                                <option value="Seychelles">Seychelles</option>
-                                <option value="Sierra">Sierra Leone</option>
-                                <option value="Singapore">Singapore</option>
-                                <option value="Slovakia">Slovakia (Slovak Republic)</option>
-                                <option value="Slovenia">Slovenia</option>
-                                <option value="Solomon Islands">Solomon Islands</option>
-                                <option value="Somalia">Somalia</option>
-                                <option value="South Africa">South Africa</option>
-                                <option value="South Georgia">South Georgia and the South Sandwich Islands</option>
-                                <option value="Span">Spain</option>
-                                <option value="SriLanka">Sri Lanka</option>
-                                <option value="St. Helena">St. Helena</option>
-                                <option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
-                                <option value="Sudan">Sudan</option>
-                                <option value="Suriname">Suriname</option>
-                                <option value="Svalbard">Svalbard and Jan Mayen Islands</option>
-                                <option value="Swaziland">Swaziland</option>
-                                <option value="Sweden">Sweden</option>
-                                <option value="Switzerland">Switzerland</option>
-                                <option value="Syria">Syrian Arab Republic</option>
-                                <option value="Taiwan">Taiwan, Province of China</option>
-                                <option value="Tajikistan">Tajikistan</option>
-                                <option value="Tanzania">Tanzania, United Republic of</option>
-                                <option value="Thailand">Thailand</option>
-                                <option value="Togo">Togo</option>
-                                <option value="Tokelau">Tokelau</option>
-                                <option value="Tonga">Tonga</option>
-                                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                                <option value="Tunisia">Tunisia</option>
-                                <option value="Turkey">Turkey</option>
-                                <option value="Turkmenistan">Turkmenistan</option>
-                                <option value="Turks and Caicos">Turks and Caicos Islands</option>
-                                <option value="Tuvalu">Tuvalu</option>
-                                <option value="Uganda">Uganda</option>
-                                <option value="Ukraine">Ukraine</option>
-                                <option value="United Arab Emirates">United Arab Emirates</option>
-                                <option value="United Kingdom">United Kingdom</option>
-                                <option value="United States">United States</option>
-                                <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Uzbekistan">Uzbekistan</option>
-                                <option value="Vanuatu">Vanuatu</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Vietnam">Viet Nam</option>
-                                <option value="Virgin Islands (British)">Virgin Islands (British)</option>
-                                <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
-                                <option value="Wallis and Futana Islands">Wallis and Futuna Islands</option>
-                                <option value="Western Sahara">Western Sahara</option>
-                                <option value="Yemen">Yemen</option>
-                                <option value="Serbia">Serbia</option>
-                                <option value="Zambia">Zambia</option>
-                                <option value="Zimbabwe">Zimbabwe</option>
-                            </select>
-
-    <hr class="hr">
-    
      <p style="margin-left: 20px;">Contact</p>
+     
 
-    <label for="Phone" style="margin-left: 20px;">Phone Number</label><br>
-    <input type="text"  placeholder="Phone Number" style="margin-left: 20px;"><br>
+    <label for="contactnumber" style="margin-left: 20px;">Phone Number</label><br>
+    <input type="text" for="contactnumber" name="contactnumber" placeholder="Phone Number" style="margin-left: 20px;" v-model="person.contactnumber"><br>
+     
+     <label for="emergencynumber" style="margin-left: 20px;"> Alternate Phone Number</label><br>
+    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Alternate Phone Number" style="margin-left: 20px;" v-model="person.emergencynumber" ><br>
 
-     <label for="Phone" style="margin-left: 20px;"> Alternate Phone Number</label><br>
-    <input type="text"  placeholder="Alternate Phone Number" style="margin-left: 20px;"><br>
-
-
-      <label for="EmailId" style="margin-left: 20px;">Email Id</label><br>
-    <input type="email"  placeholder="Email Id" style="margin-left: 20px;"><br>
-   
+        <!-- v-model="person.altPhone" -->
+      <label for="emailaddress" style="margin-left: 20px;">Email Id</label><br>
+    <input type="email" for="emailaddress" name="emailaddress" placeholder="Email Id" style="margin-left: 20px;"  v-model="person.emailaddress"><br><br>
+   <button style="border-radius:10px;
+ background-color: rgba(8, 77, 179, 0.864);
+text-decoration: solid; 
+color: white;
+cursor: pointer;
+padding: 10px;
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="handleupdate()" >Update</button>
    <hr class="hr">
 
-    <p style="margin-left: 20px;">Education</p>
-       <p style="margin-left: 75px;">Master's</p>
-    <label for="University" style="margin-left: 20px;">University</label><br>
-    <input type="text"  placeholder="University" style="margin-left: 20px;"><br>
-
-    <label for="Stream" style="margin-left: 20px;">Stream</label><br>
-    <input type="text"  placeholder="Stream" style="margin-left: 20px;"><br>
-
-    <label for="Course" style="margin-left: 20px;">Course</label><br>
-    <input type="text"  placeholder="Course" style="margin-left: 20px;"><br>
-
-    <label for="CGPA" style="margin-left: 260px;top: -57px;">CGPA</label><br>
-    <input type="number"  placeholder="CGPA" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>    
+    <p style="margin-left: 20px;">Education Master's</p>
+       
+    <label for="university" style="margin-left: 20px;">University</label><br>
+    <input type="text" for="university" name="university"  placeholder="University" style="margin-left: 20px;" v-model="person.university" ><br>
     
-    <span  style="top: -50px;"><input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
+    <label for="highestdegree" style="margin-left: 20px;">Stream</label><br>
+    <input type="text" for="highestdegree" name="highestdegree" placeholder="Stream" style="margin-left: 20px;" v-model="person.highestdegree"><br>
+    
+    <label for="specialization" style="margin-left: 20px;">Course</label><br>
+    <input type="text" for="specialization" name="specialization"  placeholder="Course" style="margin-left: 20px;" v-model="person.specialization" ><br>
+     
+    <label for="gpa" style="margin-left: 260px;top: -57px;">CGPA</label><br>
+    <input type="number" for="gpa" name="gpa"  placeholder="CGPA" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;" v-model="person.gpa" ><br><br>    
   
-  <hr class="hr">
-  
-    <p style="margin-left: 20px;">UG</p>
-    <label for="University" style="margin-left: 20px;">University</label><br>
-    <input type="text"  placeholder="University" style="margin-left: 20px;"><br>
+    <span  style="top: -50px;"><input  name="degreestartdate" placeholder="start date" id="degreestartdate" type="text"  style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.degreestartdate">-<input  name="degreeenddate" placeholder="end date" id="degreeenddate" type="text"  style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.degreeenddate" ><br></span>
+    <button style="border-radius:10px;
+ background-color: rgba(8, 77, 179, 0.864);
+text-decoration: solid; 
+color: white;
+cursor: pointer;
+padding: 10px;
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="onhandleupdate(empdata)" >Update</button>
+        <hr class="hr">
+    <p style="margin-left: 20px;">Visa Information</p>
+    <div class="child-4">
+                        <h4>Job Information</h4>
+                              
+                            <table>
 
-    <label for="Stream" style="margin-left: 20px;">Stream</label><br>
-    <input type="text"  placeholder="Stream" style="margin-left: 20px;"><br>
-
-    <label for="Course" style="margin-left: 20px;">Course</label><br>
-    <input type="text"  placeholder="Course" style="margin-left: 20px;"><br>
-
-    <label for="CGPA" style="margin-left: 260px;top: -57px;">CGPA</label><br>
-    <input type="number"  placeholder="CGPA" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>
-
-    <span style="top: -50px;"><input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
+                                <thead style="background-color:rgb(223, 181, 188); color:grey; ">
+                                <th>Date</th>
+                                <th>Visa Status</th>
+                                <th>Issuing country</th>
+                                <th>Expiration</th>
+                                <th>Status</th>
+                                </thead>
+                                <tr>
+                                <!-- <template v-for="(empdata,employeeid) in responsedata" :key="employeeid" > -->
+                                    <td>{{rowdata.date}}</td>
+                                    <td>{{rowdata.visastatus}}</td>
+                                    <td>{{rowdata.issuingcountry}}</td>
+                                     <td>{{rowdata.expirationdate}}</td>
+                                     <td>{{rowdata.status}}</td> 
+                                     <td><button style="border-radius:10px;
+ background-color: rgba(8, 77, 179, 0.864);
+text-decoration: solid; 
+color: white;
+cursor: pointer;
+padding: 10px;
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="update(empdata)" >Update</button></td></tr>
+                                
+                            </table>
+                        </div>
 
     
-                   <button  @click="submit" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
-                            <span class="btnText">Update Details</span>
-                            <i class="uil uil-navigator"></i>
-                        </button>
+    
+</div>
 </div>
 
-
-
-
-    
-
-
-
-
-</div>
 </template>
 <script>
-import useVuelidate from "@vuelidate/core";
-import { required, helpers, email,    } from "@vuelidate/validators";
-import loginapi from '../services/loginapi';
+import loginapi from '@/services/loginapi'
 export default {
-  
-  name:"PersonalData",
-  data(){
-    return{
-      EmployeeId:'',
-      Status:'',
-      Firstname:'',
-      Lastname:'',
-      Fullname:'',
-
-    }
-  },
-
-
-  
-  methods:{
-
-    submit(){
-      alert('Details saved successfully')
+    name:'PersonalData',
+    data(){
       
-    }
-  }
+
+        return{
+             person:null,
+           
+
+      
+
+        }
+    },
+
+   
+
+    created(){
+      this.person=(this.$route.params);
+        console.log(this.person);
+        
+  this.rowdata=this.$route.params;
+        
+        // this.rowdata=(this.$route.params);
+    },
+
+    methods:{
+       handleupdate() {
+        //  this.v$.$touch();
+     // console.log(this.person.firstName); // logs the input value
+      const senddata={
+"employeeid": parseInt(this.person.employeeid),
+"empstatus": this.person.empstatus,
+"firstname": this.person.firstname,
+"lastname": this.person.lastname,
+"fullname": this.person.fullname,
+"dateofbirth": this.person.dateofbirth,
+"ssn": this.person.ssn,
+"taxfilenumber": parseInt(this.person.taxfilenumber),
+"addressline1": this.person.addressline1,
+"addressline2": this.person.addressline2,
+"city": this.person.city,
+"state": this.person.state,
+"country": this.person.country,
+"zipcode": parseInt(this.person.zipcode),
+"contactnumber": parseInt(this.person.contactnumber),
+"emergencynumber": parseInt(this.person.emergencynumber),
+"emailaddress": this.person.emailaddress,
+// "university": this.person.university,
+// "highestdegree": this.person.highestdegree,
+// "specialization": this.person.specialization,
+// "gpa": this.person.gpa,
+// "degreestartdate":this.person.degreestartdate,
+// "degreeenddate":this.person.degreeenddate,
+// "date":this.person.date,
+// "visastatus":this.person.visastatus,
+// "issueddate":this.person.issueddate,
+// "expirationdate":this.person.expirationdate,
+// "status":this.person.status,
+    
 }
+
+    
+console.log(senddata);
+// if(!this.v$.$invalid){
+    
+      loginapi.updateempdata(senddata,this.person.id).then(response=>{
+        //  console.log(response,response.status,response.data.firstname,this.person.FirstName);
+if(response.data.status == "success" && response.data.statuscode == 200 ){
+         console.log(response);
+          alert("User Details Updated");
+          this.$router.push('PersonalData');
+          
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+ if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+         console.log(response);
+          alert("Failure ");
+         // this.$router.push('PersonalData');
+          
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+ });
+    // }
+    },
+    //  handleupdate(rowdata){  
+    //             this.$router.push({name:"updateData",params:rowdata});
+
+    //         }
+        
+    }
+
+}
+
 
 </script>
 <style>

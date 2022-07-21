@@ -9,6 +9,10 @@ export default{
     getvalues(){
         return API('http://localhost:3000/').get('/reg')
     },
+    getempvalues(){
+        return API('http://localhost:3000/').get('/empdata')
+
+    },
     getQuote(){
         return API('http://localhost:3000/').get('/reg')
     },
@@ -46,6 +50,18 @@ export default{
     empgetvalues(){
         return API('http://localhost:3000/').get('/empdata')
     },
+    educationvalues(){
+        return API('http://localhost:3000/').get('/education')
+    },
+    visainformation(){
+        return API('http://localhost:3000/').get('/visainformation')
+    },
+    jobinformation(){
+        return API('http://localhost:3000/').get('/jobinformation')
+    },
+    compensation(){
+        return API('http://localhost:3000/').get('/compensation')
+    },
     dashboarddata(){
         return API('http://localhost:3000/').get('/dashboard') 
     },
@@ -55,6 +71,10 @@ export default{
 
     updatereg(data, id) {
         var datareq='/reg/'+id
+        return API('http://localhost:3000/').post(datareq,data)
+    },
+    updateempdata(data, id) {
+        var datareq='/empdata/'+id
         return API('http://localhost:3000/').post(datareq,data)
     },
 
@@ -98,6 +118,9 @@ export default{
     },
     newemp(data){
         return API('http://localhost:3000/').post('/empdata',data)
+    },
+    getclient(){
+        return API('http://localhost:3000/').get('/clientdata')
     },
     
 }

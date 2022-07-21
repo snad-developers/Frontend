@@ -133,20 +133,21 @@ parseFile(){
 },
 
 validatefields(){
-  if((!this.filename || !this.content.length > 0) && !this.content.data.length > 0){
-    if(!this.filename && !this.content.length > 0){
+  
+    if(!this.filename &&  !this.content.data){
       this.validate_message="Please Select File Name  and choose file";
+    
     }
-    else if(!this.filename){
+     else if(!this.filename){
+      this.validate_message="Please Select File";
+    }
+    else if(!this.content.data){
     this.validate_message="Please Select File Name ";
     }
-    else if(!this.content.length > 0){
-    this.validate_message="Please Select File";
+    else if(this.filename &&  this.content.data.length > 0){
+      this.submitUpdates()
     }
-  }
-  else{
-this.submitUpdates()
-  }
+
 
 },
 
@@ -245,6 +246,7 @@ console.log(data)
 
  "FileUploadData":data,
  "filename":this.filename,
+ "FileData":data
 
 }
 console.log(sdata)

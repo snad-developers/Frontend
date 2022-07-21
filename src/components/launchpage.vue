@@ -5,9 +5,9 @@
       <img alt="" src="../assets/snadicon.png" />
    </div>
  <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
+  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench" ></i> Load Data</a>
+  <a href="/amdpage" style="margin-left:3px" v-if="logid.role=='Admin'"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br>
    <a href="" @click.prevent="logout"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
 </div>
@@ -48,49 +48,46 @@
 
 <div class="box-container">
     <div>
-      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+      <div @click="access" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='HR Manager' || this.logid.role=='Payroll Admin' || this.logid.role== 'Department Head')? 'box-backgroundcolor box-color': 'box-color']"  style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
          <h3>Active Employees</h3>
             <p><i class="uil uil-user" style="margin-left:0"></i> {{activeemp}}</p>
-            <router-link to="/activeemplydata" >
-             <h6 style="color: blue;">Acess data</h6>
-            </router-link>
         <!-- <router-link to="/activeemplydata" > <a @click="() =>togglepopup"><h6 style="color: blue;">Acess data</h6></a></router-link>  -->
      </div>
-    <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+    <div @click="expense" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin'   || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3> Employee Expenses</h3>
             <p>${{(empexpensestotal/1000).toFixed(2)}}K</p>
-          <router-link to="/employeexpensedata" ><h6 style="color: blue;">Acess data</h6></router-link>
+          <!-- <router-link to="/employeexpensedata" ><h6 style="color: blue;">Acess data</h6></router-link> -->
         
     </div>
      </div> 
        <div>
-     <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+     <div   @click="receivables" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Outstanding Receivables</h3>
             <p>$ {{(Receivables/1000).toFixed(1)}}K</p>
-             <router-link to="/receiVables"><h6 style="color: blue;">Acess data</h6></router-link> 
+             <!-- <router-link to="/receiVables"><h6 style="color: blue;">Acess data</h6></router-link>  -->
              
         
     </div>
    
   
-     <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+     <div  @click="managment" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Management Expenses</h3>
             <p>$ {{(mgmtexpensestotal/1000).toFixed(2)}}K</p>
-           <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
-           <slot/></router-link>
+           <!-- <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
+           <slot/></router-link> -->
     </div>
        </div>
        <div>
-      <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+      <div  @click="payroll" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Payroll Expenses</h3>
             <p>$ {{(payrollexpensestotal/1000).toFixed(2)}}K</p>
-           <router-link to="/payrollaccessdata"><h6 style="color: blue;">Acess data</h6></router-link>
+           <!-- <router-link to="/payrollaccessdata"><h6 style="color: blue;">Acess data</h6></router-link> -->
         
     </div>
-     <div class="box-color" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+     <div  @click="cost"  v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Operational Costs</h3>
             <p>$ {{(operationalcount/1000).toFixed(2)}}K </p>
-          <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link>
+          <!-- <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link> -->
         
     </div>
        </div>
@@ -168,6 +165,74 @@ export default {
       this.getaccessdata();
       },
       methods:{
+        access(){
+          // alert("access")
+          
+          if(this.logid.role=='Admin' || this.logid.role=='HR Manager' || this.logid.role=='Payroll Admin' || this.logid.role== 'Department Head'){
+            
+            this.$router.push({name:"activeemplydata"}); 
+          }
+         
+            
+
+        },
+               expense (){
+          // alert("access")
+          
+          if(this.logid.role=='Admin' || this.logid.role=='Payroll Admin'   || this.logid.role=='Executive Board' ){
+            
+            this.$router.push({name:"employeexpensedata"}); 
+          }
+        
+         
+            
+
+        },
+        receivables(){
+          // alert("access")
+          
+          if(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board'){
+            
+            this.$router.push({name:"receiVables"}); 
+          }
+         
+            
+
+        },
+        managment(){
+          // alert("access")
+          
+          if(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board'){
+            
+            this.$router.push({name:"managmentexpenses"}); 
+          }
+         
+            
+
+        },
+         payroll(){
+          // alert("access")
+          
+          if(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board'){
+            
+            this.$router.push({name:"payrollaccessdata"}); 
+          }
+         
+            
+
+        },
+                 cost(){
+          // alert("access")
+          
+          if(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board'){
+            
+            this.$router.push({name:"operationalCost"}); 
+          }
+         
+            
+
+        },
+        
 
   logout(){
 localStorage.removeItem('UserDetails')
@@ -266,6 +331,9 @@ margin-left: 631px;
     
   
   
+}
+.box-backgroundcolor:hover {
+  background-color: yellow;
 }
 .Expenses{
  box-sizing: border-box;

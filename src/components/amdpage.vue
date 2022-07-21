@@ -66,8 +66,8 @@ padding: 10px;
 border: 0px solid rgb(153, 148, 148) ;" @click.prevent="handleupdate(employeedata)" >Update</button></td>
 
        </tr>
-</template>
-</tbody>
+ </template>
+ </tbody>
    
        
         
@@ -376,10 +376,7 @@ body {font-family: "Lato", sans-serif;}
             overflow-x: hidden; 
         }
           
-        tbody { 
-            /* border-top: 2px solid black; */
-        }
-          
+        
         tbody td, thead th {
             width : 200px;
             /* border-right: 2px solid black; */

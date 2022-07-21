@@ -31,8 +31,8 @@ import EducationUpdate from '../components/EducationUpdate.vue';
 
 
 import newEmp from '../components/newEmp.vue';
-import VisaUpdate from '../components/VisaUpdate.vue';
-
+import JobTab from'../components/JobTab.vue';
+import VisaUpdate from'../components/VisaUpdate.vue';
 
 function guardMyroute(to, from, next)
 {
@@ -144,6 +144,44 @@ const routes = [
     component: newEmp,
     beforeEnter : guardMyroute,
     meta: {title: 'newEmp'}
+  },
+  {
+    path: '/PersonalData',
+    name: 'PersonalData',
+    component: PersonalData,
+    beforeEnter : guardMyroute,
+    meta: {title: 'PersonalData'} 
+  },
+  {
+    path: '/JobTab',
+    name: 'JobTab',
+    component: JobTab,
+    // beforeEnter : guardMyroute,
+    // meta: {title: 'PersonalData'} 
+  },
+  {
+    path: '/jobupdate',
+    name: 'jobupdate',
+    component: jobupdate
+    
+  },
+     {
+     path: '/VisaUpdate',
+       name: 'VisaUpdate',
+      component: VisaUpdate
+      
+     },
+  {
+    path: '/compensationupdate',
+    name: 'compensationupdate',
+    component: compensationupdate
+    
+  },
+  {
+    path: '/EducationUpdate',
+    name: 'EducationUpdate',
+    component: EducationUpdate
+    
   },
  
   {
