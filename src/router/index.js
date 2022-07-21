@@ -31,6 +31,8 @@ import jobupdate from'../components/jobupdate.vue';
 import EducationUpdate from'../components/EducationUpdate.vue';
 import compensationupdate from'../components/compensationupdate.vue';
 import VisaUpdate from'../components/VisaUpdate.vue';
+import TabsView from'../components/TabsView.vue';
+
 
 function guardMyroute(to, from, next)
 {
@@ -135,6 +137,12 @@ const routes = [
     path: '/jobupdate',
     name: 'jobupdate',
     component: jobupdate
+    
+  },
+  {
+    path: '/TabsView',
+    name: 'TabsView',
+    component: TabsView
     
   },
      {

@@ -13,7 +13,7 @@
                             </select><br>
 
  <label for="Paytype" style="margin-left: 20px;">Paytype</label><br>
-    <select name="Paytype" id="Paytype"  v-model="Paytype" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+    <select name="Paytype" id="Paytype"  style="width: 225px;padding: 14px 20px;margin-left: 20px;">
         <option disabled selected value>Paytype</option>
         <option value="Salary" >Salary</option>
         <option value="Hourly" >Hourly</option>
@@ -21,11 +21,11 @@
     </select><br>
 
  <label for="Payrate" style="margin-left: 20px;">Pay Rate</label><br>
-    <select name="Payrate" id="Payrate"  v-model="Department" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
-    </select><br>
+    <input type="text" name="Payrate" id="Payrate" placeholder="Payrate" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+    <br>
 
      <label for="Overtimestatus" style="margin-left: 20px;">Overtime Status</label><br>
-    <select name="Overtimestatus" id="Overtimestatus"  v-model="Department" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+    <select name="Overtimestatus" id="Overtimestatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;">
         <option disabled selected value>Overtime Status</option>
         <option value="Exempt" >Exempt</option>
         <option value="Non-exempt" >Non-exempt</option>
