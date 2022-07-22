@@ -14,7 +14,7 @@
                         </div>
                   
                      <div class="child-4">
-                        <h4>Employement Status</h4><br><br><br>
+                        <h4>Employement Status</h4><br>
              
                             <!-- <table>
                                 <thead style="background-color:rgb(223, 181, 188); color:grey; ">
@@ -24,16 +24,36 @@
                                 </thead>
                             
                             </table> -->
-                          <span style="top: -50px;"><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date" style="margin-left: 20px;" v-model="person.effectivedate"> </span>
-                          <span style="top: -50px;"><input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;" v-model="person.employementstatus"></span>
-                          <span style="top: -50px;"><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 20px;" v-model="person.comment"></span>  
-                          <button style="border-radius:10px;
+                            <table>
+
+                                <thead class="thead" style="background-color:rgb(223, 181, 188); color:grey; ">
+                                <th>Effective Date</th>
+                                <th>employement Status</th>
+                                <th>Comment</th>
+                                </thead>
+                            <br>
+                    
+                        <tr>
+                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"  v-model="person.effectivedate"> </td>
+                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;" v-model="person.employementstatus"></td>
+                         <!-- <select name="employementstatus" id="employementstatus" required placeholder="Employement Status" v-model="person.employementstatus" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+        
+        <option disabled selected value>Employement Status</option>
+        <option  value="active" >Active</option>
+        <option  value="inactive">In Active</option>
+                         </select> -->
+                          <td><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 20px;" v-model="person.comment">  </td>
+                        
+                          
+                         <td> <span><button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="handleupdate()">Update</button>
+margin-left:260px;
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jobhandleupdate()">Update</button></span> </td></tr>
+                    </table>
                         </div><br>
                         
                                <div class="child-4">
@@ -63,7 +83,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="onhandleupdate()" >Update</button></td></tr>
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jhandleupdate()" >Update</button></td></tr>
                                 <!-- </template> -->
                             </table>
                         </div><br>
@@ -97,7 +117,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="Update()" >Update</button></td></tr>
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent=" compUpdate()" >Update</button></td></tr>
                                 <!-- </template> -->
                             </table>
                             
@@ -149,7 +169,7 @@ export default {
                 });
             },
 
-    handleupdate(){
+    jobhandleupdate(){
         const senddata={
             "startdate":this.person.startdate,
             "effectivedate":this.person.EffectiveDate,
@@ -159,10 +179,11 @@ export default {
         console.log(senddata);
         loginapi.updateempdata(senddata,this.person.id).then(response=>{
          console.log(response,response.status,response.data.firstName,this.person.firstName);
-if(response.status == 200 && response.data.startdate == this.person.startdate && response.data.effectivedate == this.person.effectivedate && response.data.employementstatus == this.person.employementstatus && response.data.comment == this.person.comment ){
+         if(response.data.status == "success" && response.data.statuscode == 200 ){
+
          console.log(response);
           alert("User Details Updated");
-          this.$router.push('JobTab');
+          this.$router.push('TabsView');
     
 
 // //  senddata(e);
@@ -172,18 +193,18 @@ if(response.status == 200 && response.data.startdate == this.person.startdate &&
 
     // }
     },
-    onhandleupdate(){
-        const senddata={
-            
-        }
-
+    
     },
-     onhandleupdate(rowdata){  
+     jhandleupdate(rowdata){  
                 this.$router.push({name:"jobupdate",params:rowdata});
+
+            },
+             compUpdate(rowdata){  
+                this.$router.push({name:"compensationupdate",params:rowdata});
 
             }
     }
- }
+ 
 
   
 </script>
@@ -202,6 +223,9 @@ margin-left: 200px;
  text-align:justify;
  overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+.thead{
+    width: 500px;
 }
 /* .container{
     display: flex;

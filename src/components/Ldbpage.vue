@@ -5,7 +5,7 @@
    </div>
    <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
   <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
+  <a href="/amdpage" style="margin-left:3px" v-if="logid.role=='Admin'"><i class="fa fa-fw fa-user"></i>Amend Details</a>
   <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
     <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
 </div>
@@ -42,19 +42,19 @@
     <h2>Select the data you want to Load </h2>
 
      <div class="forms" style="padding:10px">
- <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " required @click="(filename='0')">
+ <input type="radio" id="html" name="fav_language" value="Client" style="margin-left: -287px; " :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board') ? false : true" required @click="(filename='0')">
  <label for="html" style="margin:2px">Client</label><br><br>
- <input type="radio" id="css" name="fav_language" value="CSS" style="margin-left: -269px;" @click="(filename='1')">
+ <input type="radio" id="css" name="fav_language" value="CSS" style="margin-left: -269px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board' || logid.role=='Payroll Admin') ? false : true"  @click="(filename='1')">
  <label for="css"  style="margin:2px">Pay Roll</label><br><br>
- <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -249px;" @click="(filename='2')">
+ <input type="radio" id="javascript" name="fav_language" value="JavaScript" style="margin-left: -249px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board') ? false : true" @click="(filename='2')">
  <label for="javascript"  style="margin:2px">Time Sheet</label><br><br>
- <input type="radio" id="javas" name="fav_language" value="JavaScript" style="margin-left: -172px;" @click="(filename='3')">
+ <input type="radio" id="javas" name="fav_language" value="JavaScript" style="margin-left: -172px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board') ? false : true" @click="(filename='3')">
  <label for="javas"  style="margin:2px">Management Expenses</label><br><br>
- <input type="radio" id="script" name="fav_language" value="JavaScript" style="margin-left: -222px;" @click="(filename='4')">
+ <input type="radio" id="script" name="fav_language" value="JavaScript" style="margin-left: -222px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board') ? false : true" @click="(filename='4')">
  <label for="script"  style="margin:2px">Employee Data</label><br><br>
- <input type="radio" id="jav" name="fav_language" value="JavaScript" style="margin-left: -186px;" @click="(filename='5')">
+ <input type="radio" id="jav" name="fav_language" value="JavaScript" style="margin-left: -186px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board') ? false : true" @click="(filename='5')">
  <label for="jav"  style="margin:2px">Employee Expenses</label><br><br>
- <input type="radio" id="ascript" name="fav_language" value="JavaScript" style="margin-left: -173px;" @click="(filename='6')">
+ <input type="radio" id="ascript" name="fav_language" value="JavaScript" style="margin-left: -173px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board') ? false : true" @click="(filename='6')">
  <label for="ascript"  style="margin:2px">Immigration Expenses</label><br><br>
 
  
@@ -97,9 +97,18 @@ export default {
         showdata:[],
         insertmessage:'',
         validate_message:'',
-        show:null
+        logid:null
+        
     };
+    
   },
+   created () {
+      
+      
+       const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+      this.logid=userdetails
+      
+      },
 
 //      validations:{
 //          // eslint-disable-next-line no-undef
@@ -139,10 +148,10 @@ validatefields(){
     
     }
      else if(!this.filename){
-      this.validate_message="Please Select File";
+      this.validate_message="Please Select File Name";
     }
     else if(!this.content.data){
-    this.validate_message="Please Select File Name ";
+    this.validate_message="Choose File ";
     }
     else if(this.filename &&  this.content.data.length > 0){
       this.submitUpdates()

@@ -21,13 +21,29 @@
 <input type="number"  placeholder="CGPA" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>    
     
 <span  style="top: -50px;"><input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
+<button  @click="submit" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+                            <span class="btnText">Update Details</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
 </div>
 
 </template>
 
 <script>
+import loginapi from '@/services/loginapi';
+
 export default {
-    name: "EducationUpdate"
+    name: "EducationUpdate",
+    data(){
+        return{
+            person:null,
+        }
+    },
+    created(){
+        this.person=(this.$route.params)
+    }
+
+    
 }
 
 </script>

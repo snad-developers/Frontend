@@ -232,10 +232,10 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
  });
     // }
     },
-    //  handleupdate(rowdata){  
-    //             this.$router.push({name:"updateData",params:rowdata});
+     onhandleupdate(rowdata){  
+                this.$router.push({name:"EducationUpdate",params:rowdata});
 
-    //         }
+            }
         
     }
 
