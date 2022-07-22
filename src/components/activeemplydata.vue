@@ -5,8 +5,8 @@
 <br>
 
 <div id="demo">
-  <div class="search-wrapper panel-heading col-sm-12">
-    <input type="text" v-model="search" placeholder="Search" /> <br> <br>
+  <div class="search">
+  <input type="text" v-model="search" placeholder="Search..." style="text-align: left;width: 38%;" /> <br> <br>
   </div>  
 </div>
 <div class="main-container">
@@ -138,7 +138,9 @@ console.log(this.responsedata.employementstatus)
       se = this.responsedata.filter(p => 
         p.firstname.toLowerCase().includes(this.search.toLowerCase()) ||
         p.lastname.toLowerCase().includes(this.search.toLowerCase()) ||
-        p.emailaddress.toLowerCase().includes(this.search.toLowerCase())
+        p.emailaddress.toLowerCase().includes(this.search.toLowerCase()) ||
+        p.jobtitle.toLowerCase().includes(this.search.toLowerCase()) ||
+        p.employeeid === Number(this.search)
       )
      } else {
       se = this.responsedata
