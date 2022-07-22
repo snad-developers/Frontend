@@ -148,10 +148,10 @@ validatefields(){
     
     }
      else if(!this.filename){
-      this.validate_message="Please Select File";
+      this.validate_message="Please Select File Name";
     }
     else if(!this.content.data){
-    this.validate_message="Please Select File Name ";
+    this.validate_message="Choose File ";
     }
     else if(this.filename &&  this.content.data.length > 0){
       this.submitUpdates()
