@@ -1,11 +1,11 @@
 <template>
 <h2>Update Job Information</h2>
 <div class="comp">
-<label for="Effectivedate" style="margin-left: 20px;">Effective date</label><br>
-<input  name="Effective date" id="Effective date" type="date" v-model="Effectivedate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+<label for="effectivedate" style="margin-left: 20px;">Effective date</label><br>
+<input  name="effective date" id="effective date" type="date" v-model="person.effectivedate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
- <label for="Location" style="margin-left: 20px;">Location</label><br>
-     <select name="Location" id="Location" style="margin-left: 20px;padding: 14px;width: 30%;" >
+ <label for="location" style="margin-left: 20px;">Location</label><br>
+     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 14px;width: 30%;" >
                                 <option disabled selected value>Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -270,10 +270,10 @@
 
     </select><br> -->
     <label for="clientname" style="margin-left: 20px;">ClientName</label><br>
-<input  name="clientname" id="clientname" type="text" v-model="clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+<input  name="clientname" id="clientname" type="text" v-model="person.clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
-     <label for="Jobtitle" style="margin-left: 20px;">Job Title</label><br>
-    <select name="jobtitle"   v-model="Jobtitle" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+     <label for="jobtitle" style="margin-left: 20px;">Job Title</label><br>
+    <select name="jobtitle"   v-model="person.jobtitle" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
         <option disabled selected value>Job title</option>
         <option value="Admin" >Admin</option>
         <option value="PayrollAdmin" >Payroll Admin</option>
@@ -285,13 +285,14 @@
 
     </select><br>
 
-    <label for="Reportsto" style="margin-left: 20px;">Reports To</label><br>
-    <select name="Reportsto" id="Reportsto" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
+    <label for="reportsto" style="margin-left: 20px;">Reports To</label><br>
+    <!-- <select name="Reportsto" id="Reportsto" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
         <option value=""></option>
-    </select><br>
+    </select><br> -->
+    <input  name="reportsto" id="reportsto" type="text" v-model="person.reportsto" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
 
-<button  @click="submit" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+<button  @click=" jobinfo" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
                             <span class="btnText">Update Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -304,39 +305,57 @@
 <script>
 import loginapi from '@/services/loginapi';
 export default {
-    name:"compensationupdate",
+    name:"jobupdate",
     data(){
         return{
             person:null,
-         responsedata:[],
-          rowdata:[],
+            response:[],
+        
                
         }
     },
-    mounted(){
-    this.fetch();
- },
+
  created(){
   this.person=(this.$route.params);
   console.log(this.person);
-  this.fetch();
-  this.rowdata=this.$route.params;
+  this.responsedata=this.$route.params;
+       
+
+  
  },
   methods:{
-     fetch() {
-
-                loginapi.empgetvalues().then(response=>{
-
-                    this.responsedata=response.data;
-
-                     console.log(response);
-                     console.log("response" , this.responsedata)
-
-                });
-            },
-    //          
+    jobinfo(){
+         const senddata={
+    
+     "effectivedate":this.person.effectivedate,
+     "location":this.person.location,
+     "clientname":this.person.clientname,
+     "jobtitle":this.person.jobtitle,
+     "reportsto":this.person.reportsto
 
    }
+    console.log(senddata);
+        loginapi.updateempdata(senddata,this.person.id).then(response=>{
+         console.log(response,response.status,response.data.firstName,this.person.firstName);
+         if(response.data.status == "success" && response.data.statuscode == 200 ){
+
+         console.log(response);
+          alert("User Details Updated");
+          this.$router.push('activeemplydata');
+         }
+         if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+         console.log(response);
+          alert("Failure ");
+         // this.$router.push('PersonalData');
+          
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+        });
+    
+ }
+  }
 }
 </script>
 
@@ -355,6 +374,6 @@ export default {
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.15);
    
-}
+ }
 
 </style>

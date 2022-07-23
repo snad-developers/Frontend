@@ -2,13 +2,13 @@
 <h2>Update Visa Information</h2>
 <div class="comp">
 <label for="date" style="margin-left: 20px;">Date</label><br>
-<input  name=" date" id="date" type="date" v-model="date" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+<input  name=" date" id="date" type="date" v-model="person.date" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
- <label for="Visatype" style="margin-left: 20px;">Visa Type</label><br>
-                            <select name="Visatype" id="Visatype" style="margin-left: 20px;padding: 14px;width: 30%;" >
-                                <option disabled selected value>Select Type</option>
-                                <option value="B1">B1</option>
-                                <option value="B2">B2</option>
+ <label for="visastatus" style="margin-left: 20px;">Visa Type</label><br>
+                            <select name="visastatus" id="visastatus" v-model="person.visastatus" style="margin-left: 20px;padding: 14px;width: 30%;" >
+                              <option disabled selected value>Select Type</option>
+                              <option value="B1">B1</option>
+                              <option value="B2">B2</option>
                               <option value="H1B">H1B</option>
                               <option value="H2B">H2B</option>
                               <option value="L1A">L1A</option>
@@ -16,8 +16,8 @@
                               <option value="permanent">Permanent Resident </option>
                             </select><br>
 
-<label for="Issueing Country" style="margin-left: 20px;">Issueing Country</label><br>
-     <select name="Issueing Country" id="Issueing Country" style="margin-left: 20px;padding: 14px;width: 30%;" >
+<label for="issuingcountry" style="margin-left: 20px;">Issuing Country</label><br>
+     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 14px;width: 30%;" >
                                 <option disabled selected value>Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -259,13 +259,17 @@
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </select><br>
+                         <label for="issueddate" style="margin-left: 20px;">Issued Date</label><br>
+<input  name=" issueddate" id="issueddate" type="date" v-model="person.issueddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br> 
+<label for="expirationdate" style="margin-left: 20px;">Expiration Date</label><br>
+<input  name=" expirationdate" id="expirationdate" type="date" v-model="person.expirationdate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>  
 
 
 
-     <label for="Comment" style="margin-left: 20px;">Comment</label><br>
-     <textarea name="Comment" id="Comment" cols="50" rows="4"></textarea>
+     <label for="status" style="margin-left: 20px;">status</label><br>
+     <input name="status" id="status"  type="text" v-model="person.status"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br> 
 
-   <button  @click="submit" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+   <button  @click="visaupdate" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
                             <span class="btnText">Update Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -277,10 +281,69 @@
 
 </template>
 <script>
+import loginapi from '@/services/loginapi';
+
 export default {
-    name:"compensationupdate",
+    name:"VisaUpdate",
+     data(){
+        return{
+            person:null,
+            responsedata:[],
+            
+        
+               
+        }
+    },
+     created(){
+        this.person=(this.$route.params);
+        console.log(this.person);
+        this.responsedata=this.$route.params;
+       
+    
+    },
+
+    
+    methods: {
+    visaupdate() {
+        //  this.v$.$touch();
+     // console.log(this.person.firstName); // logs the input value
+      const senddata={
+    "date": this.person.date,
+    "visastatus": this.person.visastatus,
+    "issuingcountry": this.person.issuingcountry,
+    "issueddate": this.person.issueddate,
+    "expirationdate": this.person.expirationdate,
+    "status": this.person.status,
+      }
+       console.log(senddata);
+        loginapi.updateempdata(senddata,this.person.id).then(response=>{
+         console.log(response,response.status,response.data.firstName,this.person.firstName);
+         if(response.data.status == "success" && response.data.statuscode == 200 ){
+
+         console.log(response);
+          alert("User Details Updated");
+          this.$router.push('activeemplydata');
+    
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+  if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+         console.log(response);
+          alert("Failure ");
+         // this.$router.push('PersonalData');
+          
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+ });
+    }
+    }
+
 
 }
+
 </script>
 
 <style>

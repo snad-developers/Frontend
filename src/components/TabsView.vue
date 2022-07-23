@@ -310,6 +310,7 @@ export default {
       return{
         selected:'Personal',
          person:null,
+         rowdata:null
          
       }
     },
@@ -408,19 +409,19 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
     // }
     },
      educationupdate(rowdata){  
-                this.$router.push({name:"EducationUpdate",params:rowdata});
+                this.$router.push({name:"EducationUpdate",params:this.rowdata});
 
             },
             visaupdate(rowdata){  
-                this.$router.push({name:"VisaUpdate",params:rowdata});
+                this.$router.push({name:"VisaUpdate",params:this.rowdata});
 
             },
             jobinfo(rowdata){  
-                this.$router.push({name:"jobupdate",params:rowdata});
+                this.$router.push({name:"jobupdate",params:this.rowdata});
 
             },
              compinfo(rowdata){  
-                this.$router.push({name:"compensationupdate",params:rowdata});
+                this.$router.push({name:"compensationupdate",params:this.rowdata});
 
             }
       }
