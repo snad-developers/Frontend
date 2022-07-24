@@ -1,27 +1,29 @@
 <template>
 <h2>Update Education Information</h2>
 <div class="EduUpd">
-<label for="University" style="margin-left: 20px;">University</label><br>
-<input  name="University" id="University" type="text" v-model="text" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+<label for="university" style="margin-left: 20px;">University</label><br>
+<input  name="university" id="university" type="text" v-model="person.university" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
-<label for="Degree" style="margin-left: 20px;">Degree</label><br>
-    <select name="Degree" id="Degree"  v-model="Degree" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
-        <option disabled selected value>Degree</option>
-        <option value="Bachelor's" >Bachelor's</option>
-        <option value="Master's" >Master's</option>
-        <option value="Doctorate" >Doctorate</option>
-        <option value="Associate's" >Associate's</option>
+<label for="highestdegree" style="margin-left: 20px;">Degree</label><br>
+     <select name="highestdegree" id="highestdegree"  v-model="person.highestdegree" style="width: 225px;padding: 14px 20px;margin-left: 20px;"> 
+        
+                               
+       
+        <option  >Bachelor's</option>
+        <option >Master's</option>
+        <option  >Doctorate</option>
+        <option  >Associate's</option>
 
-    </select><br>
+     </select><br> 
 
-<label for="Specialization" style="margin-left: 20px;">Specialization</label><br>
-<input  name="Specialization" id="Specialization" type="text" v-model="Specialization" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+<label for="specialization" style="margin-left: 20px;">Specialization</label><br>
+<input  name="specialization" id="specialization" type="text" v-model="person.specialization" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
-<label for="CGPA" style="margin-left: 260px;top: -57px;">CGPA</label><br>
-<input type="number"  placeholder="CGPA" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>    
+<label for="gpa" style="margin-left: 260px;top: -57px;">GPA</label><br>
+<input type="text" name="gpa"  placeholder="GPA" v-model="person.gpa" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>    
     
-<span  style="top: -50px;"><input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="startdate" id="birthdate" type="date"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
-<button  @click="submit" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+<span  style="top: -50px;"><input  name="degreestartdate" id="birthdate" type="date" v-model="person.degreestartdate" style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="degreeenddate" id="birthdate" type="date" v-model="person.degreeenddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
+<button  @click.prevent="educationupdate();" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
                             <span class="btnText">Update Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -37,14 +39,92 @@ export default {
     data(){
         return{
             person:null,
+            responsedata:[],
         }
     },
     created(){
         this.person=(this.$route.params)
+          console.log(this.person);
+        this.responsedata=this.$route.params;
+
+
+    },
+    methods: { 
+       
+//         einsert(){
+//              const senddata={
+//      "university": this.person.university,
+//      "highestdegree": this.person.highestdegree,
+     
+//      "specialization": this.person.specialization,
+//      "gpa": this.person.gpa,
+//      "degreestartdate": this.person.degreestartdate,
+//      "degreeenddate": this.person.degreeenddate,
+//      "employeeid":this.person.employeeid,
+     
+//       }
+//        console.log(senddata);
+//        loginapi.educationinsert(senddata).then(response=>{
+//                 console.log(response);
+//       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
+//                 if(response.data.status == "success" && response.data.statuscode == 200){
+//                     console.log(response);
+//                     alert("Details saved successfully ")
+//                     //this.sendEmail(e);
+//                     this.$router.push('activeemplydata');
+//                 }if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+//          console.log(response);
+//           alert("Failure ");
+         
+//  }
+//         });
+
+//         },
+    educationupdate() {
+        
+      const senddata={
+     "university": this.person.university,
+     "highestdegree": this.person.highestdegree,
+     "specialization": this.person.specialization,
+     "gpa": this.person.gpa,
+     "degreestartdate": this.person.degreestartdate,
+     "degreeenddate": this.person.degreeenddate,
+     "employeeid":parseInt(this.person.employeeid),
+      }
+       console.log(senddata);
+        loginapi.updateempdata(senddata,this.person.id).then(response=>{
+         console.log(response,response.status,response.data.firstName,this.person.firstName);
+         if(response.data.status == "success" && response.data.statuscode == 200 ){
+
+         console.log(response);
+          alert("User Details Updated");
+          this.$router.push('activeemplydata');
+    
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+  if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+         console.log(response);
+          alert("Failure ");
+         // this.$router.push('PersonalData');
+          
+
+// //  senddata(e);
+//  this.$router.push('login');
+ }
+ });
+
+    // }
+    },
+    },
+     
     }
+    
+
 
     
-}
+ 
 
 </script>
 

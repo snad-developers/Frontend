@@ -6,7 +6,7 @@
        <div>
       <p>Personal Data</p>
 
-      <p style="margin-left: 20px;">Basic Information</p>
+      <p style="margin-left: 20px;">Basic Information</p>{{logid}}
       <table class="center">
         <tr><td>
            
@@ -310,6 +310,7 @@ export default {
       return{
         selected:'Personal',
          person:null,
+         rowdata:null
          
       }
     },
@@ -318,10 +319,20 @@ export default {
         console.log(this.person);
         
   this.rowdata=this.$route.params;
-        
+  const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+      this.logid=userdetails
+      // this.GetloginDetails();
+  
         // this.rowdata=(this.$route.params);
     },
     methods:{
+    //    GetloginDetails(){
+    //              if(localStorage.getItem('currentUser')){
+    //              this.$router.push({name:"launchpage"});
+    //              }
+        
+    // },
+
       setSelected(tab){
         this.selected = tab;
         },
@@ -408,19 +419,19 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
     // }
     },
      educationupdate(rowdata){  
-                this.$router.push({name:"EducationUpdate",params:rowdata});
+                this.$router.push({name:"EducationUpdate",params:this.rowdata});
 
             },
             visaupdate(rowdata){  
-                this.$router.push({name:"VisaUpdate",params:rowdata});
+                this.$router.push({name:"VisaUpdate",params:this.rowdata});
 
             },
             jobinfo(rowdata){  
-                this.$router.push({name:"jobupdate",params:rowdata});
+                this.$router.push({name:"jobupdate",params:this.rowdata});
 
             },
              compinfo(rowdata){  
-                this.$router.push({name:"compensationupdate",params:rowdata});
+                this.$router.push({name:"compensationupdate",params:this.rowdata});
 
             }
       }
