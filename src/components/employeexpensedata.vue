@@ -11,8 +11,8 @@
     margin-top: 20px;
     margin-bottom: 50px;
     background-color:white">
-    <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
-        <tr>
+    <thead style=" background-color:rgb(223, 181, 188); color:#47525d; fill-opacity: initial;">
+        
             <th>
               EMPLOYEE ID
             </th>
@@ -26,19 +26,19 @@
                TOTAL EMPLOYEE EXPENSES
             </th>
            
-        </tr>
+        
     </thead>
     <tbody>
           <template v-for="(data,index) in showdata" :key="index" > 
-            <tr>
+            <tr @click="handleclick(data)">
 
-<td>{{data.employeeid}}</td>
-<td>{{data.firstname}}</td>
-<td>{{data.lastname}}</td>
-<td>$ {{data.sum}}</td>
+                <td>{{data.employeeid}}</td>
+                <td>{{data.firstname}}</td>
+                <td>{{data.lastname}}</td>
+                <td>$ {{data.sum}}</td>
 
 
-       </tr>
+            </tr>
        
 </template>
        
@@ -76,11 +76,31 @@ this.showdata=response.data.result;
  }
    });
 },
-    }
+
+        handleclick(edata){
+        localStorage.setItem(
+            "empdetails",
+            JSON.stringify(edata)
+           
+        );
+
+        this.$router.push("empExpdetails");
+
+        },
+
+    },
+
+    
 
 }
 </script>
 
-<style>
+<style scoped >
+
+tr:hover {
+    cursor: pointer;
+    background-color: coral;
+    }
+
 
 </style>
