@@ -138,8 +138,6 @@
      <!-- <div>
      <h3 style="text-align: center">Security Questions</h3>
                <h4 style= "text-align= center" >please answer security Quetions </h4>
-
-
       <div class="input-field" >
         <lable>What is your favourite food/dish ?</lable>
         <input type="text"    name="ans1" for="ans1" placeholder="Answer" v-model="person.ans1"  /> 
@@ -182,21 +180,16 @@ export default {
     name:"updateData",
     data(){
         return{
-
-
             person:null,
             entityresponse:[],
             roleresponse:[]
-
             
-
         }
     },
     mounted(){
          this.entityfetch();
         this.rolefetch();
     },
-
     created(){
         this.person=(this.$route.params);
         console.log(this.person);
@@ -204,7 +197,6 @@ export default {
         this.rolefetch();
     
     },
-
     
     methods: {
     handleupdate() {
@@ -246,14 +238,12 @@ if(response.status == 200 && response.data.firstName == this.person.firstName &&
           alert("User Details Updated");
           this.$router.push('amdPage');
           
-
 // //  senddata(e);
 //  this.$router.push('login');
  }
  });
     // }
     },
-
     entityfetch(){
         loginapi.orgndatagetvalues().then(response=>{
         this.entityresponse=response.data
@@ -266,12 +256,8 @@ if(response.status == 200 && response.data.firstName == this.person.firstName &&
         console.log(this.roleresponse)
         })
     },
-
-
     }
 }
-
-
 </script>
 
 <style scoped>
@@ -306,7 +292,6 @@ body{
     font-weight: 600;
     color: #333;
 }
-
 .container form{
     position: relative;
     margin-top: 16px;
@@ -401,7 +386,6 @@ form .fields .input-field{
     font-size: 14px;
     font-weight: 400;
 }
-
 form button i,
 form .backBtn i{
     margin: 0 6px;
@@ -416,7 +400,6 @@ form .buttons{
 form .buttons button , .backBtn{
     margin-right: 14px;
 }
-
 @media (max-width: 750px) {
     .container form{
         overflow-y: scroll;
@@ -428,27 +411,9 @@ form .buttons button , .backBtn{
         width: calc(100% / 2 - 15px);
     }
 }
-
 @media (max-width: 550px) {
     form .fields .input-field{
         width: 100%;
     }
 }
-
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

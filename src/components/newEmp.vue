@@ -1060,13 +1060,14 @@ if(!this.v$.$invalid){
     flex-direction: column;
     align-items: flex-start;
     padding: 1%;
-    margin-inline-start: 20%;
-        margin-inline-end: 20%;
-        background-color: white;
-      margin-top: 2%;
-      margin-bottom: 2%;
-      border-radius: 25px;
-      box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+    width: max-content;
+    /* margin-inline-start: 20%;
+    margin-inline-end: 20%; */
+    background-color: white;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 25px;
+    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
 
 
 }

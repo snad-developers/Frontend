@@ -1,6 +1,7 @@
 <template>
 <p>Personal Data</p>
-
+ <a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+   
 <div class="PersonalData">
   <!-- {{rowdata}} -->
     

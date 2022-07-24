@@ -8,10 +8,11 @@
 <div class="main">
     <div class="menu">
         <ul>
-            <li><a href="#">HOME</a></li>
-             <router-link to="/about"><li><a href="#">ABOUT</a></li></router-link>
-              <li><a href="#">SERVICES</a></li>
-               <li><a href="#">CONTACT</a></li>
+            <li><a href="/VisaUpdate">HOME</a></li>
+             <li><a href="/EducationUpdate">Edu</a></li>
+             <router-link to="/compensationupdate"><li><a href="#">ABOUT</a></li></router-link>
+              <li><a href="/jobupdate">SERVICES</a></li>
+               <router-link to="/PersonalData"><li><button href="#">CONTACT</button></li></router-link>
                <router-link to="/login"><li><a href="#">LOGIN</a></li></router-link>
        
         </ul>
