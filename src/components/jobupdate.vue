@@ -324,6 +324,34 @@ export default {
   
  },
   methods:{
+     jinsert(){
+         const senddata={
+    
+     "effectivedate":this.person.effectivedate,
+     "location":this.person.location,
+     "clientname":this.person.clientname,
+     "jobtitle":this.person.jobtitle,
+     "reportsto":this.person.reportsto,
+     "employeeid":this.person.employeeid
+
+   }
+   console.log(senddata);
+       loginapi.jobinsert(senddata).then(response=>{
+                console.log(response);
+      //  console.log(response,response.status,response.data.firstName,this.person.firstName);
+                if(response.data.status == "success" && response.data.statuscode == 200){
+                    console.log(response);
+                    alert("Details saved successfully ")
+                    //this.sendEmail(e);
+                    this.$router.push('activeemplydata');
+                }if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+         console.log(response);
+          alert("Failure ");
+         
+ }
+        });
+
+        },
     jobinfo(){
          const senddata={
     
@@ -331,7 +359,8 @@ export default {
      "location":this.person.location,
      "clientname":this.person.clientname,
      "jobtitle":this.person.jobtitle,
-     "reportsto":this.person.reportsto
+     "reportsto":this.person.reportsto,
+     "employeeid":parseInt(this.person.employeeid)
 
    }
     console.log(senddata);

@@ -304,6 +304,35 @@ export default {
 
     
     methods: {
+//        vinsert(){
+//              const senddata={
+//               "date": this.person.date,
+//     "visastatus": this.person.visastatus,
+//     "issuingcountry": this.person.issuingcountry,
+//     "issueddate": this.person.issueddate,
+//     "expirationdate": this.person.expirationdate,
+//     "status": this.person.status,
+     
+//      "employeeid":this.person.employeeid,
+     
+//       }
+//        console.log(senddata);
+//        loginapi.visainsert(senddata).then(response=>{
+//                 console.log(response);
+//       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
+//                 if(response.data.status == "success" && response.data.statuscode == 200){
+//                     console.log(response);
+//                     alert("Details saved successfully ")
+//                     //this.sendEmail(e);
+//                     this.$router.push('activeemplydata');
+//                 }if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+//          console.log(response);
+//           alert("Failure ");
+         
+//  }
+//         });
+
+//         },
     visaupdate() {
         //  this.v$.$touch();
      // console.log(this.person.firstName); // logs the input value
@@ -314,6 +343,7 @@ export default {
     "issueddate": this.person.issueddate,
     "expirationdate": this.person.expirationdate,
     "status": this.person.status,
+    "employeeid":parseInt(this.person.employeeid),
       }
        console.log(senddata);
         loginapi.updateempdata(senddata,this.person.id).then(response=>{

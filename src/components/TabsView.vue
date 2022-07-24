@@ -6,7 +6,7 @@
        <div>
       <p>Personal Data</p>
 
-      <p style="margin-left: 20px;">Basic Information</p>
+      <p style="margin-left: 20px;">Basic Information</p>{{logid}}
       <table class="center">
         <tr><td>
            
@@ -319,10 +319,20 @@ export default {
         console.log(this.person);
         
   this.rowdata=this.$route.params;
-        
+  const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+      this.logid=userdetails
+      // this.GetloginDetails();
+  
         // this.rowdata=(this.$route.params);
     },
     methods:{
+    //    GetloginDetails(){
+    //              if(localStorage.getItem('currentUser')){
+    //              this.$router.push({name:"launchpage"});
+    //              }
+        
+    // },
+
       setSelected(tab){
         this.selected = tab;
         },

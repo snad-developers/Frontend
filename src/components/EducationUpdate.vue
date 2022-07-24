@@ -23,7 +23,7 @@
 <input type="text" name="gpa"  placeholder="GPA" v-model="person.gpa" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>    
     
 <span  style="top: -50px;"><input  name="degreestartdate" id="birthdate" type="date" v-model="person.degreestartdate" style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="degreeenddate" id="birthdate" type="date" v-model="person.degreeenddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
-<button  @click.prevent="educationupdate();einsert();" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+<button  @click.prevent="educationupdate();" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
                             <span class="btnText">Update Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -51,33 +51,35 @@ export default {
     },
     methods: { 
        
-        einsert(){
-             const senddata={
-     "university": this.person.university,
-     "highestdegree": this.person.highestdegree,
-     "specialization": this.person.specialization,
-     "gpa": this.person.gpa,
-     "degreestartdate": this.person.degreestartdate,
-     "degreeenddate": this.person.degreeenddate,
-     "employeeid":this.employeeid,
-      }
-       console.log(senddata);
-       loginapi.educationinsert(senddata).then(response=>{
-                console.log(response);
-      //  console.log(response,response.status,response.data.firstName,this.person.firstName);
-                if(response.data.status == "success" && response.data.statuscode == 200){
-                    console.log(response);
-                    alert("Details saved successfully ")
-                    //this.sendEmail(e);
-                    this.$router.push('activeemplydata');
-                }if(response.data.status == "faliure" && response.data.statuscode == 201 ){
-         console.log(response);
-          alert("Failure ");
+//         einsert(){
+//              const senddata={
+//      "university": this.person.university,
+//      "highestdegree": this.person.highestdegree,
+     
+//      "specialization": this.person.specialization,
+//      "gpa": this.person.gpa,
+//      "degreestartdate": this.person.degreestartdate,
+//      "degreeenddate": this.person.degreeenddate,
+//      "employeeid":this.person.employeeid,
+     
+//       }
+//        console.log(senddata);
+//        loginapi.educationinsert(senddata).then(response=>{
+//                 console.log(response);
+//       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
+//                 if(response.data.status == "success" && response.data.statuscode == 200){
+//                     console.log(response);
+//                     alert("Details saved successfully ")
+//                     //this.sendEmail(e);
+//                     this.$router.push('activeemplydata');
+//                 }if(response.data.status == "faliure" && response.data.statuscode == 201 ){
+//          console.log(response);
+//           alert("Failure ");
          
- }
-        });
+//  }
+//         });
 
-        },
+//         },
     educationupdate() {
         
       const senddata={
@@ -87,6 +89,7 @@ export default {
      "gpa": this.person.gpa,
      "degreestartdate": this.person.degreestartdate,
      "degreeenddate": this.person.degreeenddate,
+     "employeeid":parseInt(this.person.employeeid),
       }
        console.log(senddata);
         loginapi.updateempdata(senddata,this.person.id).then(response=>{

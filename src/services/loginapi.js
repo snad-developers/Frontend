@@ -119,10 +119,7 @@ export default{
     newemp(data){
         return API('http://localhost:3000/').post('/empdata',data)
     },
-    educationinsert(data){
-        return API('http://localhost:3000/').post('/education',data)
-
-    },
+    
     getclient(){
         return API('http://localhost:3000/').get('/clientdata')
     },

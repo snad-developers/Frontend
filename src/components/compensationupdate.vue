@@ -92,7 +92,8 @@ export default {
     "overtime": this.person.overtime,
     "overtimerate": this.person.overtimerate,
     "changereason":this.person.changereason,
-    "comment":this.person.comment
+    "comment":this.person.comment,
+    "employeeid":parseInt(this.person.employeeid)
       }
        console.log(senddata);
         loginapi.updateempdata(senddata,this.person.id).then(response=>{
