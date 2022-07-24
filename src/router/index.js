@@ -28,6 +28,7 @@ import PersonalData from '../components/PersonalData.vue';
 import jobupdate from '../components/jobupdate.vue';
 import compensationupdate from '../components/compensationupdate.vue';
 import EducationUpdate from '../components/EducationUpdate.vue';
+import empExpdetails from '../components/empExpdetails.vue';
 
 
 import newEmp from '../components/newEmp.vue';
@@ -219,6 +220,14 @@ const routes = [
     component: employeedata,
     beforeEnter : guardMyroute,
     meta: {title: 'employeedata'}
+    
+  },
+  {
+    path: '/empExpdetails',
+    name: 'empExpdetails',
+    component: empExpdetails,
+    beforeEnter : guardMyroute,
+    meta: {title: 'empExpdetails'}
     
   },
   {
