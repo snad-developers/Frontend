@@ -1,5 +1,5 @@
 <template>
-<h2>Update Visa Information</h2>
+<h2>Add Visa Information</h2>
 <div class="comp">
 <label for="date" style="margin-left: 20px;">Date</label><br>
 <input  name=" date" id="date" type="date" v-model="person.date" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
@@ -266,7 +266,7 @@
 
 
 
-     <label for="status" style="margin-left: 20px;">status</label><br>
+     <label for="status" style="margin-left: 20px;">Status</label><br>
      <input name="status" id="status"  type="text" v-model="person.status"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br> 
 
    <button  @click="visaupdate" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
