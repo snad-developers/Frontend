@@ -123,5 +123,9 @@ export default{
     getclient(){
         return API('http://localhost:3000/').get('/clientdata')
     },
+
+    expdetails(data){
+        return API('http://localhost:3000/').post('/empexpdetails',data)
+    },
     
 }
