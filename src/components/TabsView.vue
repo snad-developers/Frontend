@@ -1,10 +1,13 @@
 <template>
+<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+   <br>
+   <br>
 <div class="P1">
   <TabNav :tabs="['Personal','Job']" :selected="selected" @selected="setSelected">
     <Tab :isSelected="selected === 'Personal'">
     
        <div>
-      <p>Personal Data</p>
+      <p><b>Personal Data</b></p>
 
       <p style="margin-left: 20px;">Basic Information</p>{{logid}}
       <table class="center">
@@ -77,8 +80,8 @@
     <td><label for="contactnumber" style="margin-left: 20px;">Phone Number</label><br>
     <input type="text" for="contactnumber" name="contactnumber" placeholder="Phone Number" style="margin-left: 20px;" v-model="person.contactnumber" ></td>
     
-     <td><label for="emergencynumber" style="margin-left: 20px;"> Alternate Phone Number</label><br>
-    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Alternate Phone Number" style="margin-left: 20px;" v-model="person.emergencynumber" ></td>
+     <td><label for="emergencynumber" style="margin-left: 20px;"> Emergency Phone Number</label><br>
+    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Emergency Phone Number" style="margin-left: 20px;" v-model="person.emergencynumber" ></td>
     
     
        <td><label for="emailaddress" style="margin-left: 20px;">Email Id</label><br>
@@ -128,7 +131,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="educationupdate(empdata)" >Update</button>
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="educationupdate(empdata)" >Add Education</button>
   <hr class="hr">
     <p style="margin-left: 20px;">Visa Information</p>
     <!-- <div class="child-4"> -->
@@ -136,7 +139,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="educationupdate(empdata)
                               
                             <table>
 
-                                <thead style="background-color:rgb(223, 181, 188); color:grey; ">
+                                <thead style="background-color:rgb(223, 181, 188); color:grey;    right: -106px; ">
                                 <th>Date</th>
                                 <th>Visa Status</th>
                                 <th>Issuing country</th>
@@ -145,7 +148,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="educationupdate(empdata)
                                 </thead>
                                    <!-- <template  v-for="(empdata,employeeid) in responsedata" :key="employeeid" > -->
                                    
-                                       <tr> <td>{{rowdata.date}}</td>
+                                       <tr style="right: -106px;"> <td>{{rowdata.date}}</td>
                                     <td>{{rowdata.visastatus}}</td>
                                     <td>{{rowdata.issuingcountry}}</td>
                                      <td>{{rowdata.expirationdate}}</td>
@@ -156,7 +159,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="visaupdate()">Update</button></td></tr></table>
+border: 0px solid rgb(153, 148, 148) ;top: -93px;" @click.prevent="visaupdate()">Add Visa</button></td></tr></table>
  <!-- </template>   -->
 
 
@@ -190,18 +193,18 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="visaupdate()">Update</bu
                         </div>
                   
                      <div class="child-4">
-                        <h4>Employement Status</h4><br>
+                        <h4>Employement Status</h4>
              
                             <table>
 
-                                <thead class="thead" style="background-color:rgb(223, 181, 188); color:grey; ">
+                                <thead class="thead" style="background-color:rgb(223, 181, 188); color:grey;     right: -264px;">
                                 <th>Effective Date</th>
                                 <th>employement Status</th>
                                 <th>Comment</th>
                                 </thead>
                             <br>
                     
-                        <tr>
+                        <tr style="    right: -261px;">
                          <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"  v-model="person.effectivedate"> </td>
                          <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;" v-model="person.employementstatus"></td>
                          
@@ -214,8 +217,8 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-margin-left:160px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jobhandleupdate()">Update</button></span> </td></tr>
+margin-left:135px;
+border: 0px solid rgb(153, 148, 148) ;top: -119px;" @click.prevent="jobhandleupdate()">Update</button></span> </td></tr>
                     </table>
                         </div><br>
                         
@@ -224,7 +227,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jobhandleupdate()">Updat
                               
                             <table>
 
-                                <thead style="background-color:rgb(223, 181, 188); color:grey; ">
+                                <thead style="background-color:rgb(223, 181, 188); color:grey;    right: -108px; ">
                                 <th>Effective Date</th>
                                 <th>Location</th>
                                 <th>Client Name</th>
@@ -233,7 +236,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jobhandleupdate()">Updat
                                 <th>Job Title</th>
                                 <th>Reports To</th>
                                 </thead>
-                                <tr>
+                                <tr style="    right: -109px;">
                                 <!-- <template v-for="(empdata,employeeid) in responsedata" :key="employeeid" > -->
                                     <td>{{rowdata.jobeffectivedate}}</td>
                                     <td>{{rowdata.location}}</td>
@@ -246,7 +249,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jobinfo()" >Update</button></td></tr>
+border: 0px solid rgb(153, 148, 148) ;    top: -86px;right: -2px;" @click.prevent="jobinfo()" >Update</button></td></tr>
                                 <!-- </template> -->
                             </table>
                         </div><br>
@@ -255,7 +258,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jobinfo()" >Update</butt
                         <h4>Compensation</h4>
                            
                             <table>
-                                <thead style="background-color:rgb(223, 181, 188); color:grey; ">
+                                <thead style="background-color:rgb(223, 181, 188); color:grey;     left: 36px;">
                                 <th>Effective Date</th>
                                 <th>Pay Schedule</th>
                                 <th>Pay Type</th>
@@ -265,7 +268,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jobinfo()" >Update</butt
                                 <th>Change Reason</th>
                                 
                                 </thead>
-                                <tr>
+                                <tr style="    right:-31px;">
                                 <!-- <template v-for="(empdata,index) in responsedata" :key="index" > -->
                                     <td>{{rowdata.compensationeffectivedate}}</td>
                                     <td>{{rowdata.payschedule}}</td>
@@ -280,7 +283,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="compinfo()" >Update</button></td></tr>
+border: 0px solid rgb(153, 148, 148) ;    top: -87px;left: -65px;" @click.prevent="compinfo()" >Update</button></td></tr>
                                 <!-- </template> -->
                             </table>
                             

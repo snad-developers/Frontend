@@ -92,7 +92,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jhandleupdate()" >Update
                         <h4>Compensation</h4>
                            
                             <table>
-                                <thead style="background-color:rgb(223, 181, 188); color:grey; ">
+                                <thead style="background-color:rgb(223, 181, 188); color:grey;     left: 36px;">
                                 <th>Effective Date</th>
                                 <th>Pay Schedule</th>
                                 <th>Pay Type</th>
