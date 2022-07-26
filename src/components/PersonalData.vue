@@ -3,13 +3,13 @@
  <a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
    
 <div class="PersonalData">
-  <!-- {{rowdata}} -->
+
     
     <div class="P1">
        
         <p style="margin-left: 20px;">Basic Information</p>
-    <label for="employeeid" style="margin-left: 20px;">Employee Id</label><br>
-    <input type="text" name="employeeid" for="employeeid"  placeholder="Employee Id" style="margin-left: 20px;" v-model="person.employeeid" ><br>
+    <label for="employeeid" style="margin-left: 20px;">Employee Id{{logid}}</label><br>
+    <input type="text" name="employeeid" for="employeeid"  placeholder="Employee Id" style="margin-left: 20px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board' ) ? false: true" v-model="person.employeeid" r><br>
        
     <label for="empstatus" style="margin-left: 20px;">Status</label><br>
     <select name="empstatus" for="empstatus" id="empstatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;" v-model="person.empstatus">
@@ -151,6 +151,7 @@ export default {
 
         return{
              person:null,
+             logid:null
            
 
       
@@ -165,6 +166,8 @@ export default {
         console.log(this.person);
         
   this.rowdata=this.$route.params;
+   const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+      this.logid=userdetails;
         
         // this.rowdata=(this.$route.params);
     },
