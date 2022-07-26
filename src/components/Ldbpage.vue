@@ -75,10 +75,18 @@
                
    </div> 
   </form> 
-
+  <br><br><br>
   <div class="scrollWrapper" v-if="parsed && insertmessage">
-    <table v-if="parsed && insertmessage" style="width: 100%;">
-    <thead>
+  <h4>Rejected Records</h4>
+    <table v-if="parsed && insertmessage" style="width: 100%;border-spacing: 0;
+    box-shadow: 0 2px 15px rgba(64,64,64,.7);
+    border-radius: 10px 10px 0 0;
+    overflow: hidden; width:100%;
+    margin-left:0% ;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color:white;">
+    <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;text-align: justify; ">
         <tr>
             <th v-for="(header, key) in content.meta.fields"
                 v-bind:key="'header-'+key" style="border: 1px solid;">
