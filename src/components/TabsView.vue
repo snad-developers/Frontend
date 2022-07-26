@@ -5,11 +5,10 @@
 <div class="P1">
   <TabNav :tabs="['Personal','Job']" :selected="selected" @selected="setSelected">
     <Tab :isSelected="selected === 'Personal'">
-    
-       <div>
-      <p><b>Personal Data</b></p>
-
-      <p style="margin-left: 20px;">Basic Information</p>{{logid}}
+    <h4>Basic Information</h4>
+       <div class="comp"><br>
+      
+      
       <table class="center">
         <tr><td>
            
@@ -40,14 +39,13 @@
     <input  name="ssn" for="ssn"  type="text" placeholder="SSN" style="padding: 10px 20px;width:225px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.ssn" ></td>
    
     <td><label for="taxfilenumber" style="margin-left: 20px;">Tax File Number</label><br>
-    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.taxfilenumber" ></td></tr></table>
-    
+    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber" ></td></tr></table>
+       </div>
     <hr class="hr">
     <div>
-      
-    <div v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
-
-     <p style="margin-left: 20px;" >Address</p>
+      <div v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
+     <h4>Address</h4>
+     <div class="comp"><br>
      <table class="center">
 
       <tr>
@@ -75,14 +73,12 @@
      
 
      <td><label for="zipcode" style="margin-left: 20px;">Zipcode</label><br>
-    <input type="text" for="zipcode" name="zipcode" placeholder="Zipcode" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.zipcode"></td></tr></table>
-    
+    <input type="text" for="zipcode" name="zipcode" placeholder="Zipcode" style="margin-left: 20px;" v-model="person.zipcode"></td></tr></table>
+     </div>
+      </div>
      <hr class="hr">
-
-     </div>
-     </div>
      <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
-     <p style="margin-left: 20px;">Contact</p>
+     <h4>Contact Details</h4>
      <table class="center"><tr>
      
 
@@ -105,83 +101,103 @@ padding: 10px;
 border: 0px solid rgb(153, 148, 148) ;" @click.prevent="personalhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button>
 <hr class="hr">
 </div>
+    </div>
 <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
 
-    <p style="margin-left: 20px;">Education </p>
-    <table class="center">
-      <tr>
-       
-    <td><label for="university" style="margin-left: 20px;">University</label><br>
-    <input type="text" for="university" name="university"  placeholder="University" style="margin-left: 20px;"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.university" ></td>
-     
+     <h4>Education Information </h4>
+      <button style="border-radius:10px;
+ background-color: rgba(8, 77, 179, 0.864);
+text-decoration: solid; 
+color: white;
+cursor: pointer;
+margin-left:740px;
+padding: 10px;
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="educationupdate(rowdata)">Add New Education Information</button> 
+
     
-    <td><label for="highestdegree" style="margin-left: 20px;">Stream</label><br>
-    <input type="text" for="highestdegree" name="highestdegree" placeholder="Stream" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.highestdegree" ></td></tr><br>
+   
+ 
+                               <table>
+
+                                <thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
+                                <th>University</th>
+                                <th>Highest Degree</th>
+                                <th>Specialization</th>
+                                <th>GPA</th>
+                                <th>Degree Startdate</th>
+                                <th>Degree Enddate</th>
+                                </thead>
+                                <template v-for="(rowdata,index) in responsedata" :key="index" > 
+                                   
+                                    <tr >
+                                     <!-- <td>{{rowdata.date}}</td> -->
+                                    <td>{{rowdata.university}}</td>
+                                    <td>{{rowdata.highestdegree}}</td>
+                                    <td>{{rowdata.specialization}}</td>
+                                    <td>{{rowdata.gpa}}</td>
+                                    <td>{{rowdata.degreestartdate}}</td>
+                                    <td>{{rowdata.degreeenddate}}</td>
+                                    </tr> </template></table> 
+                                      
     
     
-    <tr><td><input  name="degreestartdate" placeholder="start date" id="degreestartdate" type="text"  style="padding: 10px 20px;width:225px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.degreestartdate" ></td>
-    <td><input  name="degreeenddate" placeholder="end date" id="degreeenddate" type="text"  style="padding: 10px 20px;width:225px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.degreeenddate" ></td></tr>
-      
-      
-      <tr><td><label for="specialization" style="margin-left: 20px;">Course</label><br>
-    <input type="text" for="specialization" name="specialization"  placeholder="Course" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.specialization" ></td>
-    
-     
-    <td><label for="gpa" style="margin-left: 0px;">CGPA</label><br>
-    <input type="number" for="gpa" name="gpa"  placeholder="CGPA" style="margin-left: 0px;border-radius: 11px;width: 80px;text-align: center;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.gpa" ></td></tr></table> <br>   
-    
-    <!-- <td><label for="gpa" style="margin-left: 360px;top: -57px;">CGPA</label><br>
-    <input type="number" for="gpa" name="gpa"  placeholder="CGPA" style="margin-left: 360px;border-radius: 11px;width: 80px;text-align: center;top: -57px;" v-model="person.gpa" ></td> -->
-    <!-- </tr> </table> <br>    -->
-    
-    
-    
+
+
+        
+   
+   
+  <hr class="hr">
+</div>
+    <h4>Visa Information</h4>
     <button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;
 cursor: pointer;
+margin-left:770px;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="educationupdate(empdata)"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Add Education</button>
-  <hr class="hr">
-  </div>
-  <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="visaupdate(rowdata)">Add New Visainformation</button> 
 
-    <p style="margin-left: 20px;" >Visa Information</p>
-    <!-- <div class="child-4"> -->
-                        <!-- <h4>Visa Information</h4> -->
-                              
-                            <table>
-
-                                <thead style="background-color:rgb(223, 181, 188); color:grey;    right: -106px; ">
-                                <th >Date</th>
-                                <th>Visa Status</th>
-                                <th>Issuing country</th>
-                                <th>Expiration</th>
-                                <th>Status</th>
-                                </thead>
-                                   <!-- <template  v-for="(empdata,employeeid) in responsedata" :key="employeeid" > -->
-                                   
-                                       <tr style="right: -106px;" > <td>{{rowdata.date}}</td>
-                                    <td  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">{{rowdata.visastatus}}</td>
-                                    <td  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">{{rowdata.issuingcountry}}</td>
-                                     <td  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">{{rowdata.expirationdate}}</td>
-                                     <td  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">{{rowdata.status}}</td>   
-                                       <td><button style="border-radius:10px;
- background-color: rgba(8, 77, 179, 0.864);
-text-decoration: solid; 
-color: white;
-cursor: pointer;
-padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;top: -93px;" @click.prevent="visaupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Add Visa</button></td></tr></table>
- <!-- </template>   -->
- </div>
+                         
+<table>
 
 
+                                
+        
+        <thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
+        <tr>
+            
+            <th>Date</th>
+            <th>Visastatus</th>
+            <th>Issuingcountry</th>
+            <th>Issueddate</th>
+            <th>Expirationdate</th>
+            <th>Status</th>
+            
+        </tr>
+        </thead>
+         
+        <tbody >
+  
+       <template v-for="(rowdata,index) in resdata" :key="index" > 
+           
+        <tr>
+<td>{{rowdata.date}}</td>
+<td>{{rowdata.visastatus}}</td>
+<td>{{rowdata.issuingcountry}}</td>
+<td>{{rowdata.issueddate}}</td>
+<td>{{rowdata.expirationdate}}</td>
+<td>{{rowdata.status}}</td>
+ </tr>
+ </template>
+ </tbody>
+ </table> 
+ 
+      
 
                               
                             
-   </div>
+   
 
 
     
@@ -197,14 +213,18 @@ border: 0px solid rgb(153, 148, 148) ;top: -93px;" @click.prevent="visaupdate()"
 
     
       </Tab>
+  
       <Tab :isSelected="selected === 'Job'">
         
-        <h2>Job Details</h2>
-                    <div>
-                            <h4>Hire Date:</h4>
-                        </div>
-                        <div>
-                         <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.startdate">   
+        <!-- <h2>Job Details</h2><br> -->
+                    <div class="job"><br>
+                      <table>
+                        <tr>
+                            <td><h4 style="margin-left:0px">Hire Date:</h4></td>
+                           <td> <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left:10px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.startdate"></td></tr></table><br>
+                            
+                        
+                         <!-- <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left: 50px;" v-model="person.startdate">    -->
                         </div>
                   
                      <div class="child-4">
@@ -217,7 +237,7 @@ border: 0px solid rgb(153, 148, 148) ;top: -93px;" @click.prevent="visaupdate()"
                                 <th>employement Status</th>
                                 <th>Comment</th>
                                 </thead>
-                            <br>
+                            
                     
                         <tr style="    right: -261px;">
                          <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"> </td>
@@ -236,82 +256,125 @@ margin-left:135px;
 border: 0px solid rgb(153, 148, 148) ;top: -119px;" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span> </td></tr>
                     </table>
                         </div><br>
-                        
-                               <div class="child-4">
-                        <h4>Job Information</h4>
+                        <hr class="hr">
+    <h4>Job Details</h4>
+    <button style="border-radius:10px;
+ background-color: rgba(8, 77, 179, 0.864);
+text-decoration: solid; 
+color: white;
+cursor: pointer;
+margin-left:800px;
+padding: 10px;
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="jobinfo(rowdata)">Add New Job Details</button> 
+
                               
-                            <table>
 
-                                <thead style="background-color:rgb(223, 181, 188); color:grey;    right: -108px; ">
-                                <th>Effective Date</th>
-                                <th>Location</th>
-                                <th>Client Name</th>
+                             <table>
+
+        <thead style="background-color:rgb(223, 181, 188);text-align:center;s color:grey; ">
+        <tr>
+            
+            <th>EffectiveDate</th>
+            <th>Location</th>
+            <th>ClientName</th>
+            <th>JobTitle</th>
+            <th>Reportsto</th>
+           
+        </tr>
+        </thead>
+         
+        <tbody >
+  
+       <template v-for="(rowdata,index) in rdata" :key="index" > 
+           
+        <tr>
+<td>{{rowdata.effectivedate}}</td>
+<td>{{rowdata.location}}</td>
+<td>{{rowdata.clientname}}</td>
+<td>{{rowdata.jobtitle}}</td>
+<td>{{rowdata.reportsto}}</td>
+
+       </tr>
+ </template>
+ </tbody>
+   
+       
+        
+       
+    </table> 
+ 
 
 
-                                <th>Job Title</th>
-                                <th>Reports To</th>
-                                </thead>
-                                <tr style="    right: -109px;">
-                                <!-- <template v-for="(empdata,employeeid) in responsedata" :key="employeeid" > -->
-                                    <td>{{rowdata.jobeffectivedate}}</td>
-                                    <td>{{rowdata.location}}</td>
-                                    <td>{{rowdata.clientname}}</td>
-                                     <td>{{rowdata.jobtitle}}</td>
-                                     <td>{{rowdata.reportsto}}</td> 
-                                     <td><button style="border-radius:10px;
+
+
+                             <hr class="hr">
+    <h4>Compensation Details</h4>
+    <button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;
 cursor: pointer;
+margin-left:720px;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;    top: -86px;right: -2px;" @click.prevent="jobinfo()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" >Update</button></td></tr>
-                                <!-- </template> -->
-                            </table>
-                        </div><br>
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Add New Compensation Details</button> 
+
+          
+  
+<table>
+
+        <thead style="background-color:rgb(223, 181, 188);text-align:center;s color:grey; ">
+        <tr>
+            
+            <th>EffectiveDate</th>
+            <th>payschedule</th>
+            <th>Paytype</th>
+            <th>Payrate</th>
+            <th>Overtime</th>
+            <th>Overtimerate</th>
+            <th>Changereason</th>
+            <th>Comment</th>
+            
+        </tr>
+        </thead>
+         
+        <tbody >
+  
+       <template v-for="(rowdata,index) in cdata" :key="index" > 
+           
+        <tr>
+<td>{{rowdata.effectivedate}}</td>
+<td>{{rowdata.payschedule}}</td>
+<td>{{rowdata.paytype}}</td>
+<td>{{rowdata.payrate}}</td>
+<td>{{rowdata.overtime}}</td>
+<td>{{rowdata.overtimerate}}</td>
+<td>{{rowdata.changereason}}</td>
+<td>{{rowdata.comment}}</td>
+
+
+       </tr>
+  </template>
+ </tbody>
+   
+       
+        
+       
+    </table> 
+  
+
+
+
                         
-                        <div class="child-4">
-                        <h4>Compensation</h4>
-                           
-                            <table>
-                                <thead style="background-color:rgb(223, 181, 188); color:grey;     left: 36px;">
-                                <th>Effective Date</th>
-                                <th>Pay Schedule</th>
-                                <th>Pay Type</th>
-                                <th>Pay Rate</th>
-                                <th>Overtime</th>
-                                <th>Overtime Rate</th>
-                                <th>Change Reason</th>
-                                
-                                </thead>
-                                <tr style="    right:-31px;">
-                                <!-- <template v-for="(empdata,index) in responsedata" :key="index" > -->
-                                    <td>{{rowdata.compensationeffectivedate}}</td>
-                                    <td>{{rowdata.payschedule}}</td>
-                                    <td>{{rowdata.paytype}}</td>
-                                     <td>{{rowdata.payrate}}</td>
-                                     <td>{{rowdata.overtime}}</td> 
-                                     <td>{{rowdata.overtimerate}}</td> 
-                                     <td>{{rowdata.changereason}}</td> 
-                                     <td><button style="border-radius:10px;
- background-color: rgba(8, 77, 179, 0.864);
-text-decoration: solid; 
-color: white;
-cursor: pointer;
-padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;    top: -87px;left: -65px;" @click.prevent="compinfo()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" >Update</button></td></tr>
-                                <!-- </template> -->
-                            </table>
-                            
-                     
                         
-                </div>
               
                
        
       </Tab>
      
-  </TabNav>
-</div>
+    </TabNav>
+    </div>
+    
+
 </template>
 
 <script>
@@ -328,32 +391,84 @@ export default {
       return{
         selected:'Personal',
          person:null,
-         rowdata:null
+         rowdata:null,
+         responsedata:[],
+         resdata:[],
+         rdata:[],
+         cdata:[],
+         
          
       }
     },
+    mounted(){
+     // this.edfetch();
+
+    },
     created(){
       this.person=(this.$route.params);
-        console.log(this.person);
+        console.log("person",this.person);
+          this.rowdata=this.$route.params;
+        this.edfetch();
+        this.visafetch();
+        this.jobfetch();
+        this.compfetch();
         
-  this.rowdata=this.$route.params;
-  const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
-      this.logid=userdetails
-      // this.GetloginDetails();
+
+  console.log("rowdata",this.rowdata)
+  
+      
   
         // this.rowdata=(this.$route.params);
     },
     methods:{
-    //    GetloginDetails(){
-    //              if(localStorage.getItem('currentUser')){
-    //              this.$router.push({name:"launchpage"});
-    //              }
-        
-    // },
+      edfetch(){
+        var sdata={
+          "employeeid":parseInt(this.rowdata.employeeid)
+        }
+        loginapi.educationvalues(sdata).then(response=>{
+          // if(this.id==this.rowdata.id)
+          this.responsedata=response.data
+          console.log(response);
+        })
+
+      },
+      visafetch(){
+        var sdata={
+         "employeeid":parseInt(this.rowdata.employeeid) 
+        }
+        loginapi.visainformation(sdata).then(response=>{
+          // if(this.id==this.rowdata.id)
+          this.resdata=response.data
+          console.log(response);
+        })
+      },
+      jobfetch(){
+        var sdata={
+         "employeeid":parseInt(this.rowdata.employeeid) 
+        }
+        loginapi.jobinformation(sdata).then(response=>{
+          // if(this.id==this.rowdata.id)
+          this.rdata=response.data
+          console.log(response);
+        })
+      },
+      compfetch(){
+        var sdata={
+         "employeeid":parseInt(this.rowdata.employeeid) 
+        }
+        loginapi.compensation(sdata).then(response=>{
+          // if(this.id==this.rowdata.id)
+          this.cdata=response.data
+          console.log(response);
+        })
+      },
+    
 
       setSelected(tab){
         this.selected = tab;
         },
+    
+     
          
         personalhandleupdate() {
         //  this.v$.$touch();
@@ -452,15 +567,16 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
 
             },
              compinfo(rowdata){  
+              
                if(this.logid.role=='Admin' || this.logid.role=='HR Manager'){
-                  this.$router.push({name:"jobupdate",params:this.rowdata});
+                   this.$router.push({name:"compensationupdate",params:this.rowdata});
                 }
 
             }
       }
-    }
+  
 
-
+}
     
 
 
@@ -480,14 +596,51 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
   margin:0%; 
   padding-bottom: 2%;
 margin-left: 120px;
- text-align:justify;
+ /* text-align:justify; */
  overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15);
 }
-.center{
+/* .center{
   margin-left: auto;
   margin-right: auto;
+} */
+.job{
+  margin-left: 0%;
+  text-align: left;
 }
+p,h4{
+  text-align: left;
+}
+.comp{
+  border-radius: 25px;
+  box-sizing: border-box;
+  width: 60%;
+  height: fit-content;
+  background-color:white;
+  margin-top: 27px;
+  margin:0%; 
+  padding-bottom: 2%;
+  margin-left: 200px;
+  text-align:justify;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+  .EduUpd{
+  border-radius: 25px;
+  box-sizing: border-box;
+  width: 60%;
+  height: fit-content;
+  background-color:white;
+  margin-top: 27px;
+  margin:0%; 
+  padding-bottom: 2%;
+  margin-left: 200px;
+  text-align:justify;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+   
+   
+ }
 .box-backgroundcolor:hover {
   background-color: coral;
 }

@@ -1,11 +1,34 @@
 <template>
 <h2>Update Job Information</h2>
 <div class="comp">
-<label for="effectivedate" style="margin-left: 20px;">Effective date</label><br>
-<input  name="effective date" id="effective date" type="date" v-model="person.effectivedate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+                              <br>
+                              
+                              <tabel><tr>
+<td><label for="effectivedate" style="margin-left: 20px;">Effective date</label><br>
+<input  name="effective date" id="effective date" type="date" v-model="person.effectivedate" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td>
+<td><label for="clientname" style="margin-left: 20px;">ClientName</label><br>
+<input  name="clientname" id="clientname" type="text" v-model="person.clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td></tr>
 
- <label for="location" style="margin-left: 20px;">Location</label><br>
-     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 14px;width: 30%;" >
+     <tr><td><label for="jobtitle" style="margin-left: 20px;">Job Title</label><br>
+    <select name="jobtitle"   v-model="person.jobtitle" style="width: 225px;padding: 10px 20px;margin-left: 20px;">
+        <option disabled selected value>Job title</option>
+        <option value="Admin" >Admin</option>
+        <option value="PayrollAdmin" >Payroll Admin</option>
+        <option value="HR Manager" > HR Manager</option>
+        <option value="Director" >Director</option>
+        <option value="ExecutiveBoard" >Executive Board</option>
+        <option value="WorkManager" >Work Manager</option>
+        <option value="Software Engineer" >Software Engineer</option>
+
+    </select></td>
+
+    <td><label for="reportsto" style="margin-left: 20px;">Reports To</label><br>
+     
+     <input  name="reportsto" id="reportsto" type="text" v-model="person.reportsto" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td></tr>
+
+
+ <tr> <td><label for="location" style="margin-left: 20px;">Location</label><br>
+     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 10px;width: 60%;" >
                                 <option disabled selected value>Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -246,54 +269,18 @@
                                 <option value="Serbia">Serbia</option>
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
-                            </select><br>
-
- <!-- <label for="Division" style="margin-left: 20px;">Division</label><br>
-    <select name="Division" id="Division"  style="width: 225px;padding: 14px 20px;margin-left: 20px;">
-        <option disabled selected value>Division</option>
-        <option value="AsiaPacific" >Asia Pacific</option>
-        <option value="Europe" >Europe</option>
-        <option value="Northamerica" >North America</option>
-        <option value="Southamerica" >South America</option>
-    </select><br>
-
- <label for="Department" style="margin-left: 20px;">Department</label><br>
-    <select name="Department" id="Department"  v-model="Department" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
-        <option  disabled selected value >Department</option>
-        <option value="Finance" >Finance</option>
-        <option value="HR" >HR</option>
-        <option value="Marketing" >Marketing</option>
-        <option value="IT" >IT</option>
-        <option value="Operations" >Operations</option>
-        <option value="Sales" >Sales</option>
-        <option value="Product" >Product</option>
-
-    </select><br> -->
-    <label for="clientname" style="margin-left: 20px;">ClientName</label><br>
-<input  name="clientname" id="clientname" type="text" v-model="person.clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
-
-     <label for="jobtitle" style="margin-left: 20px;">Job Title</label><br>
-    <select name="jobtitle"   v-model="person.jobtitle" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
-        <option disabled selected value>Job title</option>
-        <option value="Admin" >Admin</option>
-        <option value="PayrollAdmin" >Payroll Admin</option>
-        <option value="HR Manager" > HR Manager</option>
-        <option value="Director" >Director</option>
-        <option value="ExecutiveBoard" >Executive Board</option>
-        <option value="WorkManager" >Work Manager</option>
-        <option value="Software Engineer" >Software Engineer</option>
-
-    </select><br>
-
-    <label for="reportsto" style="margin-left: 20px;">Reports To</label><br>
-    <!-- <select name="Reportsto" id="Reportsto" style="width: 225px;padding: 14px 20px;margin-left: 20px;">
-        <option value=""></option>
-    </select><br> -->
-    <input  name="reportsto" id="reportsto" type="text" v-model="person.reportsto" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+                            </select></td></tr>
+                              </tabel>
 
 
-<button  @click=" jobinfo" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
-                            <span class="btnText">Update Details</span>
+
+    
+    
+
+
+
+<button  @click=" jobinfo" style="margin-left: 400px;margin-top:0%; background-color: blue;color: antiquewhite;">
+                            <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
 
@@ -369,7 +356,7 @@ export default {
          if(response.data.status == "success" && response.data.statuscode == 200 ){
 
          console.log(response);
-          alert("User Details Updated");
+          alert("User Details Added");
           this.$router.push('activeemplydata');
          }
          if(response.data.status == "faliure" && response.data.statuscode == 201 ){

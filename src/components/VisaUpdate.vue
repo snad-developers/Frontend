@@ -1,23 +1,25 @@
 <template>
-<h2>Add Visa Information</h2>
-<div class="comp">
-<label for="date" style="margin-left: 20px;">Date</label><br>
-<input  name=" date" id="date" type="date" v-model="person.date" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+<h2>Update Visa Information</h2>
+  <div class="comp"><br>
+      <tabel>
+      
+<tr><td><label for="date" style="margin-left: 20px;">Date</label><br>
+<input  name=" date" id="date" type="date" v-model="person.date" style="padding: 10px;width:225px;margin-left: 20px;"></td>
 
- <label for="visastatus" style="margin-left: 20px;">Visa Type</label><br>
-                            <select name="visastatus" id="visastatus" v-model="person.visastatus" style="margin-left: 20px;padding: 14px;width: 30%;" >
-                              <option disabled selected value>Select Type</option>
-                              <option value="B1">B1</option>
+ <td><label for="visastatus" style="margin-left: 20px;">Visa Type</label><br>
+                            <select name="visastatus" id="visastatus" placeholder="Visa Type" v-model="person.visastatus" style="margin-left: 20px;padding: 10px;width: 90%;" >
+                              
+                               <option value="B1">B1</option>
                               <option value="B2">B2</option>
                               <option value="H1B">H1B</option>
                               <option value="H2B">H2B</option>
                               <option value="L1A">L1A</option>
                               <option value="L2A">L2A</option>
                               <option value="permanent">Permanent Resident </option>
-                            </select><br>
+                            </select></td></tr>
 
-<label for="issuingcountry" style="margin-left: 20px;">Issuing Country</label><br>
-     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 14px;width: 30%;" >
+<tr><td><label for="issuingcountry" style="margin-left: 20px;">Issuing Country</label><br>
+     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 10px;width: 60%;" >
                                 <option disabled selected value>Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -152,125 +154,20 @@
                                 <option value="Malaysia">Malaysia</option>
                                 <option value="Maldives">Maldives</option>
                                 <option value="Mali">Mali</option>
-                                <option value="Malta">Malta</option>
-                                <option value="Marshall Islands">Marshall Islands</option>
-                                <option value="Martinique">Martinique</option>
-                                <option value="Mauritania">Mauritania</option>
-                                <option value="Mauritius">Mauritius</option>
-                                <option value="Mayotte">Mayotte</option>
-                                <option value="Mexico">Mexico</option>
-                                <option value="Micronesia">Micronesia, Federated States of</option>
-                                <option value="Moldova">Moldova, Republic of</option>
-                                <option value="Monaco">Monaco</option>
-                                <option value="Mongolia">Mongolia</option>
-                                <option value="Montserrat">Montserrat</option>
-                                <option value="Morocco">Morocco</option>
-                                <option value="Mozambique">Mozambique</option>
-                                <option value="Myanmar">Myanmar</option>
-                                <option value="Namibia">Namibia</option>
-                                <option value="Nauru">Nauru</option>
-                                <option value="Nepal">Nepal</option>
-                                <option value="Netherlands">Netherlands</option>
-                                <option value="Netherlands Antilles">Netherlands Antilles</option>
-                                <option value="New Caledonia">New Caledonia</option>
-                                <option value="New Zealand">New Zealand</option>
-                                <option value="Nicaragua">Nicaragua</option>
-                                <option value="Niger">Niger</option>
-                                <option value="Nigeria">Nigeria</option>
-                                <option value="Niue">Niue</option>
-                                <option value="Norfolk Island">Norfolk Island</option>
-                                <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-                                <option value="Norway">Norway</option>
-                                <option value="Oman">Oman</option>
-                                <option value="Pakistan">Pakistan</option>
-                                <option value="Palau">Palau</option>
-                                <option value="Panama">Panama</option>
-                                <option value="Papua New Guinea">Papua New Guinea</option>
-                                <option value="Paraguay">Paraguay</option>
-                                <option value="Peru">Peru</option>
-                                <option value="Philippines">Philippines</option>
-                                <option value="Pitcairn">Pitcairn</option>
-                                <option value="Poland">Poland</option>
-                                <option value="Portugal">Portugal</option>
-                                <option value="Puerto Rico">Puerto Rico</option>
-                                <option value="Qatar">Qatar</option>
-                                <option value="Reunion">Reunion</option>
-                                <option value="Romania">Romania</option>
-                                <option value="Russia">Russian Federation</option>
-                                <option value="Rwanda">Rwanda</option>
-                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
-                                <option value="Saint LUCIA">Saint LUCIA</option>
-                                <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
-                                <option value="Samoa">Samoa</option>
-                                <option value="San Marino">San Marino</option>
-                                <option value="Sao Tome and Principe">Sao Tome and Principe</option> 
-                                <option value="Saudi Arabia">Saudi Arabia</option>
-                                <option value="Senegal">Senegal</option>
-                                <option value="Seychelles">Seychelles</option>
-                                <option value="Sierra">Sierra Leone</option>
-                                <option value="Singapore">Singapore</option>
-                                <option value="Slovakia">Slovakia (Slovak Republic)</option>
-                                <option value="Slovenia">Slovenia</option>
-                                <option value="Solomon Islands">Solomon Islands</option>
-                                <option value="Somalia">Somalia</option>
-                                <option value="South Africa">South Africa</option>
-                                <option value="South Georgia">South Georgia and the South Sandwich Islands</option>
-                                <option value="Span">Spain</option>
-                                <option value="SriLanka">Sri Lanka</option>
-                                <option value="St. Helena">St. Helena</option>
-                                <option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
-                                <option value="Sudan">Sudan</option>
-                                <option value="Suriname">Suriname</option>
-                                <option value="Svalbard">Svalbard and Jan Mayen Islands</option>
-                                <option value="Swaziland">Swaziland</option>
-                                <option value="Sweden">Sweden</option>
-                                <option value="Switzerland">Switzerland</option>
-                                <option value="Syria">Syrian Arab Republic</option>
-                                <option value="Taiwan">Taiwan, Province of China</option>
-                                <option value="Tajikistan">Tajikistan</option>
-                                <option value="Tanzania">Tanzania, United Republic of</option>
-                                <option value="Thailand">Thailand</option>
-                                <option value="Togo">Togo</option>
-                                <option value="Tokelau">Tokelau</option>
-                                <option value="Tonga">Tonga</option>
-                                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                                <option value="Tunisia">Tunisia</option>
-                                <option value="Turkey">Turkey</option>
-                                <option value="Turkmenistan">Turkmenistan</option>
-                                <option value="Turks and Caicos">Turks and Caicos Islands</option>
-                                <option value="Tuvalu">Tuvalu</option>
-                                <option value="Uganda">Uganda</option>
-                                <option value="Ukraine">Ukraine</option>
-                                <option value="United Arab Emirates">United Arab Emirates</option>
-                                <option value="United Kingdom">United Kingdom</option>
-                                <option value="United States">United States</option>
-                                <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Uzbekistan">Uzbekistan</option>
-                                <option value="Vanuatu">Vanuatu</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Vietnam">Viet Nam</option>
-                                <option value="Virgin Islands (British)">Virgin Islands (British)</option>
-                                <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
-                                <option value="Wallis and Futana Islands">Wallis and Futuna Islands</option>
-                                <option value="Western Sahara">Western Sahara</option>
-                                <option value="Yemen">Yemen</option>
-                                <option value="Serbia">Serbia</option>
-                                <option value="Zambia">Zambia</option>
-                                <option value="Zimbabwe">Zimbabwe</option>
-                            </select><br>
-                         <label for="issueddate" style="margin-left: 20px;">Issued Date</label><br>
-<input  name=" issueddate" id="issueddate" type="date" v-model="person.issueddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br> 
-<label for="expirationdate" style="margin-left: 20px;">Expiration Date</label><br>
-<input  name=" expirationdate" id="expirationdate" type="date" v-model="person.expirationdate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>  
+     </select></td>
+    <td> <label for="issueddate" style="margin-left: 20px;">Issued Date</label><br>
+<input  name=" issueddate" id="issueddate" type="date" v-model="person.issueddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td></tr> 
+<tr><td><label for="expirationdate" style="margin-left: 20px;">Expiration Date</label><br>
+<input  name=" expirationdate" id="expirationdate" type="date" v-model="person.expirationdate" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td>  
 
 
 
-     <label for="status" style="margin-left: 20px;">Status</label><br>
-     <input name="status" id="status"  type="text" v-model="person.status"  style="padding: 10px 20px;width:225px;margin-left: 20px;"><br> 
+    <td> <label for="status" style="margin-left: 20px;">status</label><br>
+     <input name="status" id="status"  type="text" v-model="person.status"  style="padding: 10px 20px;width:225px;margin-left: 20px;"></td></tr></tabel><br><br> 
 
+           
    <button  @click="visaupdate" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
-                            <span class="btnText">Update Details</span>
+                            <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
 
@@ -351,7 +248,7 @@ export default {
          if(response.data.status == "success" && response.data.statuscode == 200 ){
 
          console.log(response);
-          alert("User Details Updated");
+          alert("User Details Added");
           this.$router.push('activeemplydata');
     
 

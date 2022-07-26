@@ -3,6 +3,7 @@
 <a href="/TabsView"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
    
 <div class="EduUpd">
+    <br>
 <label for="university" style="margin-left: 20px;">University</label><br>
 <input  name="university" id="university" type="text" v-model="person.university" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
@@ -26,7 +27,7 @@
     
 <span  style="top: -50px;"><input  name="degreestartdate" id="birthdate" type="date" v-model="person.degreestartdate" style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="degreeenddate" id="birthdate" type="date" v-model="person.degreeenddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
 <button  @click.prevent="educationupdate();" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
-                            <span class="btnText">Update Details</span>
+                            <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
 </div>
@@ -99,7 +100,7 @@ export default {
          if(response.data.status == "success" && response.data.statuscode == 200 ){
 
          console.log(response);
-          alert("User Details Updated");
+          alert("User Details Added");
           this.$router.push('activeemplydata');
     
 
