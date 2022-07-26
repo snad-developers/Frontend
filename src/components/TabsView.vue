@@ -75,6 +75,7 @@
      <td><label for="zipcode" style="margin-left: 20px;">Zipcode</label><br>
     <input type="text" for="zipcode" name="zipcode" placeholder="Zipcode" style="margin-left: 20px;" v-model="person.zipcode"></td></tr></table>
      </div>
+      </div>
      <hr class="hr">
      <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
      <h4>Contact Details</h4>
@@ -100,6 +101,7 @@ padding: 10px;
 border: 0px solid rgb(153, 148, 148) ;" @click.prevent="personalhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button>
 <hr class="hr">
 </div>
+    </div>
 <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
 
      <h4>Education Information </h4>
@@ -145,6 +147,7 @@ padding: 10px;
    
    
   <hr class="hr">
+</div>
     <h4>Visa Information</h4>
     <button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
