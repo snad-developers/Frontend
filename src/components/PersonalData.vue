@@ -9,7 +9,7 @@
        
         <p style="margin-left: 20px;">Basic Information</p>
     <label for="employeeid" style="margin-left: 20px;">Employee Id{{logid}}</label><br>
-    <input type="text" name="employeeid" for="employeeid"  placeholder="Employee Id" style="margin-left: 20px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager' || logid.role=='Executive Board' ) ? false: true" v-model="person.employeeid" r><br>
+    <input type="text" name="employeeid" for="employeeid"  placeholder="Employee Id" style="margin-left: 20px;"><br>
        
     <label for="empstatus" style="margin-left: 20px;">Status</label><br>
     <select name="empstatus" for="empstatus" id="empstatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;" v-model="person.empstatus">
@@ -151,7 +151,7 @@ export default {
 
         return{
              person:null,
-             logid:null
+             
            
 
       
@@ -166,8 +166,7 @@ export default {
         console.log(this.person);
         
   this.rowdata=this.$route.params;
-   const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
-      this.logid=userdetails;
+  
         
         // this.rowdata=(this.$route.params);
     },
