@@ -50,17 +50,17 @@ export default{
     empgetvalues(){
         return API('http://localhost:3000/').get('/empdata')
     },
-    educationvalues(){
-        return API('http://localhost:3000/').get('/education')
+    educationvalues(data){
+        return API('http://localhost:3000/').post('/geteducation',data)
     },
-    visainformation(){
-        return API('http://localhost:3000/').get('/visainformation')
+    visainformation(data){
+        return API('http://localhost:3000/').post('/getvisainformation',data)
     },
-    jobinformation(){
-        return API('http://localhost:3000/').get('/jobinformation')
+    jobinformation(data){
+        return API('http://localhost:3000/').post('/getjobinformation',data)
     },
-    compensation(){
-        return API('http://localhost:3000/').get('/compensation')
+    compensation(data){
+        return API('http://localhost:3000/').post('/getcompensation',data)
     },
     dashboarddata(){
         return API('http://localhost:3000/').get('/dashboard') 

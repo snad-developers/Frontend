@@ -35,17 +35,7 @@
             <th>Action</th>
         </tr>
         </thead>
-         <!-- <tr>
-            <td> Employee Number</td>
-            <td> First Name </td>
-            <td> Last Name </td>
-            <td> Email </td>
-            <td> Contact Number </td>
-            <td> Role </td>
-            <td> Client name </td>
-            <td> Entity </td>
-            <td> Action </td>
-        </tr> -->
+         
         <tbody >
   
        <template v-for="(employeedata,index) in responsedata" :key="index" > 
