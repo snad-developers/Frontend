@@ -65,7 +65,7 @@
                     </td>
                     <td>{{data.expenses}}</td>
                     <td>$ {{data.amount}}</td>
-                    <td>click Here</td>
+                    <td><a href="https://www.freshbooks.com/wp-content/uploads/invoice-template-pdf-white.png">Click Here</a></td>
                 </tr>
        
             </template>
