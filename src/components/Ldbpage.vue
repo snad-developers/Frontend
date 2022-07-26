@@ -75,6 +75,29 @@
                
    </div> 
   </form> 
+
+  <div class="scrollWrapper" v-if="parsed && insertmessage">
+    <table v-if="parsed && insertmessage" style="width: 100%;">
+    <thead>
+        <tr>
+            <th v-for="(header, key) in content.meta.fields"
+                v-bind:key="'header-'+key" style="border: 1px solid;">
+                {{ header }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="(row, rowKey) in content.data"
+            v-bind:key="'row-'+rowKey" >
+                <td v-for="(column, columnKey) in content.meta.fields"
+                    v-bind:key="'row-'+rowKey+'-column-'+columnKey" style="border: 1px solid;">
+                    {{content.data[rowKey][column]}}
+                        <!-- <input v-model="content.data[rowKey][column]"/> -->
+                </td>
+        </tr>
+    </tbody>
+</table>
+</div>
   </div> 
   
 </template>
@@ -267,6 +290,7 @@ console.log(sdata)
  else{
   this.show=false
  }
+ this.content.data=response.data.duplicaterecords
  this.insertmessage=response.data.message;
 //  alert(this.insertmessage);
  this.validate_message="";
@@ -280,7 +304,13 @@ console.log(sdata)
 </script> 
 
 <style>
+div.scrollWrapper{
 
+  height:380px;
+width: 39%;
+  overflow:scroll;
+  margin-left: 45%;
+}
 .main-container{
   display: flex;
   flex-direction: row;

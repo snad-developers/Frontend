@@ -3,13 +3,13 @@
  <a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
    
 <div class="PersonalData">
-  <!-- {{rowdata}} -->
+
     
     <div class="P1">
        
         <p style="margin-left: 20px;">Basic Information</p>
-    <label for="employeeid" style="margin-left: 20px;">Employee Id</label><br>
-    <input type="text" name="employeeid" for="employeeid"  placeholder="Employee Id" style="margin-left: 20px;" v-model="person.employeeid" ><br>
+    <label for="employeeid" style="margin-left: 20px;">Employee Id{{logid}}</label><br>
+    <input type="text" name="employeeid" for="employeeid"  placeholder="Employee Id" style="margin-left: 20px;"><br>
        
     <label for="empstatus" style="margin-left: 20px;">Status</label><br>
     <select name="empstatus" for="empstatus" id="empstatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;" v-model="person.empstatus">
@@ -67,8 +67,8 @@
     <label for="contactnumber" style="margin-left: 20px;">Phone Number</label><br>
     <input type="text" for="contactnumber" name="contactnumber" placeholder="Phone Number" style="margin-left: 20px;" v-model="person.contactnumber"><br>
      
-     <label for="emergencynumber" style="margin-left: 20px;"> Alternate Phone Number</label><br>
-    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Alternate Phone Number" style="margin-left: 20px;" v-model="person.emergencynumber" ><br>
+     <label for="emergencynumber" style="margin-left: 20px;"> Emergency Phone Number</label><br>
+    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Emergency Phone Number" style="margin-left: 20px;" v-model="person.emergencynumber" ><br>
 
         <!-- v-model="person.altPhone" -->
       <label for="emailaddress" style="margin-left: 20px;">Email Id</label><br>
@@ -82,7 +82,7 @@ padding: 10px;
 border: 0px solid rgb(153, 148, 148) ;" @click.prevent="handleupdate()" >Update</button>
    <hr class="hr">
 
-    <p style="margin-left: 20px;">Education Master's</p>
+    <p style="margin-left: 20px;">Education</p>
        
     <label for="university" style="margin-left: 20px;">University</label><br>
     <input type="text" for="university" name="university"  placeholder="University" style="margin-left: 20px;" v-model="person.university" ><br>
@@ -103,7 +103,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="onhandleupdate(empdata)" >Update</button>
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="onhandleupdate(empdata)" >Add</button>
         <hr class="hr">
     <p style="margin-left: 20px;">Visa Information</p>
     <div class="child-4">
@@ -151,6 +151,7 @@ export default {
 
         return{
              person:null,
+             
            
 
       
@@ -165,6 +166,7 @@ export default {
         console.log(this.person);
         
   this.rowdata=this.$route.params;
+  
         
         // this.rowdata=(this.$route.params);
     },

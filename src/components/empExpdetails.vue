@@ -4,19 +4,19 @@
     <div class="">
 
     <a href="/employeexpensedata"><button style="margin-left:-1000px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
-    <div align="left">
-        <span>
+    <div class="container">
+        <div class="child">
             Name: {{this.empresponse.firstname+" "+this.empresponse.lastname}}
-        </span>
+        </div>
         <br>
-        <span>
-            Employee ID: {{this.empresponse.employeeid}}
+        <div class="child">
+             Employee ID: {{this.empresponse.employeeid}}
 
-        </span>
+        </div>
         <br>
-        <span>
+        <div class="child">
             Total: {{this.empresponse.sum}}
-        </span>
+        </div>
     </div>
     
     <table align="center" class="table-content" id="update" style="  border-spacing: 0;
@@ -39,28 +39,36 @@
                S No.
             </th>
             <th>
+                Expense Date
+            </th>
+            <th>
                Expense Type
             </th>
             <th>
                Amount
             </th>
-             
+            <th>
+                Invoice
+            </th>
            
         
         </thead>
 
 
         <tbody>
-            <!-- <template v-for="(data,index) in showdata" :key="index" > 
+            <template v-for="(data,index) in empexpdetails" :key="index" > 
                 <tr>
 
-                    <td>{{data.employeeid}}</td>
-                    <td>{{data.firstname}}</td>
-                    <td>{{data.lastname}}</td>
-                    <td>$ {{data.sum}}</td>
+                    <td>{{index+1}}</td>
+                    <td>
+                        {{data.expensedate}}
+                    </td>
+                    <td>{{data.expenses}}</td>
+                    <td>$ {{data.amount}}</td>
+                    <td><a href="https://www.freshbooks.com/wp-content/uploads/invoice-template-pdf-white.png">Click Here</a></td>
                 </tr>
        
-            </template> -->
+            </template>
         
         </tbody>
     
@@ -73,6 +81,7 @@
 </template>
 
 <script>
+import loginapi from '@/services/loginapi';
 
 export default {
     name:'empExpdetails',
@@ -80,6 +89,7 @@ export default {
     data:function(){
         return{
             empresponse:null,
+            empexpdetails:null,
         }
     },
 
@@ -87,6 +97,30 @@ export default {
         const userdetails=JSON.parse(localStorage.getItem('empdetails')) ? JSON.parse(localStorage.getItem('empdetails')) : "";
         this.empresponse=userdetails,
         console.log(this.empresponse)
+        this.getexpdetails();
+
+    },
+
+    methods:{
+        getexpdetails(){
+            let sdata={
+                "empid":parseInt(this.empresponse.employeeid)
+            }
+            console.log(sdata);
+            loginapi.expdetails(sdata).then(response=>{
+                
+                if(response.data.status == "success" && response.data.statuscode == 200){
+                    console.log(response);
+                    this.empexpdetails= response.data.result
+                    console.log(this.empexpdetails)
+
+                }
+                if(response.data.status == "Failure" && response.data.statuscode == 201){
+                    alert(response.data.message)
+                }
+            });
+
+        }
 
     }
 
@@ -94,6 +128,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.container{
+    display:flex; 
+    align-items: center; 
+    width: 100%;
+    padding-top: 1%;
+    margin-left: 13%;
+}
+
+.child{
+    padding: 1% 9% 0% 9%;
+    
+}
 
 </style>
+

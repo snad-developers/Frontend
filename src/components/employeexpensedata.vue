@@ -1,5 +1,5 @@
 <template>
-<h2>EMPLOYEE EXPENSES</h2>
+<h2>TOTAL EMPLOYEE EXPENSES</h2>
 
   <div class="">
     <a href="/launchpage"><button style="margin-left:-1100px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>

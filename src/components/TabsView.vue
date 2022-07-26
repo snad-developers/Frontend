@@ -1,4 +1,7 @@
 <template>
+<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+   <br>
+   <br>
 <div class="P1">
   <TabNav :tabs="['Personal','Job']" :selected="selected" @selected="setSelected">
     <Tab :isSelected="selected === 'Personal'">
@@ -10,10 +13,10 @@
         <tr><td>
            
     <label for="employeeid" style="margin-left: 20px;">Employee Id</label><br>
-    <input type="text" name="employeeid" for="employeeid"  placeholder="Employee Id" style="margin-left: 20px;"  v-model="person.employeeid"   ></td>
+    <input type="text" name="employeeid" for="employeeid" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" placeholder="Employee Id" style="margin-left: 20px;"  v-model="person.employeeid"   ></td>
     
     <td><label for="empstatus" style="margin-left: 20px;">Status</label><br>
-    <select name="empstatus" for="empstatus" id="empstatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;"   v-model="person.empstatus">
+    <select name="empstatus" for="empstatus" id="empstatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"   v-model="person.empstatus">
        
         <option disabled selected value>Status</option>
         <option value="Active" >Active</option>
@@ -21,48 +24,51 @@
     </select></td></tr>
    
     <tr><td><label for="firstname" style="margin-left: 20px;">First Name</label><br>
-    <input type="text" for="firstname"   name="firstname"  placeholder="First Name" style="margin-left: 20px;" v-model="person.firstname" ></td>
+    <input type="text" for="firstname"   name="firstname"  placeholder="First Name" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.firstname" ></td>
     
     <td><label for="lastname" style="margin-left: 20px;">Last Name</label><br>
-    <input type="text" for="lastname" name="lastname" placeholder="Last Name"  style="margin-left: 20px;" v-model="person.lastname" > </td></tr>
+    <input type="text" for="lastname" name="lastname" placeholder="Last Name"  style="margin-left: 20px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.lastname" > </td></tr>
     
      <tr><td><label for="fullname" style="margin-left: 20px;">Full Name</label><br>
-    <input type="text" for="fullname"  name="fullname"  placeholder="Full Name"  style="margin-left: 20px;" v-model="person.fullname" ></td>
+    <input type="text" for="fullname"  name="fullname"  placeholder="Full Name"  style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.fullname" ></td>
     
      <td><label for="dateofbirth" style="margin-left: 20px;">Date Of Birth</label><br>
-    <input  name="dateofbirth" for="dateofbirth" type="date" placeholder="Date Of Birth" style="padding: 10px 20px;width:225px;margin-left: 20px;"  v-model="person.dateofbirth" ></td></tr>
+    <input  name="dateofbirth" for="dateofbirth" type="date" placeholder="Date Of Birth" style="padding: 10px 20px;width:225px;margin-left: 20px;"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.dateofbirth" ></td></tr>
    
     <tr><td><label for="ssn" style="margin-left: 20px;">SSN</label><br>
-    <input  name="ssn" for="ssn"  type="text" placeholder="SSN" style="padding: 10px 20px;width:225px;margin-left: 20px;"  v-model="person.ssn" ></td>
+    <input  name="ssn" for="ssn"  type="text" placeholder="SSN" style="padding: 10px 20px;width:225px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.ssn" ></td>
    
     <td><label for="taxfilenumber" style="margin-left: 20px;">Tax File Number</label><br>
     <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber" ></td></tr></table>
        </div>
     <hr class="hr">
+    <div>
+      <div v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
      <h4>Address</h4>
      <div class="comp"><br>
      <table class="center">
+
       <tr>
 
     
 
      <td><label for="addressline1" style="margin-left: 20px;">AddressLine 1</label><br>
-    <input type="text" for="addressline1" name="addressline1"  placeholder="AddressLine 1" style="margin-left: 20px;" v-model="person.addressline1" ></td>
+    <input type="text" for="addressline1" name="addressline1"  placeholder="AddressLine 1" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.addressline1" ></td>
     
        
      <td><label for="addressline2" style="margin-left: 20px;">Addressline 2</label><br>
-    <input type="text" for="addressline2" name="addressline2" placeholder="Addressline 2" style="margin-left: 20px;" v-model="person.addressline2" ></td></tr>
+    <input type="text" for="addressline2" name="addressline2" placeholder="Addressline 2" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.addressline2" ></td></tr>
     
     <tr><td><label for="city" style="margin-left: 20px;">City</label><br>
-    <input type="text" for="city" name="city"  placeholder="City" style="margin-left: 20px;" v-model="person.city"></td>
+    <input type="text" for="city" name="city"  placeholder="City" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.city"></td>
      
      
      <td><label for="state" style="margin-left: 20px;">State</label><br>
-    <input type="text" for="state" name="state"  placeholder="State" style="margin-left: 20px;" v-model="person.state"></td></tr>
+    <input type="text" for="state" name="state"  placeholder="State" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.state"></td></tr>
      
      
     <tr><td><label for="country" style="margin-left: 20px;">Country</label><br>
-    <input type="text" for="country" name="country"  placeholder="country" style="margin-left: 20px;" v-model="person.country" ></td>
+    <input type="text" for="country" name="country"  placeholder="country" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.country" ></td>
     
      
 
@@ -70,19 +76,20 @@
     <input type="text" for="zipcode" name="zipcode" placeholder="Zipcode" style="margin-left: 20px;" v-model="person.zipcode"></td></tr></table>
      </div>
      <hr class="hr">
+     <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
      <h4>Contact Details</h4>
      <table class="center"><tr>
      
 
     <td><label for="contactnumber" style="margin-left: 20px;">Phone Number</label><br>
-    <input type="text" for="contactnumber" name="contactnumber" placeholder="Phone Number" style="margin-left: 20px;" v-model="person.contactnumber" ></td>
+    <input type="text" for="contactnumber" name="contactnumber" placeholder="Phone Number" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.contactnumber" ></td>
     
-     <td><label for="emergencynumber" style="margin-left: 20px;"> Alternate Phone Number</label><br>
-    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Alternate Phone Number" style="margin-left: 20px;" v-model="person.emergencynumber" ></td>
+     <td><label for="emergencynumber" style="margin-left: 20px;"> Emergency Phone Number</label><br>
+    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Emergency Phone Number" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.emergencynumber" ></td>
     
     
        <td><label for="emailaddress" style="margin-left: 20px;">Email Id</label><br>
-    <input type="email" for="emailaddress" name="emailaddress" placeholder="Email Id" style="margin-left: 20px;" v-model="person.emailaddress" ></td></tr></table> <br>
+    <input type="email" for="emailaddress" name="emailaddress" placeholder="Email Id" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.emailaddress" ></td></tr></table> <br>
     
      <button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
@@ -90,8 +97,10 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="personalhandleupdate()" >Update</button>
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="personalhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button>
 <hr class="hr">
+</div>
+<div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
 
      <h4>Education Information </h4>
       <button style="border-radius:10px;
@@ -209,29 +218,29 @@ padding: 10px;
                       <table>
                         <tr>
                             <td><h4 style="margin-left:0px">Hire Date:</h4></td>
-                           <td> <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left:10px;" v-model="person.startdate"></td></tr></table><br>
+                           <td> <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left:10px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.startdate"></td></tr></table><br>
                             
                         
                          <!-- <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left: 50px;" v-model="person.startdate">    -->
                         </div>
                   
                      <div class="child-4">
-                        <h4>Employement Status</h4><br>
+                        <h4>Employement Status</h4>
              
                             <table>
 
-                                <thead class="thead">
-                                <th> <label  >Effective Date</label></th>
-                                <th><label>employement Status</label></th>
-                                <th><label> Comment </label></th>
+                                <thead class="thead" style="background-color:rgb(223, 181, 188); color:grey;     right: -264px;">
+                                <th>Effective Date</th>
+                                <th>employement Status</th>
+                                <th>Comment</th>
                                 </thead>
                             
                     
-                        <tr>
-                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"  v-model="person.effectivedate"> </td>
-                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;" v-model="person.employementstatus"></td>
+                        <tr style="    right: -261px;">
+                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"> </td>
+                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.employementstatus"></td>
                          
-                          <td><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 20px;" v-model="person.comment">  </td>
+                          <td><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.comment">  </td>
                         
                           
                          <td> <span><button style="border-radius:10px;
@@ -240,8 +249,8 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-margin-left:160px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="jobhandleupdate()">Update</button></span> </td></tr>
+margin-left:135px;
+border: 0px solid rgb(153, 148, 148) ;top: -119px;" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span> </td></tr>
                     </table>
                         </div><br>
                         <hr class="hr">
@@ -304,7 +313,7 @@ color: white;
 cursor: pointer;
 margin-left:720px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="cominfo(rowdata)">Add New Compensation Details</button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Add New Compensation Details</button> 
 
           
   
@@ -548,11 +557,17 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
 
             },
             jobinfo(rowdata){  
-                this.$router.push({name:"jobupdate",params:this.rowdata});
+               
+                if(this.logid.role=='Admin' || this.logid.role=='HR Manager'){
+                  this.$router.push({name:"jobupdate",params:this.rowdata});
+                }
 
             },
-             cominfo(rowdata){  
-                this.$router.push({name:"compensationupdate",params:this.rowdata});
+             compinfo(rowdata){  
+              
+               if(this.logid.role=='Admin' || this.logid.role=='HR Manager'){
+                   this.$router.push({name:"compensationupdate",params:this.rowdata});
+                }
 
             }
       }
@@ -566,6 +581,8 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
 </script>
 
 <style>
+
+
 .P1{
     border-radius: 25px;
   box-sizing: border-box;
@@ -621,6 +638,9 @@ p,h4{
    
    
  }
+.box-backgroundcolor:hover {
+  background-color: coral;
+}
 
 
 </style>

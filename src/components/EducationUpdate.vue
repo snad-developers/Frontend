@@ -1,5 +1,7 @@
 <template>
-<h2>Update Education Information</h2>
+<h2>Add Education Information</h2>
+<a href="/TabsView"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+   
 <div class="EduUpd">
     <br>
 <label for="university" style="margin-left: 20px;">University</label><br>
@@ -21,7 +23,7 @@
 <input  name="specialization" id="specialization" type="text" v-model="person.specialization" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
 
 <label for="gpa" style="margin-left: 260px;top: -57px;">GPA</label><br>
-<input type="text" name="gpa"  placeholder="GPA" v-model="person.gpa" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;"><br><br>    
+<input type="text" name="gpa"  placeholder="GPA" v-model="person.gpa" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;padding: 2px;"><br><br>    
     
 <span  style="top: -50px;"><input  name="degreestartdate" id="birthdate" type="date" v-model="person.degreestartdate" style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="degreeenddate" id="birthdate" type="date" v-model="person.degreeenddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
 <button  @click.prevent="educationupdate();" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">

@@ -74,8 +74,8 @@
           {{ error.$message }}
         </p>
     <label for="Entity" placeholder="Entity" >
-      <i class="uil uil-clipboard-notes"  style="margin-left:-20px;"></i>
-     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px;border: 1px solid black;"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
+      <i class="uil uil-clipboard-notes"  style="margin-left:-20px;    top: 42px;right: 169px;"></i>
+     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px;border: 1px solid black;width: 213%;left: -92px;"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
