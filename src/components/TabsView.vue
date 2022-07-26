@@ -232,14 +232,15 @@ padding: 10px;
              
                             <table>
 
-                                <thead class="thead" style="background-color:rgb(223, 181, 188); color:grey;     right: -264px;">
+                                <thead class="thead" style="background-color:rgb(223, 181, 188); color:grey;left:0px;">
                                 <th>Effective Date</th>
                                 <th>employement Status</th>
                                 <th>Comment</th>
                                 </thead>
+                                <br>
                             
                     
-                        <tr style="    right: -261px;">
+                        <tr>
                          <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"> </td>
                          <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.employementstatus"></td>
                          
@@ -253,7 +254,7 @@ color: white;
 cursor: pointer;
 padding: 10px;
 margin-left:135px;
-border: 0px solid rgb(153, 148, 148) ;top: -119px;" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span> </td></tr>
+border: 0px solid rgb(153, 148, 148) ;top:-0px;" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span> </td></tr>
                     </table>
                         </div><br>
                         <hr class="hr">
