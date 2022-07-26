@@ -48,7 +48,7 @@
 
 <div class="box-container">
     <div>
-      <div @click="access" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='HR Manager' || this.logid.role=='Payroll Admin' || this.logid.role== 'Department Head')? 'box-backgroundcolor box-color': 'box-color']"  style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+      <div @click="access" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='HR Manager' || this.logid.role=='Payroll Admin' || this.logid.role== 'Department heads' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']"  style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
          <h3>Active Employees</h3>
             <p><i class="uil uil-user" style="margin-left:0"></i> {{activeemp}}</p>
         <!-- <router-link to="/activeemplydata" > <a @click="() =>togglepopup"><h6 style="color: blue;">Acess data</h6></a></router-link>  -->
@@ -168,7 +168,7 @@ export default {
         access(){
           // alert("access")
           
-          if(this.logid.role=='Admin' || this.logid.role=='HR Manager' || this.logid.role=='Payroll Admin' || this.logid.role== 'Department Head'){
+          if(this.logid.role=='Admin' || this.logid.role=='HR Manager' || this.logid.role=='Payroll Admin' || this.logid.role== 'Department heads' || this.logid.role=='Executive Board'){
             
             this.$router.push({name:"activeemplydata"}); 
           }
@@ -333,7 +333,7 @@ margin-left: 631px;
   
 }
 .box-backgroundcolor:hover {
-  background-color: yellow;
+  background-color: coral;
 }
 .Expenses{
  box-sizing: border-box;
