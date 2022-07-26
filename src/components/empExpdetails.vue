@@ -39,6 +39,9 @@
                S No.
             </th>
             <th>
+                Expense Date
+            </th>
+            <th>
                Expense Type
             </th>
             <th>
@@ -57,6 +60,9 @@
                 <tr>
 
                     <td>{{index+1}}</td>
+                    <td>
+                        {{data.expensedate}}
+                    </td>
                     <td>{{data.expenses}}</td>
                     <td>$ {{data.amount}}</td>
                     <td>click Here</td>
