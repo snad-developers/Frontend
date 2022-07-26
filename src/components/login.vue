@@ -264,7 +264,7 @@ export default {
 
 </script> 
 
-<style>
+<style scoped>
 .font-thin{
   font-size: 14px;
   color: #c40b0b;
