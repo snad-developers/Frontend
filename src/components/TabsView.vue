@@ -396,6 +396,7 @@ export default {
          resdata:[],
          rdata:[],
          cdata:[],
+         logid:null
          
          
       }
@@ -407,7 +408,9 @@ export default {
     created(){
       this.person=(this.$route.params);
         console.log("person",this.person);
-          this.rowdata=this.$route.params;
+        const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+        this.logid=userdetails;
+        this.rowdata=this.$route.params;
         this.edfetch();
         this.visafetch();
         this.jobfetch();
