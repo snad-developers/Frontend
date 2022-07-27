@@ -1,7 +1,7 @@
 <template>
 <form action="">
     
-            <div class="container">
+            <div class="container" style="width: 55%;">
                 <div class="box-1">
                     <h3>Personal</h3>
             
@@ -856,7 +856,7 @@ return true
                     $autoDirty: true,
                 },
                 mobile: { 
-                    required: helpers.withMessage("Enter Phone Number", required), 
+                    required: helpers.withMessage("Enter Mobile Number", required), 
                     $autoDirty: true,
                     numeric,
                     minLength:helpers.withMessage("Enter Valid Number", minLength(10)) ,

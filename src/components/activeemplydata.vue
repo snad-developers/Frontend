@@ -10,7 +10,7 @@
   </div>  
 </div>
 <div class="main-container">
-   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;top: 30px;">Back</button></a>
    
    <router-link to="newEmp">
    <button v-if="logid.role=='Admin' ||logid.role=='HR Manager'" style="margin-left: 90%;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">New Employee</button>
