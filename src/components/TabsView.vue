@@ -1,5 +1,5 @@
 <template>
-<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;top: 35px;">Back</button></a>
    <br>
    <br>
 <div class="P1">
@@ -39,7 +39,7 @@
     <input  name="ssn" for="ssn"  type="text" placeholder="SSN" style="padding: 10px 20px;width:225px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.ssn" ></td>
    
     <td><label for="taxfilenumber" style="margin-left: 20px;">Tax File Number</label><br>
-    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber" ></td></tr></table>
+    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.taxfilenumber" ></td></tr></table>
        </div>
     <hr class="hr">
     <div>
@@ -52,11 +52,11 @@
 
     
 
-     <td><label for="addressline1" style="margin-left: 20px;">AddressLine 1</label><br>
+     <td><label for="addressline1" style="margin-left: 20px;">Address Line 1</label><br>
     <input type="text" for="addressline1" name="addressline1"  placeholder="AddressLine 1" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.addressline1" ></td>
     
        
-     <td><label for="addressline2" style="margin-left: 20px;">Addressline 2</label><br>
+     <td><label for="addressline2" style="margin-left: 20px;">Address Line 2</label><br>
     <input type="text" for="addressline2" name="addressline2" placeholder="Addressline 2" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.addressline2" ></td></tr>
     
     <tr><td><label for="city" style="margin-left: 20px;">City</label><br>
@@ -112,7 +112,7 @@ color: white;
 cursor: pointer;
 margin-left:740px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="educationupdate(rowdata)">Add New Education Information</button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="educationupdate(rowdata)">Add New Education Information</button> 
 
     
    
@@ -124,8 +124,8 @@ padding: 10px;
                                 <th>Highest Degree</th>
                                 <th>Specialization</th>
                                 <th>GPA</th>
-                                <th>Degree Startdate</th>
-                                <th>Degree Enddate</th>
+                                <th>Degree Start date</th>
+                                <th>Degree Endd ate</th>
                                 </thead>
                                 <template v-for="(rowdata,index) in responsedata" :key="index" > 
                                    
@@ -147,7 +147,9 @@ padding: 10px;
    
    
   <hr class="hr">
+  <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'" >
 </div>
+
     <h4>Visa Information</h4>
     <button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
@@ -156,22 +158,23 @@ color: white;
 cursor: pointer;
 margin-left:770px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="visaupdate(rowdata)">Add New Visainformation</button> 
-
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="visaupdate(rowdata)">Add New Visainformation</button> 
+</div>
                          
+
 <table>
 
 
                                 
         
-        <thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
+        <thead   v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'"  style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
         <tr>
             
             <th>Date</th>
-            <th>Visastatus</th>
-            <th>Issuingcountry</th>
-            <th>Issueddate</th>
-            <th>Expirationdate</th>
+            <th>Visa status</th>
+            <th>Issuing country</th>
+            <th>Issued date</th>
+            <th>Expiration date</th>
             <th>Status</th>
             
         </tr>
@@ -234,7 +237,7 @@ padding: 10px;
 
                                 <thead class="thead" style="background-color:rgb(223, 181, 188); color:grey;left:0px;">
                                 <th>Effective Date</th>
-                                <th>employement Status</th>
+                                <th>employment Status</th>
                                 <th>Comment</th>
                                 </thead>
                                 <br>
