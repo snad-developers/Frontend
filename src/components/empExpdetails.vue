@@ -15,7 +15,7 @@
         </div>
         <br>
         <div class="child">
-            Total: {{this.empresponse.sum}}
+            Total: $ {{this.empresponse.sum}}
         </div>
     </div>
     
