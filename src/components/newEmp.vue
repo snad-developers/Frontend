@@ -1,7 +1,7 @@
 <template>
 <form action="">
     
-            <div class="container">
+            <div class="container" style="width: 55%;">
                 <div class="box-1">
                     <h3>Personal</h3>
             
@@ -10,7 +10,7 @@
                             <label align="left" for="empid">Employee Number<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="number" name="empid" v-model="person.empid" style="padding:5% ;border-radius:15px"
+                            <input required type="number" name="empid" min="0" v-model="person.empid" style="padding:5% ;border-radius:15px"
                                 :class="
                                     v$.person.empid.$error === true
                                     ? 'text-fields-error'
@@ -144,10 +144,10 @@
                     
                     <div class="child-1">
                         <div>
-                            <label for="SSN">SSN<span style="color: red;font-size: large;">*</span></label>
+                            <label for="National ID">National ID<span style="color: red;font-size: large;">*</span></label>
                         </div>
                         <div>
-                            <input required type="text" name="SSN" v-model="person.ssn" placeholder="SSN"
+                            <input required type="text" name="National ID" v-model="person.ssn" placeholder="National ID"
                                 :class="
                                     v$.person.ssn.$error === true
                                     ? 'text-fields-error'
@@ -183,7 +183,7 @@
                             <div style="display: flex;">
                                 <input required type="text" v-model="person.city" placeholder="City">
                                 <input required type="text" v-model="person.state" placeholder="State">
-                                <input required type="number" v-model="person.zipcode" placeholder="Zipcode" style="padding:1.5% ;border-radius:20px; text-align: center;">
+                                <input required type="number" v-model="person.zipcode" min="0" placeholder="Zipcode" style="padding:1.5% ;border-radius:20px; text-align: center;">
                             </div>
                                 
     
@@ -442,7 +442,7 @@
                     <div class="child-3">
                         <div style="display:flex">
                             <div>
-                                <input required type="number" v-model="person.mobile"  placeholder="Mobile Number*" style="padding:5% ;border-radius:20px; text-align: center; width:100%;"
+                                <input required type="number" v-model="person.mobile" min="0" placeholder="Mobile Number*" style="padding:5% ;border-radius:20px; text-align: center; width:100%;"
                                 :class="
                                     v$.person.mobile.$error === true
                                     ? 'text-fields-error'
@@ -625,7 +625,7 @@
                                 " 
                             >
 
-                                <option disabled selected value>Select Employeement Type</option>
+                                <option disabled selected value>Select Employment Type</option>
                                 <option value ="Full Time">Full Time</option>
                                 <option value ="Part Time">Part Time</option>
                                 <option value ="Intern">Intern</option>
@@ -848,7 +848,7 @@ return true
       }
            },
                 ssn:{
-                    required:helpers.withMessage("Please Enter SSN",required),
+                    required:helpers.withMessage("Please Enter National ID",required),
                     $autoDirty: true,
                 },
                 gender:{
@@ -856,7 +856,7 @@ return true
                     $autoDirty: true,
                 },
                 mobile: { 
-                    required: helpers.withMessage("Enter Phone Number", required), 
+                    required: helpers.withMessage("Enter Mobile Number", required), 
                     $autoDirty: true,
                     numeric,
                     minLength:helpers.withMessage("Enter Valid Number", minLength(10)) ,
@@ -899,11 +899,11 @@ return true
                     $autoDirty: true,
                 },
                 paytype:{
-                    required:helpers.withMessage("Please Select Paytype",required),
+                    required:helpers.withMessage("Please Select Pay Type",required),
                     $autoDirty: true,
                 },
                 employementstatus:{
-                    required:helpers.withMessage("Please Select Employeement Type",required),
+                    required:helpers.withMessage("Please Select Employment Type",required),
                     $autoDirty: true,
                 },
                 

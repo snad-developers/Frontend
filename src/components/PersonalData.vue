@@ -245,7 +245,7 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
 
 
 </script>
-<style>
+<style scoped>
 
 .P1{
     border-radius: 25px;
