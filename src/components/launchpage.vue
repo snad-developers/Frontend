@@ -53,7 +53,7 @@
             <p><i class="uil uil-user" style="margin-left:0"></i> {{activeemp}}</p>
         <!-- <router-link to="/activeemplydata" > <a @click="() =>togglepopup"><h6 style="color: blue;">Acess data</h6></a></router-link>  -->
      </div>
-    <div @click="expense" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin'   || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+    <div @click="expense" v-bind:class="[(  this.logid.role=='Payroll Admin'   || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3> Employee Expenses</h3>
             <p>${{(empexpensestotal/1000).toFixed(2)}}K</p>
           <!-- <router-link to="/employeexpensedata" ><h6 style="color: blue;">Acess data</h6></router-link> -->
@@ -176,7 +176,7 @@ export default {
                expense (){
           // alert("access")
           
-          if(this.logid.role=='Admin' || this.logid.role=='Payroll Admin'   || this.logid.role=='Executive Board' ){
+          if( this.logid.role=='Payroll Admin'   || this.logid.role=='Executive Board' ){
             
             this.$router.push({name:"employeexpensedata"}); 
           }

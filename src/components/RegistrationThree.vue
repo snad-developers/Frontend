@@ -5,7 +5,7 @@
     <div class="forms main-container2" >
       <div class="child-4" style="width:50%">
         
-        <div style="margin:18px;">
+        <div style="margin:18px;left: -7%;">
   <label for="Select Questions">
     What is your favourite food/dish ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question1"
@@ -30,7 +30,8 @@
           </p> -->
   </label>
   </div>
-      <div class="" style="margin:36px;">
+      <div class="" style="left: -15%;
+    margin-top: 8%;margin:36px;left: -12%;top:4%;">
   <label for="Select Questions">
     Who is your childhood hero ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question2"
@@ -58,7 +59,7 @@
    
      
  
-      <div class="" style="margin-top: 43px;margin-bottom: 35px;">
+      <div class="" style="margin-top: 43px;margin-bottom: 35px;top: 6%;">
   <label for="Select Questions">
     What is the name of your favourite pet ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question3"
@@ -84,7 +85,9 @@
      </label>
      </div>
   
-        <div class="" style="margin:18px;">
+        <div class="" style="margin:18px;margin: 33px;
+    top: 9%;
+    left: -12%;">
   <label for="Select Questions">
     In what city you were born ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question4"
@@ -110,7 +113,7 @@
           </p> -->
      </label>
 </div>
-        <div class="" style="margin-top: 38px;">
+        <div class="" style="margin-top: 38px;margin-top: 29%">
   <label for="Select Questions">
     What is the name of your first school ?
      <!-- <select name="Select Questions" value="Select Questions" id="Select Questions"  class="user" v-model="person.question5"
