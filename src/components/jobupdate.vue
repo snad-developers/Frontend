@@ -355,7 +355,7 @@
 
 
 
-<button  @click=" jobinfo" style="margin-left: 400px;margin-top:0%; background-color: blue;color: antiquewhite;">
+<button  @click=" jobinfo" style="margin-left: 320px;margin-top:0%;left:-16px;top:20px; background-color: blue;color: antiquewhite;">
                             <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>

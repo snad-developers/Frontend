@@ -73,8 +73,8 @@
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p><br> <br>   
-  <span  style="top: -65px;"> <label for="degreestartdate" style="margin-left: 20px;">Degree Startdate</label><br> 
+                                </p> <br><br>
+  <span  style="top: -74px;"> <label for="degreestartdate" style="margin-left: 20px;">Degree Startdate</label><br> 
 <input  name="degreestartdate" id="birthdate" type="date" v-model="person.degreestartdate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
 :class="                            
                                     v$.person.degreestartdate.$error === true
@@ -87,7 +87,7 @@
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p><br>
+                                </p>  <br>
                                 <label for="degreeenddate" style="margin-left: 20px;">Degree Enddate</label><br>
                                  <input  name="degreeenddate" id="birthdate" type="date" v-model="person.degreeenddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
                                 :class="

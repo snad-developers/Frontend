@@ -98,7 +98,7 @@
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 "  > 
-                                  <span v-if="this.jackson.age!=''"> Age: {{this.jackson.age}}</span> 
+                                  <span style="left:10px;" v-if="this.jackson.age!=''">  Age: {{this.jackson.age}}</span> 
 
                                 </td></tr>
                                 <tr><td><p style="margin-left:70px"
@@ -116,9 +116,9 @@
                                 
                                 {{ error.$message }}
                             </p>
-                            <p
+                            <p style="margin-left:70px"
 
-            class="text-red-500 text-xs font-thin"
+            class="text-red-500 text-xs font-thin" 
 
            v-if="!v$.person.dateofbirth.isUnique.$response"
 
@@ -197,7 +197,21 @@
      
 
      <td><label for="zipcode" style="margin-left: 20px;">Zipcode</label><br>
-    <input type="text" for="zipcode" name="zipcode" placeholder="Zipcode" style="margin-left: 20px;" v-model="person.zipcode"></td></tr></table>
+    <input type="text" for="zipcode" name="zipcode" placeholder="Zipcode" @keypress="onlyNumber" style="margin-left: 20px;" v-model="person.zipcode"
+    :class="
+                                    v$.person.zipcode.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  ></td></tr>
+                                <tr><td>
+                                  <p style="margin-left:200px; left:61%;"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.zipcode.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td></tr>
+                                </table>
      </div>
       </div>
      <hr class="hr">
@@ -689,6 +703,13 @@ return true
                 empstatus:{
                     required:helpers.withMessage("Please Select Status",required),
                     $autoDirty: true,
+                },
+                zipcode: { 
+                    required: helpers.withMessage("Enter Zipcode Number", required), 
+                    $autoDirty: true,
+                    numeric,
+                    minLength:helpers.withMessage("Enter Valid Number", minLength(6)) ,
+                    maxLength:helpers.withMessage("Enter Valid Number", maxLength(6))
                 },
                 contactnumber: { 
                     required: helpers.withMessage("Enter Phone Number", required), 
