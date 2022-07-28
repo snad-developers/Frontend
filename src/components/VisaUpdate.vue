@@ -1,13 +1,27 @@
 <template>
-<h2>Update Visa Information</h2>
+
+<h2>Add Visa Information</h2>
+<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
   <div class="comp"><br>
       <tabel>
       
 <tr><td><label for="date" style="margin-left: 20px;">Date</label><br>
-<input  name=" date" id="date" type="date" v-model="person.date" style="padding: 10px;width:225px;margin-left: 20px;"></td>
+<input  name=" date" id="date" type="date" v-model="person.date" style="padding: 10px;width:225px;margin-left: 20px;"
+:class="
+                                    v$.person.date.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                
+                               </td>
 
  <td><label for="visastatus" style="margin-left: 20px;">Visa Type</label><br>
-                            <select name="visastatus" id="visastatus" placeholder="Visa Type" v-model="person.visastatus" style="margin-left: 20px;padding: 10px;width: 90%;" >
+                            <select name="visastatus" id="visastatus" placeholder="Visa Type" v-model="person.visastatus" style="margin-left: 20px;padding: 10px;width: 90%;"
+                            :class="
+                                    v$.person.visastatus.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "> 
                               
                                <option value="B1">B1</option>
                               <option value="B2">B2</option>
@@ -17,9 +31,29 @@
                               <option value="L2A">L2A</option>
                               <option value="permanent">Permanent Resident </option>
                             </select></td></tr>
+                            <tr><td> <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.date.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td>
+                                <td> <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.visastatus.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td></tr>
 
 <tr><td><label for="issuingcountry" style="margin-left: 20px;">Issuing Country</label><br>
-     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 10px;width: 60%;" >
+     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 10px;width: 60%;"
+     :class="
+                                    v$.person.issuingcountry.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">  
+     
                                 <option disabled selected value>Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -156,14 +190,77 @@
                                 <option value="Mali">Mali</option>
      </select></td>
     <td> <label for="issueddate" style="margin-left: 20px;">Issued Date</label><br>
-<input  name=" issueddate" id="issueddate" type="date" v-model="person.issueddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td></tr> 
+<input  name=" issueddate" id="issueddate" type="date" v-model="person.issueddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
+ :class="
+                                    v$.person.issueddate.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "></td></tr>
+ <tr> 
+  <td><p
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.issuingcountry.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td> 
+                                <td><p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.issueddate.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td></tr> 
 <tr><td><label for="expirationdate" style="margin-left: 20px;">Expiration Date</label><br>
-<input  name=" expirationdate" id="expirationdate" type="date" v-model="person.expirationdate" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td>  
+<input  name=" expirationdate" id="expirationdate" type="date" v-model="person.expirationdate"   @blur="isUnique(this.person.expirationdate)" style="padding: 10px 20px;width:225px;margin-left: 20px;"
+:class="
+                                    v$.person.expirationdate.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                 <!-- <span v-if="this.jackson.status!=''">Status:{{Active}}</span> -->
+                                 
+                                </td>  
 
 
 
-    <td> <label for="status" style="margin-left: 20px;">status</label><br>
-     <input name="status" id="status"  type="text" v-model="person.status"  style="padding: 10px 20px;width:225px;margin-left: 20px;"></td></tr></tabel><br><br> 
+    <!-- <td> <label for="status" style="margin-left: 20px;">status</label><br>
+     <input name="status" id="status"  type="text" v-model="person.status"  style="padding: 10px 20px;width:225px;margin-left: 20px;"
+    :class="
+                                    v$.person.status.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "></td></tr> -->
+                    </tr>
+                    
+                                <tr><td><p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.expirationdate.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p>
+                                  <!-- <p
+
+            class="text-red-500 text-xs font-thin"
+
+           v-if="!v$.person.expirationdate.isUnique.$response"
+
+          >
+          
+
+             Age should be between 18 to 75 
+
+          </p> -->
+                                </td>
+                               <!-- <td> <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.status.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td> -->
+                                </tr></tabel><br><br> 
 
            
    <button  @click="visaupdate" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
@@ -178,6 +275,9 @@
 
 </template>
 <script>
+import useVuelidate from "@vuelidate/core";
+import { required,helpers,email,numeric,minLength,maxLength} from "@vuelidate/validators";
+import * as moment from "moment";
 import loginapi from '@/services/loginapi';
 
 export default {
@@ -186,6 +286,10 @@ export default {
         return{
             person:null,
             responsedata:[],
+             v$: useVuelidate(),
+             jackson:{
+                status:null,
+             }
             
         
                
@@ -195,41 +299,87 @@ export default {
         this.person=(this.$route.params);
         console.log(this.person);
         this.responsedata=this.$route.params;
+        // isUnique(this.person.expirationdate);
        
     
     },
 
     
-    methods: {
-//        vinsert(){
-//              const senddata={
-//               "date": this.person.date,
-//     "visastatus": this.person.visastatus,
-//     "issuingcountry": this.person.issuingcountry,
-//     "issueddate": this.person.issueddate,
-//     "expirationdate": this.person.expirationdate,
-//     "status": this.person.status,
-     
-//      "employeeid":this.person.employeeid,
-     
-//       }
-//        console.log(senddata);
-//        loginapi.visainsert(senddata).then(response=>{
-//                 console.log(response);
-//       //  console.log(response,response.status,response.data.firstName,this.person.firstName);
-//                 if(response.data.status == "success" && response.data.statuscode == 200){
-//                     console.log(response);
-//                     alert("Details saved successfully ")
-//                     //this.sendEmail(e);
-//                     this.$router.push('activeemplydata');
-//                 }if(response.data.status == "faliure" && response.data.statuscode == 201 ){
-//          console.log(response);
-//           alert("Failure ");
-         
-//  }
-//         });
+   
+    validations(){
+       return{
+      person:{
+                date:{
+                    required:helpers.withMessage("Please Enter Date",required),
+                    $autoDirty: true,
+                },
+                visastatus:{
+                    required:helpers.withMessage("Please Select Visastatus",required),
+                    $autoDirty: true,
+                },
+                issuingcountry:{
+                    required:helpers.withMessage("Please Select Country",required),
+                    $autoDirty: true,
+                },
+                issueddate:{
+                    required:helpers.withMessage("Please Enter Isseued Date",required),
+                    $autoDirty: true,
+                },
+                expirationdate:{
+                    required:helpers.withMessage("Please Enter Expiration Date",required),
+                    $autoDirty: true,
 
-//         },
+                     isUnique(value) {
+
+          if (value === '') return true
+
+        // standalone validator ideally should not assume a field is required
+
+           var  status = moment(moment.now()).diff(value,"days");
+
+    if(status >=0  ){
+
+return true
+
+          }else{
+
+ return false
+
+          }
+
+      }
+                },
+                // status:{
+                //     required:helpers.withMessage("Please Enter Status",required),
+                //     $autoDirty: true,
+                // },
+      }
+      }
+      },
+
+
+   methods: {
+    isUnique(value) {
+
+          if (value === '') return true
+
+        // standalone validator ideally should not assume a field is required
+
+            this.jackson.status = moment(moment.now()).diff(value,"days");
+            console.log(this.jackson.status)
+
+    if(this.jackson.status >=0 ){
+
+return true
+
+          }else{
+
+ return false
+
+          }
+
+      },
+        
     visaupdate() {
         //  this.v$.$touch();
      // console.log(this.person.firstName); // logs the input value
@@ -239,7 +389,7 @@ export default {
     "issuingcountry": this.person.issuingcountry,
     "issueddate": this.person.issueddate,
     "expirationdate": this.person.expirationdate,
-    "status": this.person.status,
+    // "status": this.person.status,
     "employeeid":parseInt(this.person.employeeid),
       }
        console.log(senddata);

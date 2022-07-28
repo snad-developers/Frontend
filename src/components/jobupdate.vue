@@ -1,34 +1,103 @@
 <template>
-<h2>Update Job Information</h2>
+
+<h2>ADD Job Information</h2>
+<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
 <div class="comp">
                               <br>
                               
                               <tabel><tr>
-<td><label for="effectivedate" style="margin-left: 20px;">Effective date</label><br>
-<input  name="effective date" id="effective date" type="date" v-model="person.effectivedate" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td>
+<td><label for="jobeffectivedate" style="margin-left: 20px;">Effective date</label><br>
+<input  name="jobeffectivedate" id="jobeffective date" type="date" v-model="person.jobeffectivedate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
+:class="
+                                    v$.person.jobeffectivedate.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "></td>
 <td><label for="clientname" style="margin-left: 20px;">ClientName</label><br>
-<input  name="clientname" id="clientname" type="text" v-model="person.clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td></tr>
+<!-- <input  name="clientname" id="clientname" type="text" v-model="person.clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;" -->
+<select name="clientname"   v-model="person.clientname" style="width: 225px;padding: 10px 20px;margin-left: 20px;"
+:class="
+                                    v$.person.clientname.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+       <option disabled selected value  > Select Client </option>
+                            <template v-for="(response,index) in clientresponse" :key="index" >
+                                <option >{{response.clientname}}</option>
+                            </template>
+
+    </select>
+                                </td></tr>
+                                <tr><td><p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.jobeffectivedate.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td><td><p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.clientname.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td></tr>
 
      <tr><td><label for="jobtitle" style="margin-left: 20px;">Job Title</label><br>
-    <select name="jobtitle"   v-model="person.jobtitle" style="width: 225px;padding: 10px 20px;margin-left: 20px;">
-        <option disabled selected value>Job title</option>
-        <option value="Admin" >Admin</option>
-        <option value="PayrollAdmin" >Payroll Admin</option>
-        <option value="HR Manager" > HR Manager</option>
-        <option value="Director" >Director</option>
-        <option value="ExecutiveBoard" >Executive Board</option>
-        <option value="WorkManager" >Work Manager</option>
-        <option value="Software Engineer" >Software Engineer</option>
+    <select name="jobtitle"   v-model="person.jobtitle" style="width: 225px;padding: 10px 20px;margin-left: 20px;"
+    :class="
+                                    v$.person.jobtitle.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+        <option value="Productanalyst">Product Analyst</option>
+        <option value="SoftwareEngineer">Software Engineer</option>
+        <option value="Marketingmanager">Marketing Manager</option>
+        <option value="Financialanalyst"> Financial Analyst</option>
+        <option value="Datascientist" >Data Scientist</option>
+        <option value="Cloudengineer" >Cloud Engineer</option>
+        <option value="Businessanalyst">Business Analyst</option>
+        <option value="Operationsmanager">Operations Manager</option>
 
     </select></td>
 
     <td><label for="reportsto" style="margin-left: 20px;">Reports To</label><br>
      
-     <input  name="reportsto" id="reportsto" type="text" v-model="person.reportsto" style="padding: 10px 20px;width:225px;margin-left: 20px;"></td></tr>
+     <select name="reportsto"   v-model="person.reportsto" style="width: 225px;padding: 10px 20px;margin-left: 20px;"
+     :class="
+                                    v$.person.reportsto.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                <option disabled selected value  > Select Reportsto </option>
+                            <template v-for="(response,index) in nameresponse" :key="index" >
+                                <option >{{response.fullname}}</option>
+                            </template>
+
+    </select>
+                                </td></tr>
+                                <tr><td><p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.jobtitle.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td>
+                                <td><p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.reportsto.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td></tr>
 
 
  <tr> <td><label for="location" style="margin-left: 20px;">Location</label><br>
-     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 10px;width: 60%;" >
+     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 10px;width: 60%;"
+     :class="
+                                    v$.person.location.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "> 
                                 <option disabled selected value>Country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -269,7 +338,14 @@
                                 <option value="Serbia">Serbia</option>
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
-                            </select></td></tr>
+                            </select></td>
+                            <td><p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.location.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p></td></tr>
                               </tabel>
 
 
@@ -290,6 +366,9 @@
 
 </template>
 <script>
+import useVuelidate from "@vuelidate/core";
+import { required,helpers,email,numeric,minLength,maxLength} from "@vuelidate/validators";
+import * as moment from "moment";
 import loginapi from '@/services/loginapi';
 export default {
     name:"jobupdate",
@@ -297,6 +376,11 @@ export default {
         return{
             person:null,
             response:[],
+            clientresponse:[],
+            nameresponse:[],
+              v$: useVuelidate(),
+              clientname:null,
+              fullname:null,
         
                
         }
@@ -306,11 +390,51 @@ export default {
   this.person=(this.$route.params);
   console.log(this.person);
   this.responsedata=this.$route.params;
-       
+       this.clientfetch();
+       this.namefetch();
 
   
  },
-  methods:{
+ 
+     validations(){
+    return{
+      person:{
+                jobtitle:{
+                    required:helpers.withMessage("Please Select Job Title",required),
+                    $autoDirty: true,
+                },
+                 location:{
+                    required:helpers.withMessage("Please Select Job Location",required),
+                    $autoDirty: true,
+                },
+                jobeffectivedate:{
+                    required:helpers.withMessage("Please Enter Effectivedate",required),
+                    $autoDirty: true,
+                },
+                clientname:{
+                    required:helpers.withMessage("Please Enter Client Name",required),
+                    $autoDirty: true,
+                },
+                 reportsto:{
+                    required:helpers.withMessage("Please Enter Reportsto",required),
+                    $autoDirty: true,
+                },
+      }
+    }
+     },
+      methods:{
+          clientfetch(){
+            loginapi.getclient().then(response=>{
+                this.clientresponse=response.data
+                console.log(this.clientresponse)
+            })
+        },
+        namefetch(){
+            loginapi.getempvalues().then(response=>{
+                this.nameresponse=response.data
+                console.log(this.nameresponse)
+            })
+        },
      jinsert(){
          const senddata={
     
@@ -342,7 +466,7 @@ export default {
     jobinfo(){
          const senddata={
     
-     "effectivedate":this.person.effectivedate,
+     "jobeffectivedate":this.person.jobeffectivedate,
      "location":this.person.location,
      "clientname":this.person.clientname,
      "jobtitle":this.person.jobtitle,

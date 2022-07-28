@@ -13,33 +13,157 @@
         <tr><td>
            
     <label for="employeeid" style="margin-left: 20px;">Employee Id</label><br>
-    <input type="text" name="employeeid" for="employeeid" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" placeholder="Employee Id" style="margin-left: 20px;"  v-model="person.employeeid"   ></td>
+    <input type="text" name="employeeid" for="employeeid" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" placeholder="Employee Id" style="margin-left: 20px;"  v-model="person.employeeid" 
+    :class="
+                                    v$.person.employeeid.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+      />
+       </td>
     
     <td><label for="empstatus" style="margin-left: 20px;">Status</label><br>
-    <select name="empstatus" for="empstatus" id="empstatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"   v-model="person.empstatus">
+    <select name="empstatus" for="empstatus" id="empstatus"  style="width: 225px;padding: 14px 20px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"   v-model="person.empstatus"
+                                   
+                            >
+    
+    
        
         <option disabled selected value>Status</option>
         <option value="Active" >Active</option>
         <option value="Inactive" >Inactive</option>
-    </select></td></tr>
+       </select>
+    </td></tr><tr><td><p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.employeeid.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p></td><td>
+                               <p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.empstatus.$errors"
+                                :key="error.$uid"
+                                >
+                                {{ error.$message }}
+                            </p>  
+                            </td></tr>
    
     <tr><td><label for="firstname" style="margin-left: 20px;">First Name</label><br>
-    <input type="text" for="firstname"   name="firstname"  placeholder="First Name" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.firstname" ></td>
+    <input type="text" for="firstname"   name="firstname"  placeholder="First Name" v-on:keypress="isLetter($event)" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.firstname"
+     :class="
+                                    v$.person.firstname.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                " 
+      /> </td>
+      
     
     <td><label for="lastname" style="margin-left: 20px;">Last Name</label><br>
-    <input type="text" for="lastname" name="lastname" placeholder="Last Name"  style="margin-left: 20px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.lastname" > </td></tr>
+    <input type="text" for="lastname" name="lastname" placeholder="Last Name" v-on:keypress="isLetter($event)" style="margin-left: 20px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.lastname"
+     :class="
+                                    v$.person.lastname.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  > </td></tr>
+    <tr><td><p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.firstname.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p>  </td><td>
+                              <p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.lastname.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                              </p> </td>
+                            </tr>
+
     
      <tr><td><label for="fullname" style="margin-left: 20px;">Full Name</label><br>
-    <input type="text" for="fullname"  name="fullname"  placeholder="Full Name"  style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.fullname" ></td>
+    <input type="text" for="fullname"  name="fullname"  placeholder="Full Name" v-on:keypress="isLetter($event)"  style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.fullname"
+    :class="
+                                    v$.person.fullname.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  > </td>
     
      <td><label for="dateofbirth" style="margin-left: 20px;">Date Of Birth</label><br>
-    <input  name="dateofbirth" for="dateofbirth" type="date" placeholder="Date Of Birth" style="padding: 10px 20px;width:225px;margin-left: 20px;"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.dateofbirth" ></td></tr>
+    <input  name="dateofbirth" for="dateofbirth" type="date" placeholder="Date Of Birth"  @blur="isUnique(this.person.dateofbirth)" style="padding: 10px 20px;width:225px;margin-left: 60px;"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.dateofbirth" 
+    :class="
+                                    v$.person.dateofbirth.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  > 
+                                  <span v-if="this.jackson.age!=''"> Age: {{this.jackson.age}}</span> 
+
+                                </td></tr>
+                                <tr><td><p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.fullname.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p>  </td>
+                               
+                            <td>  <p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.dateofbirth.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p>
+                            <p
+
+            class="text-red-500 text-xs font-thin"
+
+           v-if="!v$.person.dateofbirth.isUnique.$response"
+
+          >
+          
+
+            Age should be between 18 to 75
+
+          </p>
+                          
+                             </td></tr>
    
     <tr><td><label for="ssn" style="margin-left: 20px;">SSN</label><br>
-    <input  name="ssn" for="ssn"  type="text" placeholder="SSN" style="padding: 10px 20px;width:225px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.ssn" ></td>
+    <input  name="ssn" for="ssn"  type="text" placeholder="SSN" style="padding: 10px 20px;width:225px;margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.ssn" 
+    :class="
+                                    v$.person.ssn.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  > </td>
    
     <td><label for="taxfilenumber" style="margin-left: 20px;">Tax File Number</label><br>
-    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.taxfilenumber" ></td></tr></table>
+
+    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber" 
+    :class="
+                                    v$.person.taxfilenumber.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  > </td></tr>
+                                <tr><td>
+                                  <p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.ssn.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p> </td><td>
+                            <p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.taxfilenumber.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td> </tr>
+                                </table>
+
        </div>
     <hr class="hr">
     <div>
@@ -83,14 +207,52 @@
      
 
     <td><label for="contactnumber" style="margin-left: 20px;">Phone Number</label><br>
-    <input type="text" for="contactnumber" name="contactnumber" placeholder="Phone Number" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.contactnumber" ></td>
+    <input type="text" for="contactnumber" name="contactnumber" placeholder="Phone Number"  @keypress="onlyNumber" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.contactnumber" 
+    :class="
+                                    v$.person.contactnumber.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  > </td>
     
      <td><label for="emergencynumber" style="margin-left: 20px;"> Emergency Phone Number</label><br>
-    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Emergency Phone Number" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.emergencynumber" ></td>
+    <input type="text" for="emergencynumber" name="emergencynumber"  placeholder="Emergency Phone Number"  @keypress="onlyNumber" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.emergencynumber" 
+    :class="
+                                    v$.person.emergencynumber.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  > </td>
     
     
        <td><label for="emailaddress" style="margin-left: 20px;">Email Id</label><br>
-    <input type="email" for="emailaddress" name="emailaddress" placeholder="Email Id" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.emailaddress" ></td></tr></table> <br>
+    <input type="email" for="emailaddress" name="emailaddress" placeholder="Email Id" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.emailaddress"
+    :class="
+                                    v$.person.emailaddress.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "  > </td></tr>
+                                <tr><td>
+                                  <p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.contactnumber.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td>
+                            <td><p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.emergencynumber.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td>
+                            <td><p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.emailaddress.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td></tr>
+                                  </table> <br>
     
      <button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
@@ -112,7 +274,11 @@ color: white;
 cursor: pointer;
 margin-left:740px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="educationupdate(rowdata)">Add New Education Information</button> 
+
+
+
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="educationupdate(rowdata)">+ Add New</button> 
+
 
     
    
@@ -158,8 +324,12 @@ color: white;
 cursor: pointer;
 margin-left:770px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="visaupdate(rowdata)">Add New Visainformation</button> 
+
+
+
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="visaupdate(rowdata)">+ Add New</button> 
 </div>
+
                          
 
 <table>
@@ -171,11 +341,12 @@ padding: 10px;
         <tr>
             
             <th>Date</th>
-            <th>Visa status</th>
-            <th>Issuing country</th>
-            <th>Issued date</th>
-            <th>Expiration date</th>
-            <th>Status</th>
+            <th>Visa Status</th>
+            <th>Issuing Country</th>
+            <th>Issued Date</th>
+            <th>Expiration Date</th>
+            <!-- <th>Status</th> -->
+
             
         </tr>
         </thead>
@@ -190,7 +361,7 @@ padding: 10px;
 <td>{{rowdata.issuingcountry}}</td>
 <td>{{rowdata.issueddate}}</td>
 <td>{{rowdata.expirationdate}}</td>
-<td>{{rowdata.status}}</td>
+<!-- <td>{{rowdata.status}}</td> -->
  </tr>
  </template>
  </tbody>
@@ -224,7 +395,19 @@ padding: 10px;
                       <table>
                         <tr>
                             <td><h4 style="margin-left:0px">Hire Date:</h4></td>
-                           <td> <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left:10px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.startdate"></td></tr></table><br>
+                           <td> <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left:10px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.startdate"
+                           :class="
+                                    v$.person.startdate.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "></td></tr><tr><td>
+                                  <p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.startdate.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td></tr></table><br>
                             
                         
                          <!-- <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left: 50px;" v-model="person.startdate">    -->
@@ -232,6 +415,14 @@ padding: 10px;
                   
                      <div class="child-4">
                         <h4>Employement Status</h4>
+                        <span><button style="border-radius:10px;
+ background-color: rgba(8, 77, 179, 0.864);
+text-decoration: solid; 
+color: white;
+cursor: pointer;
+padding: 10px;
+margin-left:775px;
+border: 0px solid rgb(153, 148, 148) ;top:-30px;" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span>
              
                             <table>
 
@@ -244,20 +435,48 @@ padding: 10px;
                             
                     
                         <tr>
-                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"> </td>
-                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.employementstatus"></td>
+                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"
+                         :class="
+                                    v$.person.effectivedate.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "> </td>
+                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.employementstatus"
+                         :class="
+                                    v$.person.employementstatus.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                "></td>
                          
-                          <td><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.comment">  </td>
+                          <td><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.comment"
+                          :class="
+                                    v$.person.comment.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">  </td></tr> <tr><td><p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.effectivedate.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td>
+                            <td><p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.employementstatus.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td>
+                            <td><p style="margin-left:70px"
+                                class="text-red-500 text-xs font-thin"
+                                v-for="error of v$.person.comment.$errors"
+                                :key="error.$uid">
+                                
+                                {{ error.$message }}
+                            </p></td>
                         
                           
-                         <td> <span><button style="border-radius:10px;
- background-color: rgba(8, 77, 179, 0.864);
-text-decoration: solid; 
-color: white;
-cursor: pointer;
-padding: 10px;
-margin-left:135px;
-border: 0px solid rgb(153, 148, 148) ;top:-0px;" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span> </td></tr>
+                         <td>  </td></tr>
                     </table>
                         </div><br>
                         <hr class="hr">
@@ -269,7 +488,7 @@ color: white;
 cursor: pointer;
 margin-left:800px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="jobinfo(rowdata)">Add New Job Details</button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="jobinfo(rowdata)">+ Add New </button> 
 
                               
 
@@ -278,9 +497,9 @@ padding: 10px;
         <thead style="background-color:rgb(223, 181, 188);text-align:center;s color:grey; ">
         <tr>
             
-            <th>EffectiveDate</th>
+            <th>Effective Date</th>
             <th>Location</th>
-            <th>ClientName</th>
+            <th>Client Name</th>
             <th>JobTitle</th>
             <th>Reportsto</th>
            
@@ -292,7 +511,7 @@ padding: 10px;
        <template v-for="(rowdata,index) in rdata" :key="index" > 
            
         <tr>
-<td>{{rowdata.effectivedate}}</td>
+<td>{{rowdata.jobeffectivedate}}</td>
 <td>{{rowdata.location}}</td>
 <td>{{rowdata.clientname}}</td>
 <td>{{rowdata.jobtitle}}</td>
@@ -318,9 +537,9 @@ padding: 10px;
 text-decoration: solid; 
 color: white;
 cursor: pointer;
-margin-left:720px;
+margin-left:780px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Add New Compensation Details</button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">+ Add New</button> 
 
           
   
@@ -329,13 +548,13 @@ padding: 10px;
         <thead style="background-color:rgb(223, 181, 188);text-align:center;s color:grey; ">
         <tr>
             
-            <th>EffectiveDate</th>
-            <th>payschedule</th>
-            <th>Paytype</th>
-            <th>Payrate</th>
-            <th>Overtime</th>
-            <th>Overtimerate</th>
-            <th>Changereason</th>
+            <th>Effective Date</th>
+            <th>pay Schedule</th>
+            <th>Pay Type</th>
+            <th>Pay Rate</th>
+            <th>Over Time</th>
+            <th>Overtime R ate</th>
+            <th>Change Reason</th>
             <th>Comment</th>
             
         </tr>
@@ -346,7 +565,7 @@ padding: 10px;
        <template v-for="(rowdata,index) in cdata" :key="index" > 
            
         <tr>
-<td>{{rowdata.effectivedate}}</td>
+<td>{{rowdata.compensationeffectivedate}}</td>
 <td>{{rowdata.payschedule}}</td>
 <td>{{rowdata.paytype}}</td>
 <td>{{rowdata.payrate}}</td>
@@ -385,6 +604,9 @@ padding: 10px;
 import loginapi from '@/services/loginapi';
 import TabNav from './TabNav';
 import Tab from './Tab';
+import useVuelidate from "@vuelidate/core";
+import { required,helpers,email,numeric,minLength,maxLength} from "@vuelidate/validators";
+import * as moment from "moment";
 export default {
     name:"TabsView",
     components:{
@@ -400,11 +622,124 @@ export default {
          resdata:[],
          rdata:[],
          cdata:[],
-         logid:null
+         logid:null,
+          v$: useVuelidate(),
+          jackson:{
+          age:null,
+          },
          
          
       }
     },
+    validations(){
+    return{
+      person:{
+         employeeid:{
+                    required:helpers.withMessage("Please Enter Employee Id", required),
+                    $autoDirty: true,
+                    
+                },
+                firstname:{
+                    required:helpers.withMessage("Please Enter First Name",required),
+                    $autoDirty: true,
+                },
+                lastname:{
+                    required:helpers.withMessage("Please Enter Last Name",required),
+                    $autoDirty: true,
+                },
+                fullname:{
+                    required:helpers.withMessage("Please Enter Full Name",required),
+                    $autoDirty: true,
+                },
+              dateofbirth: { 
+          required: helpers.withMessage("Choose Date of Birth", required), 
+          $autoDirty: true,
+           isUnique(value) {
+
+          if (value === '') return true
+
+        // standalone validator ideally should not assume a field is required
+
+           var  age = moment(moment.now()).diff(value,"years");
+
+    if(age >=18 &&  age <=75 ){
+
+return true
+
+          }else{
+
+ return false
+
+          }
+
+      }
+           },
+                ssn:{
+                    required:helpers.withMessage("Please Enter SSN",required),
+                    $autoDirty: true,
+                },
+                 taxfilenumber:{
+                    required:helpers.withMessage("Please Enter Taxfilenumber",required),
+                    $autoDirty: true,
+                },
+                gender:{
+                    required:helpers.withMessage("Please Select Gender",required),
+                    $autoDirty: true,
+                },
+                empstatus:{
+                    required:helpers.withMessage("Please Select Status",required),
+                    $autoDirty: true,
+                },
+                contactnumber: { 
+                    required: helpers.withMessage("Enter Phone Number", required), 
+                    $autoDirty: true,
+                    numeric,
+                    minLength:helpers.withMessage("Enter Valid Number", minLength(10)) ,
+                    maxLength:helpers.withMessage("Enter Valid Number", maxLength(10))
+                },
+                emergencynumber: { 
+                    required: helpers.withMessage("Enter Emergency Number", required), 
+                    $autoDirty: true,
+                    numeric,
+                    minLength:helpers.withMessage("Enter Valid Number", minLength(10)) ,
+                    maxLength:helpers.withMessage("Enter Valid Number", maxLength(10))
+                },
+                emailaddress: {
+                    required: helpers.withMessage("Please Enter Email", required),
+                    $autoDirty: true,
+                    email: helpers.withMessage("Please enter a valid email id", email),
+          
+                },
+               
+                
+                startdate:{
+                    required:helpers.withMessage("Please Enter Hire Date",required),
+                    $autoDirty: true,
+                },
+                employementstatus:{
+                    required:helpers.withMessage("Please Enter Employement Status",required),
+                    $autoDirty: true,
+                },
+                effectivedate:{
+                    required:helpers.withMessage("Please Enter Effective Date",required),
+                    $autoDirty: true,
+                },
+                comment:{
+                    required:helpers.withMessage("Please Enter Comment",required),
+                    $autoDirty: true,
+                },
+               
+                 
+
+
+            }
+        }
+
+    },
+
+       
+     
+    
     mounted(){
      // this.edfetch();
 
@@ -419,6 +754,7 @@ export default {
         this.visafetch();
         this.jobfetch();
         this.compfetch();
+        this.isUnique(this.person.dateofbirth);
         
 
   console.log("rowdata",this.rowdata)
@@ -428,6 +764,20 @@ export default {
         // this.rowdata=(this.$route.params);
     },
     methods:{
+      isLetter(e) {
+  let char = String.fromCharCode(e.keyCode); // Get the character
+  if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
+  else e.preventDefault(); // If not match, don't add to input text
+},
+     onlyNumber ($event) {
+   //console.log($event.keyCode); //keyCodes value
+   let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
+   if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
+      $event.preventDefault();
+   }
+}, 
+       
+        
       edfetch(){
         var sdata={
           "employeeid":parseInt(this.rowdata.employeeid)
@@ -474,6 +824,28 @@ export default {
       setSelected(tab){
         this.selected = tab;
         },
+
+        
+        isUnique(value) {
+
+          if (value === '') return true
+
+        // standalone validator ideally should not assume a field is required
+
+            this.jackson.age = moment(moment.now()).diff(value,"years");
+
+    if(this.jackson.age >=18 &&  this.jackson.age <=75 ){
+
+return true
+
+          }else{
+
+ return false
+
+          }
+
+      },
+        
     
      
          
@@ -528,7 +900,7 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
     jobhandleupdate(){
         const senddata={
             "startdate":this.person.startdate,
-            "effectivedate":this.person.EffectiveDate,
+            "effectivedate":this.person.effectivedate,
             "employementstatus":this.person.employementstatus,
             "comment":this.person.Comment,
         }
@@ -573,7 +945,7 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
                 }
 
             },
-             compinfo(rowdata){  
+             cominfo(rowdata){  
               
                if(this.logid.role=='Admin' || this.logid.role=='HR Manager'){
                    this.$router.push({name:"compensationupdate",params:this.rowdata});

@@ -1,14 +1,33 @@
 <template>
 <h2>Add Education Information</h2>
-<a href="/TabsView"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
    
 <div class="EduUpd">
     <br>
 <label for="university" style="margin-left: 20px;">University</label><br>
-<input  name="university" id="university" type="text" v-model="person.university" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+<input  name="university" id="university" type="text" v-model="person.university" style="padding: 10px 20px;width:225px;margin-left: 20px;"
+:class="
+                                    v$.person.university.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.university.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p>
+                                <br>
 
 <label for="highestdegree" style="margin-left: 20px;">Degree</label><br>
-     <select name="highestdegree" id="highestdegree"  v-model="person.highestdegree" style="width: 225px;padding: 14px 20px;margin-left: 20px;"> 
+     <select name="highestdegree" id="highestdegree"  v-model="person.highestdegree" style="width: 225px;padding: 14px 20px;margin-left: 20px;"
+     :class="
+                                    v$.person.highestdegree.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                > 
         
                                
        
@@ -17,15 +36,72 @@
         <option  >Doctorate</option>
         <option  >Associate's</option>
 
-     </select><br> 
+     </select>
+     <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.highestdegree.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p><br> 
 
 <label for="specialization" style="margin-left: 20px;">Specialization</label><br>
-<input  name="specialization" id="specialization" type="text" v-model="person.specialization" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br>
+<input  name="specialization" id="specialization" type="text" v-model="person.specialization" style="padding: 10px 20px;width:225px;margin-left: 20px;"
+:class="
+                                    v$.person.specialization.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.specialization.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p><br>
 
 <label for="gpa" style="margin-left: 260px;top: -57px;">GPA</label><br>
-<input type="text" name="gpa"  placeholder="GPA" v-model="person.gpa" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;padding: 2px;"><br><br>    
-    
-<span  style="top: -50px;"><input  name="degreestartdate" id="birthdate" type="date" v-model="person.degreestartdate" style="padding: 10px 20px;width:225px;margin-left: 20px;">-<input  name="degreeenddate" id="birthdate" type="date" v-model="person.degreeenddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"><br></span>
+<input type="text" name="gpa"  placeholder="GPA" v-model="person.gpa" style="margin-left: 260px;border-radius: 11px;width: 80px;text-align: center;top: -57px;padding: 2px;"
+:class="
+                                    v$.person.gpa.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.gpa.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p><br> <br>   
+  <span  style="top: -65px;"> <label for="degreestartdate" style="margin-left: 20px;">Degree Startdate</label><br> 
+<input  name="degreestartdate" id="birthdate" type="date" v-model="person.degreestartdate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
+:class="                            
+                                    v$.person.degreestartdate.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.degreestartdate.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p><br>
+                                <label for="degreeenddate" style="margin-left: 20px;">Degree Enddate</label><br>
+                                 <input  name="degreeenddate" id="birthdate" type="date" v-model="person.degreeenddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
+                                :class="
+                                    v$.person.degreeenddate.$error === true
+                                    ? 'text-fields-error'
+                                    : 'text-fields'
+                                ">
+                                <p style="margin-left:70px"
+                                    class="text-red-500 text-xs font-thin"
+                                    v-for="error of v$.person.degreeenddate.$errors"
+                                    :key="error.$uid"
+                                >
+                                    {{ error.$message }}
+                                </p><br></span>
 <button  @click.prevent="educationupdate();" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
                             <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
@@ -36,6 +112,9 @@
 
 <script>
 import loginapi from '@/services/loginapi';
+import useVuelidate from "@vuelidate/core";
+import { required,email,numeric,minLength,maxLength, helpers} from "@vuelidate/validators";
+import * as moment from "moment";
 
 export default {
     name: "EducationUpdate",
@@ -43,8 +122,13 @@ export default {
         return{
             person:null,
             responsedata:[],
+            v$: useVuelidate(),
         }
     },
+   
+    
+    
+
     created(){
         this.person=(this.$route.params)
           console.log(this.person);
@@ -52,7 +136,37 @@ export default {
 
 
     },
-    methods: { 
+   
+         validations(){
+        return{
+            person:{
+                university:{
+                    required:helpers.withMessage("Please Enter University",required),
+                    $autoDirty: true,
+                },
+                highestdegree:{
+                    required:helpers.withMessage("Please Select Degree",required),
+                    $autoDirty: true,
+                },
+                specialization:{
+                    required:helpers.withMessage("Please Enter Specialization",required),
+                    $autoDirty: true,
+                },
+                gpa:{
+                    required:helpers.withMessage("Please Enter GPA",required),
+                    $autoDirty: true,
+                },
+                degreestartdate:{
+                    required:helpers.withMessage("Please Enter Start Date",required),
+                    $autoDirty: true,
+                },
+                degreeenddate:{
+                    required:helpers.withMessage("Please Enter End Date",required),
+                    $autoDirty: true,
+                },
+            }
+        }
+    },
        
 //         einsert(){
 //              const senddata={
@@ -83,6 +197,7 @@ export default {
 //         });
 
 //         },
+ methods: { 
     educationupdate() {
         
       const senddata={
