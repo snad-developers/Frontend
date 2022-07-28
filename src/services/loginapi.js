@@ -50,6 +50,7 @@ export default{
     empgetvalues(){
         return API('http://localhost:3000/').get('/empdata')
     },
+    
     educationvalues(data){
         return API('http://localhost:3000/').post('/geteducation',data)
     },
