@@ -879,7 +879,7 @@ return true
 "firstname": this.person.firstname,
 "lastname": this.person.lastname,
 "fullname": this.person.fullname,
-"dateofbirth": this.person.dateofbirth,
+"dateofbirth": moment(this.person.dateofbirth),
 "ssn": this.person.ssn,
 "taxfilenumber": parseInt(this.person.taxfilenumber),
 "addressline1": this.person.addressline1,
@@ -920,8 +920,8 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
     },
     jobhandleupdate(){
         const senddata={
-            "startdate":this.person.startdate,
-            "effectivedate":this.person.effectivedate,
+            "startdate":moment(this.person.startdate),
+            "effectivedate":moment(this.person.effectivedate),
             "employementstatus":this.person.employementstatus,
             "comment":this.person.Comment,
         }
