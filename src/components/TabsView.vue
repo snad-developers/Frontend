@@ -141,7 +141,7 @@
    
     <td><label for="taxfilenumber" style="margin-left: 20px;">Tax File Number</label><br>
 
-    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber" 
+    <input :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber" 
     :class="
                                     v$.person.taxfilenumber.$error === true
                                     ? 'text-fields-error'
@@ -327,8 +327,9 @@ padding: 10px;
    
    
   <hr class="hr">
+  </div>
   <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'" >
-</div>
+
 
     <h4>Visa Information</h4>
     <button style="border-radius:10px;
@@ -367,7 +368,7 @@ padding: 10px;
          
         <tbody >
   
-       <template v-for="(rowdata,index) in resdata" :key="index" > 
+       <template :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"  v-for="(rowdata,index) in resdata" :key="index" > 
            
         <tr>
 <td>{{rowdata.date}}</td>
@@ -436,7 +437,7 @@ color: white;
 cursor: pointer;
 padding: 10px;
 margin-left:775px;
-border: 0px solid rgb(153, 148, 148) ;top:-30px;" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span>
+border: 0px solid rgb(153, 148, 148) ;top:-30px;" v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span>
              
                             <table>
 
@@ -502,7 +503,7 @@ color: white;
 cursor: pointer;
 margin-left:800px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="jobinfo(rowdata)">+ Add New </button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;"  v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="jobinfo(rowdata)">+ Add New </button> 
 
                               
 
@@ -553,7 +554,7 @@ color: white;
 cursor: pointer;
 margin-left:780px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">+ Add New</button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;"  v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">+ Add New</button> 
 
           
   
