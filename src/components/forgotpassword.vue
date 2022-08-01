@@ -45,7 +45,7 @@
      
    <br>
     <button  class= "button" @click.prevent="submit">Continue </button>
-    
+    /*<div> header </div>*/ 
 <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
    
    </div> 
