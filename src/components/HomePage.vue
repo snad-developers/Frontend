@@ -94,6 +94,8 @@ ul li a {
 
 }
 
+/* unordered list */
+
 ul li a:hover {
     color: rgb(231, 129, 129);
 }
