@@ -29,6 +29,7 @@ import jobupdate from '../components/jobupdate.vue';
 import compensationupdate from '../components/compensationupdate.vue';
 import EducationUpdate from '../components/EducationUpdate.vue';
 import empExpdetails from '../components/empExpdetails.vue';
+import NewInvoices from '../components/NewInvoices.vue';
 
 
 import newEmp from '../components/newEmp.vue';
@@ -115,7 +116,11 @@ const routes = [
     name: 'compensationupdate',
     component: compensationupdate
   },
-  
+  {
+    path: '/NewInvoices',
+    name: 'NewInvoices',
+    component: NewInvoices
+  },
   
   
   {
