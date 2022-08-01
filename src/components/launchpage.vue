@@ -146,7 +146,7 @@ export default {
        
       ],
       options: {
-        width: 1000,
+        width: 990,
         height: 400
       }
   }
@@ -247,10 +247,11 @@ this.empexpensestotal=response.data.empexpensestotal;
 this.mgmtexpensestotal=response.data.mgmtexpensestotal;
  this.data=[ 
         ['Element', ' ', { role: 'style' }],
-         ['Outstandingreceivables',this.Receivables, '#3CB371'],
-         ['Payrollexpenses', this.payrollexpensestotal, '#DC143C'],
-         ['Employeeexpenses', this.empexpensestotal, '#F8D12F'],
-         ['Managementexpenses', this.mgmtexpensestotal, 'color: #AFEEEE' ],
+
+         ['Outstanding receivables',this.Receivables, '#3CB371'],
+         ['Payroll expenses', this.payrollexpensestotal, '#DC143C'],
+         ['Employee expenses', this.empexpensestotal, '#F8D12F'],
+         ['Management expenses', this.mgmtexpensestotal, 'color: #AFEEEE' ],
          ['Operationalcost', this.operationalcount, 'color: #6B58E2' ]]
 
  });
@@ -510,7 +511,7 @@ body {font-family: "Lato", sans-serif;}
 }
 .Bargraph{
   width:40%;
-  margin-left: 300px;
+  margin-left: 260px;
 
 }
 

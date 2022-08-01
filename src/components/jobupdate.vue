@@ -52,9 +52,9 @@
         <option value="Productanalyst">Product Analyst</option>
         <option value="SoftwareEngineer">Software Engineer</option>
         <option value="Marketingmanager">Marketing Manager</option>
-        <option value="Financialanalyst"> Financial Analyst</option>
-        <option value="Datascientist" >Data Scientist</option>
-        <option value="Cloudengineer" >Cloud Engineer</option>
+        <option value="Financialanalyst">Financial Analyst</option>
+        <option value="Datascientist">Data Scientist</option>
+        <option value="Cloudengineer">Cloud Engineer</option>
         <option value="Businessanalyst">Business Analyst</option>
         <option value="Operationsmanager">Operations Manager</option>
 
