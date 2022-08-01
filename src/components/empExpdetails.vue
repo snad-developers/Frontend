@@ -15,7 +15,7 @@
         </div>
         <br>
         <div class="child">
-            Total: $ {{this.empresponse.sum}}
+            Total Amount: $ {{this.empresponse.sum}}
         </div>
     </div>
     
@@ -138,7 +138,7 @@ export default {
 }
 
 .child{
-    padding: 1% 9% 0% 9%;
+    padding: 1% 8% 0% 8%;
     
 }
 

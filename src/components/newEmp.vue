@@ -4,6 +4,8 @@
             <div class="container" style="width: 55%;">
                 <div class="box-1">
                     <h3>Personal</h3>
+                    
+                    
             
                     <div class="child-1">
                         <div >
@@ -776,6 +778,7 @@ export default {
             clientresponse:[],
             empresponse:[],
             v$: useVuelidate(),
+            logid:null,
 
             person:{
                 empid:null,
@@ -801,7 +804,8 @@ export default {
                 paytype:"",
                 payrate:"",
                 employementstatus:"",
-                age:""
+                age:"",
+               
 
 
             }
@@ -812,7 +816,7 @@ export default {
         return{
             person:{
                 empid:{
-                    required:helpers.withMessage("Please Enter Employee Id", required),
+                    required:helpers.withMessage("Please Enter Employee Number", required),
                     $autoDirty: true,
                     
                 },
@@ -873,7 +877,7 @@ return true
                     $autoDirty: true,
                 },
                 empstatus:{
-                    required:helpers.withMessage("Please Select Employee Status",required),
+                    required:helpers.withMessage("Please Select Employment Status",required),
                     $autoDirty: true,
                 },
                 jobrole:{
@@ -922,6 +926,8 @@ return true
     created(){
         this.clientfetch();
         this.empfetch();
+        const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
+        this.logid=userdetails;
     },
 
     methods:{
@@ -985,7 +991,7 @@ return true
         "clientname": this.person.clientname,
         "clientcode": "NA",
         "startdate": this.person.hiredate,
-        "createdby": "NA",
+        "createdby": this.logid.idnumber,
         "updatedby": "NA",
         "immigrationstatus": "NA",
         "highestdegree": "NA",
@@ -1020,7 +1026,7 @@ return true
         "expirationdate": "NA",
         "status": "NA",
         "employementstatus": this.person.employementstatus,
-        "jobeffectivedate": "NA",
+        "jobeffectivedate": moment().format('YYYY-MM-DD'),
         "compensationeffectivedate": "NA"
 
 
