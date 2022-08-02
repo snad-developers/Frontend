@@ -1,16 +1,7 @@
 <template>
-<div class="maincontainer">
- <div class="sidebar">
-    <div class="img">
-      <img alt="" src="../assets/snadicon.png" />
-   </div>
- <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench" ></i> Load Data</a>
-  <a href="/amdpage" style="margin-left:3px" v-if="logid.role=='Admin'"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br>
-   <a href="" @click.prevent="logout"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
-</div>
+ <side-menu></side-menu>
+  
       <!-- <a href="#" style="background-color:white" class="active">
         <i class="far fa-question-circle"></i>
         <span>About</span>
@@ -24,7 +15,7 @@
         <i class="far fa-envelope"></i>
         <span>Contact</span>
       </a> -->
-    </div>
+  
 <div class="welcomediv">
   <div class="welcome-header" v-if="logid">
    <h2 class="welcome"><b>Welcome back, {{logid.firstName}}</b></h2>
@@ -37,17 +28,8 @@
     
   </div>
   </div>
- <div class="gross-container">
-<!-- <div class="Expenses" >
-    <h3>Gross profit</h3>
-    <h3>Before taxes</h3>
-    <p>$ 180,000</p>
-  <h6 style="color: yellow;">Acess data</h6>
-   
-</div> -->
-
-<div class="box-container">
-    <div>
+  <div style="display: flex; margin: 8px;flex-direction: column;">
+  <div style="display: flex;">
       <div @click="access" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='HR Manager' || this.logid.role=='Payroll Admin' || this.logid.role== 'Department Head' || this.logid.role=='Executive Board' || this.logid.role=='Director' || this.logid.role== 'Manager' )? 'box-backgroundcolor box-color': 'box-color']"  style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
          <h3>Active Employees</h3>
             <p><i class="uil uil-user" style="margin-left:0"></i> {{activeemp}}</p>
@@ -59,8 +41,8 @@
           <!-- <router-link to="/employeexpensedata" ><h6 style="color: blue;">Acess data</h6></router-link> -->
         
     </div>
-     </div> 
-       <div>
+
+
      <div   @click="receivables" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Outstanding Receivables</h3>
             <p>$ {{(Receivables/1000).toFixed(1)}}K</p>
@@ -76,8 +58,8 @@
            <!-- <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
            <slot/></router-link> -->
     </div>
-       </div>
-       <div>
+    </div>
+    <div style="display: flex;">
       <div  @click="payroll" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Payroll Expenses</h3>
             <p>$ {{(payrollexpensestotal/1000).toFixed(2)}}K</p>
@@ -90,17 +72,17 @@
           <!-- <router-link to="/operationalCost">  <h6 style="color: blue;">Acess data</h6></router-link> -->
         
     </div>
-       </div>
-    
-   </div>
- </div>  
+    </div>
+
+  </div>
+  
  
 
 
 
     
   
-</div>
+
 <div class="Bargraph"  v-if="data.length>0">
      <GChart
       type="ColumnChart"
@@ -108,7 +90,7 @@
       :data="data"
     />   
     </div>
-  
+  </div>
 
 
 
@@ -120,11 +102,13 @@
 // import { } from 'process'
 import { GChart } from "vue-google-charts";
 import loginapi from '../services/loginapi';
+import sidemenu from '../components/common/sidemenu.vue';
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'launchpage',
     components: {
-    GChart
+    GChart,
+    'side-menu':sidemenu
   },
        data:function(){
   return {
@@ -437,8 +421,8 @@ label #cancel{
 
 .box-container{
       display: flex;
-    justify-content: space-evenly;
-    width: 60%;
+    /* justify-content: space-evenly;
+    width: 60%; */
 }
 .box-color{
   border-radius: 25px;
@@ -446,11 +430,12 @@ label #cancel{
     padding: 8px;
     margin-bottom: 25px;
     width: 100%;
+    margin: 10px;
 }
 .gross-container{
     display: flex;
-    justify-content: space-around;
-        width: 100%;
+    justify-content: center;
+        /* width: 100%; */
 }
 .sidebar{
       display: flex;
@@ -463,20 +448,21 @@ label #cancel{
 .welcomediv{
     display: flex;
     flex-direction: column;
-    width: 100%;
+        z-index: 100;
+    width: calc(100% - 280px);
+    left: 280px;
 }
 .welcome-header{
   display: flex;
     justify-content: space-between;
     margin: 30px;
-    margin-left: 270px;
+    /* margin-left: 270px; */
 }
 
 body {font-family: "Lato", sans-serif;}
 
 .sidebar {
   height: 150%;
-  width: 255px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -484,6 +470,7 @@ body {font-family: "Lato", sans-serif;}
   background-color:white;
   overflow-x: hidden;
   padding-top: 16px;
+  width: 280px;
 }
 
 .sidebar a {
@@ -510,7 +497,7 @@ body {font-family: "Lato", sans-serif;}
 }
 .Bargraph{
   width:40%;
-  margin-left: 300px;
+  margin-left: 37px;
 
 }
 

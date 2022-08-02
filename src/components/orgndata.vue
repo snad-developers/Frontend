@@ -1,23 +1,15 @@
 <template>
-<div class="sidebar">
-    <div class="img">
-      <img alt="" src="../assets/snadicon.png" />
-   </div>
-   <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
-   <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
 
-</div>
-
+ <side-menu></side-menu>
+ <div class="welcomediv">
 <div class="B1">
  
    <a href="/amdpage" class="b1" >Employee Data</a>
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
-<table style="margin-left:19%" class="orgndata">
+<div class="orgdata">
+<table style="" class="orgndata">
   <td class="orgndata">
 <div class="addentity">
  <h4 style="margin-left:-360px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Entities</b></h4>
@@ -97,16 +89,21 @@
 </div>
 </td>
 </table>
-
+</div>
+</div>
 </template>
 
 
 <script>
 import loginapi from '@/services/loginapi'
 import { resolveComponent } from '@vue/runtime-core';
+import sidemenu from '../components/common/sidemenu.vue';
 export default{
     // eslint-disable-next-line vue/multi-word-component-names
     name :'orgndata',
+                 components: {
+    'side-menu':sidemenu
+  },
     data:function(){
       return{
         entitydata:[],
@@ -225,11 +222,11 @@ export default{
 .addentity{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 375px;
+  /* width: 375px; */
   height: fit-content;
   background-color:white;
   margin-top: 27px;
-  margin:0%; 
+  /* margin:0%;  */
   padding-bottom: 2%;
 margin-right: 11px;
    overflow: hidden;
@@ -238,7 +235,7 @@ margin-right: 11px;
 .subentity{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 360px;
+  /* width: 360px; */
 
   height: fit-content;
   background-color:white;
@@ -252,7 +249,7 @@ margin-right: 11px;
   .expenses{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 95%;
+  /* width: 95%; */
   margin-right: 1%;
 
   height: fit-content;
@@ -280,7 +277,7 @@ margin-right: 11px;
   margin:0;
   cursor: pointer;
   border-radius: 25px;
-    width: 25%;
+    /* width: 25%; */
     padding: 10px;
     background-color: blue;
     color:white;
@@ -293,6 +290,11 @@ margin-right: 11px;
 .orgndata table{
   padding:1% ;
 }
+/* .orgdata{
+  z-index: 100;
+    width: calc(100% - 280px);
+  
+} */
 #expdata td, th {
     border-top: 0.5px solid rgb(240, 232, 232);
 

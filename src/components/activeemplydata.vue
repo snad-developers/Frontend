@@ -1,5 +1,5 @@
 <template>
-<router-view>
+
 <h2> Active Employee Data </h2>
 <br>
 <br>
@@ -9,13 +9,26 @@
   <input type="text" v-model="search" placeholder="Search..." style="text-align: left;width: 38%;" /> <br> <br>
   </div>  
 </div>
+ <div class="welcome-header" v-if="logid">
+  <a href="/launchpage"><button style="color:white;background-color:blue;border-radius:22px;cursor: pointer;">Back</button></a>
+  <div class="profile">
+    <!-- <img alt="" src="../assets/snadicon.png" /> -->
+     <router-link to="newEmp">
+   <button v-if="logid.role=='Admin' ||logid.role=='HR Manager'" style="padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">New Employee</button>
+
+   </router-link>
+
+  
+    
+  </div>
+  </div>
 <div class="main-container">
-   <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;top: 30px;">Back</button></a>
+   <!-- <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;top: 30px;">Back</button></a>
    
    <router-link to="newEmp">
    <button v-if="logid.role=='Admin' ||logid.role=='HR Manager'" style="margin-left: 90%;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">New Employee</button>
 
-   </router-link>
+   </router-link> -->
     <table  class="table-content" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
@@ -72,8 +85,7 @@
     </table><br><br><br> 
    
 </div>
-</router-view>
-<router-view/>
+
 </template>
 
 <script>
@@ -152,6 +164,17 @@ console.log(this.responsedata.employementstatus)
     }
 </script>
 <style scoped>
+.welcome-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    /* margin-left: 270px; */
+}
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;

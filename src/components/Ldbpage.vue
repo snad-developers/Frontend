@@ -1,14 +1,6 @@
 <template>
-   <div class="sidebar">
-    <div class="img">
-      <img alt="" src="../assets/snadicon.png" />
-   </div>
-   <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage" style="margin-left:3px" v-if="logid.role=='Admin'"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
-    <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
-</div>
+ <side-menu></side-menu>
+ <div class="welcomediv">
 <div class="main-box">
     <div class="child-part1">
     <!-- <input type="checkbox" id="check"> -->
@@ -29,11 +21,11 @@
         <span>Contact</span>
       </a> -->
     </div>
-   <div class="child-div2" style="margin-left: -1050px">
+   <div class="child-div2" style="">
    
     
  
-  <form  class="loginhere" style="right:-178px;" >
+  <form  class="loginhere" style="" >
     <br>
     <br>
     <!-- <div class="img">
@@ -107,7 +99,7 @@
 </table>
 </div>
   </div> 
-  
+</div>
 </template>
 
 <script>
@@ -115,9 +107,13 @@
 //import {required, minLength, maxLength, between} from 'vuelidate/lib/validators'
 import loginapi from '../services/loginapi';
 import Papa from 'papaparse';
+import sidemenu from '../components/common/sidemenu.vue';
 export default { 
     // eslint-disable-next-line vue/multi-word-component-names
      name: "login",
+        components: {
+    'side-menu':sidemenu
+  },
       data() {
     return {
        file: '',
@@ -327,7 +323,11 @@ width: 39%;
   width: 200%;
 }
 .child-div2{
-  width: 200%;
+ z-index: 100;
+    width: calc(100% - 280px);
+    
+    /* display: flex; */
+    flex-direction: row;
 }
 
 div{
