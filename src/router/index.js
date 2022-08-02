@@ -119,7 +119,9 @@ const routes = [
   {
     path: '/NewInvoices',
     name: 'NewInvoices',
-    component: NewInvoices
+    component: NewInvoices,
+    beforeEnter : guardMyroute,
+    meta: {title: 'NewInvoices'}
   },
   
   

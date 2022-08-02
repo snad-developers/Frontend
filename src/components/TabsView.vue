@@ -360,7 +360,7 @@ padding: 10px;
             <th>Issuing Country</th>
             <th>Issued Date</th>
             <th>Expiration Date</th>
-              <!-- <th>Status</th>   -->
+               <th>Status</th>  
 
             
         </tr>
@@ -376,7 +376,7 @@ padding: 10px;
 <td>{{rowdata.issuingcountry}}</td>
 <td>{{rowdata.issueddate}}</td>
 <td>{{rowdata.expirationdate}}</td>
-<!-- <td>{{rowdata.status}}</td> -->
+ <td>{{rowdata.status}}</td> 
  </tr>
  </template>
  </tbody>
@@ -429,7 +429,7 @@ padding: 10px;
                         </div>
                   
                      <div class="child-4">
-                        <h4>Employement Status</h4>
+                        <h4>Employment Status</h4>
                         <span><button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
@@ -629,12 +629,24 @@ padding: 10px;
     </table> 
    
       </Tab>
-    <Tab :isSelected="selected === 'Document'">
+    <Tab :isSelected="selected === 'Document'"> <br>
      <h4>Employee Invoices</h4>
-       <router-link to="Add New Invoice">
-   <button style="margin-left: 70%;top:500%;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">Add New Invoice</button>
+       <router-link to="NewInvoices">
+   <button style="margin-left: 70%;top:-30px;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">Add New Invoice</button>
       </router-link> 
 
+       <table class="center">
+
+                                <tr><thead style=" background-color:  rgb(223, 181, 188) ; color: grey; left-0px;font-size:small">
+                             
+        <th>Invoice Number</th>
+        <th>Invoice Date</th>
+        <th>Invoice Status</th>
+        <th>Expense Type</th>
+        <th>Invoice Amount</th>
+        <th>Currency</th>
+       </thead>
+                                </tr></table>
   
 
 

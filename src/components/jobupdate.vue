@@ -49,14 +49,14 @@
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 ">
-        <option value="Productanalyst">Product Analyst</option>
-        <option value="SoftwareEngineer">Software Engineer</option>
-        <option value="Marketingmanager">Marketing Manager</option>
-        <option value="Financialanalyst">Financial Analyst</option>
-        <option value="Datascientist">Data Scientist</option>
-        <option value="Cloudengineer">Cloud Engineer</option>
-        <option value="Businessanalyst">Business Analyst</option>
-        <option value="Operationsmanager">Operations Manager</option>
+        <option value="Productanalyst">ProductAnalyst</option>
+        <option value="SoftwareEngineer">SoftwareEngineer</option>
+        <option value="Marketingmanager">MarketingManager</option>
+        <option value="Financialanalyst">FinancialAnalyst</option>
+        <option value="Datascientist">DataScientist</option>
+        <option value="Cloudengineer">CloudEngineer</option>
+        <option value="Businessanalyst">BusinessAnalyst</option>
+        <option value="Operationsmanager">OperationsManager</option>
 
     </select></td>
 
