@@ -1,16 +1,7 @@
 <template>
 
-<div class="sidebar">
-    <div class="img">
-      <img alt="" src="../assets/snadicon.png" />
-   </div>
-   <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage" style="margin-left:3px"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
-   <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
-
-</div>
+ <side-menu></side-menu>
+ <div class="welcomediv">
 
 <div class="B1">
  
@@ -19,14 +10,11 @@
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
-
+<div class="penreq">
  <table align="center" class="table-content scrolldown" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
-    overflow: hidden; width:950px;
-    margin-left: 360px;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    overflow: hidden;
     background-color:white">
 
         <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
@@ -101,13 +89,18 @@ border: 0.5px solid white ;" @click.prevent="handlereject(employeedata.id)">Reje
         
        
     </table> 
-  
+  </div>
+  </div>
 </template>
 
 <script>
 import loginapi from '@/services/loginapi';
+import sidemenu from '../components/common/sidemenu.vue';
 export default {
     name:'penReq',
+        components: {
+    'side-menu':sidemenu
+  },
     data:function(){
             return {
                 
@@ -208,7 +201,10 @@ export default {
 </script>
 
 <style>
-
+/* .penreq{
+z-index: 100;
+    width: calc(100% - 280px);
+} */
 #update td, th {
     border-top: 0.5px solid rgb(240, 232, 232);
 

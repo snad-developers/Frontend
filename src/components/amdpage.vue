@@ -1,14 +1,6 @@
 <template>
-<div class="sidebar">
-    <div class="img">
-      <img alt="" src="../assets/snadicon.png" />
-   </div>
-  <a href="/launchpage" style="margin-left:-24px"><i class="fa fa-fw fa-home"></i> Dashboard</a>
-  <a href="/Ldbpage" style="margin-left:-30px" ><i class="fa fa-fw fa-wrench"></i> Load Data</a>
-  <a href="/amdpage" style="margin-left:3px" v-if="logid.role=='Admin'"><i class="fa fa-fw fa-user"></i>Amend Details</a>
-  <a href="" style="margin-left:16px"><i class="fa fa-fw fa-envelope"></i>Reporting portal</a><br><br><br><br><br><br><br>
-  <a href="/login"><i class="uil uil-sign-in-alt"></i>Logout</a>
-</div>
+ <side-menu></side-menu>
+ <div class="welcomediv">
 <div class="B1">
  
    <a href="/amdpage" class="b1" >Employee Data</a>
@@ -16,12 +8,11 @@
     <a href="/orgndata" class="b1">Organisation Data</a>
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
-
+<div class="amdtable">
     <table align="center" class="table-content scrolldown" id="update" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
-    overflow: hidden; width:1050px;
-    margin-left: 278px;
+    overflow: hidden;
     background-color:white">
 
         <thead style="background-color:rgb(223, 181, 188); color:grey; ">
@@ -65,8 +56,8 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="handleupdate(employeedat
     </table> 
 
 
-
-
+</div>
+</div>
 <!-- <form class="left"> 
     <table class="lt" align="left">
     <tr>
@@ -116,9 +107,13 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="handleupdate(employeedat
 
 <script>
 import loginapi from '@/services/loginapi';
+import sidemenu from '../components/common/sidemenu.vue';
     export default {
         // eslint-disable-next-line vue/multi-word-component-names
         name: 'amdpage',
+              components: {
+    'side-menu':sidemenu
+  },
 
         data:function(){
             return {
@@ -219,6 +214,10 @@ button#log {
     align-self: auto;
      font-family: sans-serif;
 }
+/* .amdtable{
+        z-index: 100;
+    width: calc(100% - 280px);
+} */
 button.left {
     background-color: rgb(134, 255, 255);
     font-size: large;
@@ -311,11 +310,19 @@ body {font-family: "Lato", sans-serif;}
 .img{
   margin-left: 2px;
 }
+.table-content{
+    z-index: 100;
+    width: calc(100% - 280px);
+    
+}
 
 .B1{
-    position: relative;
+    /* position: relative;
     margin-left: -20%;
-    margin-top: 2%;
+    margin-top: 2%; */
+    z-index: 100;
+    width: calc(100% - 280px);
+   
     
 }
 .B1 .a{

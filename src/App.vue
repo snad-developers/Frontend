@@ -43,13 +43,13 @@ export default {
 </script>
 
 <style>
-body {
+/* body {
   margin: 0 !important;
   background: white;
   
 }
 .homepage{
   margin-right: -80%;
-}
+} */
 
 </style>
