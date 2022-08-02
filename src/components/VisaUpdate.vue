@@ -210,9 +210,22 @@
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td></tr> 
+                                </p>
+                                 <!-- <p
+
+            class="text-red-500 text-xs font-thin"
+
+           v-if="!v$.person.issueddate.isUnique.$response"
+
+          >
+
+            Age should be between 18 to 75
+
+          </p> -->
+                                
+                                </td></tr> 
 <tr><td><label for="expirationdate" style="margin-left: 20px;">Expiration Date</label><br>
-<input  name=" expirationdate" id="expirationdate" type="date" v-model="person.expirationdate"   @blur="isUnique(this.person.expirationdate)" style="padding: 10px 20px;width:225px;margin-left: 20px;"
+<input  name=" expirationdate" id="expirationdate" type="date" v-model="person.expirationdate"   style="padding: 10px 20px;width:225px;margin-left: 20px;"
 :class="
                                     v$.person.expirationdate.$error === true
                                     ? 'text-fields-error'
@@ -324,20 +337,26 @@ export default {
                 issueddate:{
                     required:helpers.withMessage("Please Enter Isseued Date",required),
                     $autoDirty: true,
-                },
-                expirationdate:{
-                    required:helpers.withMessage("Please Enter Expiration Date",required),
-                    $autoDirty: true,
-
                      isUnique(value) {
 
           if (value === '') return true
 
         // standalone validator ideally should not assume a field is required
 
-           var  status = moment(moment.now()).diff(value,"days");
+         var expirydate = moment(this.person.expirationdate);
+          
 
-    if(status >=0  ){
+var issueddate = moment(value);
+
+//var firstDate = moment("2013-12-01", 'YYYY-MM-DD'); //Create date using string-format constructor
+//var secondDate = moment("2016-12-01", 'YYYY-MM-DD');
+var duration = moment.duration(expirydate.diff(issueddate));
+var years = duration.asYears();
+console.log(years)
+console.log(Math.round(years))
+var diff=Math.round(years)
+
+    if(diff >= 5  ){
 
 return true
 
@@ -348,6 +367,10 @@ return true
           }
 
       }
+                },
+                expirationdate:{
+                    required:helpers.withMessage("Please Enter Expiration Date",required),
+                    $autoDirty: true,
                 },
                 // status:{
                 //     required:helpers.withMessage("Please Enter Status",required),
@@ -359,37 +382,28 @@ return true
 
 
    methods: {
-    isUnique(value) {
-
-          if (value === '') return true
-
-        // standalone validator ideally should not assume a field is required
-
-            this.jackson.status = moment(moment.now()).diff(value,"days");
-            console.log(this.jackson.status)
-
-    if(this.jackson.status >=0 ){
-
-return true
-
-          }else{
-
- return false
-
-          }
-
-      },
-        
     visaupdate() {
         //  this.v$.$touch();
      // console.log(this.person.firstName); // logs the input value
+            var expirydate = moment(this.person.expirationdate);
+            var status;
+
+var now = moment();
+
+if (now > expirydate) {
+  console.log("past")
+  status="Inactive"
+} else {
+  console.log("future")
+    status="Active"
+}
       const senddata={
     "date": this.person.date,
     "visastatus": this.person.visastatus,
     "issuingcountry": this.person.issuingcountry,
     "issueddate": this.person.issueddate,
     "expirationdate": this.person.expirationdate,
-    // "status": this.person.status,
+    "status": status,
     "employeeid":parseInt(this.person.employeeid),
       }
        console.log(senddata);

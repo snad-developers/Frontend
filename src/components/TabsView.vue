@@ -3,7 +3,7 @@
    <br>
    <br>
 <div class="P1">
-  <TabNav :tabs="['Personal','Job']" :selected="selected" @selected="setSelected">
+  <TabNav :tabs="['Personal','Job','Document']" :selected="selected" @selected="setSelected">
     <Tab :isSelected="selected === 'Personal'">
     <h4>Basic Information</h4>
        <div class="comp"><br>
@@ -141,7 +141,7 @@
    
     <td><label for="taxfilenumber" style="margin-left: 20px;">Tax File Number</label><br>
 
-    <input  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber" 
+    <input :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"  name="taxfilenumber" for="taxfilenumber"   type="text" placeholder="Tax File Number" style="padding: 10px 20px;width:225px;margin-left: 20px;" v-model="person.taxfilenumber" 
     :class="
                                     v$.person.taxfilenumber.$error === true
                                     ? 'text-fields-error'
@@ -274,7 +274,7 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="personalhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button>
+border: 0px solid rgb(153, 148, 148) ;" @click.prevent="personalhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"> +Update</button>
 <hr class="hr">
 </div>
     </div>
@@ -304,8 +304,8 @@ padding: 10px;
                                 <th>Highest Degree</th>
                                 <th>Specialization</th>
                                 <th>GPA</th>
-                                <th>Degree Start date</th>
-                                <th>Degree Endd ate</th>
+                                <th>Degree Start Date</th>
+                                <th>Degree End Date</th>
                                 </thead>
                                 <template v-for="(rowdata,index) in responsedata" :key="index" > 
                                    
@@ -327,8 +327,9 @@ padding: 10px;
    
    
   <hr class="hr">
+  </div>
   <div  v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'" >
-</div>
+
 
     <h4>Visa Information</h4>
     <button style="border-radius:10px;
@@ -336,7 +337,7 @@ padding: 10px;
 text-decoration: solid; 
 color: white;
 cursor: pointer;
-margin-left:770px;
+margin-left:730px;
 padding: 10px;
 
 
@@ -351,7 +352,7 @@ padding: 10px;
 
                                 
         
-        <thead   v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'"  style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
+        <thead   v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'"  style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px ">
         <tr>
             
             <th>Date</th>
@@ -359,7 +360,7 @@ padding: 10px;
             <th>Issuing Country</th>
             <th>Issued Date</th>
             <th>Expiration Date</th>
-            <!-- <th>Status</th> -->
+              <!-- <th>Status</th>   -->
 
             
         </tr>
@@ -367,7 +368,7 @@ padding: 10px;
          
         <tbody >
   
-       <template v-for="(rowdata,index) in resdata" :key="index" > 
+       <template :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"  v-for="(rowdata,index) in resdata" :key="index" > 
            
         <tr>
 <td>{{rowdata.date}}</td>
@@ -436,33 +437,49 @@ color: white;
 cursor: pointer;
 padding: 10px;
 margin-left:775px;
-border: 0px solid rgb(153, 148, 148) ;top:-30px;" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span>
+border: 0px solid rgb(153, 148, 148) ;top:-30px;" v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span>
              
-                            <table>
+                            <table class="center">
 
-                                <thead class="thead" style="background-color:rgb(223, 181, 188); color:grey;left:0px;">
-                                <th>Effective Date</th>
-                                <th>employment Status</th>
-                                <th>Comment</th>
-                                </thead>
+                                <tr><thead style="
+                                  display: flex; 
+
+    background-color: rgb(223, 181, 188);
+
+    width: 190%;
+
+    text-align:center;
+
+    color: grey;
+
+    left: 0px;
+
+     <!-- flex-basis: auto; -->
+
+    font-size: medium;"> 
+                                <th style="left:100px;">Effective Date</th>
+
+                                <th style="left:200px;">Employment Status</th>
+                                <th style="left:300px;">Comment</th>
+                                </thead></tr>
                                 <br>
                             
                     
                         <tr>
-                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"
+                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date" style="margin-left:-200px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"
                          :class="
                                     v$.person.effectivedate.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 "> </td>
-                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.employementstatus"
+                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: -200px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.employementstatus"
                          :class="
                                     v$.person.employementstatus.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 "></td>
                          
-                          <td><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 20px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.comment"
+                          <td><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 60px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.comment"
                           :class="
                                     v$.person.comment.$error === true
                                     ? 'text-fields-error'
@@ -500,22 +517,35 @@ border: 0px solid rgb(153, 148, 148) ;top:-30px;" @click.prevent="jobhandleupdat
 text-decoration: solid; 
 color: white;
 cursor: pointer;
-margin-left:800px;
+margin-left:780px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="jobinfo(rowdata)">+ Add New </button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;"  v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="jobinfo(rowdata)">+ Add New </button> 
 
                               
 
                              <table>
 
-        <thead style="background-color:rgb(223, 181, 188);text-align:center;s color:grey; ">
+        <thead style="display: flex;
+
+    background-color: rgb(223, 181, 188);
+
+    width: 300%;
+
+    color: grey;
+
+    left: 0px;
+
+    flex-basis: auto;
+    
+
+    font-size: medium;">
         <tr>
             
-            <th>Effective Date</th>
-            <th>Location</th>
-            <th>Client Name</th>
-            <th>JobTitle</th>
-            <th>Reportsto</th>
+            <th style="left:10px;">Effective Date</th>
+            <th style="left:20px;">Location</th>
+            <th style="left:10px;">Client Name</th>
+            <th style="left:10px;">JobTitle</th>
+            <th style="left:20px;">Reports To</th>
            
         </tr>
         </thead>
@@ -525,11 +555,11 @@ padding: 10px;
        <template v-for="(rowdata,index) in rdata" :key="index" > 
            
         <tr>
-<td>{{rowdata.jobeffectivedate}}</td>
-<td>{{rowdata.location}}</td>
-<td>{{rowdata.clientname}}</td>
-<td>{{rowdata.jobtitle}}</td>
-<td>{{rowdata.reportsto}}</td>
+<td style="right:100px;"> {{rowdata.jobeffectivedate}}</td>
+<td style="right:170px;">{{rowdata.location}}</td>
+<td style="right:160px;" >{{rowdata.clientname}}</td>
+<td style="right:85px;">{{rowdata.jobtitle}}</td>
+<td style="right:75px;">{{rowdata.reportsto}}</td>
 
        </tr>
  </template>
@@ -553,21 +583,21 @@ color: white;
 cursor: pointer;
 margin-left:780px;
 padding: 10px;
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">+ Add New</button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;"  v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">+ Add New</button> 
 
           
   
 <table>
 
-        <thead style="background-color:rgb(223, 181, 188);text-align:center;s color:grey; ">
+        <thead style="background-color:  rgb(223, 181, 188) ; color: grey; left-0px;font-size:small ">
         <tr>
             
             <th>Effective Date</th>
-            <th>pay Schedule</th>
+            <th>Pay Schedule</th>
             <th>Pay Type</th>
             <th>Pay Rate</th>
             <th>Over Time</th>
-            <th>Overtime R ate</th>
+            <th>Overtime Rate</th>
             <th>Change Reason</th>
             <th>Comment</th>
             
@@ -597,6 +627,14 @@ padding: 10px;
         
        
     </table> 
+   
+      </Tab>
+    <Tab :isSelected="selected === 'Document'">
+     <h4>Employee Invoices</h4>
+       <router-link to="Add New Invoice">
+   <button style="margin-left: 70%;top:500%;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">Add New Invoice</button>
+      </router-link> 
+
   
 
 
@@ -604,9 +642,9 @@ padding: 10px;
                         
                         
               
-               
+    </Tab>        
        
-      </Tab>
+    
      
     </TabNav>
     </div>
@@ -972,6 +1010,10 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
                    this.$router.push({name:"compensationupdate",params:this.rowdata});
                 }
 
+            },
+             NewInvoices(rowdata){  
+                this.$router.push({name:"NewInvoices",params:this.rowdata});
+
             }
       }
   
@@ -1000,10 +1042,10 @@ margin-left: 120px;
  overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15);
 }
-/* .center{
+ .emp{
   margin-left: auto;
   margin-right: auto;
-} */
+} 
 .job{
   margin-left: 0%;
   text-align: left;
@@ -1044,6 +1086,11 @@ p,h4{
 .box-backgroundcolor:hover {
   background-color: coral;
 }
-
+.emp{
+  width:80%;
+}
+.eth{
+  width:50%
+}
 
 </style>

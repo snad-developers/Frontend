@@ -31,10 +31,10 @@
         
                                
        
-        <option  >Bachelor's</option>
-        <option >Master's</option>
+        <option  >Bachelors</option>
+        <option >Masters</option>
         <option  >Doctorate</option>
-        <option  >Associate's</option>
+        <option  >Associate</option>
 
      </select>
      <p style="margin-left:70px"
@@ -74,7 +74,7 @@
                                 >
                                     {{ error.$message }}
                                 </p> <br><br>
-  <span  style="top: -74px;"> <label for="degreestartdate" style="margin-left: 20px;">Degree Startdate</label><br> 
+  <span  style="top: -74px;"> <label for="degreestartdate" style="margin-left: 20px;">Degree Start Date</label><br> 
 <input  name="degreestartdate" id="birthdate" type="date" v-model="person.degreestartdate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
 :class="                            
                                     v$.person.degreestartdate.$error === true
@@ -88,7 +88,7 @@
                                 >
                                     {{ error.$message }}
                                 </p>  <br>
-                                <label for="degreeenddate" style="margin-left: 20px;">Degree Enddate</label><br>
+                                <label for="degreeenddate" style="margin-left: 20px;">Degree End Date</label><br>
                                  <input  name="degreeenddate" id="birthdate" type="date" v-model="person.degreeenddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
                                 :class="
                                     v$.person.degreeenddate.$error === true
