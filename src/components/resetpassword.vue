@@ -23,12 +23,12 @@
      <div class="forms">
        <div class="forms1">
       <label for="UserId"></label>
-      <input type="password" class="user" placeholder="Enter New Password" v-model="person.Password"
+      <input type="password" class="text-box" placeholder="Enter New Password" v-model="person.Password"
             :class="
               v$.person.Password.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " style="margin-top:3%">
+            " style="margin-top:3%;  width:90%">
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.Password.$errors"
@@ -38,12 +38,12 @@
           </p>
 
            <label for="UserId"></label>
-      <input type="password" class="user" placeholder="Confirm Password" v-model="person.Conform"
+      <input type="password" class="text-box"  placeholder="Confirm Password" v-model="person.Conform"
             :class="
               v$.person.Conform.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " style="margin-top:3%">
+            " style="margin-top:3%;  width:90%">
  <p
             class="text-red-500 text-xs font-thin"
             v-for="error of v$.person.Conform.$errors"
@@ -56,7 +56,7 @@
   
      
    <br>
-    <button  class= "button" @click.prevent="submit">Reset Password</button>
+    <button  class= "butn" style="width:60%" @click.prevent="submit">Reset Password</button>
     
 <p  class="text-red-500 text-xs font-thin" style="padding:6px;">{{message}}</p> 
    
@@ -164,25 +164,64 @@ if(response.data){
 </script>
 
 
-<style>
+<style scoped>
   h1{
       font-family: sans-serif;
   }
   h3{
       font-family: sans-serif;
   }
-  input[type="text"]{
+  /* input[type="text"]{
       font-family: sans-serif;
   }
     input[type="password"]{
       font-family: sans-serif;
-  }
-  button{
+  } */
+  .butn{
       font-family: sans-serif;
   }
   
-  .backbtn{
+  /* .backbtn{
       font-family: sans-serif;
-  }
+  } */
+  .loginhere{
+  height: 97%;
+   max-width: 400px;
+   /* max-height: 5%; */
+   margin: 10px auto;
+   border-radius: 15px;
+   overflow: hidden;
+   box-shadow: 0 0 15px rgba(0,0,0,0.15);  
+   
+   margin-bottom: 0%;
+   font-family: sans-serif;
+   background-color:white;
+   
+} 
+  .butn{
+    
+
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 50px;
+  border: 2px solid #dddddd;
+  /* background: #634ed8; */
+  
+  background-color:  rgb(15, 6, 119);
+  outline: none;
+  transition: border-color 0.5s;
+  font-family: sans-serif;
+} 
+.text-box{
+    
+    padding: 12px 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    text-align: center;
+     font-family: sans-serif;
+   
+    
+   
+} 
   
 </style>
