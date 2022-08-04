@@ -1,6 +1,6 @@
 <template>
 
- <!-- <side-menu></side-menu> -->
+ <side-menu></side-menu>
  <div class="welcomediv">
 <div class="B1">
  
@@ -14,8 +14,8 @@
 <div class="addentity">
  <h4 style="margin-left:-360px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Entities</b></h4>
   <div class="scroller">
- <input type="text" placeholder="Enter Entity Name" class="tbox" v-model="person.entity">
- <button class="addbtn" @click.prevent ="entityhandle"> Add Entity</button>
+ <input type="text" placeholder="Enter Entity Name" class="tbox text-box" v-model="person.entity">
+ <button class="addbtn butn" @click.prevent ="entityhandle"> Add Entity</button>
 
   <template  v-for="(entity,index) in entitydata" :key="index">
   <li style="text-align: left; margin-left: 10%;">{{entity.entity}}</li>
@@ -28,8 +28,8 @@
 <div class="subentity">
  <h4 style="margin-left:-36px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Roles</b></h4>
  <div class="scroller">
- <input type="text" placeholder="Enter Role Name" class="tbox" v-model="person.role">
- <button class="addbtn" @click.prevent="rolehandle"> Add Role</button>
+ <input type="text" placeholder="Enter Role Name" class="tbox text-box" v-model="person.role">
+ <button class="addbtn butn" @click.prevent="rolehandle"> Add Role</button>
 
     <template  v-for="(role,index) in rolesdata" :key="index">
   <li style="text-align: left; margin-left: 10%;">{{role.roles}}</li>
@@ -43,10 +43,10 @@
 <div class="expenses">
  <h4 style="margin-left:-36px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Expenses</b></h4>
   <div class="scroller">
- <input type="text" placeholder="Expense Name" class="expbox" v-model="person.expense">
-  <input type="text" placeholder="Expense Code" class="expbox" v-model="person.expcode">
+ <input type="text" placeholder="Expense Name" class="text-box exp" v-model="person.expense">
+  <input type="text" placeholder="Expense Code" class="text-box exp" v-model="person.expcode">
 
- <button class="addbtn" @click.prevent="exphandle"> Add Expense</button>
+ <button class="addbtn butn" @click.prevent="exphandle"> Add Expense</button>
 
 <table align="center" class="expdata" id="expdata" style="  border-spacing: 0;
     border-radius: 10px 10px 0 0;
@@ -218,7 +218,8 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
+
 @media only screen and (max-width: 600px){
   .orgndata{
     display: grid;
@@ -226,6 +227,30 @@ export default{
   .tbox{
     width:50%;
   }
+      .b1{
+  background-color:white;
+  border: none;
+  color:black;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  border-radius: 15px;
+  width: 100%;
+}
+.b1:hover{
+   background-color: rgb(24, 89, 220);
+   color:black;
+   
+}
+.B1{
+    width: 100%;
+}
+
 }
 .addentity{
   border-radius: 25px;
@@ -278,7 +303,7 @@ margin-right: 11px;
   width:45%;
   
 } 
-.expbox{
+.exp{
   margin:1%;
   width:30%;
   
@@ -316,5 +341,37 @@ margin-right: 11px;
     overflow-y: auto;
     height: 400px;
 }
+.B1{
+    /* position: relative;
+    margin-left: -20%;
+    margin-top: 2%; */
+    z-index: 100;
+    width: calc(100% - 280px);
+   
+    
+}
+.B1 .a{
+    margin: 200px;
+}
+.b1{
+  background-color:white;
+  border: none;
+  color:black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  border-radius: 15px;
+}
+.b1:hover{
+   background-color: rgb(24, 89, 220);
+   color:black;
+   
+}
+
 
 </style>

@@ -48,4 +48,35 @@ localStorage.removeItem('currentUser')
 
 <style scoped>
 
+.sidebar {
+  height: 150%;
+  width: 255px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:white;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+    /* margin-top: 100px; */
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  margin: 26px;
+}
+
+.sidebar a:hover {
+  color: black;
+  box-sizing:border-box;
+}
+
+.img{
+  margin-left: 2px;
+}
+
 </style>
