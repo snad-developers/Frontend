@@ -34,7 +34,7 @@
        <i class="uil uil-user" style="margin-left:-38px"></i>
       <label for="UserId"></label>
      
-      <input style="margin: 7px -17px 12px 0px;" type="email" class="user" placeholder="UserId" v-model="person.UserId"
+      <input style="margin: 7px -17px 12px 0px;width:100%;" type="email" class="text-box" placeholder="UserId" v-model="person.UserId"
             :class="
               v$.person.UserId.$error === true
                 ? 'text-fields-error'
@@ -53,7 +53,7 @@
             {{ error.$message }}
           </p>
      
-  <input :type="passwordFieldType"  style="margin: 7px 0px 12px 0px;margin-left:-11px"   placeholder="Password"  class="user" 
+  <input :type="passwordFieldType"  style="margin: 7px 0px 12px 0px;margin-left:-11px;width:100%;"   placeholder="Password"  class="text-box" 
       v-model="person.Password"
             :class="
               v$.person.Password.$error === true
@@ -75,7 +75,7 @@
         </p>
     <label for="Entity" placeholder="Entity" >
       <i class="uil uil-clipboard-notes"  style="margin-left:-20px;    top: 42px;right: 169px;"></i>
-     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px;border: 1px solid black;width: 213%;left: -92px;"  name="Entity" id="Entity" class="user"  v-model="person.Entity"
+     <select style="margin: 7px 0px 12px 0px;border-radius:20px;padding:13.5px;border: 1px solid black;width: 213%;left: -92px;"  name="Entity" id="Entity" class="text-box"  v-model="person.Entity"
             :class="
               v$.person.Entity.$error === true
                 ? 'text-fields-error'
@@ -101,7 +101,7 @@
   
      
    <br>
-    <button  class= "button" @click.prevent="submit">Login </button>
+    <button  class= "butn" style=" width: 100%;" @click.prevent="submit">Login </button>
     <!-- <h6>OR</h6>
    <a href=""> <i class="uil uil-google" style="margin-left:-5px"></i> <label for="remember me"><b class="regis1">Continue with Google</b></label></a> -->
     <h4>Don't have an account? <a  class="regis1" href="/registrationPage"><b>Signup Now</b></a></h4>
@@ -283,11 +283,22 @@ export default {
 div{
   text-align: center;
 }
-.backbtn{
+/* .backbtn{
     text-align: left;
-}
+} */
 
-input[type=email]{
+ .text-box{
+    
+    padding: 12px 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    text-align: center;
+     font-family: sans-serif;
+     
+    
+   
+} 
+/* input[type=email]{
     
     padding: 12px 20px;
     border: 1px solid;
@@ -296,8 +307,8 @@ input[type=email]{
      font-family: sans-serif;
      transition-duration: 5s;
    
-}
-input[type=text]:hover{
+}  */
+/* input[type=text]:hover{
   border-color: rgb(87, 239, 87);
   transition-duration: 5s;
  transition-duration: 5s;
@@ -306,25 +317,25 @@ input[type=email]:hover{
   border-color: rgb(87, 239, 87);
   transition-duration: 5s;
  transition-duration: 5s;
-}
+} */
 
-input[type=password]{
+/* input[type=password]{
 
     padding: 12px 20px;
     border: 1px solid;
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
-}
-select{
+} */
+/* select{
     width: 28%;
     padding: 12px 20px;
     border: 1px solid;
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
-}
-input[type=button]{
+} */
+/* input[type=button]{
     width: 10%; 
     padding: 12px 20px;
     border: 1px solid;
@@ -333,20 +344,21 @@ input[type=button]{
     background-color: rgb(119, 6, 6);
     color: white;
      font-family: sans-serif;
-}
-.button{
+} */
+.butn{
     
-  width: 100%;
+ 
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 50px;
   border: 2px solid #dddddd;
-  background: #634ed8;
+  background:rgb(15, 6, 119);
   outline: none;
   transition: border-color 0.5s;
   font-family: sans-serif;
 }
-.button1{
+/* .button1{
+
     
     padding: 12px 20px;
     border: 1px solid;
@@ -356,7 +368,7 @@ input[type=button]{
     color: white;
      font-family: sans-serif;
      transition: 0.5s;
-}
+} */
 
  
 
@@ -366,22 +378,22 @@ input[type=button]{
   margin-bottom: 10px;
 }
 
-.backbtn{
+/* .backbtn{
   align-items: baseline;
    font-family: sans-serif;
-}
-input[type="checkbox"] {
+} */
+/* input[type="checkbox"] {
   -webkit-appearance: checkbox;
      -moz-appearance: checkbox;
           appearance: checkbox;
   display: inline-block;
   font-family: sans-serif;
  width: auto;
-}
-.FG{
+} */
+/* .FG{
    text-justify: auto;
    text-align: right;
-}
+} */
 body{
   background:-webkit-linear-gradient(left #bb8c9a) ;
   margin: 15px;
@@ -392,7 +404,7 @@ body{
    
 
 }  
-.loginhere,
+/* .loginhere,
 .loginhere * {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -403,7 +415,7 @@ body{
   
 
   
-}
+} */
 
 
 .loginhere{
@@ -432,12 +444,17 @@ body{
 
 
 }
+.forms1{
+  margin-bottom: 0px;
+  color: red;
+}
 
 
 
 
 
-.user::placeholder{
+
+.text-box::placeholder{
   color: #090808;
 
 }
@@ -462,17 +479,17 @@ body{
 .main-div{
       display: flex;
     justify-content: space-around;
-}
+} 
 p{
   margin: 0px;
 }
 .child-div1{
   margin:0px !important
 }
-.input i{
+ .input i{
   left: 0px;
   right: 10px;
-}
+} 
 .regis1{
   color:#000000;
 }
