@@ -1,6 +1,6 @@
 <template>
 
- <!-- <side-menu></side-menu> -->
+ <side-menu></side-menu>
  <div class="welcomediv">
 <div class="B1">
  
