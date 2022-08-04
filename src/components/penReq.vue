@@ -1,6 +1,6 @@
 <template>
 
- <side-menu></side-menu>
+
  <div class="welcomediv">
 
 <div class="B1">
@@ -17,7 +17,7 @@
     overflow: hidden;
     background-color:white">
 
-        <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
+        <thead class="head" style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;">
         <tr>
             <!-- <td> S No</td> -->
             <th> First Name </th>
@@ -205,6 +205,22 @@ export default {
 z-index: 100;
     width: calc(100% - 280px);
 } */
+@media only screen and (max-width: 600px){
+     .penreq{
+        overflow: scroll;
+       
+     }
+    
+    
+}
+@media only screen and (max-width: 600px){
+      head{
+         overflow: scroll;
+        
+     }
+    
+    
+}
 #update td, th {
     border-top: 0.5px solid rgb(240, 232, 232);
 

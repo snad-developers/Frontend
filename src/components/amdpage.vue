@@ -1,5 +1,5 @@
 <template>
- <side-menu></side-menu>
+
  <div class="welcomediv">
 <div class="B1">
  
@@ -9,13 +9,9 @@
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
 <div class="amdtable">
-    <table align="center" class="table-content scrolldown" id="update" style="  border-spacing: 0;
-    box-shadow: 0 2px 15px rgba(64,64,64,.7);
-    border-radius: 10px 10px 0 0;
-    overflow: hidden;
-    background-color:white">
+    <table align="center" class="scrolldown" id="update" >
 
-        <thead style="background-color:rgb(223, 181, 188); color:grey; ">
+        <thead style="background-color:rgb(223, 181, 188); color:grey;  ">
         <tr>
             <!-- <td> S No</td> -->
             <th> First Name </th>
@@ -108,6 +104,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="handleupdate(employeedat
 <script>
 import loginapi from '@/services/loginapi';
 import sidemenu from '../components/common/sidemenu.vue';
+
     export default {
         // eslint-disable-next-line vue/multi-word-component-names
         name: 'amdpage',
@@ -171,101 +168,118 @@ import sidemenu from '../components/common/sidemenu.vue';
 
 </script>
 
-<style>
-    table.amd {
-        /* position: ; */
-         font-family: sans-serif;
-         margin-left: 100px;
+<style >
+  @media only screen and (max-width: 600px){
+    .amdtable{
+       overflow: scroll;
+       color: crimson;
+       height: 500px;
     }
-    button.amd {
-        width: 200px;
-        height: 50px;
-        font-size: large;
-        border: solid;
-        border-radius: 15px;
-        margin: 50px;
-        cursor: pointer;
-        background-color:rgba(104, 251, 112, 0.525);
-        margin-top: 100px;
-         font-family: sans-serif;
-    }
-    .snadicon {
-   cursor:pointer;
+    .b1{
+  background-color:white;
+  border: none;
+  color:black;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  border-radius: 15px;
+  width: 100%;
+}
+.b1:hover{
+   background-color: rgb(24, 89, 220);
+   color:black;
+   
+}
+.B1{
+    width: 100%;
+}
 
+}
+ @media only screen and (max-width: 600px){
+    .welcomediv{
+       color: brown;
+       right: 280px;
+       left: 100px !important;
+       width: 100% !important;
+       
+    }
+}
+@media only screen and (max-width: 375px){
+    .welcomediv{
+       color: brown;
+       right: 280px;
+       left: 0px !important;
+       width: 100% !important;
+       
+    }
+}
+@media only screen and (max-width: 375px){
+    .amdtable{
+       overflow: scroll;
+       color: crimson;
+     
+    }
+    .b1{
+  background-color:white;
+  border: none;
+  color:black;
+  padding: 5px 5px !important;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px !important;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  border-radius: 15px;
+  width: 200%;
+}
+.b1:hover{
+   background-color: rgb(24, 89, 220);
+   color:black;
+   
+}
+.B1{
+    width: 100%;
+}
+th{
+    font-size: 10px !important;
+}
+tr{
+     font-size: 10px !important; 
+}
+    
+}
+.amdtable{
+    border-spacing: 0;
+    box-shadow: 0 2px 15px rgba(64,64,64,.7);
+    border-radius: 10px 10px 0 0;
+    background-color:white;
    
 }
 
-#update td, th {
-    border-top: 0.5px solid rgb(153, 148, 148);
 
-    padding: 10px;
-}
-button#log {
-    background-color: rgb(234, 231, 231);
-    height: 50px;
-    font-size:medium;
-    border: 10px;
-    border-radius: 15px;
-    cursor: pointer;
-    opacity: 0.9px;
-    width: 200px;
-    margin-top: 180px;
-    margin-bottom: 15px;
-    align-self: auto;
-     font-family: sans-serif;
-}
+
+    
+    
+  
+
+
+
 /* .amdtable{
         z-index: 100;
     width: calc(100% - 280px);
 } */
-button.left {
-    background-color: rgb(134, 255, 255);
-    font-size: large;
-    color: rgb(2, 2, 2);
-    padding: 1px 20px;
-    padding-bottom: 10px;
-    margin: 1px 0px ;
-    margin-bottom: 2px;
-    border: 2px solid;
-    border-radius: 15px;
-    cursor: pointer;
-    border-color: rgba(8, 77, 179, 0.864);
-    width: 200px;
-    height: 80px;
-    opacity: 0.9px;
-     font-family: sans-serif;
-}
-.lt {
-    display: inline-table ;
-    padding-top: 20px;
-     font-family: sans-serif;
-    
-    
-}
-form.left {
-    width:100%;
-    padding-top: 0;
-    padding-right: 0px;
-    padding-left: 25px;
-    color: rgb(18, 18, 18);
-    margin-top: 0px;
-    background: white;
-    display: inline-block; 
-    margin-bottom: 15px;
-    border-radius: 10px;
-     font-family: sans-serif;
-}
+
+
+
  
-#otpt {
-    margin-top: 50px;
-    margin-left: 10px;
-    border-left: 100%;
-     font-family: sans-serif;
-}
-#profile {
-    align-self: auto;
-     font-family: sans-serif;
-}
+
 table#prof {
     padding-left: 20px;
     margin-left: 0px;
@@ -307,9 +321,12 @@ body {font-family: "Lato", sans-serif;}
   color: black;
   box-sizing:border-box;
 }
+
 .img{
   margin-left: 2px;
 }
+
+
 .table-content{
     z-index: 100;
     width: calc(100% - 280px);

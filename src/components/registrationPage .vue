@@ -1,13 +1,13 @@
 <template>
 
-<div class = "main-container"> 
+<div class = "main-container" style="width: 100%;"> 
 
   <div class="child-div1">
-  <h1><b>ANALYZE</b></h1>
+  <h1><b  style="font-size: 55px;">ANALYZE</b></h1>
   <p>TODAY'S CHALLANGES</p>
   
-  <h1><b>ENVISION</b></h1>
-  <P>TOMMOROW'S INNOVATION</P>
+  <h1><b  style="font-size: 55px;">ENVISION</b></h1>
+  <p>TOMMOROW'S INNOVATION</p>
 <!-- {{this.formvalue}} {{formvalue[currentStep]}} -->
   </div>
   
@@ -15,7 +15,7 @@
    
     
  
-  <form  class="register" style="width:105%;height:105%;margin-right:394px;margin-top: 10%;right: 5%;">
+  <form  class="register">
    
     <div class="img">
       <img alt="" src="../assets/snadicon.png" />
@@ -270,33 +270,6 @@ console.log(senddata);
 </script>
 
 <style>
-
-
-.butn{
-    
-     width: 20%; 
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-    background-color:  rgb(15, 6, 119);
-    color: white;
-     font-family: sans-serif;
-     transition: 0.5s;
-}
-
-buttn{
-    
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 50px;
-  border: 2px solid #dddddd;
-  background: #634ed8;
-  outline: none;
-  transition: border-color 0.5s;
-  font-family: sans-serif;
-}
 
 
 

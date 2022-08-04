@@ -3,10 +3,10 @@
 <div class = "main-container"> 
 
   <div class="child-div1">
-  <h1><b>ANALYZE</b></h1>
+  <h1><b style="font-size: 55px;">ANALYZE</b></h1>
   <p>TODAY'S CHALLANGES</p>
   
-  <h1><b>ENVISION</b></h1>
+  <h1><b style="font-size: 55px;">ENVISION</b></h1>
   <P>TOMMOROW'S INNOVATION</P>
 
   </div>
