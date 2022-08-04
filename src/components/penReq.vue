@@ -51,7 +51,7 @@
 <td>{{employeedata.role}}</td>
 <td>{{employeedata.entity}}</td>
 <td>
-    <div style="display: flex;"><button style="border-radius:10px;
+    <div class="butn" style="display: flex;"><button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;
@@ -60,7 +60,7 @@ padding: 10px;
 margin: 5px;
 border: 0.5px solid white ;" @click.prevent="handleview(employeedata)">View</button>
 
-<button style="border-radius:10px;
+<button class="butn" style="border-radius:10px;
  background-color: green;
 text-decoration: solid; 
 color: white;
@@ -69,7 +69,7 @@ padding: 10px;
 margin: 5px;
 border: 0.5px solid white ;" @click.prevent="handleapprove(employeedata.id) ">Approve</button>
 
-<button style="border-radius:10px;
+<button  class="butn" style="border-radius:10px;
  background-color: red;
 text-decoration: solid; 
 color: white;
@@ -200,7 +200,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped >
 /* .penreq{
 z-index: 100;
     width: calc(100% - 280px);
@@ -210,6 +210,31 @@ z-index: 100;
         overflow: scroll;
        
      }
+
+         .b1{
+  background-color:white;
+  border: none;
+  color:black;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  border-radius: 15px;
+  width: 100%;
+}
+.b1:hover{
+   background-color: rgb(24, 89, 220);
+   color:black;
+   
+}
+.B1{
+    width: 100%;
+}
+
     
     
 }
@@ -266,5 +291,38 @@ z-index: 100;
         td {
             text-align:center;
         }
+
+.B1{
+    /* position: relative;
+    margin-left: -20%;
+    margin-top: 2%; */
+    z-index: 100;
+    width: calc(100% - 280px);
+   
+    
+}
+.B1 .a{
+    margin: 200px;
+}
+.b1{
+  background-color:white;
+  border: none;
+  color:black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  border-radius: 15px;
+}
+.b1:hover{
+   background-color: rgb(24, 89, 220);
+   color:black;
+   
+}
+
 
 </style>

@@ -34,7 +34,8 @@
 <td>{{employeedata.email}}</td>
 <td>{{employeedata.role}}</td>
 <td>{{employeedata.entity}}</td>
-<td><button style="border-radius:10px;
+<td><button class="butn"
+style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;
@@ -168,7 +169,8 @@ import sidemenu from '../components/common/sidemenu.vue';
 
 </script>
 
-<style >
+<style scoped>
+@import '../assets/index.css';
   @media only screen and (max-width: 600px){
     .amdtable{
        overflow: scroll;
@@ -295,7 +297,7 @@ div#profi {
 
 body {font-family: "Lato", sans-serif;}
 
-.sidebar {
+/* .sidebar {
   height: 150%;
   width: 255px;
   position: fixed;
@@ -308,7 +310,7 @@ body {font-family: "Lato", sans-serif;}
 }
 
 .sidebar a {
-    /* margin-top: 100px; */
+   
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
@@ -320,7 +322,7 @@ body {font-family: "Lato", sans-serif;}
 .sidebar a:hover {
   color: black;
   box-sizing:border-box;
-}
+} */
 
 .img{
   margin-left: 2px;
@@ -364,7 +366,11 @@ body {font-family: "Lato", sans-serif;}
    color:black;
    
 }
+#update td, th {
+    border-top: 0.5px solid rgb(240, 232, 232);
 
+    padding: 10px;
+}
  table.scrolldown {
             width: 100%;
               
