@@ -2,7 +2,7 @@
 <!-- {{data}}
 {{currentStep}} -->
  <form @submit.prevent="passEvent('Next')">
- <div class="forms main-container2">
+ <div class="main-container2">
       <div class="child-4">
          <div class="id">
       <label for="firstname"></label>
@@ -375,46 +375,34 @@ return true
 
 </script> 
 
-<style>
-.username{
-   margin:10px;
-   width:74%;
-
-}
-.main-container2{
-   display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.main-container{
-  display: flex;
-  flex-direction: row;
-}
-.child-div1{
-  width: 65%;
-}
-.child-div2{
-  width: 35%;
-}
-
-div{
-  text-align: center;
-}
-.backbtn{
-    text-align: left;
-}
-
-input[type=text] input[type=email]{
-    
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-     font-family: sans-serif;
-     transition: 0.6s;
+<style >
+/* registration page 1 */
+@media  (max-width: 600px) and (min-width:390px) {
+  .main-container2{
+    display:grid !important;
+    width: 77% !important;
    
+  }
+  .register{
+    width: 50% !important;
+    height: 43% !important;
+     overflow-y: scroll !important;
+     top: 210px;
+     left: -82px;
+  }
+  h2{
+    font-size: 25px !important;
+    width: 96%;
+  }
+  .child-div1{
+    bottom: 400px;
+    left: 223px;
+    font-size: 19px;
+  }
+  main-container{
+    width:100%
+  }
 }
-
 input[type=text]:focus{
   border-color:rgb(58, 213, 58);
   
@@ -423,7 +411,22 @@ input[type=email]:focus{
   border-color:rgb(58, 213, 58);
   
 }
- 
+ .register{
+    width:105%;
+  height: 105%;
+   max-width: 600px;
+   margin: 10px auto;
+   border-radius: 15px;
+   overflow: hidden;
+   box-shadow: 0 0 15px rgba(0,0,0,0.15);  
+   margin-bottom: 0%;
+   font-family: sans-serif;
+   background-color:white;
+   margin-right:394px;
+   margin-top: 10%;
+   right: 5%;
+   
+}
  input[type=date]{
     
     padding: 12px 20px;
@@ -433,48 +436,45 @@ input[type=email]:focus{
      font-family: sans-serif;
    
 }
+.main-container2{
+   display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
-input[type=email]{
+
+
+
+body{
+  background:-webkit-linear-gradient(left ,white,rgb(238, 212, 216)) ;
+  margin: 15px;
+  margin-top: 50px;
+  position: relative;
+   font-family: sans-serif;
+
+} 
+
+
+/* registration page 2 */
+p{
+  font-size: 19px;
+}
+
+/* registration page  */
+.butn{
     
+     width: 20%; 
     padding: 12px 20px;
     border: 1px solid;
     border-radius: 20px;
     text-align: center;
-     font-family: sans-serif;
-     transition: 0.6s;
-   
-}
-
-
-
-
-input[type=password]{
-
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-     font-family: sans-serif;
-}
-select{
-    width: 28%;
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-     font-family: sans-serif;
-}
-input[type=button]{
-    width: 10%; 
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-    background-color: rgb(119, 6, 6);
+    background-color:  rgb(15, 6, 119);
     color: white;
      font-family: sans-serif;
+     transition: 0.5s;
 }
-.button{
+
+buttn{
     
   width: 100%;
   margin-bottom: 10px;
@@ -486,136 +486,69 @@ input[type=button]{
   transition: border-color 0.5s;
   font-family: sans-serif;
 }
-.button1{
-    
-    padding: 12px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    text-align: center;
-    background-color:  rgb(15, 6, 119);
-    color: white;
-     font-family: sans-serif;
-     transition: 0.5s;
-}
 
+/* registration page 3 */
 
-.img{
-  text-align: left 2px;
-  margin-left:-10px ;
-  margin-bottom: 10px;
-}
-
-.backbtn{
-  align-items: baselhsl(180, 100%, 50%);
-   font-family: sans-serif;
-}
-input[type="checkbox"] {
-  -webkit-appearance: checkbox;
-     -moz-appearance: checkbox;
-          appearance: checkbox;
-  display: inline-block;
-  font-family: sans-serif;
- width: auto;
-}
-.FG{
-   text-justify: auto;
-   text-align: right;
-}
-body{
-  background:-webkit-linear-gradient(left ,white,rgb(238, 212, 216)) ;
-  margin: 15px;
-  margin-top: 50px;
-  position: relative;
-   font-family: sans-serif;
-
-}  
-
-
-
-  
-  
-
-  
-
-
-.register{
-  height: 97%;
-   max-width: 600px;
-   /* max-height: 5%; */
-   margin: 10px auto;
-   border-radius: 15px;
-   overflow: hidden;
-   box-shadow: 0 0 15px rgba(0,0,0,0.15);  
-   
-   margin-bottom: 0%;
-   font-family: sans-serif;
-   background-color:white;
-   
-}
-
-
-.imgs{
-  display: block;
-  max-width: 125px;
-  margin: 0 auto;
-}
-.forms{
-  padding: 30px;
-
-
-}
-
-
-.user{
-  width: 100%;
-  margin-bottom: 1px;
-  padding: 10px;
-  border-radius: 50px;
-  /* border: 1px solid black; */
-  /* background:black; */
-  outline: none;
-  /* transition: border-color 0.2s; */
-  font-family: sans-serif;
-
-}
-
-
-
-.user::placeholder{
-  color: #c5c2c2;
-
-}
-
-.regis{
-   box-sizing: border-box;
-  font-family: sans-serif;
-  margin-right: 75%;
-  background: #eeee;
-  margin-left: 5%;
-  border-radius: 25px;
-
-
-  
-  
-}
-.form{
-  background-color: #dddddd;
-}
-
-
-.main-div{
-      display: flex;
-    justify-content: space-around;
+.child-div1{
+  width: 50%;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 p{
-  margin: 0px;
+ margin:-2px;
+ font-size: 25px;
 }
-.child-div1{
-  margin:0px !important
+h1{
+  margin:-2px;
+  font-size: 70px;
 }
-.company{
-   margin:10px;
+.user{
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 50px;
+  border: 2px solid #dddddd;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.5s;
+  font-family: sans-serif;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

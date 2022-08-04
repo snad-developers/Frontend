@@ -1,6 +1,6 @@
 <template>
 
- <side-menu></side-menu>
+ <!-- <side-menu></side-menu> -->
  <div class="welcomediv">
 <div class="B1">
  
@@ -9,7 +9,7 @@
     <a href="/penReq" class="b1">Pending Requests</a>
 </div>
 <div class="orgdata">
-<table style="" class="orgndata">
+<div style="" class="orgndata">
   <td class="orgndata">
 <div class="addentity">
  <h4 style="margin-left:-360px;box-sizing:border-box;background-color:rgb(223, 181, 188);padding:15px;margin:0px"><b>Entities</b></h4>
@@ -88,7 +88,7 @@
 
 </div>
 </td>
-</table>
+</div>
 </div>
 </div>
 </template>
@@ -219,6 +219,14 @@ export default{
 </script>
 
 <style>
+@media only screen and (max-width: 600px){
+  .orgndata{
+    display: grid;
+  }
+  .tbox{
+    width:50%;
+  }
+}
 .addentity{
   border-radius: 25px;
   box-sizing: border-box;
@@ -228,9 +236,10 @@ export default{
   margin-top: 27px;
   /* margin:0%;  */
   padding-bottom: 2%;
-margin-right: 11px;
-   overflow: hidden;
-   box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  margin-right: 11px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+
   }
 .subentity{
   border-radius: 25px;
@@ -245,6 +254,7 @@ margin-right: 11px;
 margin-right: 11px;
    overflow: hidden;
    box-shadow: 0 0 15px rgba(0,0,0,0.15); 
+
   }  
   .expenses{
   border-radius: 25px;
@@ -278,7 +288,7 @@ margin-right: 11px;
   cursor: pointer;
   border-radius: 25px;
     /* width: 25%; */
-    padding: 10px;
+  padding: 10px;
     background-color: blue;
     color:white;
   border: solid white 1px;
