@@ -1,6 +1,6 @@
 <template>
 
-<h2> Active Employee Data </h2>
+<h2 style="width:100% ;"> Active Employee Data </h2>
 <br>
 <br>
 
@@ -22,7 +22,7 @@
     
   </div>
   </div>
-<div class="main-container">
+
    <!-- <a href="/launchpage"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;top: 30px;">Back</button></a>
    
    <router-link to="newEmp">
@@ -32,14 +32,12 @@
     <table  class="table-content" style="  border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
     border-radius: 10px 10px 0 0;
-    overflow: hidden; width:100%;
-    margin-left:0% ;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    overflow: scroll; width:100%;
+    width: 100%;
     background-color:white">
       
         <!-- <div id=""> -->
-          <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;text-align: justify; ">
+          <thead style=" background-color:rgb(223, 181, 188); color:grey; fill-opacity: initial;width: 100%; overflow: scroll; ">
          
         <!-- <tr> -->
             <th> Employee Number</th>
@@ -84,7 +82,6 @@
        
     </table><br><br><br> 
    
-</div>
 
 </template>
 

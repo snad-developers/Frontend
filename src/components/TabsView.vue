@@ -278,7 +278,7 @@ border: 0px solid rgb(153, 148, 148) ;" @click.prevent="personalhandleupdate()" 
 text-decoration: solid; 
 color: white;
 cursor: pointer;
-margin-left:740px;
+right: -36%;
 padding: 10px;
 
 
@@ -289,7 +289,7 @@ padding: 10px;
     
    
                               <div class="amdtable">
-                               <table>
+                               <table style="width:100%">
 
                                 <thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
                                 <th>University</th>
@@ -330,7 +330,7 @@ padding: 10px;
 text-decoration: solid; 
 color: white;
 cursor: pointer;
-margin-left:730px;
+right: -36%;
 padding: 10px;
 
 
@@ -340,7 +340,7 @@ padding: 10px;
 
                          
 <div class="amdtable">
-<table>
+<table style="width: 100%;">
 
 
                                 
@@ -421,7 +421,7 @@ padding: 10px;
                          <!-- <input type="text" name="hiredate" for="hiredate" placeholder="Hire Date" style="margin-left: 50px;" v-model="person.startdate">    -->
                         </div>
                   
-                     <div class="child-4">
+                     <div class="amdtable">
                         <h4>Employment Status</h4>
                         <span><button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
@@ -429,50 +429,34 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-margin-left:775px;
+right: -36%;
 border: 0px solid rgb(153, 148, 148) ;top:-30px;" v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span>
              
-                            <table class="center">
-
-                                <tr><thead style="
-                                  display: flex; 
-
-    background-color: rgb(223, 181, 188);
-
-    width: 190%;
-
-    text-align:center;
-
-    color: grey;
-
-    left: 0px;
-
-     <!-- flex-basis: auto; -->
-
-    font-size: medium;"> 
-                                <th style="left:100px;">Effective Date</th>
-
-                                <th style="left:200px;">Employment Status</th>
-                                <th style="left:300px;">Comment</th>
-                                </thead></tr>
-                                <br>
+                            <table style="width:100% ;">
+<thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
+                                <th>Effective Date</th>
+                                <th>Employment Status</th>
+                                <th>Comment</th>
+                                
+                                </thead>
+                                
                             
                     
                         <tr>
-                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date" style="margin-left:-200px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"
+                         <td><input type="text" name="effectivedate" for="effectivedate" placeholder="Effective Date"   :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.effectivedate"
                          :class="
                                     v$.person.effectivedate.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 "> </td>
-                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status" style="margin-left: -200px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.employementstatus"
+                         <td> <input type="text" name="employementstatus" for="employementstatus" placeholder="Employement Status"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.employementstatus"
                          :class="
                                     v$.person.employementstatus.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 "></td>
                          
-                          <td><input type="text" name="comment" for="comment" placeholder="Comment" style="margin-left: 60px;"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.comment"
+                          <td><input type="text" name="comment" for="comment" placeholder="Comment"  :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" v-model="person.comment"
                           :class="
                                     v$.person.comment.$error === true
                                     ? 'text-fields-error'
@@ -503,59 +487,44 @@ border: 0px solid rgb(153, 148, 148) ;top:-30px;" v-if="logid.role=='Admin' ||  
                          <td>  </td></tr>
                     </table>
                         </div><br>
-                        <hr class="hr">
+                        <hr class="hr"> 
+                        <div class="amdtable">         
     <h4>Job Details</h4>
     <button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;
 cursor: pointer;
-margin-left:780px;
+right: -36%;
 padding: 10px;
  border: 0px solid rgb(153, 148, 148) ;top: -35px;"  v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="jobinfo(rowdata)">+ Add New </button> 
 
                               
 
-                             <table>
-
-        <thead style="display: flex;
-
-    background-color: rgb(223, 181, 188);
-
-    width: 300%;
-
-    color: grey;
-
-    left: 0px;
-
-    flex-basis: auto;
-    
-
-    font-size: medium;">
-        <tr>
-            
-            <th style="left:10px;">Effective Date</th>
-            <th style="left:20px;">Location</th>
-            <th style="left:10px;">Client Name</th>
-            <th style="left:10px;">JobTitle</th>
-            <th style="left:20px;">Reports To</th>
+                             <table style="width: 100%;">
+<thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
+                             <th>Effective Date</th>
+                             <th>Location</th>
+                             <th>Client Name</th>
+                             <th>JobTitle</th>
+                             <th>Reports To</th>
            
-        </tr>
-        </thead>
+                                </thead>
+        
          
         <tbody >
   
        <template v-for="(rowdata,index) in rdata" :key="index" > 
            
         <tr>
-<td style="right:100px;"> {{rowdata.jobeffectivedate}}</td>
-<td style="right:170px;">{{rowdata.location}}</td>
-<td style="right:160px;" >{{rowdata.clientname}}</td>
-<td style="right:85px;">{{rowdata.jobtitle}}</td>
-<td style="right:75px;">{{rowdata.reportsto}}</td>
+<td>{{rowdata.jobeffectivedate}}</td>
+<td>{{rowdata.location}}</td>
+<td>{{rowdata.clientname}}</td>
+<td>{{rowdata.jobtitle}}</td>
+<td>{{rowdata.reportsto}}</td>
 
-       </tr>
- </template>
+    </tr>
+    </template>
  </tbody>
    
        
@@ -563,27 +532,27 @@ padding: 10px;
        
     </table> 
  
-
+</div>
 
 
 
                              <hr class="hr">
+<div class="amdtable">
     <h4>Compensation Details</h4>
     <button style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;
 cursor: pointer;
-margin-left:780px;
+right: -36%;
 padding: 10px;
  border: 0px solid rgb(153, 148, 148) ;top: -35px;"  v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="cominfo(rowdata)" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">+ Add New</button> 
 
           
   
-<table>
-
-        <thead style="background-color:  rgb(223, 181, 188) ; color: grey; left-0px;font-size:small ">
-        <tr>
+<table style="width: 100%;">
+<thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
+        
             
             <th>Effective Date</th>
             <th>Pay Schedule</th>
@@ -594,7 +563,7 @@ padding: 10px;
             <th>Change Reason</th>
             <th>Comment</th>
             
-        </tr>
+        
         </thead>
          
         <tbody >
@@ -620,7 +589,7 @@ padding: 10px;
         
        
     </table> 
-   
+  </div> 
       </Tab>
     <Tab :isSelected="selected === 'Document'"> <br>
      <h4>Employee Invoices</h4>
@@ -628,10 +597,9 @@ padding: 10px;
    <button style="margin-left: 70%;top:-30px;padding: 0.5%; color:white;background-color:blue;border-radius:22px;width:max-content;cursor: pointer;">Add New Invoice</button>
       </router-link> 
 
-       <table class="center">
-
-                                <tr><thead style=" background-color:  rgb(223, 181, 188) ; color: grey; left-0px;font-size:small">
-                             
+      <table style="width: 100%;">
+<thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">
+        
         <th>Invoice Number</th>
         <th>Invoice Date</th>
         <th>Invoice Status</th>
@@ -639,7 +607,7 @@ padding: 10px;
         <th>Invoice Amount</th>
         <th>Currency</th>
        </thead>
-                                </tr></table>
+                                </table>
   
 
 
@@ -1031,7 +999,7 @@ if(response.data.status == "success" && response.data.statuscode == 200 ){
 </script>
 
 <style scoped>
- @media  (max-width: 600px){
+ @media  (max-width: 780px){
   .P1{
     width:60% !important;
   }
@@ -1081,7 +1049,7 @@ p,h4{
 .comp{
   border-radius: 25px;
   box-sizing: border-box;
-  width: 60%;
+  width: 45%;
   height: fit-content;
   background-color:white;
   margin-top: 27px;
@@ -1091,6 +1059,7 @@ p,h4{
   text-align:justify;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  overflow: scroll;
 }
   .EduUpd{
   border-radius: 25px;

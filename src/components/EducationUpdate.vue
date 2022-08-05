@@ -1,6 +1,6 @@
 <template>
-<h2>Add Education Information</h2>
-<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
+<h2 style="width:100% ;">Add Education Information</h2>
+<a href="/activeemplydata"><button style=" right:30%;color:white;background-color:blue;border-radius:22px;width:50px;cursor: pointer;">Back</button></a>
    
 <div class="EduUpd">
     <br>
@@ -102,7 +102,7 @@
                                 >
                                     {{ error.$message }}
                                 </p><br></span>
-<button  @click.prevent="educationupdate();" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+<button  @click.prevent="educationupdate();" style=" right:-42%;background-color: blue;color: antiquewhite;">
                             <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -256,11 +256,11 @@ export default {
   margin-top: 27px;
   margin:0%; 
   padding-bottom: 2%;
-  margin-left: 360px;
+align-items: center;
   text-align:justify;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.15);
-   
+   left: 25%;
 }
 
 </style>

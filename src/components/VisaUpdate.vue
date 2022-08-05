@@ -1,22 +1,22 @@
 <template>
 
-<h2>Add Visa Information</h2>
-<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
-  <div class="comp"><br>
-      <tabel>
+<h2 style="width: 100%;">Add Visa Information</h2>
+<a href="/activeemplydata"><button style=" left:-36%;color:white;background-color:blue;border-radius:22px;width:50px;cursor: pointer;">Back</button></a>
+  <div class="visa"><br>
       
-<tr><td><label for="date" style="margin-left: 20px;">Date</label><br>
+      
+<label for="date" style="margin-left: 20px;">Date</label><br>
 <input  name=" date" id="date" type="date" v-model="person.date" style="padding: 10px;width:225px;margin-left: 20px;"
 :class="
                                     v$.person.date.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
-                                ">
+                                "><br>
                                 
-                               </td>
+                            
 
- <td><label for="visastatus" style="margin-left: 20px;">Visa Type</label><br>
-                            <select name="visastatus" id="visastatus" placeholder="Visa Type" v-model="person.visastatus" style="margin-left: 20px;padding: 10px;width: 90%;"
+ <label for="visastatus" style="margin-left: 20px;">Visa Type</label><br>
+                            <select name="visastatus" id="visastatus" placeholder="Visa Type" v-model="person.visastatus" style="margin-left: 20px;padding: 10px;width: 300px;"
                             :class="
                                     v$.person.visastatus.$error === true
                                     ? 'text-fields-error'
@@ -30,24 +30,24 @@
                               <option value="L1A">L1A</option>
                               <option value="L2A">L2A</option>
                               <option value="permanent">Permanent Resident </option>
-                            </select></td></tr>
-                            <tr><td> <p style="margin-left:70px"
+                            </select><br>
+                             <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.date.$errors"
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td>
-                                <td> <p style="margin-left:70px"
+                                </p>
+                                 <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.visastatus.$errors"
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td></tr>
+                                </p>
 
-<tr><td><label for="issuingcountry" style="margin-left: 20px;">Issuing Country</label><br>
-     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 10px;width: 60%;"
+<label for="issuingcountry" style="margin-left: 20px;">Issuing Country</label><br>
+     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 10px;width: 300px;"
      :class="
                                     v$.person.issuingcountry.$error === true
                                     ? 'text-fields-error'
@@ -188,23 +188,22 @@
                                 <option value="Malaysia">Malaysia</option>
                                 <option value="Maldives">Maldives</option>
                                 <option value="Mali">Mali</option>
-     </select></td>
-    <td> <label for="issueddate" style="margin-left: 20px;">Issued Date</label><br>
+     </select><br>
+    <label for="issueddate" style="margin-left: 20px;">Issued Date</label><br>
 <input  name=" issueddate" id="issueddate" type="date" v-model="person.issueddate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
  :class="
                                     v$.person.issueddate.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
-                                "></td></tr>
- <tr> 
-  <td><p
+                                "><br><br>
+ <p
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.issuingcountry.$errors"
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td> 
-                                <td><p style="margin-left:70px"
+                                </p>
+                                <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.issueddate.$errors"
                                     :key="error.$uid"
@@ -223,8 +222,8 @@
 
           </p> -->
                                 
-                                </td></tr> 
-<tr><td><label for="expirationdate" style="margin-left: 20px;">Expiration Date</label><br>
+                                
+<label for="expirationdate" style="margin-left: 20px;">Expiration Date</label><br>
 <input  name=" expirationdate" id="expirationdate" type="date" v-model="person.expirationdate"   style="padding: 10px 20px;width:225px;margin-left: 20px;"
 :class="
                                     v$.person.expirationdate.$error === true
@@ -233,7 +232,7 @@
                                 ">
                                  <!-- <span v-if="this.jackson.status!=''">Status:{{Active}}</span> -->
                                  
-                                </td>  
+                                
 
 
 
@@ -244,9 +243,9 @@
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 "></td></tr> -->
-                    </tr>
                     
-                                <tr><td><p style="margin-left:70px"
+                    
+                               <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.expirationdate.$errors"
                                     :key="error.$uid"
@@ -265,7 +264,7 @@
              Age should be between 18 to 75 
 
           </p> -->
-                                </td>
+                            
                                <!-- <td> <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.status.$errors"
@@ -273,10 +272,10 @@
                                 >
                                     {{ error.$message }}
                                 </p></td> -->
-                                </tr></tabel><br><br> 
+                            <br><br> 
 
            
-   <button  @click="visaupdate" style="margin-left: 326px;margin-top:0%; background-color: blue;color: antiquewhite;">
+   <button  @click="visaupdate" style=" right:-42%;background-color: blue;color: antiquewhite;">
                             <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -438,8 +437,8 @@ if (now > expirydate) {
 </script>
 
 <style>
-.comp{
-  border-radius: 25px;
+.visa{
+   border-radius: 25px;
   box-sizing: border-box;
   width: 50%;
   height: fit-content;
@@ -447,10 +446,12 @@ if (now > expirydate) {
   margin-top: 27px;
   margin:0%; 
   padding-bottom: 2%;
-  margin-left: 360px;
+align-items: center;
   text-align:justify;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.15);
+   left: 25%;
+  
    
 }
 

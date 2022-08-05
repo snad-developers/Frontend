@@ -494,7 +494,7 @@ display: none !important;
 
     display:block !important ;
 
-        background-color:red;
+       
 
         margin-right:20px;
 
@@ -520,7 +520,7 @@ display: none !important;
 
     display:flex;
 
-        background-color:red;
+       
 
        
 
