@@ -1,4 +1,5 @@
 <template>
+<side-menu></side-menu>
 
 
  <div class="welcomediv">

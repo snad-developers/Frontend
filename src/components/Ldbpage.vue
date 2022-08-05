@@ -308,6 +308,9 @@ console.log(sdata)
 </script> 
 
 <style>
+.welcomediv{
+justify-content: center;
+}
 div.scrollWrapper{
 
   height:380px;
@@ -319,9 +322,9 @@ width: 39%;
   display: flex;
   flex-direction: row;
 }
-.child-div1{
+/* .child-div1{
   width: 200%;
-}
+} */
 .child-div2{
  z-index: 100;
     width: calc(100% - 280px);

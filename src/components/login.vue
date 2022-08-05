@@ -11,7 +11,7 @@
 
   </div>
   
-  <div class="child-div2">
+  <div class="child-div2 loginmargin">
    
     
  
@@ -264,7 +264,7 @@ export default {
 
 </script> 
 
-<style scoped>
+<style>
 .font-thin{
   font-size: 14px;
   color: #c40b0b;
@@ -277,7 +277,9 @@ export default {
   width: 65%;
 }
 .child-div2{
-  width: 35%;
+  width: 100%;
+  /* display: flex;
+    justify-content: center; */
 }
 
 div{

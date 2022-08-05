@@ -1,4 +1,5 @@
 <template>
+<side-menu></side-menu>
 
  <!-- <side-menu></side-menu> -->
  <div class="welcomediv">
@@ -219,7 +220,7 @@ export default{
 </script>
 
 <style>
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 1004px){
   .orgndata{
     display: grid;
   }

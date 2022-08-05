@@ -164,25 +164,18 @@ console.log(this.responsedata.employementstatus)
     }
 </script>
 <style scoped>
-.welcome-header {
+/* .welcome-header {
     display: flex;
     justify-content: space-between;
     margin: 30px;
-    /* margin-left: 270px; */
-}
-.profile {
+    
+} */
+/* .profile {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  border-radius: 25px;
-}
+} */
+
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
@@ -190,10 +183,10 @@ console.log(this.responsedata.employementstatus)
  ;
   
 }
-* {
-  font-family: sans-serif; /* Change your font family */
-}
-.content-table {
+/* * {
+  font-family: sans-serif; 
+} */
+/* .content-table {
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
@@ -201,18 +194,18 @@ console.log(this.responsedata.employementstatus)
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-.content-table thead tr {
+} */
+/* .content-table thead tr {
   background-color: #009879;
   color: #ffffff;
   text-align: left;
   font-weight: bold;
-}
-.content-table th,
+} */
+/* .content-table th,
 .content-table td {
   padding: 12px 15px;
-}
-.content-table tbody tr {
+} */
+/* .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
 .content-table tbody tr:nth-of-type(even) {
@@ -224,7 +217,7 @@ console.log(this.responsedata.employementstatus)
 .content-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
-}
+} */
 
 .main-container{
     width: 87%;
@@ -232,7 +225,7 @@ console.log(this.responsedata.employementstatus)
     flex-direction: column;
     margin-left: 105px;
 }
-.break{
+/* .break{
    border: 0 solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
   outline: 1px solid;
@@ -240,7 +233,7 @@ console.log(this.responsedata.employementstatus)
   outline-offset: 0px;
   text-shadow: none;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-}
+} */
  td {
   padding: 8px;
   text-align: left;

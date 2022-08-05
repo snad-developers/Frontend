@@ -377,7 +377,7 @@ return true
 
 <style >
 /* registration page 1 */
-@media  (max-width: 600px) and (min-width:390px) {
+/* @media  (max-width: 600px) and (min-width:390px) {
   .main-container2{
     display:grid !important;
     width: 77% !important;
@@ -402,7 +402,7 @@ return true
   main-container{
     width:100%
   }
-}
+} */
 input[type=text]:focus{
   border-color:rgb(58, 213, 58);
   
@@ -422,7 +422,7 @@ input[type=email]:focus{
    margin-bottom: 0%;
    font-family: sans-serif;
    background-color:white;
-   margin-right:394px;
+   /* margin-right:394px; */
    margin-top: 10%;
    right: 5%;
    
@@ -439,7 +439,7 @@ input[type=email]:focus{
 .main-container2{
    display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 
@@ -463,7 +463,7 @@ p{
 /* registration page  */
 .butn{
     
-     width: 20%; 
+     /* width: 20%;  */
     padding: 12px 20px;
     border: 1px solid;
     border-radius: 20px;
@@ -513,6 +513,52 @@ h1{
   outline: none;
   transition: border-color 0.5s;
   font-family: sans-serif;
+
+}
+@media (max-width: 780px)   {
+  .loginmargin{
+    margin-left: 20%;
+  }
+.main-container{
+  flex-direction: column !important;
+justify-content: center;
+    display: flex;
+    background-color: red;
+}
+
+.child-div1{
+    width: 100% !important;
+}
+.child-div4{
+display: flex;
+justify-content: center;
+}
+.register{
+width: 105%;
+    height: 105%;
+    /* max-width: 600px; */
+    /* margin: 10px auto; */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgb(0 0 0 / 15%);
+    /* margin-bottom: 0%; */
+    font-family: sans-serif;
+    background-color: white;
+    /* margin-right: 394px; */
+    /* margin-top: 10%; */
+    /* right: 5%; */
+        margin: 0 !important;
+        right:0% !important;
+}
+.amdtable {
+  overflow: scroll;
+}
+.penreq{
+  overflow: scroll;
+}
+.B1{
+  display: flex;
+}
 
 }
 
