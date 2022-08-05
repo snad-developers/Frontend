@@ -52,7 +52,7 @@
 <td>{{employeedata.role}}</td>
 <td>{{employeedata.entity}}</td>
 <td>
-    <div class="butn" style="display: flex;"><button style="border-radius:10px;
+    <div style="display: flex;"><button class="butn" style="border-radius:10px;
  background-color: rgba(8, 77, 179, 0.864);
 text-decoration: solid; 
 color: white;

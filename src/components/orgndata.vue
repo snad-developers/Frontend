@@ -219,7 +219,7 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
 @media only screen and (max-width: 1004px){
   .orgndata{
     display: grid;
