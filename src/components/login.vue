@@ -402,7 +402,7 @@ body{
   margin-top: 50px;
   position: relative;
    font-family: sans-serif;
-   background: #634ed8;
+   
    
 
 }  
