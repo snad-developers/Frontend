@@ -28,8 +28,8 @@
     
   </div>
   </div>
-  <div style="display: flex; margin: 8px;flex-direction: column;">
-  <div style="display: flex;">
+  <div class="row1" style="display: flex; margin: 8px;flex-direction: column;">
+  <div class="row3" style="display: flex;">
       <div @click="access" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='HR Manager' || this.logid.role=='Payroll Admin' || this.logid.role== 'Department Head' || this.logid.role=='Executive Board' || this.logid.role=='Director' || this.logid.role== 'Manager' )? 'box-backgroundcolor box-color': 'box-color']"  style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
          <h3>Active Employees</h3>
             <p><i class="uil uil-user" style="margin-left:0"></i> {{activeemp}}</p>
@@ -52,14 +52,15 @@
     </div>
    
   
-     <div  @click="managment" v-bind:class="[( this.logid.role=='HR Manager'  ||this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+    
+    </div>
+    <div class="row2" style="display: flex;">
+       <div  @click="managment" v-bind:class="[( this.logid.role=='HR Manager'  ||this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Management Expenses</h3>
             <p>$ {{(mgmtexpensestotal/1000).toFixed(2)}}K</p>
            <!-- <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
            <slot/></router-link> -->
     </div>
-    </div>
-    <div style="display: flex;">
       <div  @click="payroll" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Payroll Expenses</h3>
             <p>$ {{(payrollexpensestotal/1000).toFixed(2)}}K</p>
@@ -130,7 +131,7 @@ export default {
        
       ],
       options: {
-        width: 990,
+        width: 700,
         height: 400
       }
   }
@@ -270,23 +271,23 @@ var showdata=response.data.result;
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
-*{
+/* *{
   margin: 0;
   padding: 0;
   text-decoration: none;
 }
 child-part1{
     width: 15%;
-}
-child-part2{
+} */
+/* child-part2{
    max-width:24%;
     padding:21px;
     border-radius: 25px;
     margin-left:411px;
     margin-top:-382px;
     
-}
-.h6{
+} */
+/* .h6{
     color:blue;
 }
    
@@ -298,8 +299,8 @@ child-part2{
 margin-right:85px;
   
   padding: 20px;
-}
-.receive{
+} */
+/* .receive{
  box-sizing: border-box;
   font-family: sans-serif;
   
@@ -313,11 +314,11 @@ margin-left: 631px;
     
   
   
-}
+} */
 .box-backgroundcolor:hover {
   background-color: coral;
 }
-.Expenses{
+/* .Expenses{
  box-sizing: border-box;
   font-family: sans-serif;
 border-radius:25px;
@@ -328,8 +329,8 @@ padding: 30px;
     flex-direction: column;
     height: 92%;
     margin-left: 270px;
-}
-.Expenses1{
+} */
+/* .Expenses1{
  box-sizing: border-box;
   font-family: sans-serif;
   
@@ -339,8 +340,8 @@ background-color: white;
 padding: 20px;
 margin-left: 623px;
     margin-top: 10px;
-}
-.Expenses2{
+} */
+/* .Expenses2{
  box-sizing: border-box;
   font-family: sans-serif;
   
@@ -350,8 +351,8 @@ background-color:  white;
 padding: 8px;
 margin-left: 875px;
     margin-top: -209px;
-}
-.Expenses3{
+} */
+/* .Expenses3{
  box-sizing: border-box;
   font-family: sans-serif;
   
@@ -361,8 +362,8 @@ background-color: white;
 padding: 12px;
 margin-left: 875px;
     margin-top: 19px;
-}
-.Expenses4{
+} */
+/* .Expenses4{
  box-sizing: border-box;
   font-family: sans-serif;
   
@@ -372,8 +373,8 @@ background-color:  white;
 padding: 12px;
 margin-top: -182px;
     margin-left: 1130px;
-}
-.Expenses5{
+} */
+/* .Expenses5{
  box-sizing: border-box;
   font-family: sans-serif;
   
@@ -383,42 +384,24 @@ background-color:  white;
 padding: 12px;
 margin-top: 12px;
     margin-left: 1130px;
-}
+} */
   
 
-#check{
+/* #check{
   display: none;
-}
-label #btn,label #cancel{
-  position: absolute;
- 
-  color: white;
-  border-radius: 5px;
-  border: 1px solid #262626;
-  margin: 15px 30px;
-  font-size: 29px;
-  background: #262626;
-  height: 45px;
-  width: 45px;
-  text-align: center;
-  line-height: 45px;
- 
-}
-label #cancel{
-  opacity: 0;
-  visibility: hidden;
-}
+} */
 
-#check:checked ~ label #btn{
-  margin-left: 245px;
+/* label #cancel{
   opacity: 0;
   visibility: hidden;
-}
-#check:checked ~ label #cancel{
+} */
+
+
+/* #check:checked ~ label #cancel{
   margin-left: 245px;
   opacity: 1;
   visibility: visible;
-}
+} */
 
 .box-container{
       display: flex;
@@ -433,19 +416,15 @@ label #cancel{
     width: 100%;
     margin: 10px;
 }
-.gross-container{
-    display: flex;
-    justify-content: center;
-        /* width: 100%; */
-}
+
 .sidebar{
       display: flex;
     flex-direction: column;
     width: 300px;
 }
-.maincontainer{
+/* .maincontainer{
   display: flex;
-}
+} */
 .welcomediv{
     display: flex;
     flex-direction: column;
@@ -488,23 +467,74 @@ body {font-family: "Lato", sans-serif;}
   color: black;
   box-sizing:border-box;
 }
-.img{
+/* .img{
   margin-left: 2px;
-}
-.profile{
+} */
+/* .profile{
   display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-.Bargraph{
+} */
+/* .Bargraph{
   width:40%;
   margin-left: 37px;
 
-}
-
+} */
+/* 
 g > rect:nth-of-type(2) {
 
 display: none !important;
+
+} */
+@media (max-width: 780px) {
+.Bargraph{
+  overflow: scroll;
+}
+  .row2{
+
+    display:block !important ;
+
+        background-color:red;
+
+        margin-right:20px;
+
+
+
+     }
+     .row3{
+
+    display:block !important ;
+     }
+
+
+    .box-color{
+
+      width: 95%;
+
+    }
+}
+
+@media (max-width:1000px) and (min-width:780px)  {
+
+  .row1{
+
+    display:flex;
+
+        background-color:red;
+
+       
+
+     }
+
+     .row2{
+
+      margin-left:9px;
+
+    }
+
+   
+
+ 
 
 }
 </style>

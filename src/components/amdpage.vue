@@ -1,5 +1,6 @@
 <template>
 <side-menu></side-menu>
+
  <div class="welcomediv">
 <div class="B1">
  
@@ -340,7 +341,7 @@ body {font-family: "Lato", sans-serif;}
     margin-left: -20%;
     margin-top: 2%; */
     z-index: 100;
-    width: calc(100% - 280px);
+    /* width: calc(100% - 280px); */
    
     
 }
