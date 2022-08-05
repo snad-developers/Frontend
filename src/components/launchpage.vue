@@ -89,6 +89,7 @@
       type="ColumnChart"
       :options="options"
       :data="data"
+      
     />   
     </div>
   </div>
@@ -131,7 +132,7 @@ export default {
        
       ],
       options: {
-        width: 700,
+        width: 900,
         height: 400
       }
   }
@@ -486,6 +487,7 @@ g > rect:nth-of-type(2) {
 display: none !important;
 
 } */
+
 @media (max-width: 780px) {
 .Bargraph{
   overflow: scroll;
@@ -515,7 +517,9 @@ display: none !important;
 }
 
 @media (max-width:1000px) and (min-width:780px)  {
-
+.Bargraph{
+  overflow: scroll;
+}
   .row1{
 
     display:flex;
