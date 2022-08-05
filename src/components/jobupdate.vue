@@ -1,19 +1,19 @@
 <template>
 
-<h2>ADD Job Information</h2>
-<a href="/activeemplydata"><button style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;">Back</button></a>
-<div class="comp">
+<h2 style="width:100% ;">ADD Job Information</h2>
+<a href="/activeemplydata"><button style="left:-36%;color:white;background-color:blue;border-radius:22px;width:50px;cursor: pointer;">Back</button></a>
+<div class="JOB">
                               <br>
                               
-                              <tabel><tr>
-<td><label for="jobeffectivedate" style="margin-left: 20px;">Effective date</label><br>
+                          
+<label for="jobeffectivedate" style="margin-left: 20px;">Effective date</label><br>
 <input  name="jobeffectivedate" id="jobeffective date" type="date" v-model="person.jobeffectivedate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
 :class="
                                     v$.person.jobeffectivedate.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
-                                "></td>
-<td><label for="clientname" style="margin-left: 20px;">ClientName</label><br>
+                                "><br>
+<label for="clientname" style="margin-left: 20px;">ClientName</label><br>
 <!-- <input  name="clientname" id="clientname" type="text" v-model="person.clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;" -->
 <select name="clientname"   v-model="person.clientname" style="width: 225px;padding: 10px 20px;margin-left: 20px;"
 :class="
@@ -26,23 +26,23 @@
                                 <option >{{response.clientname}}</option>
                             </template>
 
-    </select>
-                                </td></tr>
-                                <tr><td><p style="margin-left:70px"
+    </select><br>
+                                
+                                <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.jobeffectivedate.$errors"
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td><td><p style="margin-left:70px"
+                                </p><p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.clientname.$errors"
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td></tr>
+                                </p>
 
-     <tr><td><label for="jobtitle" style="margin-left: 20px;">Job Title</label><br>
+    <label for="jobtitle" style="margin-left: 20px;">Job Title</label><br>
     <select name="jobtitle"   v-model="person.jobtitle" style="width: 225px;padding: 10px 20px;margin-left: 20px;"
     :class="
                                     v$.person.jobtitle.$error === true
@@ -58,9 +58,9 @@
         <option value="Businessanalyst">BusinessAnalyst</option>
         <option value="Operationsmanager">OperationsManager</option>
 
-    </select></td>
+    </select><br>
 
-    <td><label for="reportsto" style="margin-left: 20px;">Reports To</label><br>
+    <label for="reportsto" style="margin-left: 20px;">Reports To</label><br>
      
      <select name="reportsto"   v-model="person.reportsto" style="width: 225px;padding: 10px 20px;margin-left: 20px;"
      :class="
@@ -73,26 +73,26 @@
                                 <option >{{response.fullname}}</option>
                             </template>
 
-    </select>
-                                </td></tr>
-                                <tr><td><p style="margin-left:70px"
+    </select><br>
+                              
+                                <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.jobtitle.$errors"
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td>
-                                <td><p style="margin-left:70px"
+                                </p>
+                                <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.reportsto.$errors"
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td></tr>
+                                </p>
 
 
- <tr> <td><label for="location" style="margin-left: 20px;">Location</label><br>
-     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 10px;width: 60%;"
+<label for="location" style="margin-left: 20px;">Location</label><br>
+     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 10px;width: 300px;"
      :class="
                                     v$.person.location.$error === true
                                     ? 'text-fields-error'
@@ -338,15 +338,15 @@
                                 <option value="Serbia">Serbia</option>
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
-                            </select></td>
-                            <td><p style="margin-left:70px"
+                            </select><br><br>
+                            <p style="margin-left:70px"
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.location.$errors"
                                     :key="error.$uid"
                                 >
                                     {{ error.$message }}
-                                </p></td></tr>
-                              </tabel>
+                                </p>
+                             
 
 
 
@@ -355,7 +355,7 @@
 
 
 
-<button  @click=" jobinfo" style="margin-left: 320px;margin-top:0%;left:-16px;top:20px; background-color: blue;color: antiquewhite;">
+<button  @click=" jobinfo" style=" right:-42%;background-color: blue;color: antiquewhite;">
                             <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
@@ -500,8 +500,8 @@ export default {
 </script>
 
 <style>
-.comp{
-  border-radius: 25px;
+.JOB{
+ border-radius: 25px;
   box-sizing: border-box;
   width: 50%;
   height: fit-content;
@@ -509,11 +509,11 @@ export default {
   margin-top: 27px;
   margin:0%; 
   padding-bottom: 2%;
-  margin-left: 360px;
+align-items: center;
   text-align:justify;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.15);
-   
+   left: 25%;
  }
 
 </style>
