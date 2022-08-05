@@ -523,7 +523,7 @@ h1{
   flex-direction: column !important;
 justify-content: center;
     display: flex;
-    background-color: red;
+    background-color:#ebebe482;
 }
 
 .child-div1{
