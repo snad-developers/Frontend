@@ -25,7 +25,7 @@
      <div class="forms">
        <div class="forms1">
        <label for="Entity" placeholder="Select Question" >
-      <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question1"
+      <select style="margin:5px;border-radius:18px;border-color:black;  width:90%" name="Entity" id="Entity" class="text-box"  v-model="person.question1"
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
@@ -45,7 +45,7 @@
           </p>
     </label>
       
-      <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer1"
+      <input style="margin:5px;  width:90%" type="text" class="text-box" placeholder="Answer" v-model="person.answer1"
             :class="
               v$.person.answer1.$error === true
                 ? 'text-fields-error'
@@ -59,7 +59,7 @@
             {{ error.$message }}
           </p>
              <label for="Entity" placeholder="Select Question" >
-     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question2" :disabled="!person.question1"
+     <select style="margin:5px;border-radius:18px;border-color:black;  width:90%" name="Entity" id="Entity" class="text-box"  v-model="person.question2" :disabled="!person.question1"
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
@@ -80,7 +80,7 @@
     </label>
 
       
-      <input style="margin:5px" type="text" class="user" placeholder="Answer" v-model="person.answer2"
+      <input style="margin:5px;  width:90%" type="text" class="text-box" placeholder="Answer" v-model="person.answer2"
             :class="
               v$.person.answer2.$error === true
                 ? 'text-fields-error'
@@ -94,7 +94,7 @@
             {{ error.$message }}
           </p>
              <label for="Entity" placeholder="Select Question" >
-     <select style="margin:5px;border-radius:18px;border-color:black" name="Entity" id="Entity" class="user"  v-model="person.question3" :disabled="!person.question2"
+     <select style="margin:5px;border-radius:18px;border-color:black;  width:90%" name="Entity" id="Entity" class="text-box"  v-model="person.question3" :disabled="!person.question2"
             :class="
               v$.person.question1.$error === true
                 ? 'text-fields-error'
@@ -114,7 +114,7 @@
     </label>
 
       
-      <input style="margin:5px;" type="text" class="user" placeholder="Answer" v-model="person.answer3"
+      <input style="margin:5px;  width:90%" type="text" class="text-box" placeholder="Answer" v-model="person.answer3"
             :class="
               v$.person.answer3.$error === true
                 ? 'text-fields-error'
@@ -132,7 +132,7 @@
   
      
    <br>
-  <a href="/resetpassword"><button  class= "button" @click.prevent="submit">Continue </button></a>
+  <a href="/resetpassword"><button  class= "butn" style=" width: 50%;" @click.prevent="submit">Continue </button></a>
     
    
    </div> 
@@ -291,11 +291,11 @@ this.message="Please Enter Valid Details";
 
 
 
-<style>
-.font-thin{
+<style scoped>
+ .font-thin{
   font-size: 14px;
   color: #c40b0b;
-}
+} 
 .main-container{
   display: flex;
   flex-direction: row;
@@ -310,11 +310,11 @@ this.message="Please Enter Valid Details";
 div{
   text-align: center;
 }
-.backbtn{
+/* .backbtn{
     text-align: left;
-}
+} */
 
-input[type=text]{
+.text-box{
     
     padding: 12px 20px;
     border: 1px solid;
@@ -322,24 +322,26 @@ input[type=text]{
     text-align: center;
      font-family: sans-serif;
    
-}
-input[type=password]{
+    
+   
+} 
+/* input[type=password]{
 
     padding: 12px 20px;
     border: 1px solid;
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
-}
-select{
+} */
+ /* select{
     width: 28%;
     padding: 12px 20px;
     border: 1px solid;
     border-radius: 20px;
     text-align: center;
      font-family: sans-serif;
-}
-input[type=button]{
+}  */
+/* input[type=button]{
     width: 10%; 
     padding: 12px 20px;
     border: 1px solid;
@@ -348,20 +350,22 @@ input[type=button]{
     background-color: rgb(119, 6, 6);
     color: white;
      font-family: sans-serif;
-}
-.button{
+} */
+ .butn{
     
-  width: 100%;
+ 
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 50px;
   border: 2px solid #dddddd;
-  background: #634ed8;
+  /* background: #634ed8; */
+  
+  background-color:  rgb(15, 6, 119);
   outline: none;
   transition: border-color 0.5s;
   font-family: sans-serif;
-}
-.button1{
+} 
+ /* .button1{
     
     padding: 12px 20px;
     border: 1px solid;
@@ -371,7 +375,7 @@ input[type=button]{
     color: white;
      font-family: sans-serif;
      transition: 0.5s;
-}
+}  */
 
  
 
@@ -381,22 +385,22 @@ input[type=button]{
   margin-bottom: 10px;
 }
 
-.backbtn{
+/* .backbtn{
   align-items: baseline;
    font-family: sans-serif;
-}
-input[type="checkbox"] {
+} */
+/* input[type="checkbox"] {
   -webkit-appearance: checkbox;
      -moz-appearance: checkbox;
           appearance: checkbox;
   display: inline-block;
   font-family: sans-serif;
  width: auto;
-}
-.FG{
+} */
+/* .FG{
    text-justify: auto;
    text-align: right;
-}
+} */
 body{
   background:-webkit-linear-gradient(left #bb8c9a) ;
   margin: 15px;
@@ -405,7 +409,7 @@ body{
    font-family: sans-serif;
 
 }  
-.loginhere,
+/* .loginhere,
 .loginhere * {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -416,10 +420,10 @@ body{
   
 
   
-}
+} */
 
 
-.loginhere{
+ .loginhere{
   height: 97%;
    max-width: 400px;
    /* max-height: 5%; */
@@ -432,7 +436,7 @@ body{
    font-family: sans-serif;
    background-color:white;
    
-}
+} 
 
 
 .imgs{
@@ -445,17 +449,21 @@ body{
 
 
 }
+.forms1{
+  margin-bottom: 0px;
+  color: red;
+}
 
 
 
 
 
-.user::placeholder{
+.text-box::placeholder{
   color: #aaaaaa;
 
 }
 
-.regis{
+/* .regis{
    box-sizing: border-box;
   font-family: sans-serif;
   margin-right: 75%;
@@ -466,7 +474,7 @@ body{
 
   
   
-}
+} */
 .form{
   background-color: #dddddd;
 }

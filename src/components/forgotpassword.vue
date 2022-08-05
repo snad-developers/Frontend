@@ -25,11 +25,11 @@
         <div class="forms">
           <div class="forms1">
             <label for="UserId"></label>
-            <input type="text" class="user" placeholder="Enter Your User Id" v-model="person.UserId" :class="
+            <input type="text" class="text-box" placeholder="Enter Your User Id" v-model="person.UserId" :class="
               v$.person.UserId.$error === true
                 ? 'text-fields-error'
                 : 'text-fields'
-            " style="margin-top:5%">
+            " style="margin-top:5%; width:100%; ">
             <p class="text-red-500 text-xs font-thin" v-for="error of v$.person.UserId.$errors" :key="error.$uid">
               {{ error.$message }}
             </p>
@@ -38,7 +38,7 @@
 
 
           <br>
-          <button class="button" @click.prevent="submit">Continue </button>
+          <button class="butn" style="width:50%" @click.prevent="submit">Continue </button>
 
           <p class="text-red-500 text-xs font-thin" style="padding:6px;">{{ message }}</p>
 
@@ -134,11 +134,11 @@ export default {
 </script>
 
 
-<style>
-.font-thin {
+<style scoped>
+ .font-thin {
   font-size: 14px;
   color: #c40b0b;
-}
+} 
 
 .main-container {
   display: flex;
@@ -147,49 +147,50 @@ export default {
 
 .child-div1 {
   width: 65%;
+   margin: 0px !important
 }
 
 .child-div2 {
   width: 35%;
 }
 
-div {
+ /* div {
   text-align: center;
-}
+}  */
 
-.backbtn {
+/* .backbtn {
   text-align: left;
-}
+} */
 
-input[type=text] {
-
-  padding: 12px 20px;
-  border: 1px solid;
-  border-radius: 20px;
-  text-align: center;
-  font-family: sans-serif;
-
-}
-
-input[type=password] {
+/* input[type=text] {
 
   padding: 12px 20px;
   border: 1px solid;
   border-radius: 20px;
   text-align: center;
   font-family: sans-serif;
-}
 
-select {
+} */
+
+/* input[type=password] {
+
+  padding: 12px 20px;
+  border: 1px solid;
+  border-radius: 20px;
+  text-align: center;
+  font-family: sans-serif;
+} */
+
+/* select {
   width: 28%;
   padding: 12px 20px;
   border: 1px solid;
   border-radius: 20px;
   text-align: center;
   font-family: sans-serif;
-}
+} */
 
-input[type=button] {
+/* input[type=button] {
   width: 10%;
   padding: 12px 20px;
   border: 1px solid;
@@ -198,22 +199,24 @@ input[type=button] {
   background-color: rgb(119, 6, 6);
   color: white;
   font-family: sans-serif;
-}
+} */
 
-.button {
+ .butn {
 
-  width: 100%;
+  /* width: 50%; */
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 50px;
   border: 2px solid #dddddd;
-  background: #634ed8;
+  /* background: #634ed8; */
+  
+    background-color:  rgb(15, 6, 119);
   outline: none;
   transition: border-color 0.5s;
   font-family: sans-serif;
-}
+} 
 
-.button1 {
+/* .button1 {
 
   padding: 12px 20px;
   border: 1px solid;
@@ -223,7 +226,7 @@ input[type=button] {
   color: white;
   font-family: sans-serif;
   transition: 0.5s;
-}
+} */
 
 
 
@@ -233,12 +236,12 @@ input[type=button] {
   margin-bottom: 10px;
 }
 
-.backbtn {
+/* .backbtn {
   align-items: baseline;
   font-family: sans-serif;
-}
+} */
 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
   -webkit-appearance: checkbox;
   -moz-appearance: checkbox;
   appearance: checkbox;
@@ -250,7 +253,7 @@ input[type="checkbox"] {
 .FG {
   text-justify: auto;
   text-align: right;
-}
+} */
 
 body {
   background: -webkit-linear-gradient(left #bb8c9a);
@@ -260,8 +263,18 @@ body {
   font-family: sans-serif;
 
 }
-
-.loginhere,
+.text-box{
+    
+    padding: 12px 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    text-align: center;
+     font-family: sans-serif;
+    
+    
+   
+} 
+/* .loginhere,
 .loginhere * {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -272,6 +285,10 @@ body {
 
 
 
+} */
+.forms1{
+  margin-bottom: 0px;
+  color: red;
 }
 
 
@@ -279,7 +296,7 @@ body {
   height: 97%;
   max-width: 400px;
   /* max-height: 5%; */
-  margin: 10px auto;
+   margin: 10px auto;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
@@ -288,14 +305,14 @@ body {
   font-family: sans-serif;
   background-color: white;
 
-}
+} 
 
 
-.imgs {
+/* .imgs {
   display: block;
   max-width: 125px;
   margin: 0 auto;
-}
+} */
 
 .forms {
   padding: 30px;
@@ -307,12 +324,12 @@ body {
 
 
 
-.user::placeholder {
+.text-box::placeholder {
   color: #aaaaaa;
 
 }
 
-.regis {
+/* .regis {
   box-sizing: border-box;
   font-family: sans-serif;
   margin-right: 75%;
@@ -323,23 +340,23 @@ body {
 
 
 
-}
+} */
 
 .form {
   background-color: #dddddd;
 }
 
 
-.main-div {
+/* .main-div {
   display: flex;
   justify-content: space-around;
-}
+} */
 
 p {
   margin: 0px;
 }
 
-.child-div1 {
+/* .child-div1 {
   margin: 0px !important
-}
+} */
 </style>
