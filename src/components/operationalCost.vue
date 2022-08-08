@@ -1,5 +1,5 @@
 <template>
-<h2 style="width:100%">OPERATIONAL EXPENSES</h2>
+<h2 style="width:100%">Operational Expenses</h2>
 
   <div class="">
         <a href="/launchpage"><button style="right: 30%;color:white;background-color:blue;border-radius:22px;width:50px;cursor: pointer;">Back</button></a>

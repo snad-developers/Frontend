@@ -266,7 +266,8 @@ text-decoration: solid;
 color: white;
 cursor: pointer;
 padding: 10px;
-border: 0px solid rgb(153, 148, 148) ;" @click.prevent="personalhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"> +Update</button>
+left:380px;
+border: 0px solid rgb(153, 148, 148) ; top: -25px;" @click.prevent="personalhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"> +Update</button>
 <hr class="hr">
 </div>
     </div>
@@ -439,7 +440,7 @@ border: 0px solid rgb(153, 148, 148) ;top:-30px;" v-if="logid.role=='Admin' ||  
                                 <th>Comment</th>
                                 
                                 </thead>
-                                
+                                <br>
                             
                     
                         <tr>
