@@ -1,6 +1,6 @@
 <template>
 
-<h2 style="width:100% ;">ADD Job Information</h2>
+<h2 style="width:100% ;">Add Job Information</h2>
 <a href="/activeemplydata"><button style="left:-36%;color:white;background-color:blue;border-radius:22px;width:50px;cursor: pointer;">Back</button></a>
 <div class="JOB">
                               <br>

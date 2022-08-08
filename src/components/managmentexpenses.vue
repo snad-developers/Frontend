@@ -1,5 +1,5 @@
 <template>
-<h2 style="width:100%">MANAGEMENT EXPENSES</h2>
+<h2 style="width:100%">Management Expenses</h2>
 
   <div class="">
     <router-link to="launchpage"><button style="right: 30%; align-items: flex-start; color:white;background-color:blue;border-radius:22px;width:50px;cursor: pointer;">Back</button></router-link>

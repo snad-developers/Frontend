@@ -132,7 +132,7 @@ export default {
        
       ],
       options: {
-        width: 900,
+        width: 700,
         height: 400
       }
   }
@@ -238,7 +238,7 @@ this.mgmtexpensestotal=response.data.mgmtexpensestotal;
          ['Payroll expenses', this.payrollexpensestotal, '#DC143C'],
          ['Employee expenses', this.empexpensestotal, '#F8D12F'],
          ['Management expenses', this.mgmtexpensestotal, 'color: #AFEEEE' ],
-         ['Operationalcost', this.operationalcount, 'color: #6B58E2' ]]
+         ['Operational cost', this.operationalcount, 'color: #6B58E2' ]]
 
  });
       },
