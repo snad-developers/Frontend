@@ -43,7 +43,7 @@
     </div>
 
 
-     <div   @click="receivables" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+     <div   @click="receivables" v-bind:class="[(this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Outstanding Receivables</h3>
             <p>$ {{(Receivables/1000).toFixed(1)}}K</p>
              <!-- <router-link to="/receiVables"><h6 style="color: blue;">Acess data</h6></router-link>  -->
@@ -61,7 +61,7 @@
            <!-- <router-link to="/managmentexpenses"> <h6 style="color: blue;">Acess data</h6>
            <slot/></router-link> -->
     </div>
-      <div  @click="payroll" v-bind:class="[(this.logid.role=='Admin' || this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
+      <div  @click="payroll" v-bind:class="[( this.logid.role=='Payroll Admin' || this.logid.role=='Executive Board')? 'box-backgroundcolor box-color': 'box-color']" style="overflow: hidden;box-shadow: 0 0 15px rgba(0,0,0,0.15);">
             <h3>Payroll Expenses</h3>
             <p>$ {{(payrollexpensestotal/1000).toFixed(2)}}K</p>
            <!-- <router-link to="/payrollaccessdata"><h6 style="color: blue;">Acess data</h6></router-link> -->
