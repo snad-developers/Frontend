@@ -6,7 +6,7 @@
   <p>TODAY'S CHALLANGES</p>
   
   <h1><b>ENVISION</b></h1>
-  <P>TOMMOROW'S INNOVATION</P>
+  <P>TOMORROW'S INNOVATION</P>
 
   </div>
   

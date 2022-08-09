@@ -16,7 +16,7 @@
                             
 
  <label for="visastatus" style="margin-left: 20px;">Visa Type</label><br>
-                            <select name="visastatus" id="visastatus" placeholder="Visa Type" v-model="person.visastatus" style="margin-left: 20px;padding: 10px;width: 300px;"
+                            <select name="visastatus" id="visastatus" placeholder="Visa Type" v-model="person.visastatus" style="margin-left: 20px;padding: 10px;width: 225px;"
                             :class="
                                     v$.person.visastatus.$error === true
                                     ? 'text-fields-error'
@@ -47,7 +47,7 @@
                                 </p>
 
 <label for="issuingcountry" style="margin-left: 20px;">Issuing Country</label><br>
-     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 10px;width: 300px;"
+     <select name="issuingcountry" id="issuingcountry" v-model="person.issuingcountry" style="margin-left: 20px;padding: 10px;width: 225px;"
      :class="
                                     v$.person.issuingcountry.$error === true
                                     ? 'text-fields-error'
@@ -195,7 +195,7 @@
                                     v$.person.issueddate.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
-                                "><br><br>
+                                "><br>
  <p
                                     class="text-red-500 text-xs font-thin"
                                     v-for="error of v$.person.issuingcountry.$errors"

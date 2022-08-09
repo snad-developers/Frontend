@@ -1,5 +1,5 @@
 <template>
-<a href="/activeemplydata" ><button  class="bcbtn" style="margin-left:-1300px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;top: 35px;">Back</button></a>
+<a href="/activeemplydata" ><button  class="bcbtn" style="margin-left:-1250px;color:white;background-color:blue;border-radius:22px;width:5%;cursor: pointer;top: 35px;">Back</button></a>
    <br>
    <br>
 <div class="P1">
@@ -431,7 +431,7 @@ color: white;
 cursor: pointer;
 padding: 10px;
 right: -36%;
-border: 0px solid rgb(153, 148, 148) ;top:-30px;" v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">Update</button></span>
+border: 0px solid rgb(153, 148, 148) ;top:-30px;" v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" @click.prevent="jobhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true">+Update</button></span>
              
                             <table style="width:100% ;">
 <thead style="background-color:rgb(223, 181, 188); color:grey;  margin-left: 30px; ">

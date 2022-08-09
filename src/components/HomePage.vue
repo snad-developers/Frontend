@@ -62,7 +62,7 @@ export default {
     float: right;
     height: 70px;
     margin-right: 20%;
-    margin-top: -8%;
+    margin-top: -5%;
     font-family: sans-serif;
 }
 
@@ -104,7 +104,7 @@ ul li a:hover {
     width: 500px;
     height: auto;
     margin: auto;
-    color: #fff;
+    color:black;
     position: relative;
     margin-left: 10%;
     font-family: sans-serif;
