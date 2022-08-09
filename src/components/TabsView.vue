@@ -571,7 +571,7 @@ padding: 10px;
   
        <template v-for="(rowdata,index) in cdata" :key="index" > 
            
-        <tr>
+        <tr v-if="logid.role=='Payroll Admin' ||logid.role=='Admin' ||  logid.role=='HR Manager'">
 <td>{{rowdata.compensationeffectivedate}}</td>
 <td>{{rowdata.payschedule}}</td>
 <td>{{rowdata.paytype}}</td>
