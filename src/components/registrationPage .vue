@@ -7,7 +7,7 @@
   <p>TODAY'S CHALLANGES</p>
   
   <h1><b  style="font-size: 55px;">ENVISION</b></h1>
-  <p>TOMMOROW'S INNOVATION</p>
+  <p>TOMORROW'S INNOVATION</p>
 <!-- {{this.formvalue}} {{formvalue[currentStep]}} -->
   </div>
   

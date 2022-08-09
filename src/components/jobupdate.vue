@@ -6,14 +6,14 @@
                               <br>
                               
                           
-<label for="jobeffectivedate" style="margin-left: 20px;">Effective date</label><br>
+<label for="jobeffectivedate" style="margin-left: 20px;">Effective Date</label><br>
 <input  name="jobeffectivedate" id="jobeffective date" type="date" v-model="person.jobeffectivedate" style="padding: 10px 20px;width:225px;margin-left: 20px;"
 :class="
                                     v$.person.jobeffectivedate.$error === true
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 "><br>
-<label for="clientname" style="margin-left: 20px;">ClientName</label><br>
+<label for="clientname" style="margin-left: 20px;">Client Name</label><br>
 <!-- <input  name="clientname" id="clientname" type="text" v-model="person.clientname" style="padding: 10px 20px;width:225px;margin-left: 20px;" -->
 <select name="clientname"   v-model="person.clientname" style="width: 225px;padding: 10px 20px;margin-left: 20px;"
 :class="
@@ -49,14 +49,14 @@
                                     ? 'text-fields-error'
                                     : 'text-fields'
                                 ">
-        <option value="Productanalyst">ProductAnalyst</option>
-        <option value="SoftwareEngineer">SoftwareEngineer</option>
-        <option value="Marketingmanager">MarketingManager</option>
-        <option value="Financialanalyst">FinancialAnalyst</option>
-        <option value="Datascientist">DataScientist</option>
-        <option value="Cloudengineer">CloudEngineer</option>
-        <option value="Businessanalyst">BusinessAnalyst</option>
-        <option value="Operationsmanager">OperationsManager</option>
+        <option value="Product Analyst">Product Analyst</option>
+        <option value="Software Engineer">Software Engineer</option>
+        <option value="Marketing Manager">Marketing Manager</option>
+        <option value="Financial Analyst">Financial Analyst</option>
+        <option value="Data Scientist">Data Scientist</option>
+        <option value="Cloud Engineer">Cloud Engineer</option>
+        <option value="Business Analyst">Business Analyst</option>
+        <option value="Operations Manager">Operations Manager</option>
 
     </select><br>
 
@@ -92,7 +92,7 @@
 
 
 <label for="location" style="margin-left: 20px;">Location</label><br>
-     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 10px;width: 300px;"
+     <select name="location" id="location" v-model="person.location" style="margin-left: 20px;padding: 10px;width: 225px;"
      :class="
                                     v$.person.location.$error === true
                                     ? 'text-fields-error'

@@ -7,7 +7,7 @@
   <p>TODAY'S CHALLANGES</p>
   
   <h1><b style="font-size: 55px;">ENVISION</b></h1>
-  <P>TOMMOROW'S INNOVATION</P>
+  <P>TOMORROW'S INNOVATION</P>
 
   </div>
   
@@ -32,7 +32,7 @@
               {{ error.$message }}
             </p>
        <i class="uil uil-user" style="margin-left:-38px"></i>
-      <label for="UserId"></label>
+      <label for="User Id"></label>
      
       <input style="margin: 7px -17px 12px 0px;width:100%;" type="email" class="text-box" placeholder="UserId" v-model="person.UserId"
             :class="

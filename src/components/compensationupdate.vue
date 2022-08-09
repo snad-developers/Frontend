@@ -4,7 +4,7 @@
 <div class="COMP">
           
          
-<label for="compensationeffectivedate" style="margin-left: 20px;">Effective date</label><br>
+<label for="compensationeffectivedate" style="margin-left: 20px;">Effective Date</label><br>
 <input  name="compensationeffectivedate" id="compensationeffectivedate" type="date" v-model="person.compensationeffectivedate" style="padding: 10px;width:225px;margin-left: 20px;"
 :class="
                                     v$.person.compensationeffectivedate.$error === true
@@ -12,8 +12,8 @@
                                     : 'text-fields'
                                 "><br>
 
- <label for="payschedule" style="margin-left: 20px;">Pay schedule</label><br>
-                            <select name="payschedule" id="payschedule" v-model="person.payschedule" style="margin-left: 20px;padding: 10px;width: 300px;"
+ <label for="payschedule" style="margin-left: 20px;">Pay Schedule</label><br>
+                            <select name="payschedule" id="payschedule" v-model="person.payschedule" style="margin-left: 20px;padding: 10px;width: 225px;"
                             :class="
                                     v$.person.payschedule.$error === true
                                     ? 'text-fields-error'
@@ -39,7 +39,7 @@
                                     {{ error.$message }}
                                 </p>
 
-<label for="paytype" style="margin-left: 20px;">Paytype</label><br>
+<label for="paytype" style="margin-left: 20px;">Pay Type</label><br>
     <select name="paytype" id="paytype" v-model="person.paytype" style="width: 225px;padding: 10px ;margin-left: 20px;"
     :class="
                                     v$.person.paytype.$error === true
@@ -98,8 +98,8 @@
        
         <option value="promotion">Promotion</option>
         <option value="relocated">Relocated</option>
-        <option value="payincrease">PayIncrease</option>
-        <option value="titlechange">TitleChange</option>
+        <option value="payincrease">Pay Increase</option>
+        <option value="titlechange">Title Change</option>
         
 
         

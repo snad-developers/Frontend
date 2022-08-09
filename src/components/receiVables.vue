@@ -1,5 +1,5 @@
 <template>
-<h2 style="width:100%">Outstanding Receivables Collections</h2>
+<h2 style="width:100%">Outstanding Receivables</h2>
 
   <div class="">
     <a href="/launchpage"><button style="right: 30%;color:white;background-color:blue;border-radius:22px;width:50px">Back</button></a>
