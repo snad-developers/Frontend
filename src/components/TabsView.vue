@@ -267,7 +267,7 @@ color: white;
 cursor: pointer;
 padding: 10px;
 left:380px;
-border: 0px solid rgb(153, 148, 148) ; top: -25px;" @click.prevent="personalhandleupdate()" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"> +Update</button>
+border: 0px solid rgb(153, 148, 148) ; top: -25px;" @click.prevent="personalhandleupdate()" v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true"> +Update</button>
 <hr class="hr">
 </div>
     </div>
@@ -284,7 +284,7 @@ padding: 10px;
 
 
 
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="educationupdate(rowdata)">+ Add New</button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="educationupdate(rowdata)">+ Add New</button> 
 
 
     
@@ -336,7 +336,7 @@ padding: 10px;
 
 
 
- border: 0px solid rgb(153, 148, 148) ;top: -35px;" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="visaupdate(rowdata)">+ Add New</button> 
+ border: 0px solid rgb(153, 148, 148) ;top: -35px;" v-if="logid.role=='Admin' ||  logid.role=='HR Manager'" :disabled="(logid.role=='Admin'|| logid.role=='HR Manager') ? false: true" @click.prevent="visaupdate(rowdata)">+ Add New</button> 
 </div>
 
                          
