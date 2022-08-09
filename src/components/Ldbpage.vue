@@ -68,7 +68,7 @@
    </div> 
   </form> 
   <br><br><br>
-  <div class="scrollWrapper" v-if="parsed && insertmessage">
+  <div class="scroll" v-if="parsed && insertmessage">
   <h4>Rejected Records</h4>
     <table v-if="parsed && insertmessage" style="width: 100%;border-spacing: 0;
     box-shadow: 0 2px 15px rgba(64,64,64,.7);
@@ -531,8 +531,9 @@ body {font-family: "Lato", sans-serif;}
 .img{
   margin-left: 2px;
 }
-
-
+.scroll{
+  overflow-x: scroll;
+}
 
 
 </style>
