@@ -96,10 +96,10 @@
                                     : 'text-fields'
                                 ">
        
-        <option value="promotion">Promotion</option>
-        <option value="relocated">Relocated</option>
-        <option value="payincrease">Pay Increase</option>
-        <option value="titlechange">Title Change</option>
+        <option value="Promotion">Promotion</option>
+        <option value="Relocated">Relocated</option>
+        <option value="Pay Increase">Pay Increase</option>
+        <option value="Title Change">Title Change</option>
         
 
         
@@ -135,7 +135,7 @@
                                     {{ error.$message }}
                                 </p>
 
-   <button  @click=" jobinfo" style=" right:-42%;background-color: blue;color: antiquewhite;">
+   <button  @click=" cominfo" style=" right:-42%;background-color: blue;color: antiquewhite;">
                             <span class="btnText">Add Details</span>
                             <i class="uil uil-navigator"></i>
                         </button>
