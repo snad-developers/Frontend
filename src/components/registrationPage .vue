@@ -4,7 +4,7 @@
 
   <div class="child-div1">
   <h1><b  style="font-size: 55px;">ANALYZE</b></h1>
-  <p>TODAY'S CHALLANGES</p>
+  <p>TODAY'S CHALLENGES</p>
   
   <h1><b  style="font-size: 55px;">ENVISION</b></h1>
   <p>TOMORROW'S INNOVATION</p>

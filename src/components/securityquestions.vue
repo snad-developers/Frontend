@@ -3,7 +3,7 @@
 
   <div class="child-div1">
   <h1><b>ANALYZE</b></h1>
-  <p>TODAY'S CHALLANGES</p>
+  <p>TODAY'S CHALLENGES</p>
   
   <h1><b>ENVISION</b></h1>
   <P>TOMORROW'S INNOVATION</P>

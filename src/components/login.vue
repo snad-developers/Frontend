@@ -4,7 +4,7 @@
 
   <div class="child-div1">
   <h1><b style="font-size: 55px;">ANALYZE</b></h1>
-  <p>TODAY'S CHALLANGES</p>
+  <p>TODAY'S CHALLENGES</p>
   
   <h1><b style="font-size: 55px;">ENVISION</b></h1>
   <P>TOMORROW'S INNOVATION</P>
@@ -32,9 +32,9 @@
               {{ error.$message }}
             </p>
        <i class="uil uil-user" style="margin-left:-38px"></i>
-      <label for="User Id"></label>
+      <label for="UserId"></label>
      
-      <input style="margin: 7px -17px 12px 0px;width:100%;" type="email" class="text-box" placeholder="UserId" v-model="person.UserId"
+      <input style="margin: 7px -17px 12px 0px;width:100%;" type="email" class="text-box" placeholder="User Id" v-model="person.UserId"
             :class="
               v$.person.UserId.$error === true
                 ? 'text-fields-error'
