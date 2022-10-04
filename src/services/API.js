@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default(url='http://localhost:3000/users')=>{
+export default(url='http://20.163.113.214:3000/users')=>{
     return axios.create({
         baseURL: url,
        // withCredentials: false

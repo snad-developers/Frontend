@@ -7,23 +7,23 @@ import API from './API'
 //   };
 export default{
     getvalues(){
-        return API('http://localhost:3000/').get('/reg')
+        return API('http://20.163.113.214:3000/').get('/reg')
     },
     getempvalues(){
-        return API('http://localhost:3000/').get('/empdata')
+        return API('http://20.163.113.214:3000/').get('/empdata')
 
     },
     getQuote(){
-        return API('http://localhost:3000/').get('/reg')
+        return API('http://20.163.113.214:3000/').get('/reg')
     },
     createpost(data){
-        return API('http://localhost:3000/').post('/reg',data)
+        return API('http://20.163.113.214:3000/').post('/reg',data)
     },
     loginservice(data){
         //var sendDAta=data;
         if(data){
             
-            return API('http://localhost:3000/').post('/login',data)
+            return API('http://20.163.113.214:3000/').post('/login',data)
         }
         else{
             const userdetails=JSON.parse(localStorage.getItem('UserDetails')) ? JSON.parse(localStorage.getItem('UserDetails')) : "";
@@ -32,101 +32,101 @@ export default{
                 "email":userdetails.email ? userdetails.email : '',
                 "entity":userdetails.entity ? userdetails.entity : ''
               }
-              return  API('http://localhost:3000/').post('/login',data)
+              return  API('http://20.163.113.214:3000/').post('/login',data)
         }
-       // return API('http://localhost:3000/').post('/login',data)
+       // return API('http://20.163.113.214:3000/').post('/login',data)
     },
     forgotpassword(data){
-        return API('http://localhost:3000/').post('/forgotpassword',data)
+        return API('http://20.163.113.214:3000/').post('/forgotpassword',data)
     },
     securityanscheck(data,id){
         var datareq='/securityanscheck/'+id
-        return API('http://localhost:3000/').post(datareq,data)
+        return API('http://20.163.113.214:3000/').post(datareq,data)
     },
     resetpassword(data,id){
         var datareq='/resetpassword/'+id
-        return API('http://localhost:3000/').post(datareq,data)
+        return API('http://20.163.113.214:3000/').post(datareq,data)
     },
     empgetvalues(){
-        return API('http://localhost:3000/').get('/empdata')
+        return API('http://20.163.113.214:3000/').get('/empdata')
     },
     
     educationvalues(data){
-        return API('http://localhost:3000/').post('/geteducation',data)
+        return API('http://20.163.113.214:3000/').post('/geteducation',data)
     },
     visainformation(data){
-        return API('http://localhost:3000/').post('/getvisainformation',data)
+        return API('http://20.163.113.214:3000/').post('/getvisainformation',data)
     },
     jobinformation(data){
-        return API('http://localhost:3000/').post('/getjobinformation',data)
+        return API('http://20.163.113.214:3000/').post('/getjobinformation',data)
     },
     compensation(data){
-        return API('http://localhost:3000/').post('/getcompensation',data)
+        return API('http://20.163.113.214:3000/').post('/getcompensation',data)
     },
     dashboarddata(){
-        return API('http://localhost:3000/').get('/dashboard') 
+        return API('http://20.163.113.214:3000/').get('/dashboard') 
     },
     approvereq(data){
-        return API('http://localhost:3000/').post('/approve',data)
+        return API('http://20.163.113.214:3000/').post('/approve',data)
     },
 
     updatereg(data, id) {
         var datareq='/reg/'+id
-        return API('http://localhost:3000/').post(datareq,data)
+        return API('http://20.163.113.214:3000/').post(datareq,data)
     },
     updateempdata(data, id) {
         var datareq='/empdata/'+id
-        return API('http://localhost:3000/').post(datareq,data)
+        return API('http://20.163.113.214:3000/').post(datareq,data)
     },
 
     fileUpload(data){
-        return API('http://localhost:3000/').post('/fileupload',data)  
+        return API('http://20.163.113.214:3000/').post('/fileupload',data)  
     },
     accessdata(){
-        return API('http://localhost:3000/').get('/accessdata')
+        return API('http://20.163.113.214:3000/').get('/accessdata')
     },
     orgndatagetvalues(){
-        return API('http://localhost:3000/').get('/orgndata')
+        return API('http://20.163.113.214:3000/').get('/orgndata')
     },
     rolesgetvalues(){
-        return API('http://localhost:3000/').get('/roles')
+        return API('http://20.163.113.214:3000/').get('/roles')
     },
 
     orgndatapost(data){
-        return API('http://localhost:3000/').post('/orgndata',data)
+        return API('http://20.163.113.214:3000/').post('/orgndata',data)
     },
     rolespost(data){
-        return API('http://localhost:3000/').post('/roles',data)
+        return API('http://20.163.113.214:3000/').post('/roles',data)
     },
     payrollaccessdata(){
-        return API('http://localhost:3000/').get('/payrollaccess')
+        return API('http://20.163.113.214:3000/').get('/payrollaccess')
     },
     employeeaccessdata(){
-        return API('http://localhost:3000/').get('/employeeaccessdata')
+        return API('http://20.163.113.214:3000/').get('/employeeaccessdata')
     },
     managmentaccessdata(){
-        return API('http://localhost:3000/').get('/managmentaccessdata')
+        return API('http://20.163.113.214:3000/').get('/managmentaccessdata')
     },
     expgetvalues(){
-        return API('http://localhost:3000/').get('/expenses')
+        return API('http://20.163.113.214:3000/').get('/expenses')
     },
 
     expdatapost(data){
-        return API('http://localhost:3000/').post('/expenses',data)
+        return API('http://20.163.113.214:3000/').post('/expenses',data)
     },
     operationalaccess(){
-        return API('http://localhost:3000/').get('/operationalaccess')
+        return API('http://20.163.113.214:3000/').get('/operationalaccess')
     },
     newemp(data){
-        return API('http://localhost:3000/').post('/empdata',data)
+        return API('http://20.163.113.214:3000/').post('/empdata',data)
     },
     
     getclient(){
-        return API('http://localhost:3000/').get('/clientdata')
+        return API('http://20.163.113.214:3000/').get('/clientdata')
     },
 
     expdetails(data){
-        return API('http://localhost:3000/').post('/empexpdetails',data)
+        return API('http://20.163.113.214:3000/').post('/empexpdetails',data)
     },
     
 }
